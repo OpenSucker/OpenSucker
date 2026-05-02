@@ -327,61 +327,87 @@ class AgentResponse(BaseModel):
 
 @app.post("/api/chat")
 async def chat(req: ChatRequest):
+    import time, traceback
+    t0 = time.time()
     user_id = req.user_id
     sid = req.session_id
-    
-    # 1. 确保用户存在 (修复 FOREIGN KEY 报错)
-    # 获取数据库中的真实 ID (如果是旧数据，ID 可能是 UUID，指纹才是 user_id)
-    user_rec = get_or_create_user(user_id)
-    db_uid = user_rec["id"]
-    
-    # 2. 获取画像
-    profile = get_user_profile(db_uid) or {}
-    
-    initial_state = {
-        "session_id": sid,
-        "message": req.message,
-        "user": profile,
-        "debug_steps": [],
-        "history": [],
-    }
-    
-    result = agent_graph.invoke(initial_state)
-    
-    # 3. 持久化存储 (使用 db_uid)
-    conv_id = get_or_create_conversation(db_uid, sid)
-    
-    # 更新画像
-    update_user_profile(db_uid, result.get("user", {}))
-    
-    # 存储用户消息
-    save_message(
-        conv_id, db_uid, "user", req.message,
-        intent=result.get("intent"),
-        intent_cn=result.get("intent_cn"),
-        x_axis=result.get("x_axis"),
-        y_axis=result.get("y_axis"),
-        risk_level=result.get("risk_level", 0)
-    )
-    
-    # 存储 AI 响应
-    save_message(
-        conv_id, db_uid, "assistant", result.get("response_message", ""),
-        intent=result.get("intent"),
-        x_axis=result.get("x_axis"),
-        y_axis=result.get("y_axis")
-    )
-    
-    return AgentResponse(
-        message=result.get("response_message", ""),
-        intent=result.get("intent", ""),
-        x_axis=result.get("x_axis", ""),
-        y_axis=result.get("y_axis", ""),
-        skill_used=result.get("skill_used", ""),
-        user=result.get("user"),
-        tools=result.get("tools_called", []),
-        debug={"steps": result.get("debug_steps", [])}
-    )
+    msg_preview = (req.message or "")[:200].replace("\n", "\\n")
+    print(f"\n[chat] ⇢ recv user_id={user_id} sid={sid} msg={msg_preview!r}", flush=True)
+
+    try:
+        # 1. 确保用户存在 (修复 FOREIGN KEY 报错)
+        user_rec = get_or_create_user(user_id)
+        db_uid = user_rec["id"]
+        print(f"[chat]   user resolved: db_uid={db_uid}", flush=True)
+
+        # 2. 获取画像
+        profile = get_user_profile(db_uid) or {}
+        print(f"[chat]   profile: cog_lv={profile.get('cognitive_level')} risk={profile.get('risk_preference')} style={profile.get('investment_style')}", flush=True)
+
+        initial_state = {
+            "session_id": sid,
+            "message": req.message,
+            "user": profile,
+            "debug_steps": [],
+            "history": [],
+        }
+
+        print(f"[chat]   invoking agent_graph...", flush=True)
+        t_graph = time.time()
+        result = agent_graph.invoke(initial_state)
+        print(f"[chat]   graph done in {time.time()-t_graph:.2f}s", flush=True)
+
+        intent = result.get("intent", "")
+        x_axis = result.get("x_axis", "")
+        y_axis = result.get("y_axis", "")
+        skill_used = result.get("skill_used", "")
+        tools_called = result.get("tools_called", [])
+        debug_steps = result.get("debug_steps", [])
+        resp_msg = result.get("response_message", "")
+        resp_preview = resp_msg[:200].replace("\n", "\\n")
+        print(f"[chat]   intent={intent} xy={x_axis}{y_axis} skill={skill_used} tools={len(tools_called)} steps={len(debug_steps)}", flush=True)
+        for i, s in enumerate(debug_steps):
+            print(f"[chat]     step[{i}]: {s}", flush=True)
+        for i, t in enumerate(tools_called):
+            print(f"[chat]     tool[{i}]: {t.get('name')} args={str(t.get('args'))[:120]}", flush=True)
+        print(f"[chat]   response={resp_preview!r}", flush=True)
+
+        # 3. 持久化存储 (使用 db_uid)
+        conv_id = get_or_create_conversation(db_uid, sid)
+
+        update_user_profile(db_uid, result.get("user", {}))
+
+        save_message(
+            conv_id, db_uid, "user", req.message,
+            intent=intent,
+            intent_cn=result.get("intent_cn"),
+            x_axis=x_axis,
+            y_axis=y_axis,
+            risk_level=result.get("risk_level", 0)
+        )
+
+        save_message(
+            conv_id, db_uid, "assistant", resp_msg,
+            intent=intent,
+            x_axis=x_axis,
+            y_axis=y_axis
+        )
+
+        print(f"[chat] ⇠ sent in {time.time()-t0:.2f}s\n", flush=True)
+        return AgentResponse(
+            message=resp_msg,
+            intent=intent,
+            x_axis=x_axis,
+            y_axis=y_axis,
+            skill_used=skill_used,
+            user=result.get("user"),
+            tools=tools_called,
+            debug={"steps": debug_steps}
+        )
+    except Exception as e:
+        print(f"[chat] ✗ ERROR after {time.time()-t0:.2f}s: {type(e).__name__}: {e}", flush=True)
+        traceback.print_exc()
+        raise HTTPException(status_code=500, detail=f"{type(e).__name__}: {e}")
 
 if __name__ == "__main__":
     import uvicorn
