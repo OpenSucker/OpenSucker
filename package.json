@@ -13,7 +13,7 @@
     "dev": "concurrently -n backend,minifish,infofish,frontend_user -c blue,magenta,yellow,green --kill-others-on-fail \"npm:dev:backend\" \"npm:dev:minifish\" \"npm:dev:infofish\" \"npm:dev:frontend_user\"",
     "dev:backend": "cd backend && uv run python -u agent.py",
     "dev:minifish": "cd MiniFish/backend && uv run python -u run.py",
-    "dev:infofish": "cd InfoFish/backend && uv run uvicorn app.main:app --host 127.0.0.1 --port 47821",
+    "dev:infofish": "cd InfoFish/backend && uv run uvicorn app.main:app --host 127.0.0.1 --port 47822",
     "dev:frontend_user": "cd frontend_user && npm run dev -- -p 3000",
 
     "start": "npm run dev",
