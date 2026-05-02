@@ -18,7 +18,7 @@ from database import (
 )
 
 from fastapi import FastAPI, HTTPException, Request
-from fastapi.responses import HTMLResponse
+from fastapi.responses import HTMLResponse, StreamingResponse
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from langgraph.graph import StateGraph, END
@@ -408,6 +408,154 @@ async def chat(req: ChatRequest):
         print(f"[chat] ✗ ERROR after {time.time()-t0:.2f}s: {type(e).__name__}: {e}", flush=True)
         traceback.print_exc()
         raise HTTPException(status_code=500, detail=f"{type(e).__name__}: {e}")
+
+def _node_label(node: str, update: dict) -> str:
+    """Human-readable label for a single graph-node update event."""
+    if node == "profile_update":
+        return "🧠 同步用户画像"
+    if node == "intent_router":
+        intent_cn = update.get("intent_cn") or update.get("intent") or "?"
+        x, y = update.get("x_axis", ""), update.get("y_axis", "")
+        cell = f"{x}{y}" if x or y else "—"
+        return f"🎯 识别意图: {intent_cn} → {cell}"
+    if node == "risk_check":
+        rl = update.get("risk_level", 0) or 0
+        if rl >= 2:
+            return f"⚠️ 风险预警 (level {rl}): {update.get('risk_reason') or ''}"
+        return "🛡️ 风险检查通过"
+    if node == "node_committee":
+        return "🤝 召集矩阵委员会会诊..."
+    if node and node.startswith("node_X"):
+        x = node.replace("node_", "")
+        skill = update.get("skill_used") or "核心逻辑"
+        return f"⚡ {x} 专家分析完成 [{skill}]"
+    if node == "respond":
+        return "✅ 响应组装完成"
+    return f"· {node}"
+
+
+def _sse(payload: dict) -> str:
+    return f"data: {json.dumps(payload, ensure_ascii=False)}\n\n"
+
+
+@app.post("/api/chat/stream")
+async def chat_stream(req: ChatRequest):
+    """Server-Sent Events: 流式推送 agent 每一步进展给前端。"""
+    import asyncio, time, traceback
+    user_id = req.user_id
+    sid = req.session_id
+
+    async def event_gen():
+        t0 = time.time()
+        msg_preview = (req.message or "")[:200].replace("\n", "\\n")
+        print(f"\n[chat-stream] ⇢ recv user_id={user_id} sid={sid} msg={msg_preview!r}", flush=True)
+        try:
+            yield _sse({"type": "step", "label": "📡 接入矩阵..."})
+
+            user_rec = get_or_create_user(user_id)
+            db_uid = user_rec["id"]
+            profile = get_user_profile(db_uid) or {}
+            yield _sse({
+                "type": "step",
+                "label": f"🧠 用户画像就绪 (LV.{profile.get('cognitive_level', 1)} · {profile.get('risk_preference', '稳健')})",
+            })
+
+            initial_state = {
+                "session_id": sid,
+                "message": req.message,
+                "user": profile,
+                "debug_steps": [],
+                "history": [],
+            }
+
+            acc = {
+                "message": "", "intent": "", "intent_cn": "",
+                "x_axis": "", "y_axis": "", "skill_used": "",
+                "tools_called": [], "debug_steps": [],
+                "user": profile, "risk_level": 0,
+            }
+
+            for chunk in agent_graph.stream(initial_state, stream_mode="updates"):
+                for node, update in (chunk or {}).items():
+                    update = update or {}
+                    if "intent" in update: acc["intent"] = update["intent"]
+                    if "intent_cn" in update: acc["intent_cn"] = update["intent_cn"]
+                    if "x_axis" in update: acc["x_axis"] = update["x_axis"]
+                    if "y_axis" in update: acc["y_axis"] = update["y_axis"]
+                    if "skill_used" in update: acc["skill_used"] = update["skill_used"]
+                    if "response_message" in update: acc["message"] = update["response_message"]
+                    if "user" in update and update["user"]: acc["user"] = update["user"]
+                    if "risk_level" in update: acc["risk_level"] = update["risk_level"]
+                    if update.get("tools_called"):
+                        acc["tools_called"].extend(update["tools_called"])
+                    if update.get("debug_steps"):
+                        acc["debug_steps"].extend(update["debug_steps"])
+
+                    label = _node_label(node, update)
+                    print(f"[chat-stream]   node={node} → {label}", flush=True)
+                    yield _sse({
+                        "type": "node",
+                        "node": node,
+                        "label": label,
+                        "x_axis": acc["x_axis"],
+                        "y_axis": acc["y_axis"],
+                        "intent": acc["intent"],
+                        "intent_cn": acc["intent_cn"],
+                    })
+
+                    for t in update.get("tools_called") or []:
+                        yield _sse({
+                            "type": "tool",
+                            "name": t.get("name"),
+                            "args": t.get("args"),
+                        })
+
+                # cooperative yield so SSE chunks flush
+                await asyncio.sleep(0)
+
+            conv_id = get_or_create_conversation(db_uid, sid)
+            update_user_profile(db_uid, acc["user"])
+            save_message(
+                conv_id, db_uid, "user", req.message,
+                intent=acc["intent"], intent_cn=acc["intent_cn"],
+                x_axis=acc["x_axis"], y_axis=acc["y_axis"],
+                risk_level=acc["risk_level"],
+            )
+            save_message(
+                conv_id, db_uid, "assistant", acc["message"],
+                intent=acc["intent"], x_axis=acc["x_axis"], y_axis=acc["y_axis"],
+            )
+
+            elapsed = time.time() - t0
+            print(f"[chat-stream] ⇠ done in {elapsed:.2f}s tools={len(acc['tools_called'])} steps={len(acc['debug_steps'])}\n", flush=True)
+            yield _sse({
+                "type": "done",
+                "elapsed": round(elapsed, 2),
+                "message": acc["message"],
+                "intent": acc["intent"],
+                "intent_cn": acc["intent_cn"],
+                "x_axis": acc["x_axis"],
+                "y_axis": acc["y_axis"],
+                "skill_used": acc["skill_used"],
+                "tools_called": acc["tools_called"],
+                "debug_steps": acc["debug_steps"],
+                "user": acc["user"],
+            })
+        except Exception as e:
+            print(f"[chat-stream] ✗ ERROR: {type(e).__name__}: {e}", flush=True)
+            traceback.print_exc()
+            yield _sse({"type": "error", "error": f"{type(e).__name__}: {e}"})
+
+    return StreamingResponse(
+        event_gen(),
+        media_type="text/event-stream",
+        headers={
+            "Cache-Control": "no-cache",
+            "Connection": "keep-alive",
+            "X-Accel-Buffering": "no",
+        },
+    )
+
 
 if __name__ == "__main__":
     import uvicorn

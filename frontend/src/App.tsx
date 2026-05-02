@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import axios from 'axios';
 import { MatrixGrid } from './components/MatrixGrid';
 import { ChatWindow } from './components/ChatWindow';
 import { AdvisorCard } from './components/AdvisorCard';
@@ -20,6 +19,7 @@ interface Message {
   timestamp: string;
   debug?: { steps: string[] };
   tools?: { name: string, args: any }[];
+  pending?: boolean;
 }
 
 const API_URL = window.location.origin;
@@ -39,56 +39,102 @@ function App() {
   const [taskChain, setTaskChain] = useState<string[]>([]);
 
   const handleSendMessage = async (text: string) => {
-    const newUserMsg: Message = {
-      role: 'user',
-      content: text,
-      timestamp: new Date().toLocaleTimeString('zh-CN', { hour: '2-digit', minute: '2-digit' }),
+    const ts = () => new Date().toLocaleTimeString('zh-CN', { hour: '2-digit', minute: '2-digit' });
+    const userMsg: Message = { role: 'user', content: text, timestamp: ts() };
+    const botMsg: Message = {
+      role: 'bot',
+      content: '',
+      timestamp: ts(),
+      debug: { steps: [] },
+      tools: [],
+      pending: true,
     };
-    
-    setMessages(prev => [...prev, newUserMsg]);
+
+    setMessages(prev => [...prev, userMsg, botMsg]);
     setIsLoading(true);
 
-    try {
-      const resp = await axios.post(`${API_URL}/api/chat`, {
-        message: text,
-        session_id: SESSION_ID,
-        user_id: USER_ID
+    const patchBot = (patch: Partial<Message> | ((m: Message) => Message)) => {
+      setMessages(prev => {
+        const out = [...prev];
+        for (let i = out.length - 1; i >= 0; i--) {
+          if (out[i].role === 'bot') {
+            out[i] = typeof patch === 'function' ? patch(out[i]) : { ...out[i], ...patch };
+            break;
+          }
+        }
+        return out;
       });
+    };
 
-      const data = resp.data;
-      const newBotMsg: Message = {
-        role: 'bot',
-        content: data.message,
-        skill_used: data.skill_used,
-        x_axis: data.x_axis,
-        y_axis: data.y_axis,
-        timestamp: new Date().toLocaleTimeString('zh-CN', { hour: '2-digit', minute: '2-digit' }),
-        debug: data.debug,
-        tools: data.tools
-      };
+    try {
+      const resp = await fetch(`${API_URL}/api/chat/stream`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: text, session_id: SESSION_ID, user_id: USER_ID }),
+      });
+      if (!resp.ok || !resp.body) throw new Error(`stream http ${resp.status}`);
 
-      setMessages(prev => [...prev, newBotMsg]);
-      setActiveCell(`${data.x_axis}${data.y_axis}`);
-      setSkillUsed(data.skill_used);
-      
-      if (data.user) {
-        setProfile({
-          cognitive_level: data.user.cognitive_level || 1,
-          risk_preference: data.user.risk_preference || '稳健',
-          investment_style: data.user.investment_style || '成长',
-        });
-      }
+      const reader = resp.body.getReader();
+      const decoder = new TextDecoder();
+      let buffer = '';
 
-      if (data.debug?.steps) {
-        setTaskChain(data.debug.steps.slice(0, 3).map((s: string) => s.split(':')[0]));
+      while (true) {
+        const { value, done } = await reader.read();
+        if (done) break;
+        buffer += decoder.decode(value, { stream: true });
+        let nl: number;
+        while ((nl = buffer.indexOf('\n\n')) >= 0) {
+          const block = buffer.slice(0, nl);
+          buffer = buffer.slice(nl + 2);
+          const dataLine = block.split('\n').find(l => l.startsWith('data: '));
+          if (!dataLine) continue;
+          let evt: any;
+          try { evt = JSON.parse(dataLine.slice(6)); } catch { continue; }
+
+          if (evt.type === 'step' || evt.type === 'node') {
+            patchBot(m => ({
+              ...m,
+              x_axis: evt.x_axis || m.x_axis,
+              y_axis: evt.y_axis || m.y_axis,
+              debug: { steps: [...(m.debug?.steps || []), evt.label].filter(Boolean) },
+            }));
+            if (evt.x_axis) setActiveCell(`${evt.x_axis}${evt.y_axis || ''}`);
+          } else if (evt.type === 'tool') {
+            patchBot(m => ({
+              ...m,
+              tools: [...(m.tools || []), { name: evt.name, args: evt.args }],
+            }));
+          } else if (evt.type === 'done') {
+            patchBot(m => ({
+              ...m,
+              content: evt.message || '(空响应)',
+              skill_used: evt.skill_used,
+              x_axis: evt.x_axis || m.x_axis,
+              y_axis: evt.y_axis || m.y_axis,
+              tools: evt.tools_called?.length ? evt.tools_called : m.tools,
+              debug: { steps: m.debug?.steps || [] },
+              pending: false,
+            }));
+            setActiveCell(`${evt.x_axis}${evt.y_axis}`);
+            setSkillUsed(evt.skill_used);
+            if (evt.user) {
+              setProfile({
+                cognitive_level: evt.user.cognitive_level || 1,
+                risk_preference: evt.user.risk_preference || '稳健',
+                investment_style: evt.user.investment_style || '成长',
+              });
+            }
+            if (evt.debug_steps) {
+              setTaskChain(evt.debug_steps.slice(0, 3).map((s: string) => s.split(':')[0]));
+            }
+          } else if (evt.type === 'error') {
+            patchBot({ content: 'Matrix error: ' + evt.error, pending: false });
+          }
+        }
       }
     } catch (error) {
       console.error('Matrix error:', error);
-      setMessages(prev => [...prev, {
-        role: 'bot',
-        content: 'Matrix error: 系统链路解析异常。',
-        timestamp: new Date().toLocaleTimeString('zh-CN', { hour: '2-digit', minute: '2-digit' }),
-      }]);
+      patchBot({ content: 'Matrix error: 系统链路解析异常。', pending: false });
     } finally {
       setIsLoading(false);
     }

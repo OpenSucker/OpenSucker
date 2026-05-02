@@ -12,6 +12,7 @@ interface Message {
   timestamp: string;
   debug?: { steps: string[] };
   tools?: { name: string, args: any }[];
+  pending?: boolean;
 }
 
 interface ChatWindowProps {
@@ -75,9 +76,20 @@ export const ChatWindow: FC<ChatWindowProps> = ({ messages, onSendMessage, isLoa
                 <div className={`p-4 rounded-r text-sm leading-relaxed ${
                   msg.role === 'user' ? 'bg-bg-3 rounded-tr-none' : 'bg-bg-2 border border-white/5 rounded-tl-none'
                 }`}>
-                  {msg.content.split('\n').map((line, idx) => (
-                    <p key={idx} className={idx > 0 ? 'mt-2' : ''}>{line}</p>
-                  ))}
+                  {msg.content
+                    ? msg.content.split('\n').map((line, idx) => (
+                        <p key={idx} className={idx > 0 ? 'mt-2' : ''}>{line}</p>
+                      ))
+                    : msg.pending && (
+                        <div className="flex items-center gap-2 text-text-3 text-xs">
+                          <span className="inline-flex gap-1">
+                            <span className="w-1.5 h-1.5 rounded-full bg-accent animate-bounce" style={{ animationDelay: '0ms' }} />
+                            <span className="w-1.5 h-1.5 rounded-full bg-accent animate-bounce" style={{ animationDelay: '150ms' }} />
+                            <span className="w-1.5 h-1.5 rounded-full bg-accent animate-bounce" style={{ animationDelay: '300ms' }} />
+                          </span>
+                          矩阵推理中...
+                        </div>
+                      )}
                 </div>
 
                 {msg.tools && msg.tools.length > 0 && (
@@ -92,14 +104,20 @@ export const ChatWindow: FC<ChatWindowProps> = ({ messages, onSendMessage, isLoa
                 )}
 
                 {msg.debug?.steps && msg.debug.steps.length > 0 && (
-                  <details className="mt-2 group">
+                  <details className="mt-2 group" open={msg.pending}>
                     <summary className="text-[10px] text-text-3 cursor-pointer hover:text-text-2 flex items-center gap-1 list-none">
-                      <Brain size={12} /> 查看矩阵思辨过程
+                      <Brain size={12} /> {msg.pending ? `矩阵思辨中 · ${msg.debug.steps.length} 步` : '查看矩阵思辨过程'}
                     </summary>
                     <div className="mt-2 p-3 bg-black/30 rounded border border-white/5 font-mono text-[11px] text-text-2 space-y-1">
-                      {msg.debug.steps.map((step, si) => (
-                        <div key={si} className="opacity-70">&gt; {step}</div>
-                      ))}
+                      {msg.debug.steps.map((step, si) => {
+                        const isLast = si === msg.debug!.steps.length - 1;
+                        const live = msg.pending && isLast;
+                        return (
+                          <div key={si} className={live ? 'text-accent' : 'opacity-70'}>
+                            {live ? '▶' : '>'} {step}
+                          </div>
+                        );
+                      })}
                     </div>
                   </details>
                 )}
