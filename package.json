@@ -9,7 +9,7 @@
     "setup:frontend": "cd frontend && npm install",
 
     "dev": "concurrently -n backend,frontend -c blue,green --kill-others-on-fail \"npm:dev:backend\" \"npm:dev:frontend\"",
-    "dev:backend": "cd backend && uv run python agent.py",
+    "dev:backend": "cd backend && uv run python -u agent.py",
     "dev:frontend": "cd frontend && npm run dev",
 
     "build": "npm run build:frontend",
