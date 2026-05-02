@@ -3,6 +3,14 @@ import type { FC, FormEvent } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Send, Brain } from 'lucide-react';
 
+interface ToolCall {
+  name: string;
+  args: any;
+  success?: boolean;
+  result?: any;
+  error?: string;
+}
+
 interface Message {
   role: 'user' | 'bot';
   content: string;
@@ -11,7 +19,7 @@ interface Message {
   y_axis?: string;
   timestamp: string;
   debug?: { steps: string[] };
-  tools?: { name: string, args: any }[];
+  tools?: ToolCall[];
   pending?: boolean;
 }
 
@@ -93,13 +101,60 @@ export const ChatWindow: FC<ChatWindowProps> = ({ messages, onSendMessage, isLoa
                 </div>
 
                 {msg.tools && msg.tools.length > 0 && (
-                  <div className="flex flex-wrap gap-2 mt-1">
-                    {msg.tools.map((tool, ti) => (
-                      <div key={ti} className="bg-accent/10 border border-accent/20 px-2 py-0.5 rounded text-[9px] font-mono text-accent flex items-center gap-1.5 animate-pulse-glow">
-                        <span className="w-1 h-1 rounded-full bg-accent" />
-                        {tool.name.toUpperCase()}
-                      </div>
-                    ))}
+                  <div className="flex flex-col gap-1.5 mt-1">
+                    {msg.tools.map((tool, ti) => {
+                      const failed = tool.success === false;
+                      const pending = tool.success === undefined && msg.pending;
+                      const resultStr = tool.result !== undefined
+                        ? (typeof tool.result === 'string' ? tool.result : JSON.stringify(tool.result, null, 2))
+                        : '';
+                      const argsStr = tool.args ? JSON.stringify(tool.args, null, 2) : '';
+                      return (
+                        <details
+                          key={ti}
+                          open={failed}
+                          className={`rounded border text-[10px] font-mono ${
+                            failed
+                              ? 'border-red-500/40 bg-red-500/5'
+                              : pending
+                              ? 'border-yellow-500/30 bg-yellow-500/5'
+                              : 'border-accent/20 bg-accent/5'
+                          }`}
+                        >
+                          <summary className={`cursor-pointer px-2 py-1 flex items-center gap-2 list-none ${
+                            failed ? 'text-red-300' : pending ? 'text-yellow-300' : 'text-accent'
+                          }`}>
+                            <span className={`w-1.5 h-1.5 rounded-full ${
+                              failed ? 'bg-red-400' : pending ? 'bg-yellow-400 animate-pulse' : 'bg-accent'
+                            }`} />
+                            <span className="font-bold">{tool.name?.toUpperCase()}</span>
+                            <span className="opacity-60">
+                              {failed ? '✗ FAIL' : pending ? '… RUNNING' : '✓ OK'}
+                            </span>
+                          </summary>
+                          <div className="px-3 py-2 border-t border-white/5 space-y-2 text-text-2">
+                            {argsStr && (
+                              <div>
+                                <div className="text-text-3 mb-0.5 text-[9px] uppercase tracking-wider">args</div>
+                                <pre className="whitespace-pre-wrap break-all text-[10px] opacity-80">{argsStr}</pre>
+                              </div>
+                            )}
+                            {tool.error && (
+                              <div>
+                                <div className="text-red-400 mb-0.5 text-[9px] uppercase tracking-wider">error</div>
+                                <pre className="whitespace-pre-wrap break-all text-[10px] text-red-300">{tool.error}</pre>
+                              </div>
+                            )}
+                            {resultStr && (
+                              <div>
+                                <div className="text-text-3 mb-0.5 text-[9px] uppercase tracking-wider">result</div>
+                                <pre className="whitespace-pre-wrap break-all text-[10px] opacity-80 max-h-48 overflow-y-auto">{resultStr}</pre>
+                              </div>
+                            )}
+                          </div>
+                        </details>
+                      );
+                    })}
                   </div>
                 )}
 

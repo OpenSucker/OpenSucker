@@ -508,6 +508,9 @@ async def chat_stream(req: ChatRequest):
                             "type": "tool",
                             "name": t.get("name"),
                             "args": t.get("args"),
+                            "success": t.get("success"),
+                            "result": t.get("result"),
+                            "error": t.get("error"),
                         })
 
                 # cooperative yield so SSE chunks flush

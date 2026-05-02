@@ -10,6 +10,14 @@ interface UserProfile {
   investment_style: string;
 }
 
+interface ToolCall {
+  name: string;
+  args: any;
+  success?: boolean;
+  result?: any;
+  error?: string;
+}
+
 interface Message {
   role: 'user' | 'bot';
   content: string;
@@ -18,7 +26,7 @@ interface Message {
   y_axis?: string;
   timestamp: string;
   debug?: { steps: string[] };
-  tools?: { name: string, args: any }[];
+  tools?: ToolCall[];
   pending?: boolean;
 }
 
@@ -102,7 +110,16 @@ function App() {
           } else if (evt.type === 'tool') {
             patchBot(m => ({
               ...m,
-              tools: [...(m.tools || []), { name: evt.name, args: evt.args }],
+              tools: [
+                ...(m.tools || []),
+                {
+                  name: evt.name,
+                  args: evt.args,
+                  success: evt.success,
+                  result: evt.result,
+                  error: evt.error,
+                },
+              ],
             }));
           } else if (evt.type === 'done') {
             patchBot(m => ({

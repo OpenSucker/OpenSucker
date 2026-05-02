@@ -121,15 +121,18 @@ def run_function_calling_loop(
 
         tool_calls = resp.get("tool_calls") or []
         content = resp.get("content") or ""
-        
-        # 记录工具调用
+
+        # 记录工具调用 (先占位, 调度后回填 result/success)
+        round_records: List[Dict[str, Any]] = []
         for tc in tool_calls:
             try:
                 fn_name = tc.function.name
                 fn_args = json.loads(tc.function.arguments) if isinstance(tc.function.arguments, str) else tc.function.arguments
-                tools_called.append({"name": fn_name, "args": fn_args})
-            except:
-                pass
+                rec = {"id": getattr(tc, "id", None), "name": fn_name, "args": fn_args}
+                tools_called.append(rec)
+                round_records.append(rec)
+            except Exception:
+                round_records.append(None)
 
         # ── 没要求调工具 → LLM 给最终答案 ──
         if not tool_calls:
@@ -149,6 +152,19 @@ def run_function_calling_loop(
 
         # 执行所有 tool_calls
         results: List[ToolExecutionResult] = dispatch_all(tool_calls, context)
+
+        # 把执行结果回填到对应的 tools_called 记录里 (供前端显示)
+        for r in results:
+            for rec in round_records:
+                if rec and rec.get("id") == r.tool_call_id:
+                    rec["success"] = bool(r.success)
+                    try:
+                        rec["result"] = json.loads(r.result_for_llm) if isinstance(r.result_for_llm, str) else r.result_for_llm
+                    except Exception:
+                        rec["result"] = r.result_for_llm
+                    if r.error:
+                        rec["error"] = r.error
+                    break
 
         for r in results:
             # 把 tool 结果作为 tool message 加入, 喂给 LLM 下一轮
