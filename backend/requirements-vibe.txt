@@ -1,0 +1,25 @@
+# Optional / heavy quant & data dependencies — install only when you need
+# the Vibe Trading toolset (backtest / factor analysis / chart parsing).
+#
+# pip install -r requirements.txt -r requirements-vibe.txt
+#
+# Many of these pull large native wheels and external network access; the
+# core OpenSucker API does not require them.
+
+yfinance
+tushare
+akshare
+pandas
+matplotlib
+scipy
+scikit-learn
+statsmodels
+ccxt
+
+# Document parsing (file-upload friendly)
+markdownify
+python-pptx
+python-docx
+openpyxl
+
+pyyaml

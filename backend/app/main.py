@@ -1,5 +1,4 @@
-
-from dotenv import load_dotenv
+﻿from dotenv import load_dotenv
 load_dotenv()
 
 from fastapi import FastAPI
@@ -8,16 +7,21 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.api.v1.router import api_router as v1_router
 from app.core.config import settings
 
+
 app = FastAPI(
     title=settings.app_name,
     version=settings.app_version,
     debug=settings.debug,
-    description="面向证券异常波动、盘口异动与新闻风险的分析型后端服务。",
+    description=(
+        "OpenSucker — 证券异常波动、盘口异动、新闻风险分析,"
+        "Skill 蒸馏与 Sucker Smart Trading Matrix Agent 的统一后端。"
+    ),
 )
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=settings.cors_origins,
+    allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )

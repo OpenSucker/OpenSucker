@@ -1,6 +1,19 @@
-from fastapi import APIRouter
+﻿from fastapi import APIRouter
 
-from app.api.v1.endpoints import analysis, health, counters, intelligence, monitoring, orders, play, terminals
+from app.api.v1.endpoints import (
+    analysis,
+    anet,
+    counters,
+    health,
+    intelligence,
+    monitoring,
+    orders,
+    personality,
+    play,
+    quiz,
+    skills,
+    terminals,
+)
 
 api_router = APIRouter()
 
@@ -11,4 +24,8 @@ api_router.include_router(terminals.router, prefix="/terminals", tags=["terminal
 api_router.include_router(counters.router, prefix="/counters", tags=["counters"])
 api_router.include_router(monitoring.router, prefix="/monitoring", tags=["monitoring"])
 api_router.include_router(intelligence.router, prefix="/intelligence", tags=["intelligence"])
+api_router.include_router(skills.router, prefix="/skills", tags=["skills"])
+api_router.include_router(anet.router, prefix="/anet", tags=["agent-network"])
+api_router.include_router(quiz.router, prefix="/quiz", tags=["quiz"])
+api_router.include_router(personality.router, prefix="/personality", tags=["personality"])
 api_router.include_router(play.router, prefix="/play", tags=["play"])

@@ -1,4 +1,4 @@
-fastapi>=0.100.0,<1.0.0
+﻿fastapi>=0.100.0,<1.0.0
 uvicorn[standard]>=0.23.0
 pydantic>=2.0.0,<3.0.0
 langgraph>=0.0.20
@@ -10,4 +10,3 @@ anthropic>=0.25.0
 python-dotenv>=1.0.0
 openai>=1.0.0
 anet-sdk>=1.1.0
-  
