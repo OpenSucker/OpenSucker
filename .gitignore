@@ -1,0 +1,3 @@
+# Root-level npm (orchestrator only — concurrently).
+# Backend/frontend have their own .gitignore.
+node_modules/

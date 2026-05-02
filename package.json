@@ -1,0 +1,28 @@
+{
+  "name": "opensucker",
+  "private": true,
+  "version": "0.1.0",
+  "description": "OpenSucker — Smart Trading Matrix (frontend + backend orchestrator)",
+  "scripts": {
+    "setup": "npm run setup:backend && npm run setup:frontend",
+    "setup:backend": "cd backend && uv sync",
+    "setup:frontend": "cd frontend && npm install",
+
+    "dev": "concurrently -n backend,frontend -c blue,green --kill-others-on-fail \"npm:dev:backend\" \"npm:dev:frontend\"",
+    "dev:backend": "cd backend && uv run python agent.py",
+    "dev:frontend": "cd frontend && npm run dev",
+
+    "build": "npm run build:frontend",
+    "build:frontend": "cd frontend && npm run build",
+
+    "lint:frontend": "cd frontend && npm run lint",
+
+    "clean": "rm -rf backend/.venv backend/__pycache__ backend/**/__pycache__ frontend/node_modules frontend/dist"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
