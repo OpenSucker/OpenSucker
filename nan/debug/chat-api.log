@@ -1,0 +1,2617 @@
+
+===== 2026-05-02T12:05:11.342Z upstream completion =====
+{
+  completionInspect: '`<!doctype html><html lang="zh-cn"><head><meta charset="utf-8"/><link href=\'https://api.openai-next.com/fileSystem/download/20241008/6e007290-5330-48c9-8655-055cac0667ee.png\' rel=\'icon\'><link rel="manifest" href="/manifest.json"><meta content="width=device-width,initial-scale=1,user-scalable=no" name="viewport"/><meta content="#ffffff" name="theme-color"/><style>body,html{background:#fff}html[data-theme=dark],html[data-theme=dark] body{background:#000}</style><script>!function(){try{var t=localStorage.getItem("STATUS_STATE");if(!t)return;var e=JSON.parse(t);if(!!(e&&e.customConfig&&e.customConfig.darkMode)){document.documentElement.setAttribute("data-theme","dark");var o=document.querySelector(\'meta[name="theme-color"]\');o&&o.setAttribute("content","#000000")}}catch(t){}}()</script><meta name="app-name" content="ANTD"/><meta content="Shell API 提供全新UI和更全面的管理功能，打造你的一站式 AI 平台" name="description"/><title>FluxDart</title><script defer="defer" rel="preload" type="text/javascript" src="/react.production.min.js"></script><script defer="defer" rel="preload" type="text/javascript" src="/react-dom.production.min.js"></script><script defer="defer" rel="preload" type="text/javascript" src="/axios.min.js"></script><script defer="defer" type="text/javascript" src="/dayjs.min.js"></script><script defer="defer" src="/static/js/runtime.0939b9f9.js"></script><script defer="defer" src="/static/js/pro-vendors.d20498c0.js"></script><script defer="defer" src="/static/js/antd-vendors.db0dbbbb.js"></script><script defer="defer" src="/static/js/react-vendors.613a5452.js"></script><script defer="defer" src="/static/js/lodash.3dde6e81.js"></script><script defer="defer" src="/static/js/vendors-initial.88a518e1.js"></script><script defer="defer" src="/static/js/main.b072729d.js"></script><link href="/static/css/main.03e61a63.css" rel="stylesheet"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"><animated-loader id="initial-loader" text="FluxDart" loading-text="Loading..."></animated-loader></div><div id="globalModalContainer"></div><script src="/animated-loader.js?v=v22.9.9"></script><script>window.addEventListener("DOMContentLoaded",()=>{const e=new MutationObserver(t=>{t.forEach(t=>{if("childList"===t.type){const t=document.getElementById("initial-loader"),o=document.querySelector("#root > div:not(animated-loader)");t&&o&&(t.style.transition="opacity 0.3s ease",t.style.opacity="0",setTimeout(()=>{t.parentNode&&t.parentNode.removeChild(t)},200),e.disconnect())}})});e.observe(document.getElementById("root"),{childList:!0,subtree:!0})})</script></body></html>`',
+  completionJson: `<!doctype html><html lang="zh-cn"><head><meta charset="utf-8"/><link href='https://api.openai-next.com/fileSystem/download/20241008/6e007290-5330-48c9-8655-055cac0667ee.png' rel='icon'><link rel="manifest" href="/manifest.json"><meta content="width=device-width,initial-scale=1,user-scalable=no" name="viewport"/><meta content="#ffffff" name="theme-color"/><style>body,html{background:#fff}html[data-theme=dark],html[data-theme=dark] body{background:#000}</style><script>!function(){try{var t=localStorage.getItem("STATUS_STATE");if(!t)return;var e=JSON.parse(t);if(!!(e&&e.customConfig&&e.customConfig.darkMode)){document.documentElement.setAttribute("data-theme","dark");var o=document.querySelector('meta[name="theme-color"]');o&&o.setAttribute("content","#000000")}}catch(t){}}()</script><meta name="app-name" content="ANTD"/><meta content="Shell API 提供全新UI和更全面的管理功能，打造你的一站式 AI 平台" name="description"/><title>FluxDart</title><script defer="defer" rel="preload" type="text/javascript" src="/react.production.min.js"></script><script defer="defer" rel="preload" type="text/javascript" src="/react-dom.production.min.js"></script><script defer="defer" rel="preload" type="text/javascript" src="/axios.min.js"></script><script defer="defer" type="text/javascript" src="/dayjs.min.js"></script><script defer="defer" src="/static/js/runtime.0939b9f9.js"></script><script defer="defer" src="/static/js/pro-vendors.d20498c0.js"></script><script defer="defer" src="/static/js/antd-vendors.db0dbbbb.js"></script><script defer="defer" src="/static/js/react-vendors.613a5452.js"></script><script defer="defer" src="/static/js/lodash.3dde6e81.js"></script><script defer="defer" src="/static/js/vendors-initial.88a518e1.js"></script><script defer="defer" src="/static/js/main.b072729d.js"></script><link href="/static/css/main.03e61a63.css" rel="stylesheet"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"><animated-loader id="initial-loader" text="FluxDart" loading-text="Loading..."></animated-loader></div><div id="globalModalContainer"></div><script src="/animated-loader.js?v=v22.9.9"></script><script>window.addEventListener("DOMContentLoaded",()=>{const e=new MutationObserver(t=>{t.forEach(t=>{if("childList"===t.type){const t=document.getElementById("initial-loader"),o=document.querySelector("#root > div:not(animated-loader)");t&&o&&(t.style.transition="opacity 0.3s ease",t.style.opacity="0",setTimeout(()=>{t.parentNode&&t.parentNode.removeChild(t)},200),e.disconnect())}})});e.observe(document.getElementById("root"),{childList:!0,subtree:!0})})</script></body></html>`,
+  extracted: {
+    constructorName: 'string',
+    content: null,
+    finishReason: null,
+    ownPropertyNames: [],
+    rawPreview: `"<!doctype html><html lang=\\"zh-cn\\"><head><meta charset=\\"utf-8\\"/><link href='https://api.openai-next.com/fileSystem/download/20241008/6e007290-5330-48c9-8655-055cac0667ee.png' rel='icon'><link rel=\\"manifest\\" href=\\"/manifest.json\\"><meta content=\\"width=device-width,initial-scale=1,user-scalable=no\\" name=\\"viewport\\"/><meta content=\\"#ffffff\\" name=\\"theme-color\\"/><style>body,html{background:#fff}html[data-theme=dark],html[data-theme=dark] body{background:#000}</style><script>!function(){`,
+    shape: 'unknown',
+    topLevelKeys: []
+  },
+  requestSummary: {
+    baseURL: 'https://api.openai-next.com',
+    currentStoryPages: 0,
+    durationMs: 3805,
+    lastUserMessage: 'gender: 非二元, profession: 工程师',
+    messageCount: 1,
+    model: 'gpt-4o',
+    peepId: '<none>'
+  }
+}
+
+===== 2026-05-02T12:05:11.498Z upstream completion =====
+{
+  completionInspect: '`<!doctype html><html lang="zh-cn"><head><meta charset="utf-8"/><link href=\'https://api.openai-next.com/fileSystem/download/20241008/6e007290-5330-48c9-8655-055cac0667ee.png\' rel=\'icon\'><link rel="manifest" href="/manifest.json"><meta content="width=device-width,initial-scale=1,user-scalable=no" name="viewport"/><meta content="#ffffff" name="theme-color"/><style>body,html{background:#fff}html[data-theme=dark],html[data-theme=dark] body{background:#000}</style><script>!function(){try{var t=localStorage.getItem("STATUS_STATE");if(!t)return;var e=JSON.parse(t);if(!!(e&&e.customConfig&&e.customConfig.darkMode)){document.documentElement.setAttribute("data-theme","dark");var o=document.querySelector(\'meta[name="theme-color"]\');o&&o.setAttribute("content","#000000")}}catch(t){}}()</script><meta name="app-name" content="ANTD"/><meta content="Shell API 提供全新UI和更全面的管理功能，打造你的一站式 AI 平台" name="description"/><title>FluxDart</title><script defer="defer" rel="preload" type="text/javascript" src="/react.production.min.js"></script><script defer="defer" rel="preload" type="text/javascript" src="/react-dom.production.min.js"></script><script defer="defer" rel="preload" type="text/javascript" src="/axios.min.js"></script><script defer="defer" type="text/javascript" src="/dayjs.min.js"></script><script defer="defer" src="/static/js/runtime.0939b9f9.js"></script><script defer="defer" src="/static/js/pro-vendors.d20498c0.js"></script><script defer="defer" src="/static/js/antd-vendors.db0dbbbb.js"></script><script defer="defer" src="/static/js/react-vendors.613a5452.js"></script><script defer="defer" src="/static/js/lodash.3dde6e81.js"></script><script defer="defer" src="/static/js/vendors-initial.88a518e1.js"></script><script defer="defer" src="/static/js/main.b072729d.js"></script><link href="/static/css/main.03e61a63.css" rel="stylesheet"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"><animated-loader id="initial-loader" text="FluxDart" loading-text="Loading..."></animated-loader></div><div id="globalModalContainer"></div><script src="/animated-loader.js?v=v22.9.9"></script><script>window.addEventListener("DOMContentLoaded",()=>{const e=new MutationObserver(t=>{t.forEach(t=>{if("childList"===t.type){const t=document.getElementById("initial-loader"),o=document.querySelector("#root > div:not(animated-loader)");t&&o&&(t.style.transition="opacity 0.3s ease",t.style.opacity="0",setTimeout(()=>{t.parentNode&&t.parentNode.removeChild(t)},200),e.disconnect())}})});e.observe(document.getElementById("root"),{childList:!0,subtree:!0})})</script></body></html>`',
+  completionJson: `<!doctype html><html lang="zh-cn"><head><meta charset="utf-8"/><link href='https://api.openai-next.com/fileSystem/download/20241008/6e007290-5330-48c9-8655-055cac0667ee.png' rel='icon'><link rel="manifest" href="/manifest.json"><meta content="width=device-width,initial-scale=1,user-scalable=no" name="viewport"/><meta content="#ffffff" name="theme-color"/><style>body,html{background:#fff}html[data-theme=dark],html[data-theme=dark] body{background:#000}</style><script>!function(){try{var t=localStorage.getItem("STATUS_STATE");if(!t)return;var e=JSON.parse(t);if(!!(e&&e.customConfig&&e.customConfig.darkMode)){document.documentElement.setAttribute("data-theme","dark");var o=document.querySelector('meta[name="theme-color"]');o&&o.setAttribute("content","#000000")}}catch(t){}}()</script><meta name="app-name" content="ANTD"/><meta content="Shell API 提供全新UI和更全面的管理功能，打造你的一站式 AI 平台" name="description"/><title>FluxDart</title><script defer="defer" rel="preload" type="text/javascript" src="/react.production.min.js"></script><script defer="defer" rel="preload" type="text/javascript" src="/react-dom.production.min.js"></script><script defer="defer" rel="preload" type="text/javascript" src="/axios.min.js"></script><script defer="defer" type="text/javascript" src="/dayjs.min.js"></script><script defer="defer" src="/static/js/runtime.0939b9f9.js"></script><script defer="defer" src="/static/js/pro-vendors.d20498c0.js"></script><script defer="defer" src="/static/js/antd-vendors.db0dbbbb.js"></script><script defer="defer" src="/static/js/react-vendors.613a5452.js"></script><script defer="defer" src="/static/js/lodash.3dde6e81.js"></script><script defer="defer" src="/static/js/vendors-initial.88a518e1.js"></script><script defer="defer" src="/static/js/main.b072729d.js"></script><link href="/static/css/main.03e61a63.css" rel="stylesheet"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"><animated-loader id="initial-loader" text="FluxDart" loading-text="Loading..."></animated-loader></div><div id="globalModalContainer"></div><script src="/animated-loader.js?v=v22.9.9"></script><script>window.addEventListener("DOMContentLoaded",()=>{const e=new MutationObserver(t=>{t.forEach(t=>{if("childList"===t.type){const t=document.getElementById("initial-loader"),o=document.querySelector("#root > div:not(animated-loader)");t&&o&&(t.style.transition="opacity 0.3s ease",t.style.opacity="0",setTimeout(()=>{t.parentNode&&t.parentNode.removeChild(t)},200),e.disconnect())}})});e.observe(document.getElementById("root"),{childList:!0,subtree:!0})})</script></body></html>`,
+  extracted: {
+    constructorName: 'string',
+    content: null,
+    finishReason: null,
+    ownPropertyNames: [],
+    rawPreview: `"<!doctype html><html lang=\\"zh-cn\\"><head><meta charset=\\"utf-8\\"/><link href='https://api.openai-next.com/fileSystem/download/20241008/6e007290-5330-48c9-8655-055cac0667ee.png' rel='icon'><link rel=\\"manifest\\" href=\\"/manifest.json\\"><meta content=\\"width=device-width,initial-scale=1,user-scalable=no\\" name=\\"viewport\\"/><meta content=\\"#ffffff\\" name=\\"theme-color\\"/><style>body,html{background:#fff}html[data-theme=dark],html[data-theme=dark] body{background:#000}</style><script>!function(){`,
+    shape: 'unknown',
+    topLevelKeys: []
+  },
+  requestSummary: {
+    baseURL: 'https://api.openai-next.com',
+    currentStoryPages: 0,
+    durationMs: 650,
+    lastUserMessage: 'gender: 非二元, profession: 工程师',
+    messageCount: 1,
+    model: 'gpt-4o',
+    peepId: '<none>'
+  }
+}
+
+===== 2026-05-02T12:05:11.648Z upstream completion =====
+{
+  completionInspect: '`<!doctype html><html lang="zh-cn"><head><meta charset="utf-8"/><link href=\'https://api.openai-next.com/fileSystem/download/20241008/6e007290-5330-48c9-8655-055cac0667ee.png\' rel=\'icon\'><link rel="manifest" href="/manifest.json"><meta content="width=device-width,initial-scale=1,user-scalable=no" name="viewport"/><meta content="#ffffff" name="theme-color"/><style>body,html{background:#fff}html[data-theme=dark],html[data-theme=dark] body{background:#000}</style><script>!function(){try{var t=localStorage.getItem("STATUS_STATE");if(!t)return;var e=JSON.parse(t);if(!!(e&&e.customConfig&&e.customConfig.darkMode)){document.documentElement.setAttribute("data-theme","dark");var o=document.querySelector(\'meta[name="theme-color"]\');o&&o.setAttribute("content","#000000")}}catch(t){}}()</script><meta name="app-name" content="ANTD"/><meta content="Shell API 提供全新UI和更全面的管理功能，打造你的一站式 AI 平台" name="description"/><title>FluxDart</title><script defer="defer" rel="preload" type="text/javascript" src="/react.production.min.js"></script><script defer="defer" rel="preload" type="text/javascript" src="/react-dom.production.min.js"></script><script defer="defer" rel="preload" type="text/javascript" src="/axios.min.js"></script><script defer="defer" type="text/javascript" src="/dayjs.min.js"></script><script defer="defer" src="/static/js/runtime.0939b9f9.js"></script><script defer="defer" src="/static/js/pro-vendors.d20498c0.js"></script><script defer="defer" src="/static/js/antd-vendors.db0dbbbb.js"></script><script defer="defer" src="/static/js/react-vendors.613a5452.js"></script><script defer="defer" src="/static/js/lodash.3dde6e81.js"></script><script defer="defer" src="/static/js/vendors-initial.88a518e1.js"></script><script defer="defer" src="/static/js/main.b072729d.js"></script><link href="/static/css/main.03e61a63.css" rel="stylesheet"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"><animated-loader id="initial-loader" text="FluxDart" loading-text="Loading..."></animated-loader></div><div id="globalModalContainer"></div><script src="/animated-loader.js?v=v22.9.9"></script><script>window.addEventListener("DOMContentLoaded",()=>{const e=new MutationObserver(t=>{t.forEach(t=>{if("childList"===t.type){const t=document.getElementById("initial-loader"),o=document.querySelector("#root > div:not(animated-loader)");t&&o&&(t.style.transition="opacity 0.3s ease",t.style.opacity="0",setTimeout(()=>{t.parentNode&&t.parentNode.removeChild(t)},200),e.disconnect())}})});e.observe(document.getElementById("root"),{childList:!0,subtree:!0})})</script></body></html>`',
+  completionJson: `<!doctype html><html lang="zh-cn"><head><meta charset="utf-8"/><link href='https://api.openai-next.com/fileSystem/download/20241008/6e007290-5330-48c9-8655-055cac0667ee.png' rel='icon'><link rel="manifest" href="/manifest.json"><meta content="width=device-width,initial-scale=1,user-scalable=no" name="viewport"/><meta content="#ffffff" name="theme-color"/><style>body,html{background:#fff}html[data-theme=dark],html[data-theme=dark] body{background:#000}</style><script>!function(){try{var t=localStorage.getItem("STATUS_STATE");if(!t)return;var e=JSON.parse(t);if(!!(e&&e.customConfig&&e.customConfig.darkMode)){document.documentElement.setAttribute("data-theme","dark");var o=document.querySelector('meta[name="theme-color"]');o&&o.setAttribute("content","#000000")}}catch(t){}}()</script><meta name="app-name" content="ANTD"/><meta content="Shell API 提供全新UI和更全面的管理功能，打造你的一站式 AI 平台" name="description"/><title>FluxDart</title><script defer="defer" rel="preload" type="text/javascript" src="/react.production.min.js"></script><script defer="defer" rel="preload" type="text/javascript" src="/react-dom.production.min.js"></script><script defer="defer" rel="preload" type="text/javascript" src="/axios.min.js"></script><script defer="defer" type="text/javascript" src="/dayjs.min.js"></script><script defer="defer" src="/static/js/runtime.0939b9f9.js"></script><script defer="defer" src="/static/js/pro-vendors.d20498c0.js"></script><script defer="defer" src="/static/js/antd-vendors.db0dbbbb.js"></script><script defer="defer" src="/static/js/react-vendors.613a5452.js"></script><script defer="defer" src="/static/js/lodash.3dde6e81.js"></script><script defer="defer" src="/static/js/vendors-initial.88a518e1.js"></script><script defer="defer" src="/static/js/main.b072729d.js"></script><link href="/static/css/main.03e61a63.css" rel="stylesheet"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"><animated-loader id="initial-loader" text="FluxDart" loading-text="Loading..."></animated-loader></div><div id="globalModalContainer"></div><script src="/animated-loader.js?v=v22.9.9"></script><script>window.addEventListener("DOMContentLoaded",()=>{const e=new MutationObserver(t=>{t.forEach(t=>{if("childList"===t.type){const t=document.getElementById("initial-loader"),o=document.querySelector("#root > div:not(animated-loader)");t&&o&&(t.style.transition="opacity 0.3s ease",t.style.opacity="0",setTimeout(()=>{t.parentNode&&t.parentNode.removeChild(t)},200),e.disconnect())}})});e.observe(document.getElementById("root"),{childList:!0,subtree:!0})})</script></body></html>`,
+  extracted: {
+    constructorName: 'string',
+    content: null,
+    finishReason: null,
+    ownPropertyNames: [],
+    rawPreview: `"<!doctype html><html lang=\\"zh-cn\\"><head><meta charset=\\"utf-8\\"/><link href='https://api.openai-next.com/fileSystem/download/20241008/6e007290-5330-48c9-8655-055cac0667ee.png' rel='icon'><link rel=\\"manifest\\" href=\\"/manifest.json\\"><meta content=\\"width=device-width,initial-scale=1,user-scalable=no\\" name=\\"viewport\\"/><meta content=\\"#ffffff\\" name=\\"theme-color\\"/><style>body,html{background:#fff}html[data-theme=dark],html[data-theme=dark] body{background:#000}</style><script>!function(){`,
+    shape: 'unknown',
+    topLevelKeys: []
+  },
+  requestSummary: {
+    baseURL: 'https://api.openai-next.com',
+    currentStoryPages: 0,
+    durationMs: 264,
+    lastUserMessage: 'gender: 非二元, profession: 工程师',
+    messageCount: 1,
+    model: 'gpt-4o',
+    peepId: '<none>'
+  }
+}
+
+===== 2026-05-02T12:05:19.835Z upstream completion =====
+{
+  completionInspect: '`<!doctype html><html lang="zh-cn"><head><meta charset="utf-8"/><link href=\'https://api.openai-next.com/fileSystem/download/20241008/6e007290-5330-48c9-8655-055cac0667ee.png\' rel=\'icon\'><link rel="manifest" href="/manifest.json"><meta content="width=device-width,initial-scale=1,user-scalable=no" name="viewport"/><meta content="#ffffff" name="theme-color"/><style>body,html{background:#fff}html[data-theme=dark],html[data-theme=dark] body{background:#000}</style><script>!function(){try{var t=localStorage.getItem("STATUS_STATE");if(!t)return;var e=JSON.parse(t);if(!!(e&&e.customConfig&&e.customConfig.darkMode)){document.documentElement.setAttribute("data-theme","dark");var o=document.querySelector(\'meta[name="theme-color"]\');o&&o.setAttribute("content","#000000")}}catch(t){}}()</script><meta name="app-name" content="ANTD"/><meta content="Shell API 提供全新UI和更全面的管理功能，打造你的一站式 AI 平台" name="description"/><title>FluxDart</title><script defer="defer" rel="preload" type="text/javascript" src="/react.production.min.js"></script><script defer="defer" rel="preload" type="text/javascript" src="/react-dom.production.min.js"></script><script defer="defer" rel="preload" type="text/javascript" src="/axios.min.js"></script><script defer="defer" type="text/javascript" src="/dayjs.min.js"></script><script defer="defer" src="/static/js/runtime.0939b9f9.js"></script><script defer="defer" src="/static/js/pro-vendors.d20498c0.js"></script><script defer="defer" src="/static/js/antd-vendors.db0dbbbb.js"></script><script defer="defer" src="/static/js/react-vendors.613a5452.js"></script><script defer="defer" src="/static/js/lodash.3dde6e81.js"></script><script defer="defer" src="/static/js/vendors-initial.88a518e1.js"></script><script defer="defer" src="/static/js/main.b072729d.js"></script><link href="/static/css/main.03e61a63.css" rel="stylesheet"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"><animated-loader id="initial-loader" text="FluxDart" loading-text="Loading..."></animated-loader></div><div id="globalModalContainer"></div><script src="/animated-loader.js?v=v22.9.9"></script><script>window.addEventListener("DOMContentLoaded",()=>{const e=new MutationObserver(t=>{t.forEach(t=>{if("childList"===t.type){const t=document.getElementById("initial-loader"),o=document.querySelector("#root > div:not(animated-loader)");t&&o&&(t.style.transition="opacity 0.3s ease",t.style.opacity="0",setTimeout(()=>{t.parentNode&&t.parentNode.removeChild(t)},200),e.disconnect())}})});e.observe(document.getElementById("root"),{childList:!0,subtree:!0})})</script></body></html>`',
+  completionJson: `<!doctype html><html lang="zh-cn"><head><meta charset="utf-8"/><link href='https://api.openai-next.com/fileSystem/download/20241008/6e007290-5330-48c9-8655-055cac0667ee.png' rel='icon'><link rel="manifest" href="/manifest.json"><meta content="width=device-width,initial-scale=1,user-scalable=no" name="viewport"/><meta content="#ffffff" name="theme-color"/><style>body,html{background:#fff}html[data-theme=dark],html[data-theme=dark] body{background:#000}</style><script>!function(){try{var t=localStorage.getItem("STATUS_STATE");if(!t)return;var e=JSON.parse(t);if(!!(e&&e.customConfig&&e.customConfig.darkMode)){document.documentElement.setAttribute("data-theme","dark");var o=document.querySelector('meta[name="theme-color"]');o&&o.setAttribute("content","#000000")}}catch(t){}}()</script><meta name="app-name" content="ANTD"/><meta content="Shell API 提供全新UI和更全面的管理功能，打造你的一站式 AI 平台" name="description"/><title>FluxDart</title><script defer="defer" rel="preload" type="text/javascript" src="/react.production.min.js"></script><script defer="defer" rel="preload" type="text/javascript" src="/react-dom.production.min.js"></script><script defer="defer" rel="preload" type="text/javascript" src="/axios.min.js"></script><script defer="defer" type="text/javascript" src="/dayjs.min.js"></script><script defer="defer" src="/static/js/runtime.0939b9f9.js"></script><script defer="defer" src="/static/js/pro-vendors.d20498c0.js"></script><script defer="defer" src="/static/js/antd-vendors.db0dbbbb.js"></script><script defer="defer" src="/static/js/react-vendors.613a5452.js"></script><script defer="defer" src="/static/js/lodash.3dde6e81.js"></script><script defer="defer" src="/static/js/vendors-initial.88a518e1.js"></script><script defer="defer" src="/static/js/main.b072729d.js"></script><link href="/static/css/main.03e61a63.css" rel="stylesheet"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"><animated-loader id="initial-loader" text="FluxDart" loading-text="Loading..."></animated-loader></div><div id="globalModalContainer"></div><script src="/animated-loader.js?v=v22.9.9"></script><script>window.addEventListener("DOMContentLoaded",()=>{const e=new MutationObserver(t=>{t.forEach(t=>{if("childList"===t.type){const t=document.getElementById("initial-loader"),o=document.querySelector("#root > div:not(animated-loader)");t&&o&&(t.style.transition="opacity 0.3s ease",t.style.opacity="0",setTimeout(()=>{t.parentNode&&t.parentNode.removeChild(t)},200),e.disconnect())}})});e.observe(document.getElementById("root"),{childList:!0,subtree:!0})})</script></body></html>`,
+  extracted: {
+    constructorName: 'string',
+    content: null,
+    finishReason: null,
+    ownPropertyNames: [],
+    rawPreview: `"<!doctype html><html lang=\\"zh-cn\\"><head><meta charset=\\"utf-8\\"/><link href='https://api.openai-next.com/fileSystem/download/20241008/6e007290-5330-48c9-8655-055cac0667ee.png' rel='icon'><link rel=\\"manifest\\" href=\\"/manifest.json\\"><meta content=\\"width=device-width,initial-scale=1,user-scalable=no\\" name=\\"viewport\\"/><meta content=\\"#ffffff\\" name=\\"theme-color\\"/><style>body,html{background:#fff}html[data-theme=dark],html[data-theme=dark] body{background:#000}</style><script>!function(){`,
+    shape: 'unknown',
+    topLevelKeys: []
+  },
+  requestSummary: {
+    baseURL: 'https://api.openai-next.com',
+    currentStoryPages: 0,
+    durationMs: 12746,
+    lastUserMessage: 'gender: 非二元, profession: 工程师',
+    messageCount: 1,
+    model: 'gpt-4o',
+    peepId: '<none>'
+  }
+}
+
+===== 2026-05-02T12:05:21.021Z upstream completion =====
+{
+  completionInspect: '`<!doctype html><html lang="zh-cn"><head><meta charset="utf-8"/><link href=\'https://api.openai-next.com/fileSystem/download/20241008/6e007290-5330-48c9-8655-055cac0667ee.png\' rel=\'icon\'><link rel="manifest" href="/manifest.json"><meta content="width=device-width,initial-scale=1,user-scalable=no" name="viewport"/><meta content="#ffffff" name="theme-color"/><style>body,html{background:#fff}html[data-theme=dark],html[data-theme=dark] body{background:#000}</style><script>!function(){try{var t=localStorage.getItem("STATUS_STATE");if(!t)return;var e=JSON.parse(t);if(!!(e&&e.customConfig&&e.customConfig.darkMode)){document.documentElement.setAttribute("data-theme","dark");var o=document.querySelector(\'meta[name="theme-color"]\');o&&o.setAttribute("content","#000000")}}catch(t){}}()</script><meta name="app-name" content="ANTD"/><meta content="Shell API 提供全新UI和更全面的管理功能，打造你的一站式 AI 平台" name="description"/><title>FluxDart</title><script defer="defer" rel="preload" type="text/javascript" src="/react.production.min.js"></script><script defer="defer" rel="preload" type="text/javascript" src="/react-dom.production.min.js"></script><script defer="defer" rel="preload" type="text/javascript" src="/axios.min.js"></script><script defer="defer" type="text/javascript" src="/dayjs.min.js"></script><script defer="defer" src="/static/js/runtime.0939b9f9.js"></script><script defer="defer" src="/static/js/pro-vendors.d20498c0.js"></script><script defer="defer" src="/static/js/antd-vendors.db0dbbbb.js"></script><script defer="defer" src="/static/js/react-vendors.613a5452.js"></script><script defer="defer" src="/static/js/lodash.3dde6e81.js"></script><script defer="defer" src="/static/js/vendors-initial.88a518e1.js"></script><script defer="defer" src="/static/js/main.b072729d.js"></script><link href="/static/css/main.03e61a63.css" rel="stylesheet"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"><animated-loader id="initial-loader" text="FluxDart" loading-text="Loading..."></animated-loader></div><div id="globalModalContainer"></div><script src="/animated-loader.js?v=v22.9.9"></script><script>window.addEventListener("DOMContentLoaded",()=>{const e=new MutationObserver(t=>{t.forEach(t=>{if("childList"===t.type){const t=document.getElementById("initial-loader"),o=document.querySelector("#root > div:not(animated-loader)");t&&o&&(t.style.transition="opacity 0.3s ease",t.style.opacity="0",setTimeout(()=>{t.parentNode&&t.parentNode.removeChild(t)},200),e.disconnect())}})});e.observe(document.getElementById("root"),{childList:!0,subtree:!0})})</script></body></html>`',
+  completionJson: `<!doctype html><html lang="zh-cn"><head><meta charset="utf-8"/><link href='https://api.openai-next.com/fileSystem/download/20241008/6e007290-5330-48c9-8655-055cac0667ee.png' rel='icon'><link rel="manifest" href="/manifest.json"><meta content="width=device-width,initial-scale=1,user-scalable=no" name="viewport"/><meta content="#ffffff" name="theme-color"/><style>body,html{background:#fff}html[data-theme=dark],html[data-theme=dark] body{background:#000}</style><script>!function(){try{var t=localStorage.getItem("STATUS_STATE");if(!t)return;var e=JSON.parse(t);if(!!(e&&e.customConfig&&e.customConfig.darkMode)){document.documentElement.setAttribute("data-theme","dark");var o=document.querySelector('meta[name="theme-color"]');o&&o.setAttribute("content","#000000")}}catch(t){}}()</script><meta name="app-name" content="ANTD"/><meta content="Shell API 提供全新UI和更全面的管理功能，打造你的一站式 AI 平台" name="description"/><title>FluxDart</title><script defer="defer" rel="preload" type="text/javascript" src="/react.production.min.js"></script><script defer="defer" rel="preload" type="text/javascript" src="/react-dom.production.min.js"></script><script defer="defer" rel="preload" type="text/javascript" src="/axios.min.js"></script><script defer="defer" type="text/javascript" src="/dayjs.min.js"></script><script defer="defer" src="/static/js/runtime.0939b9f9.js"></script><script defer="defer" src="/static/js/pro-vendors.d20498c0.js"></script><script defer="defer" src="/static/js/antd-vendors.db0dbbbb.js"></script><script defer="defer" src="/static/js/react-vendors.613a5452.js"></script><script defer="defer" src="/static/js/lodash.3dde6e81.js"></script><script defer="defer" src="/static/js/vendors-initial.88a518e1.js"></script><script defer="defer" src="/static/js/main.b072729d.js"></script><link href="/static/css/main.03e61a63.css" rel="stylesheet"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"><animated-loader id="initial-loader" text="FluxDart" loading-text="Loading..."></animated-loader></div><div id="globalModalContainer"></div><script src="/animated-loader.js?v=v22.9.9"></script><script>window.addEventListener("DOMContentLoaded",()=>{const e=new MutationObserver(t=>{t.forEach(t=>{if("childList"===t.type){const t=document.getElementById("initial-loader"),o=document.querySelector("#root > div:not(animated-loader)");t&&o&&(t.style.transition="opacity 0.3s ease",t.style.opacity="0",setTimeout(()=>{t.parentNode&&t.parentNode.removeChild(t)},200),e.disconnect())}})});e.observe(document.getElementById("root"),{childList:!0,subtree:!0})})</script></body></html>`,
+  extracted: {
+    constructorName: 'string',
+    content: null,
+    finishReason: null,
+    ownPropertyNames: [],
+    rawPreview: `"<!doctype html><html lang=\\"zh-cn\\"><head><meta charset=\\"utf-8\\"/><link href='https://api.openai-next.com/fileSystem/download/20241008/6e007290-5330-48c9-8655-055cac0667ee.png' rel='icon'><link rel=\\"manifest\\" href=\\"/manifest.json\\"><meta content=\\"width=device-width,initial-scale=1,user-scalable=no\\" name=\\"viewport\\"/><meta content=\\"#ffffff\\" name=\\"theme-color\\"/><style>body,html{background:#fff}html[data-theme=dark],html[data-theme=dark] body{background:#000}</style><script>!function(){`,
+    shape: 'unknown',
+    topLevelKeys: []
+  },
+  requestSummary: {
+    baseURL: 'https://api.openai-next.com',
+    currentStoryPages: 0,
+    durationMs: 11496,
+    lastUserMessage: 'gender: 非二元, profession: 工程师',
+    messageCount: 1,
+    model: 'gpt-4o',
+    peepId: '<none>'
+  }
+}
+
+===== 2026-05-02T12:05:22.005Z upstream completion =====
+{
+  completionInspect: '`<!doctype html><html lang="zh-cn"><head><meta charset="utf-8"/><link href=\'https://api.openai-next.com/fileSystem/download/20241008/6e007290-5330-48c9-8655-055cac0667ee.png\' rel=\'icon\'><link rel="manifest" href="/manifest.json"><meta content="width=device-width,initial-scale=1,user-scalable=no" name="viewport"/><meta content="#ffffff" name="theme-color"/><style>body,html{background:#fff}html[data-theme=dark],html[data-theme=dark] body{background:#000}</style><script>!function(){try{var t=localStorage.getItem("STATUS_STATE");if(!t)return;var e=JSON.parse(t);if(!!(e&&e.customConfig&&e.customConfig.darkMode)){document.documentElement.setAttribute("data-theme","dark");var o=document.querySelector(\'meta[name="theme-color"]\');o&&o.setAttribute("content","#000000")}}catch(t){}}()</script><meta name="app-name" content="ANTD"/><meta content="Shell API 提供全新UI和更全面的管理功能，打造你的一站式 AI 平台" name="description"/><title>FluxDart</title><script defer="defer" rel="preload" type="text/javascript" src="/react.production.min.js"></script><script defer="defer" rel="preload" type="text/javascript" src="/react-dom.production.min.js"></script><script defer="defer" rel="preload" type="text/javascript" src="/axios.min.js"></script><script defer="defer" type="text/javascript" src="/dayjs.min.js"></script><script defer="defer" src="/static/js/runtime.0939b9f9.js"></script><script defer="defer" src="/static/js/pro-vendors.d20498c0.js"></script><script defer="defer" src="/static/js/antd-vendors.db0dbbbb.js"></script><script defer="defer" src="/static/js/react-vendors.613a5452.js"></script><script defer="defer" src="/static/js/lodash.3dde6e81.js"></script><script defer="defer" src="/static/js/vendors-initial.88a518e1.js"></script><script defer="defer" src="/static/js/main.b072729d.js"></script><link href="/static/css/main.03e61a63.css" rel="stylesheet"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"><animated-loader id="initial-loader" text="FluxDart" loading-text="Loading..."></animated-loader></div><div id="globalModalContainer"></div><script src="/animated-loader.js?v=v22.9.9"></script><script>window.addEventListener("DOMContentLoaded",()=>{const e=new MutationObserver(t=>{t.forEach(t=>{if("childList"===t.type){const t=document.getElementById("initial-loader"),o=document.querySelector("#root > div:not(animated-loader)");t&&o&&(t.style.transition="opacity 0.3s ease",t.style.opacity="0",setTimeout(()=>{t.parentNode&&t.parentNode.removeChild(t)},200),e.disconnect())}})});e.observe(document.getElementById("root"),{childList:!0,subtree:!0})})</script></body></html>`',
+  completionJson: `<!doctype html><html lang="zh-cn"><head><meta charset="utf-8"/><link href='https://api.openai-next.com/fileSystem/download/20241008/6e007290-5330-48c9-8655-055cac0667ee.png' rel='icon'><link rel="manifest" href="/manifest.json"><meta content="width=device-width,initial-scale=1,user-scalable=no" name="viewport"/><meta content="#ffffff" name="theme-color"/><style>body,html{background:#fff}html[data-theme=dark],html[data-theme=dark] body{background:#000}</style><script>!function(){try{var t=localStorage.getItem("STATUS_STATE");if(!t)return;var e=JSON.parse(t);if(!!(e&&e.customConfig&&e.customConfig.darkMode)){document.documentElement.setAttribute("data-theme","dark");var o=document.querySelector('meta[name="theme-color"]');o&&o.setAttribute("content","#000000")}}catch(t){}}()</script><meta name="app-name" content="ANTD"/><meta content="Shell API 提供全新UI和更全面的管理功能，打造你的一站式 AI 平台" name="description"/><title>FluxDart</title><script defer="defer" rel="preload" type="text/javascript" src="/react.production.min.js"></script><script defer="defer" rel="preload" type="text/javascript" src="/react-dom.production.min.js"></script><script defer="defer" rel="preload" type="text/javascript" src="/axios.min.js"></script><script defer="defer" type="text/javascript" src="/dayjs.min.js"></script><script defer="defer" src="/static/js/runtime.0939b9f9.js"></script><script defer="defer" src="/static/js/pro-vendors.d20498c0.js"></script><script defer="defer" src="/static/js/antd-vendors.db0dbbbb.js"></script><script defer="defer" src="/static/js/react-vendors.613a5452.js"></script><script defer="defer" src="/static/js/lodash.3dde6e81.js"></script><script defer="defer" src="/static/js/vendors-initial.88a518e1.js"></script><script defer="defer" src="/static/js/main.b072729d.js"></script><link href="/static/css/main.03e61a63.css" rel="stylesheet"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"><animated-loader id="initial-loader" text="FluxDart" loading-text="Loading..."></animated-loader></div><div id="globalModalContainer"></div><script src="/animated-loader.js?v=v22.9.9"></script><script>window.addEventListener("DOMContentLoaded",()=>{const e=new MutationObserver(t=>{t.forEach(t=>{if("childList"===t.type){const t=document.getElementById("initial-loader"),o=document.querySelector("#root > div:not(animated-loader)");t&&o&&(t.style.transition="opacity 0.3s ease",t.style.opacity="0",setTimeout(()=>{t.parentNode&&t.parentNode.removeChild(t)},200),e.disconnect())}})});e.observe(document.getElementById("root"),{childList:!0,subtree:!0})})</script></body></html>`,
+  extracted: {
+    constructorName: 'string',
+    content: null,
+    finishReason: null,
+    ownPropertyNames: [],
+    rawPreview: `"<!doctype html><html lang=\\"zh-cn\\"><head><meta charset=\\"utf-8\\"/><link href='https://api.openai-next.com/fileSystem/download/20241008/6e007290-5330-48c9-8655-055cac0667ee.png' rel='icon'><link rel=\\"manifest\\" href=\\"/manifest.json\\"><meta content=\\"width=device-width,initial-scale=1,user-scalable=no\\" name=\\"viewport\\"/><meta content=\\"#ffffff\\" name=\\"theme-color\\"/><style>body,html{background:#fff}html[data-theme=dark],html[data-theme=dark] body{background:#000}</style><script>!function(){`,
+    shape: 'unknown',
+    topLevelKeys: []
+  },
+  requestSummary: {
+    baseURL: 'https://api.openai-next.com',
+    currentStoryPages: 0,
+    durationMs: 11402,
+    lastUserMessage: 'gender: 非二元, profession: 工程师',
+    messageCount: 1,
+    model: 'gpt-4o',
+    peepId: '<none>'
+  }
+}
+
+===== 2026-05-02T12:05:41.001Z request failed =====
+{
+  baseURL: 'https://api.openai-next.com',
+  durationMs: 32642,
+  errorInspect: 'Error: Request timed out.\n' +
+    '    at async POST (app\\api\\chat\\route.ts:340:26)\n' +
+    '  338 |       });\n' +
+    '  339 |\n' +
+    '> 340 |       const completion = await client.chat.completions.create({\n' +
+    '      |                          ^\n' +
+    "  341 |         model: process.env.OPENAI_MODEL || 'gpt-4o-mini',\n" +
+    "  342 |         response_format: { type: 'json_object' },\n" +
+    '  343 |         messages: [ {\n' +
+    '  code: undefined,\n' +
+    '  error: undefined,\n' +
+    '  headers: undefined,\n' +
+    '  param: undefined,\n' +
+    '  requestID: undefined,\n' +
+    '  status: undefined,\n' +
+    '  type: undefined\n' +
+    '}',
+  lastUserMessage: 'gender: 非二元, profession: 工程师',
+  model: 'gpt-4o'
+}
+
+===== 2026-05-02T12:05:50.237Z upstream completion =====
+{
+  completionInspect: '`<!doctype html><html lang="zh-cn"><head><meta charset="utf-8"/><link href=\'https://api.openai-next.com/fileSystem/download/20241008/6e007290-5330-48c9-8655-055cac0667ee.png\' rel=\'icon\'><link rel="manifest" href="/manifest.json"><meta content="width=device-width,initial-scale=1,user-scalable=no" name="viewport"/><meta content="#ffffff" name="theme-color"/><style>body,html{background:#fff}html[data-theme=dark],html[data-theme=dark] body{background:#000}</style><script>!function(){try{var t=localStorage.getItem("STATUS_STATE");if(!t)return;var e=JSON.parse(t);if(!!(e&&e.customConfig&&e.customConfig.darkMode)){document.documentElement.setAttribute("data-theme","dark");var o=document.querySelector(\'meta[name="theme-color"]\');o&&o.setAttribute("content","#000000")}}catch(t){}}()</script><meta name="app-name" content="ANTD"/><meta content="Shell API 提供全新UI和更全面的管理功能，打造你的一站式 AI 平台" name="description"/><title>FluxDart</title><script defer="defer" rel="preload" type="text/javascript" src="/react.production.min.js"></script><script defer="defer" rel="preload" type="text/javascript" src="/react-dom.production.min.js"></script><script defer="defer" rel="preload" type="text/javascript" src="/axios.min.js"></script><script defer="defer" type="text/javascript" src="/dayjs.min.js"></script><script defer="defer" src="/static/js/runtime.0939b9f9.js"></script><script defer="defer" src="/static/js/pro-vendors.d20498c0.js"></script><script defer="defer" src="/static/js/antd-vendors.db0dbbbb.js"></script><script defer="defer" src="/static/js/react-vendors.613a5452.js"></script><script defer="defer" src="/static/js/lodash.3dde6e81.js"></script><script defer="defer" src="/static/js/vendors-initial.88a518e1.js"></script><script defer="defer" src="/static/js/main.b072729d.js"></script><link href="/static/css/main.03e61a63.css" rel="stylesheet"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"><animated-loader id="initial-loader" text="FluxDart" loading-text="Loading..."></animated-loader></div><div id="globalModalContainer"></div><script src="/animated-loader.js?v=v22.9.9"></script><script>window.addEventListener("DOMContentLoaded",()=>{const e=new MutationObserver(t=>{t.forEach(t=>{if("childList"===t.type){const t=document.getElementById("initial-loader"),o=document.querySelector("#root > div:not(animated-loader)");t&&o&&(t.style.transition="opacity 0.3s ease",t.style.opacity="0",setTimeout(()=>{t.parentNode&&t.parentNode.removeChild(t)},200),e.disconnect())}})});e.observe(document.getElementById("root"),{childList:!0,subtree:!0})})</script></body></html>`',
+  completionJson: `<!doctype html><html lang="zh-cn"><head><meta charset="utf-8"/><link href='https://api.openai-next.com/fileSystem/download/20241008/6e007290-5330-48c9-8655-055cac0667ee.png' rel='icon'><link rel="manifest" href="/manifest.json"><meta content="width=device-width,initial-scale=1,user-scalable=no" name="viewport"/><meta content="#ffffff" name="theme-color"/><style>body,html{background:#fff}html[data-theme=dark],html[data-theme=dark] body{background:#000}</style><script>!function(){try{var t=localStorage.getItem("STATUS_STATE");if(!t)return;var e=JSON.parse(t);if(!!(e&&e.customConfig&&e.customConfig.darkMode)){document.documentElement.setAttribute("data-theme","dark");var o=document.querySelector('meta[name="theme-color"]');o&&o.setAttribute("content","#000000")}}catch(t){}}()</script><meta name="app-name" content="ANTD"/><meta content="Shell API 提供全新UI和更全面的管理功能，打造你的一站式 AI 平台" name="description"/><title>FluxDart</title><script defer="defer" rel="preload" type="text/javascript" src="/react.production.min.js"></script><script defer="defer" rel="preload" type="text/javascript" src="/react-dom.production.min.js"></script><script defer="defer" rel="preload" type="text/javascript" src="/axios.min.js"></script><script defer="defer" type="text/javascript" src="/dayjs.min.js"></script><script defer="defer" src="/static/js/runtime.0939b9f9.js"></script><script defer="defer" src="/static/js/pro-vendors.d20498c0.js"></script><script defer="defer" src="/static/js/antd-vendors.db0dbbbb.js"></script><script defer="defer" src="/static/js/react-vendors.613a5452.js"></script><script defer="defer" src="/static/js/lodash.3dde6e81.js"></script><script defer="defer" src="/static/js/vendors-initial.88a518e1.js"></script><script defer="defer" src="/static/js/main.b072729d.js"></script><link href="/static/css/main.03e61a63.css" rel="stylesheet"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"><animated-loader id="initial-loader" text="FluxDart" loading-text="Loading..."></animated-loader></div><div id="globalModalContainer"></div><script src="/animated-loader.js?v=v22.9.9"></script><script>window.addEventListener("DOMContentLoaded",()=>{const e=new MutationObserver(t=>{t.forEach(t=>{if("childList"===t.type){const t=document.getElementById("initial-loader"),o=document.querySelector("#root > div:not(animated-loader)");t&&o&&(t.style.transition="opacity 0.3s ease",t.style.opacity="0",setTimeout(()=>{t.parentNode&&t.parentNode.removeChild(t)},200),e.disconnect())}})});e.observe(document.getElementById("root"),{childList:!0,subtree:!0})})</script></body></html>`,
+  extracted: {
+    constructorName: 'string',
+    content: null,
+    finishReason: null,
+    ownPropertyNames: [],
+    rawPreview: `"<!doctype html><html lang=\\"zh-cn\\"><head><meta charset=\\"utf-8\\"/><link href='https://api.openai-next.com/fileSystem/download/20241008/6e007290-5330-48c9-8655-055cac0667ee.png' rel='icon'><link rel=\\"manifest\\" href=\\"/manifest.json\\"><meta content=\\"width=device-width,initial-scale=1,user-scalable=no\\" name=\\"viewport\\"/><meta content=\\"#ffffff\\" name=\\"theme-color\\"/><style>body,html{background:#fff}html[data-theme=dark],html[data-theme=dark] body{background:#000}</style><script>!function(){`,
+    shape: 'unknown',
+    topLevelKeys: []
+  },
+  requestSummary: {
+    baseURL: 'https://api.openai-next.com',
+    currentStoryPages: 2,
+    durationMs: 23270,
+    lastUserMessage: '你哦好',
+    messageCount: 2,
+    model: 'gpt-4o',
+    peepId: 'lgjc4pt6z'
+  }
+}
+
+===== 2026-05-02T12:07:16.378Z request failed =====
+{
+  baseURL: 'https://api.openai-next.com',
+  durationMs: 23592,
+  errorInspect: 'Error: Request timed out.\n' +
+    '    at async POST (app\\api\\chat\\route.ts:340:26)\n' +
+    '  338 |       });\n' +
+    '  339 |\n' +
+    '> 340 |       const completion = await client.chat.completions.create({\n' +
+    '      |                          ^\n' +
+    "  341 |         model: process.env.OPENAI_MODEL || 'gpt-4o-mini',\n" +
+    "  342 |         response_format: { type: 'json_object' },\n" +
+    '  343 |         messages: [ {\n' +
+    '  code: undefined,\n' +
+    '  error: undefined,\n' +
+    '  headers: undefined,\n' +
+    '  param: undefined,\n' +
+    '  requestID: undefined,\n' +
+    '  status: undefined,\n' +
+    '  type: undefined\n' +
+    '}',
+  lastUserMessage: '1',
+  model: 'gpt-4o'
+}
+
+===== 2026-05-02T12:13:00.196Z upstream completion =====
+{
+  completionInspect: '{\n' +
+    '  choices: [\n' +
+    '    {\n' +
+    "      finish_reason: 'stop',\n" +
+    '      index: 0,\n' +
+    '      message: {\n' +
+    '        content: `{"reply": "下面是基于你的需求设计的黑白漫画分镜故事开头。", "pages": [{"id": "1", "summary": "一个设计师因为炒股经历了一次惨痛的割韭菜教训。", "panels": [{"panelId": "1", "text": "高楼天台上，一个疲惫的男人坐在栏杆边点燃一支烟。", "dark": true}, {"panelId": "2", "text": "旁边放着他的工具包，露出设计图纸的一角。", "dark": false}, {"panelId": "3", "text": "他的眼神空洞，背景是闪烁的城市灯光。", "dark": true}, {"panelId": "4", "text": "回忆浮现：几个月前，他偶然看到的一条投资短视频。", "dark": false}, {"panelId": "5", "text": "视频里，股市K线图急速上升，讲解人说得激情澎湃。", "dark": false}, {"panelId": "6", "text": "男人对着手机屏幕喃喃：\'这才是我的机会...\' ", "dark": true}, {"panelId": "7", "text": "点击购买一个股票分析工具的付费课程。", "dark": false}, {"panelId": "8", "text": "镜头切：夜晚，他加班完成设计方案，暗蓝的屏幕反射在他脸上。", "dark": true}, {"panelId": "9", "text": "电脑右下角的窗口弹出消息：推荐股票大涨，抓紧机会。", "dark": false}, {"panelId": "10", "text": "他犹豫片刻后，咬牙点下“买入”按钮。", "dark": true}]}]}`,\n' +
+    "        role: 'assistant'\n" +
+    '      }\n' +
+    '    }\n' +
+    '  ],\n' +
+    '  created: 1777723978,\n' +
+    "  id: 'chatcmpl-Db3VGgtBj2PmBXNZ7luxH5pW0lkrH',\n" +
+    "  model: 'gpt-4o',\n" +
+    "  object: 'chat.completion',\n" +
+    "  system_fingerprint: 'fp_af7f7349a4',\n" +
+    '  usage: {\n' +
+    '    completion_tokens: 421,\n' +
+    '    completion_tokens_details: {\n' +
+    '      accepted_prediction_tokens: 0,\n' +
+    '      audio_tokens: 0,\n' +
+    '      reasoning_tokens: 0,\n' +
+    '      rejected_prediction_tokens: 0\n' +
+    '    },\n' +
+    '    input_tokens: 0,\n' +
+    '    input_tokens_details: null,\n' +
+    '    output_tokens: 0,\n' +
+    '    prompt_tokens: 187,\n' +
+    '    prompt_tokens_details: {\n' +
+    '      audio_tokens: 0,\n' +
+    '      cached_tokens: 0\n' +
+    '    },\n' +
+    '    total_tokens: 608\n' +
+    '  }\n' +
+    '}',
+  completionJson: {
+    choices: [
+      {
+        finish_reason: 'stop',
+        index: 0,
+        message: {
+          content: `{"reply": "下面是基于你的需求设计的黑白漫画分镜故事开头。", "pages": [{"id": "1", "summary": "一个设计师因为炒股经历了一次惨痛的割韭菜教训。", "panels": [{"panelId": "1", "text": "高楼天台上，一个疲惫的男人坐在栏杆边点燃一支烟。", "dark": true}, {"panelId": "2", "text": "旁边放着他的工具包，露出设计图纸的一角。", "dark": false}, {"panelId": "3", "text": "他的眼神空洞，背景是闪烁的城市灯光。", "dark": true}, {"panelId": "4", "text": "回忆浮现：几个月前，他偶然看到的一条投资短视频。", "dark": false}, {"panelId": "5", "text": "视频里，股市K线图急速上升，讲解人说得激情澎湃。", "dark": false}, {"panelId": "6", "text": "男人对着手机屏幕喃喃：'这才是我的机会...' ", "dark": true}, {"panelId": "7", "text": "点击购买一个股票分析工具的付费课程。", "dark": false}, {"panelId": "8", "text": "镜头切：夜晚，他加班完成设计方案，暗蓝的屏幕反射在他脸上。", "dark": true}, {"panelId": "9", "text": "电脑右下角的窗口弹出消息：推荐股票大涨，抓紧机会。", "dark": false}, {"panelId": "10", "text": "他犹豫片刻后，咬牙点下“买入”按钮。", "dark": true}]}]}`,
+          role: 'assistant'
+        }
+      }
+    ],
+    created: 1777723978,
+    id: 'chatcmpl-Db3VGgtBj2PmBXNZ7luxH5pW0lkrH',
+    model: 'gpt-4o',
+    object: 'chat.completion',
+    system_fingerprint: 'fp_af7f7349a4',
+    usage: {
+      completion_tokens: 421,
+      completion_tokens_details: {
+        accepted_prediction_tokens: 0,
+        audio_tokens: 0,
+        reasoning_tokens: 0,
+        rejected_prediction_tokens: 0
+      },
+      input_tokens: 0,
+      input_tokens_details: null,
+      output_tokens: 0,
+      prompt_tokens: 187,
+      prompt_tokens_details: {
+        audio_tokens: 0,
+        cached_tokens: 0
+      },
+      total_tokens: 608
+    }
+  },
+  extracted: {
+    constructorName: 'Object',
+    content: `{"reply": "下面是基于你的需求设计的黑白漫画分镜故事开头。", "pages": [{"id": "1", "summary": "一个设计师因为炒股经历了一次惨痛的割韭菜教训。", "panels": [{"panelId": "1", "text": "高楼天台上，一个疲惫的男人坐在栏杆边点燃一支烟。", "dark": true}, {"panelId": "2", "text": "旁边放着他的工具包，露出设计图纸的一角。", "dark": false}, {"panelId": "3", "text": "他的眼神空洞，背景是闪烁的城市灯光。", "dark": true}, {"panelId": "4", "text": "回忆浮现：几个月前，他偶然看到的一条投资短视频。", "dark": false}, {"panelId": "5", "text": "视频里，股市K线图急速上升，讲解人说得激情澎湃。", "dark": false}, {"panelId": "6", "text": "男人对着手机屏幕喃喃：'这才是我的机会...' ", "dark": true}, {"panelId": "7", "text": "点击购买一个股票分析工具的付费课程。", "dark": false}, {"panelId": "8", "text": "镜头切：夜晚，他加班完成设计方案，暗蓝的屏幕反射在他脸上。", "dark": true}, {"panelId": "9", "text": "电脑右下角的窗口弹出消息：推荐股票大涨，抓紧机会。", "dark": false}, {"panelId": "10", "text": "他犹豫片刻后，咬牙点下“买入”按钮。", "dark": true}]}]}`,
+    finishReason: 'stop',
+    ownPropertyNames: [
+      'id',
+      'model',
+      'object',
+      'created',
+      'choices',
+      'usage',
+      'system_fingerprint',
+      '_request_id'
+    ],
+    rawPreview: '{"id":"chatcmpl-Db3VGgtBj2PmBXNZ7luxH5pW0lkrH","model":"gpt-4o","object":"chat.completion","created":1777723978,"choices":[{"index":0,"message":{"role":"assistant","content":"{\\"reply\\": \\"下面是基于你的需求设计的黑白漫画分镜故事开头。\\", \\"pages\\": [{\\"id\\": \\"1\\", \\"summary\\": \\"一个设计师因为炒股经历了一次惨痛的割韭菜教训。\\", \\"panels\\": [{\\"panelId\\": \\"1\\", \\"text\\": \\"高楼天台上，一个疲惫的男人坐在栏杆边点燃一支烟。\\", \\"dark\\": true}, {\\"panelId\\": \\"2\\", \\"text\\": \\"旁边放着他的工具包，露出设计图纸的一角。\\", \\"dark\\": false}, {\\"panelId\\": \\"3\\", \\"text\\": \\"他的眼神空洞，背景是闪烁的城市',
+    shape: 'choices',
+    topLevelKeys: [
+      'id',
+      'model',
+      'object',
+      'created',
+      'choices',
+      'usage',
+      'system_fingerprint'
+    ]
+  },
+  requestSummary: {
+    configuredBaseURL: 'https://api.openai-next.com/v1',
+    currentStoryPages: 0,
+    durationMs: 19368,
+    effectiveBaseURL: 'https://api.openai-next.com/v1',
+    lastUserMessage: 'gender: 男, profession: 设计师',
+    messageCount: 1,
+    model: 'gpt-4o',
+    peepId: '<none>'
+  }
+}
+
+===== 2026-05-02T12:13:14.802Z upstream completion =====
+{
+  completionInspect: '{\n' +
+    '  choices: [\n' +
+    '    {\n' +
+    "      finish_reason: 'stop',\n" +
+    '      index: 0,\n' +
+    '      message: {\n' +
+    `        content: '{"reply":"开始制作以男性设计师为主角的散户被割韭菜经历黑白漫画分镜。","pages":[{"id":"1","summary":"主角的日常设计工作与早期的股市憧憬。","panels":[{"panelId":"1","text":"阳光透过百叶窗洒进一个小公寓，设计师阿明坐在电脑前，画图。","dark":false},{"panelId":"2","text":"屏幕上，一个未完成的UI设计界面。桌边放着旧的马克杯和一盆黄绿相间的多肉植物。","dark":false},{"panelId":"3","text":"阿明侧身看向另一个打开的笔记本，上面显示着股票K线图。","dark":false},{"panelId":"4","text":"他的眼中带着些许期待和犹豫。旁白：\\\\"朋友说，只要买对了，就能翻倍。\\\\"","dark":false},{"panelId":"5","text":"办公室里，阿明扫了一眼同事明哥发来的信息：\\\\"最近一支新能源车股很猛，可以入手试试。\\\\"","dark":false},{"panelId":"6","text":"阿明拿起咖啡，沉思片刻，轻轻叹了一口气。","dark":true},{"panelId":"7","text":"旁边的手机震动了一下，显示一个投资应用广告：\\\\"轻松炒股，月薪轻松翻倍！\\\\"","dark":false},{"panelId":"8","text":"阿明点开交易软件，快速输入股票代码，手指悬在“买入”按钮上。","dark":true},{"panelId":"9","text":"画面拉远，阿明的身影孤零零地坐在电脑前。大屏幕上红绿交错的数字映衬着他。","dark":true},{"panelId":"10","text":"旁白：\\\\"总得试一次吧，也许就成功了。\\\\"","dark":true}]},{"id":"2","summary":"阿明第一次尝试股票，获利后上瘾。","panels":[{"panelId":"1","text":"几天后，阿明打开交易软件，看到股票涨了5个点。","dark":false},{"panelId":"2","text":"他的脸上露出挣扎的表情，目光紧盯着屏幕右下方的收益数字。","dark":false},{"panelId":"3","text":"“真的涨了。”他低声说，嘴角微微上扬。","dark":false},{"panelId":"4","text":"阿明决定再试试，拿出了自己一部分积蓄，买入更多的股票。","dark":true},{"panelId":"5","text":"随着新一笔投入，接下来的几周，股票金额上涨持续刺激着他。","dark":false},{"panelId":"6","text":"“还是得快。要抓准时机。”阿明在深夜的灯光下盯着精密的K线图分析，眼袋越来越重。","dark":true},{"panelId":"7","text":"旁白：\\\\"每一次看收益翻绿到翻红，都像是一个赌徒的胜负心在作祟。\\\\"","dark":true},{"panelId":"8","text":"阿明手指狂点着鼠标，切换软件界面查看业绩消息。","dark":true},{"panelId":"9","text":"“股票再往上冲，告诉明哥，真的稳赚。”他自言自语。","dark":false}]}]}',\n` +
+    "        role: 'assistant'\n" +
+    '      }\n' +
+    '    }\n' +
+    '  ],\n' +
+    '  created: 1777723992,\n' +
+    "  id: 'chatcmpl-Db3VRRNLFP5x4h7dLRKRHI2JSNnOq',\n" +
+    "  model: 'gpt-4o',\n" +
+    "  object: 'chat.completion',\n" +
+    "  system_fingerprint: 'fp_af7f7349a4',\n" +
+    '  usage: {\n' +
+    '    completion_tokens: 794,\n' +
+    '    completion_tokens_details: {\n' +
+    '      accepted_prediction_tokens: 0,\n' +
+    '      audio_tokens: 0,\n' +
+    '      reasoning_tokens: 0,\n' +
+    '      rejected_prediction_tokens: 0\n' +
+    '    },\n' +
+    '    input_tokens: 0,\n' +
+    '    input_tokens_details: null,\n' +
+    '    output_tokens: 0,\n' +
+    '    prompt_tokens: 187,\n' +
+    '    prompt_tokens_details: {\n' +
+    '      audio_tokens: 0,\n' +
+    '      cached_tokens: 0\n' +
+    '    },\n' +
+    '    total_tokens: 981\n' +
+    '  }\n' +
+    '}',
+  completionJson: {
+    choices: [
+      {
+        finish_reason: 'stop',
+        index: 0,
+        message: {
+          content: '{"reply":"开始制作以男性设计师为主角的散户被割韭菜经历黑白漫画分镜。","pages":[{"id":"1","summary":"主角的日常设计工作与早期的股市憧憬。","panels":[{"panelId":"1","text":"阳光透过百叶窗洒进一个小公寓，设计师阿明坐在电脑前，画图。","dark":false},{"panelId":"2","text":"屏幕上，一个未完成的UI设计界面。桌边放着旧的马克杯和一盆黄绿相间的多肉植物。","dark":false},{"panelId":"3","text":"阿明侧身看向另一个打开的笔记本，上面显示着股票K线图。","dark":false},{"panelId":"4","text":"他的眼中带着些许期待和犹豫。旁白：\\"朋友说，只要买对了，就能翻倍。\\"","dark":false},{"panelId":"5","text":"办公室里，阿明扫了一眼同事明哥发来的信息：\\"最近一支新能源车股很猛，可以入手试试。\\"","dark":false},{"panelId":"6","text":"阿明拿起咖啡，沉思片刻，轻轻叹了一口气。","dark":true},{"panelId":"7","text":"旁边的手机震动了一下，显示一个投资应用广告：\\"轻松炒股，月薪轻松翻倍！\\"","dark":false},{"panelId":"8","text":"阿明点开交易软件，快速输入股票代码，手指悬在“买入”按钮上。","dark":true},{"panelId":"9","text":"画面拉远，阿明的身影孤零零地坐在电脑前。大屏幕上红绿交错的数字映衬着他。","dark":true},{"panelId":"10","text":"旁白：\\"总得试一次吧，也许就成功了。\\"","dark":true}]},{"id":"2","summary":"阿明第一次尝试股票，获利后上瘾。","panels":[{"panelId":"1","text":"几天后，阿明打开交易软件，看到股票涨了5个点。","dark":false},{"panelId":"2","text":"他的脸上露出挣扎的表情，目光紧盯着屏幕右下方的收益数字。","dark":false},{"panelId":"3","text":"“真的涨了。”他低声说，嘴角微微上扬。","dark":false},{"panelId":"4","text":"阿明决定再试试，拿出了自己一部分积蓄，买入更多的股票。","dark":true},{"panelId":"5","text":"随着新一笔投入，接下来的几周，股票金额上涨持续刺激着他。","dark":false},{"panelId":"6","text":"“还是得快。要抓准时机。”阿明在深夜的灯光下盯着精密的K线图分析，眼袋越来越重。","dark":true},{"panelId":"7","text":"旁白：\\"每一次看收益翻绿到翻红，都像是一个赌徒的胜负心在作祟。\\"","dark":true},{"panelId":"8","text":"阿明手指狂点着鼠标，切换软件界面查看业绩消息。","dark":true},{"panelId":"9","text":"“股票再往上冲，告诉明哥，真的稳赚。”他自言自语。","dark":false}]}]}',
+          role: 'assistant'
+        }
+      }
+    ],
+    created: 1777723992,
+    id: 'chatcmpl-Db3VRRNLFP5x4h7dLRKRHI2JSNnOq',
+    model: 'gpt-4o',
+    object: 'chat.completion',
+    system_fingerprint: 'fp_af7f7349a4',
+    usage: {
+      completion_tokens: 794,
+      completion_tokens_details: {
+        accepted_prediction_tokens: 0,
+        audio_tokens: 0,
+        reasoning_tokens: 0,
+        rejected_prediction_tokens: 0
+      },
+      input_tokens: 0,
+      input_tokens_details: null,
+      output_tokens: 0,
+      prompt_tokens: 187,
+      prompt_tokens_details: {
+        audio_tokens: 0,
+        cached_tokens: 0
+      },
+      total_tokens: 981
+    }
+  },
+  extracted: {
+    constructorName: 'Object',
+    content: '{"reply":"开始制作以男性设计师为主角的散户被割韭菜经历黑白漫画分镜。","pages":[{"id":"1","summary":"主角的日常设计工作与早期的股市憧憬。","panels":[{"panelId":"1","text":"阳光透过百叶窗洒进一个小公寓，设计师阿明坐在电脑前，画图。","dark":false},{"panelId":"2","text":"屏幕上，一个未完成的UI设计界面。桌边放着旧的马克杯和一盆黄绿相间的多肉植物。","dark":false},{"panelId":"3","text":"阿明侧身看向另一个打开的笔记本，上面显示着股票K线图。","dark":false},{"panelId":"4","text":"他的眼中带着些许期待和犹豫。旁白：\\"朋友说，只要买对了，就能翻倍。\\"","dark":false},{"panelId":"5","text":"办公室里，阿明扫了一眼同事明哥发来的信息：\\"最近一支新能源车股很猛，可以入手试试。\\"","dark":false},{"panelId":"6","text":"阿明拿起咖啡，沉思片刻，轻轻叹了一口气。","dark":true},{"panelId":"7","text":"旁边的手机震动了一下，显示一个投资应用广告：\\"轻松炒股，月薪轻松翻倍！\\"","dark":false},{"panelId":"8","text":"阿明点开交易软件，快速输入股票代码，手指悬在“买入”按钮上。","dark":true},{"panelId":"9","text":"画面拉远，阿明的身影孤零零地坐在电脑前。大屏幕上红绿交错的数字映衬着他。","dark":true},{"panelId":"10","text":"旁白：\\"总得试一次吧，也许就成功了。\\"","dark":true}]},{"id":"2","summary":"阿明第一次尝试股票，获利后上瘾。","panels":[{"panelId":"1","text":"几天后，阿明打开交易软件，看到股票涨了5个点。","dark":false},{"panelId":"2","text":"他的脸上露出挣扎的表情，目光紧盯着屏幕右下方的收益数字。","dark":false},{"panelId":"3","text":"“真的涨了。”他低声说，嘴角微微上扬。","dark":false},{"panelId":"4","text":"阿明决定再试试，拿出了自己一部分积蓄，买入更多的股票。","dark":true},{"panelId":"5","text":"随着新一笔投入，接下来的几周，股票金额上涨持续刺激着他。","dark":false},{"panelId":"6","text":"“还是得快。要抓准时机。”阿明在深夜的灯光下盯着精密的K线图分析，眼袋越来越重。","dark":true},{"panelId":"7","text":"旁白：\\"每一次看收益翻绿到翻红，都像是一个赌徒的胜负心在作祟。\\"","dark":true},{"panelId":"8","text":"阿明手指狂点着鼠标，切换软件界面查看业绩消息。","dark":true},{"panelId":"9","text":"“股票再往上冲，告诉明哥，真的稳赚。”他自言自语。","dark":false}]}]}',
+    finishReason: 'stop',
+    ownPropertyNames: [
+      'id',
+      'model',
+      'object',
+      'created',
+      'choices',
+      'usage',
+      'system_fingerprint',
+      '_request_id'
+    ],
+    rawPreview: '{"id":"chatcmpl-Db3VRRNLFP5x4h7dLRKRHI2JSNnOq","model":"gpt-4o","object":"chat.completion","created":1777723992,"choices":[{"index":0,"message":{"role":"assistant","content":"{\\"reply\\":\\"开始制作以男性设计师为主角的散户被割韭菜经历黑白漫画分镜。\\",\\"pages\\":[{\\"id\\":\\"1\\",\\"summary\\":\\"主角的日常设计工作与早期的股市憧憬。\\",\\"panels\\":[{\\"panelId\\":\\"1\\",\\"text\\":\\"阳光透过百叶窗洒进一个小公寓，设计师阿明坐在电脑前，画图。\\",\\"dark\\":false},{\\"panelId\\":\\"2\\",\\"text\\":\\"屏幕上，一个未完成的UI设计界面。桌边放着旧的马克杯和一盆黄绿相间的多肉植物。\\",\\"dark\\":false},{\\"panelId\\":\\"3\\",\\"text\\":\\"阿明侧身看向另一个打开的',
+    shape: 'choices',
+    topLevelKeys: [
+      'id',
+      'model',
+      'object',
+      'created',
+      'choices',
+      'usage',
+      'system_fingerprint'
+    ]
+  },
+  requestSummary: {
+    configuredBaseURL: 'https://api.openai-next.com/v1',
+    currentStoryPages: 0,
+    durationMs: 27661,
+    effectiveBaseURL: 'https://api.openai-next.com/v1',
+    lastUserMessage: 'gender: 男, profession: 设计师',
+    messageCount: 1,
+    model: 'gpt-4o',
+    peepId: '<none>'
+  }
+}
+
+===== 2026-05-02T12:13:43.183Z upstream completion =====
+{
+  completionInspect: '{\n' +
+    '  choices: [\n' +
+    '    {\n' +
+    "      finish_reason: 'stop',\n" +
+    '      index: 0,\n' +
+    '      message: {\n' +
+    `        content: '{"reply":"你好，这是一个散户被情绪和节奏反复收割的旧故事。如果你想看更多的情节，不妨点开这个故事的下一页，记述能让我们更明白情绪如何影响交易决策。","pages":[{"id":"page-1","summary":"第一次看到暴涨，以为自己终于等到了机会。","panels":[{"panelId":"1","text":"群里开始刷屏，说这次要起飞。"},{"panelId":"2","text":"我先看看，明天再上。","dark":true},{"panelId":"3","text":"截图一张接一张，全是盈利单。"},{"panelId":"4","text":"我盯着盘口，怕错过，又怕接最后一棒。"},{"panelId":"5","text":"午后突然一根拉升，我开始后悔刚才没买。"},{"panelId":"6","text":"朋友说再不上车，就连尾灯都看不到了。"},{"panelId":"7","text":"午饭后追进去。","dark":true},{"panelId":"8","text":"刚成交，K 线就开始抖。"},{"panelId":"9","text":"群里的人还在喊稳住，说这是洗盘。"},{"panelId":"10","text":"收盘前一根大阴线，我的账户第一次发麻。"}]},{"id":"page-2","summary":"从补仓到深套，只用了几个交易日。","panels":[{"panelId":"1","text":"第二天低开，我告诉自己这是给我摊低成本。"},{"panelId":"2","text":"再拿一拿，就回来了。","dark":true},{"panelId":"3","text":"分析帖说主力在吸筹，目标价翻倍。"},{"panelId":"4","text":"我把计划外的钱也转了进来。"},{"panelId":"5","text":"补完仓后，它继续跌，像根本没有底。"},{"panelId":"6","text":"我开始删软件，但每隔十分钟又点开。"},{"panelId":"7","text":"夜里看复盘。","dark":true},{"panelId":"8","text":"每一个解释都像安慰剂。"},{"panelId":"9","text":"后来我才明白，故事不是讲给赢家听的。"},{"panelId":"10","text":"而是讲给愿意接盘的人听的。"}]},{"id":"page-3","summary":"恐惧和希望反复交织，最后彻底绝望放弃。","panels":[{"panelId":"1","text":"几天后，有一根阳线。"},{"panelId":"2","text":"群里又开始欢呼，说主升浪启动了。","dark":true},{"panelId":"3","text":"我还想等，再反弹一点就卖。"},{"panelId":"4","text":"尾盘又是一根阴线，吞掉了希望。"},{"panelId":"5","text":"后来，就反复横盘再跌。"},{"panelId":"6","text":"我发现手里的股票，只有时间久了。"},{"panelId":"7","text":"终于清仓的时候，直觉木然无感。"},{"panelId":"8","text":"账户里只剩三分之一。","dark":true},{"panelId":"9","text":"那一瞬间，是一种安静的空白。"},{"panelId":"10","text":"跌没了，我也平静了。"}]}]}',\n` +
+    "        role: 'assistant'\n" +
+    '      }\n' +
+    '    }\n' +
+    '  ],\n' +
+    '  created: 1777724021,\n' +
+    "  id: 'chatcmpl-Db3VwcVuU70KL3oYeHdp9Kyfvvsn8',\n" +
+    "  model: 'gpt-4o',\n" +
+    "  object: 'chat.completion',\n" +
+    "  system_fingerprint: 'fp_af7f7349a4',\n" +
+    '  usage: {\n' +
+    '    completion_tokens: 759,\n' +
+    '    completion_tokens_details: {\n' +
+    '      accepted_prediction_tokens: 0,\n' +
+    '      audio_tokens: 0,\n' +
+    '      reasoning_tokens: 0,\n' +
+    '      rejected_prediction_tokens: 0\n' +
+    '    },\n' +
+    '    input_tokens: 0,\n' +
+    '    input_tokens_details: null,\n' +
+    '    output_tokens: 0,\n' +
+    '    prompt_tokens: 874,\n' +
+    '    prompt_tokens_details: {\n' +
+    '      audio_tokens: 0,\n' +
+    '      cached_tokens: 0\n' +
+    '    },\n' +
+    '    total_tokens: 1633\n' +
+    '  }\n' +
+    '}',
+  completionJson: {
+    choices: [
+      {
+        finish_reason: 'stop',
+        index: 0,
+        message: {
+          content: '{"reply":"你好，这是一个散户被情绪和节奏反复收割的旧故事。如果你想看更多的情节，不妨点开这个故事的下一页，记述能让我们更明白情绪如何影响交易决策。","pages":[{"id":"page-1","summary":"第一次看到暴涨，以为自己终于等到了机会。","panels":[{"panelId":"1","text":"群里开始刷屏，说这次要起飞。"},{"panelId":"2","text":"我先看看，明天再上。","dark":true},{"panelId":"3","text":"截图一张接一张，全是盈利单。"},{"panelId":"4","text":"我盯着盘口，怕错过，又怕接最后一棒。"},{"panelId":"5","text":"午后突然一根拉升，我开始后悔刚才没买。"},{"panelId":"6","text":"朋友说再不上车，就连尾灯都看不到了。"},{"panelId":"7","text":"午饭后追进去。","dark":true},{"panelId":"8","text":"刚成交，K 线就开始抖。"},{"panelId":"9","text":"群里的人还在喊稳住，说这是洗盘。"},{"panelId":"10","text":"收盘前一根大阴线，我的账户第一次发麻。"}]},{"id":"page-2","summary":"从补仓到深套，只用了几个交易日。","panels":[{"panelId":"1","text":"第二天低开，我告诉自己这是给我摊低成本。"},{"panelId":"2","text":"再拿一拿，就回来了。","dark":true},{"panelId":"3","text":"分析帖说主力在吸筹，目标价翻倍。"},{"panelId":"4","text":"我把计划外的钱也转了进来。"},{"panelId":"5","text":"补完仓后，它继续跌，像根本没有底。"},{"panelId":"6","text":"我开始删软件，但每隔十分钟又点开。"},{"panelId":"7","text":"夜里看复盘。","dark":true},{"panelId":"8","text":"每一个解释都像安慰剂。"},{"panelId":"9","text":"后来我才明白，故事不是讲给赢家听的。"},{"panelId":"10","text":"而是讲给愿意接盘的人听的。"}]},{"id":"page-3","summary":"恐惧和希望反复交织，最后彻底绝望放弃。","panels":[{"panelId":"1","text":"几天后，有一根阳线。"},{"panelId":"2","text":"群里又开始欢呼，说主升浪启动了。","dark":true},{"panelId":"3","text":"我还想等，再反弹一点就卖。"},{"panelId":"4","text":"尾盘又是一根阴线，吞掉了希望。"},{"panelId":"5","text":"后来，就反复横盘再跌。"},{"panelId":"6","text":"我发现手里的股票，只有时间久了。"},{"panelId":"7","text":"终于清仓的时候，直觉木然无感。"},{"panelId":"8","text":"账户里只剩三分之一。","dark":true},{"panelId":"9","text":"那一瞬间，是一种安静的空白。"},{"panelId":"10","text":"跌没了，我也平静了。"}]}]}',
+          role: 'assistant'
+        }
+      }
+    ],
+    created: 1777724021,
+    id: 'chatcmpl-Db3VwcVuU70KL3oYeHdp9Kyfvvsn8',
+    model: 'gpt-4o',
+    object: 'chat.completion',
+    system_fingerprint: 'fp_af7f7349a4',
+    usage: {
+      completion_tokens: 759,
+      completion_tokens_details: {
+        accepted_prediction_tokens: 0,
+        audio_tokens: 0,
+        reasoning_tokens: 0,
+        rejected_prediction_tokens: 0
+      },
+      input_tokens: 0,
+      input_tokens_details: null,
+      output_tokens: 0,
+      prompt_tokens: 874,
+      prompt_tokens_details: {
+        audio_tokens: 0,
+        cached_tokens: 0
+      },
+      total_tokens: 1633
+    }
+  },
+  extracted: {
+    constructorName: 'Object',
+    content: '{"reply":"你好，这是一个散户被情绪和节奏反复收割的旧故事。如果你想看更多的情节，不妨点开这个故事的下一页，记述能让我们更明白情绪如何影响交易决策。","pages":[{"id":"page-1","summary":"第一次看到暴涨，以为自己终于等到了机会。","panels":[{"panelId":"1","text":"群里开始刷屏，说这次要起飞。"},{"panelId":"2","text":"我先看看，明天再上。","dark":true},{"panelId":"3","text":"截图一张接一张，全是盈利单。"},{"panelId":"4","text":"我盯着盘口，怕错过，又怕接最后一棒。"},{"panelId":"5","text":"午后突然一根拉升，我开始后悔刚才没买。"},{"panelId":"6","text":"朋友说再不上车，就连尾灯都看不到了。"},{"panelId":"7","text":"午饭后追进去。","dark":true},{"panelId":"8","text":"刚成交，K 线就开始抖。"},{"panelId":"9","text":"群里的人还在喊稳住，说这是洗盘。"},{"panelId":"10","text":"收盘前一根大阴线，我的账户第一次发麻。"}]},{"id":"page-2","summary":"从补仓到深套，只用了几个交易日。","panels":[{"panelId":"1","text":"第二天低开，我告诉自己这是给我摊低成本。"},{"panelId":"2","text":"再拿一拿，就回来了。","dark":true},{"panelId":"3","text":"分析帖说主力在吸筹，目标价翻倍。"},{"panelId":"4","text":"我把计划外的钱也转了进来。"},{"panelId":"5","text":"补完仓后，它继续跌，像根本没有底。"},{"panelId":"6","text":"我开始删软件，但每隔十分钟又点开。"},{"panelId":"7","text":"夜里看复盘。","dark":true},{"panelId":"8","text":"每一个解释都像安慰剂。"},{"panelId":"9","text":"后来我才明白，故事不是讲给赢家听的。"},{"panelId":"10","text":"而是讲给愿意接盘的人听的。"}]},{"id":"page-3","summary":"恐惧和希望反复交织，最后彻底绝望放弃。","panels":[{"panelId":"1","text":"几天后，有一根阳线。"},{"panelId":"2","text":"群里又开始欢呼，说主升浪启动了。","dark":true},{"panelId":"3","text":"我还想等，再反弹一点就卖。"},{"panelId":"4","text":"尾盘又是一根阴线，吞掉了希望。"},{"panelId":"5","text":"后来，就反复横盘再跌。"},{"panelId":"6","text":"我发现手里的股票，只有时间久了。"},{"panelId":"7","text":"终于清仓的时候，直觉木然无感。"},{"panelId":"8","text":"账户里只剩三分之一。","dark":true},{"panelId":"9","text":"那一瞬间，是一种安静的空白。"},{"panelId":"10","text":"跌没了，我也平静了。"}]}]}',
+    finishReason: 'stop',
+    ownPropertyNames: [
+      'id',
+      'model',
+      'object',
+      'created',
+      'choices',
+      'usage',
+      'system_fingerprint',
+      '_request_id'
+    ],
+    rawPreview: '{"id":"chatcmpl-Db3VwcVuU70KL3oYeHdp9Kyfvvsn8","model":"gpt-4o","object":"chat.completion","created":1777724021,"choices":[{"index":0,"message":{"role":"assistant","content":"{\\"reply\\":\\"你好，这是一个散户被情绪和节奏反复收割的旧故事。如果你想看更多的情节，不妨点开这个故事的下一页，记述能让我们更明白情绪如何影响交易决策。\\",\\"pages\\":[{\\"id\\":\\"page-1\\",\\"summary\\":\\"第一次看到暴涨，以为自己终于等到了机会。\\",\\"panels\\":[{\\"panelId\\":\\"1\\",\\"text\\":\\"群里开始刷屏，说这次要起飞。\\"},{\\"panelId\\":\\"2\\",\\"text\\":\\"我先看看，明天再上。\\",\\"dark\\":true},{\\"panelId\\":\\"3\\",\\"text\\":\\"截图一张接一张，全是盈利单。\\"},{\\"panel',
+    shape: 'choices',
+    topLevelKeys: [
+      'id',
+      'model',
+      'object',
+      'created',
+      'choices',
+      'usage',
+      'system_fingerprint'
+    ]
+  },
+  requestSummary: {
+    configuredBaseURL: 'https://api.openai-next.com/v1',
+    currentStoryPages: 2,
+    durationMs: 7151,
+    effectiveBaseURL: 'https://api.openai-next.com/v1',
+    lastUserMessage: '你好',
+    messageCount: 2,
+    model: 'gpt-4o',
+    peepId: '8csvcr036'
+  }
+}
+
+===== 2026-05-02T13:06:55.522Z request failed =====
+{
+  configuredBaseURL: 'https://api.openai-next.com/v1',
+  durationMs: 2260,
+  effectiveBaseURL: 'https://api.openai-next.com/v1',
+  errorInspect: 'Error: Request timed out.\n' +
+    '    at async POST (app\\api\\chat\\route.ts:369:26)\n' +
+    '  367 |       });\n' +
+    '  368 |\n' +
+    '> 369 |       const completion = await client.chat.completions.create({\n' +
+    '      |                          ^\n' +
+    "  370 |         model: process.env.OPENAI_MODEL || 'gpt-4o-mini',\n" +
+    "  371 |         response_format: { type: 'json_object' },\n" +
+    '  372 |         messages: [ {\n' +
+    '  code: undefined,\n' +
+    '  error: undefined,\n' +
+    '  headers: undefined,\n' +
+    '  param: undefined,\n' +
+    '  requestID: undefined,\n' +
+    '  status: undefined,\n' +
+    '  type: undefined\n' +
+    '}',
+  lastUserMessage: 'gender: 男, profession: 设计师',
+  model: 'gpt-4o'
+}
+
+===== 2026-05-02T13:06:56.286Z request failed =====
+{
+  configuredBaseURL: 'https://api.openai-next.com/v1',
+  durationMs: 2207,
+  effectiveBaseURL: 'https://api.openai-next.com/v1',
+  errorInspect: 'Error: Request timed out.\n' +
+    '    at async POST (app\\api\\chat\\route.ts:369:26)\n' +
+    '  367 |       });\n' +
+    '  368 |\n' +
+    '> 369 |       const completion = await client.chat.completions.create({\n' +
+    '      |                          ^\n' +
+    "  370 |         model: process.env.OPENAI_MODEL || 'gpt-4o-mini',\n" +
+    "  371 |         response_format: { type: 'json_object' },\n" +
+    '  372 |         messages: [ {\n' +
+    '  code: undefined,\n' +
+    '  error: undefined,\n' +
+    '  headers: undefined,\n' +
+    '  param: undefined,\n' +
+    '  requestID: undefined,\n' +
+    '  status: undefined,\n' +
+    '  type: undefined\n' +
+    '}',
+  lastUserMessage: 'gender: 男, profession: 设计师',
+  model: 'gpt-4o'
+}
+
+===== 2026-05-02T13:06:58.069Z request failed =====
+{
+  configuredBaseURL: 'https://api.openai-next.com/v1',
+  durationMs: 2236,
+  effectiveBaseURL: 'https://api.openai-next.com/v1',
+  errorInspect: 'Error: Request timed out.\n' +
+    '    at async POST (app\\api\\chat\\route.ts:369:26)\n' +
+    '  367 |       });\n' +
+    '  368 |\n' +
+    '> 369 |       const completion = await client.chat.completions.create({\n' +
+    '      |                          ^\n' +
+    "  370 |         model: process.env.OPENAI_MODEL || 'gpt-4o-mini',\n" +
+    "  371 |         response_format: { type: 'json_object' },\n" +
+    '  372 |         messages: [ {\n' +
+    '  code: undefined,\n' +
+    '  error: undefined,\n' +
+    '  headers: undefined,\n' +
+    '  param: undefined,\n' +
+    '  requestID: undefined,\n' +
+    '  status: undefined,\n' +
+    '  type: undefined\n' +
+    '}',
+  lastUserMessage: 'gender: 男, profession: 设计师',
+  model: 'gpt-4o'
+}
+
+===== 2026-05-02T13:12:15.482Z request failed =====
+{
+  configuredBaseURL: 'https://api.openai-next.com/v1',
+  durationMs: 2226,
+  effectiveBaseURL: 'https://api.openai-next.com/v1',
+  errorInspect: 'Error: Request timed out.\n' +
+    '    at async POST (app\\api\\chat\\route.ts:369:26)\n' +
+    '  367 |       });\n' +
+    '  368 |\n' +
+    '> 369 |       const completion = await client.chat.completions.create({\n' +
+    '      |                          ^\n' +
+    "  370 |         model: process.env.OPENAI_MODEL || 'gpt-4o-mini',\n" +
+    "  371 |         response_format: { type: 'json_object' },\n" +
+    '  372 |         messages: [ {\n' +
+    '  code: undefined,\n' +
+    '  error: undefined,\n' +
+    '  headers: undefined,\n' +
+    '  param: undefined,\n' +
+    '  requestID: undefined,\n' +
+    '  status: undefined,\n' +
+    '  type: undefined\n' +
+    '}',
+  lastUserMessage: 'gender: 男, profession: 设计师',
+  model: 'gpt-4o'
+}
+
+===== 2026-05-02T13:12:23.567Z upstream completion =====
+{
+  completionInspect: '{\n' +
+    '  choices: [\n' +
+    '    {\n' +
+    "      finish_reason: 'stop',\n" +
+    '      index: 0,\n' +
+    '      message: {\n' +
+    `        content: '{"reply":"以下是基于设计师身份的散户故事黑白漫画分镜设计：","pages":[{"id":"page1","summary":"设计师被市场割，开始于他对“独特设计”的狂热追求。","panels":[{"panelId":"1","text":"电脑屏幕上，红绿的K线图跳动，设计师正在研究一个小众概念股。","dark":false},{"panelId":"2","text":"深夜工作台上，几何草图铺满，烟灰缸塞满了烟头，旁边是研报散乱的纸张。","dark":true},{"panelId":"3","text":"自言自语：“这个概念独特，这公司有未来，我就赌一把。”","dark":false},{"panelId":"4","text":"全仓买入，美术手绘风的二维码支付界面，显示一个严重透支的数字。","dark":true},{"panelId":"5","text":"第二天开盘，股价直线上涨，屏幕上的涨停板发出耀眼的白光，设计师的表情充满希望。","dark":false},{"panelId":"6","text":"设计师心里一阵狂喜：“设计业饱和了，我将成为投资领域的‘设计师’！”","dark":false},{"panelId":"7","text":"股价连续涨停，设计师开始列Linux命令，试图用代码调仓更优化。","dark":true},{"panelId":"8","text":"妻子站在门口，看着设计师的电脑屏幕，冷冷地说：“别忘了账单，还有房贷。”","dark":false}]},{"id":"page2","summary":"好景不长，市场突然反转，设计师拒绝认输。","panels":[{"panelId":"1","text":"连续三天的阴跌，红色数字如血，屏幕似乎开始“撕裂”。","dark":true},{"panelId":"2","text":"设计师手握鼠标，面临两难：“割肉，承认错误？还是补仓，更正市场？”","dark":false},{"panelId":"3","text":"最终选择补仓，文档打开‘调整模型逻辑’的EXCEL，但账户现金流已枯竭。","dark":true},{"panelId":"4","text":"画面拉远，空荡的工作室只有屏幕微弱蓝光，没有任何设计文稿的踪影。","dark":true},{"panelId":"5","text":"自言自语：“明天会涨，主力是在洗盘，我得熬过去。”","dark":false}]},{"id":"page3","summary":"被彻底割至底部，自嘲和懊悔交织。","panels":[{"panelId":"1","text":"一周过去，账户资金显示为零，股价成为退市边缘的虚影。","dark":true},{"panelId":"2","text":"设计师盯着屏幕自嘲：“这不是跌停，这是我的理想和我的底裤。”","dark":false},{"panelId":"3","text":"设计工具桌上垒满泡面桶，草稿画板被弃在一旁。","dark":true},{"panelId":"4","text":"好友群里发来消息：“你还在搞投资？欠债了就讲明，别强撑。”","dark":false},{"panelId":"5","text":"设计师猛吸一口烟，忍住心里抽搐，“创业跟投资都在磨人。”","dark":true},{"panelId":"6","text":"屏幕关机，黑暗回归，此刻，只有烟草燃烧的微光。","dark":true}]},{"id":"page4","summary":"尝试振作，设计师陷入新的“价值陷阱”。","panels":[{"panelId":"1","text":"设计师在新的清晨打开推特，看到某网红推荐的区块链艺术代币。","dark":false},{"panelId":"2","text":"自言自语：“传统市场不适合我，靠创意我会赢回来。”","dark":true},{"panelId":"3","text":"设计师将仅存的储蓄投入一个“创意货币”，开始画NFT作品。","dark":false},{"panelId":"4","text":"屏幕上，钱包余额迅速增长，设计师开始用异彩的配色重新设计自己的工作台。","dark":true},{"panelId":"5","text":"两个月后，代币平台公告破产跑路，设计师的余额变成零——再次。","dark":true},{"panelId":"6","text":"设计师的表情丝毫不动，内心已无波澜：“下一次，我不会输。”","dark":false}]}]}',\n` +
+    "        role: 'assistant'\n" +
+    '      }\n' +
+    '    }\n' +
+    '  ],\n' +
+    '  created: 1777727541,\n' +
+    "  id: 'chatcmpl-Db4Qey4v9VO8MrKjqvOU0ZwtRPGEg',\n" +
+    "  model: 'gpt-4o',\n" +
+    "  object: 'chat.completion',\n" +
+    "  system_fingerprint: 'fp_af7f7349a4',\n" +
+    '  usage: {\n' +
+    '    completion_tokens: 1058,\n' +
+    '    completion_tokens_details: {\n' +
+    '      accepted_prediction_tokens: 0,\n' +
+    '      audio_tokens: 0,\n' +
+    '      reasoning_tokens: 0,\n' +
+    '      rejected_prediction_tokens: 0\n' +
+    '    },\n' +
+    '    input_tokens: 0,\n' +
+    '    input_tokens_details: null,\n' +
+    '    output_tokens: 0,\n' +
+    '    prompt_tokens: 1426,\n' +
+    '    prompt_tokens_details: {\n' +
+    '      audio_tokens: 0,\n' +
+    '      cached_tokens: 0\n' +
+    '    },\n' +
+    '    total_tokens: 2484\n' +
+    '  }\n' +
+    '}',
+  completionJson: {
+    choices: [
+      {
+        finish_reason: 'stop',
+        index: 0,
+        message: {
+          content: '{"reply":"以下是基于设计师身份的散户故事黑白漫画分镜设计：","pages":[{"id":"page1","summary":"设计师被市场割，开始于他对“独特设计”的狂热追求。","panels":[{"panelId":"1","text":"电脑屏幕上，红绿的K线图跳动，设计师正在研究一个小众概念股。","dark":false},{"panelId":"2","text":"深夜工作台上，几何草图铺满，烟灰缸塞满了烟头，旁边是研报散乱的纸张。","dark":true},{"panelId":"3","text":"自言自语：“这个概念独特，这公司有未来，我就赌一把。”","dark":false},{"panelId":"4","text":"全仓买入，美术手绘风的二维码支付界面，显示一个严重透支的数字。","dark":true},{"panelId":"5","text":"第二天开盘，股价直线上涨，屏幕上的涨停板发出耀眼的白光，设计师的表情充满希望。","dark":false},{"panelId":"6","text":"设计师心里一阵狂喜：“设计业饱和了，我将成为投资领域的‘设计师’！”","dark":false},{"panelId":"7","text":"股价连续涨停，设计师开始列Linux命令，试图用代码调仓更优化。","dark":true},{"panelId":"8","text":"妻子站在门口，看着设计师的电脑屏幕，冷冷地说：“别忘了账单，还有房贷。”","dark":false}]},{"id":"page2","summary":"好景不长，市场突然反转，设计师拒绝认输。","panels":[{"panelId":"1","text":"连续三天的阴跌，红色数字如血，屏幕似乎开始“撕裂”。","dark":true},{"panelId":"2","text":"设计师手握鼠标，面临两难：“割肉，承认错误？还是补仓，更正市场？”","dark":false},{"panelId":"3","text":"最终选择补仓，文档打开‘调整模型逻辑’的EXCEL，但账户现金流已枯竭。","dark":true},{"panelId":"4","text":"画面拉远，空荡的工作室只有屏幕微弱蓝光，没有任何设计文稿的踪影。","dark":true},{"panelId":"5","text":"自言自语：“明天会涨，主力是在洗盘，我得熬过去。”","dark":false}]},{"id":"page3","summary":"被彻底割至底部，自嘲和懊悔交织。","panels":[{"panelId":"1","text":"一周过去，账户资金显示为零，股价成为退市边缘的虚影。","dark":true},{"panelId":"2","text":"设计师盯着屏幕自嘲：“这不是跌停，这是我的理想和我的底裤。”","dark":false},{"panelId":"3","text":"设计工具桌上垒满泡面桶，草稿画板被弃在一旁。","dark":true},{"panelId":"4","text":"好友群里发来消息：“你还在搞投资？欠债了就讲明，别强撑。”","dark":false},{"panelId":"5","text":"设计师猛吸一口烟，忍住心里抽搐，“创业跟投资都在磨人。”","dark":true},{"panelId":"6","text":"屏幕关机，黑暗回归，此刻，只有烟草燃烧的微光。","dark":true}]},{"id":"page4","summary":"尝试振作，设计师陷入新的“价值陷阱”。","panels":[{"panelId":"1","text":"设计师在新的清晨打开推特，看到某网红推荐的区块链艺术代币。","dark":false},{"panelId":"2","text":"自言自语：“传统市场不适合我，靠创意我会赢回来。”","dark":true},{"panelId":"3","text":"设计师将仅存的储蓄投入一个“创意货币”，开始画NFT作品。","dark":false},{"panelId":"4","text":"屏幕上，钱包余额迅速增长，设计师开始用异彩的配色重新设计自己的工作台。","dark":true},{"panelId":"5","text":"两个月后，代币平台公告破产跑路，设计师的余额变成零——再次。","dark":true},{"panelId":"6","text":"设计师的表情丝毫不动，内心已无波澜：“下一次，我不会输。”","dark":false}]}]}',
+          role: 'assistant'
+        }
+      }
+    ],
+    created: 1777727541,
+    id: 'chatcmpl-Db4Qey4v9VO8MrKjqvOU0ZwtRPGEg',
+    model: 'gpt-4o',
+    object: 'chat.completion',
+    system_fingerprint: 'fp_af7f7349a4',
+    usage: {
+      completion_tokens: 1058,
+      completion_tokens_details: {
+        accepted_prediction_tokens: 0,
+        audio_tokens: 0,
+        reasoning_tokens: 0,
+        rejected_prediction_tokens: 0
+      },
+      input_tokens: 0,
+      input_tokens_details: null,
+      output_tokens: 0,
+      prompt_tokens: 1426,
+      prompt_tokens_details: {
+        audio_tokens: 0,
+        cached_tokens: 0
+      },
+      total_tokens: 2484
+    }
+  },
+  extracted: {
+    constructorName: 'Object',
+    content: '{"reply":"以下是基于设计师身份的散户故事黑白漫画分镜设计：","pages":[{"id":"page1","summary":"设计师被市场割，开始于他对“独特设计”的狂热追求。","panels":[{"panelId":"1","text":"电脑屏幕上，红绿的K线图跳动，设计师正在研究一个小众概念股。","dark":false},{"panelId":"2","text":"深夜工作台上，几何草图铺满，烟灰缸塞满了烟头，旁边是研报散乱的纸张。","dark":true},{"panelId":"3","text":"自言自语：“这个概念独特，这公司有未来，我就赌一把。”","dark":false},{"panelId":"4","text":"全仓买入，美术手绘风的二维码支付界面，显示一个严重透支的数字。","dark":true},{"panelId":"5","text":"第二天开盘，股价直线上涨，屏幕上的涨停板发出耀眼的白光，设计师的表情充满希望。","dark":false},{"panelId":"6","text":"设计师心里一阵狂喜：“设计业饱和了，我将成为投资领域的‘设计师’！”","dark":false},{"panelId":"7","text":"股价连续涨停，设计师开始列Linux命令，试图用代码调仓更优化。","dark":true},{"panelId":"8","text":"妻子站在门口，看着设计师的电脑屏幕，冷冷地说：“别忘了账单，还有房贷。”","dark":false}]},{"id":"page2","summary":"好景不长，市场突然反转，设计师拒绝认输。","panels":[{"panelId":"1","text":"连续三天的阴跌，红色数字如血，屏幕似乎开始“撕裂”。","dark":true},{"panelId":"2","text":"设计师手握鼠标，面临两难：“割肉，承认错误？还是补仓，更正市场？”","dark":false},{"panelId":"3","text":"最终选择补仓，文档打开‘调整模型逻辑’的EXCEL，但账户现金流已枯竭。","dark":true},{"panelId":"4","text":"画面拉远，空荡的工作室只有屏幕微弱蓝光，没有任何设计文稿的踪影。","dark":true},{"panelId":"5","text":"自言自语：“明天会涨，主力是在洗盘，我得熬过去。”","dark":false}]},{"id":"page3","summary":"被彻底割至底部，自嘲和懊悔交织。","panels":[{"panelId":"1","text":"一周过去，账户资金显示为零，股价成为退市边缘的虚影。","dark":true},{"panelId":"2","text":"设计师盯着屏幕自嘲：“这不是跌停，这是我的理想和我的底裤。”","dark":false},{"panelId":"3","text":"设计工具桌上垒满泡面桶，草稿画板被弃在一旁。","dark":true},{"panelId":"4","text":"好友群里发来消息：“你还在搞投资？欠债了就讲明，别强撑。”","dark":false},{"panelId":"5","text":"设计师猛吸一口烟，忍住心里抽搐，“创业跟投资都在磨人。”","dark":true},{"panelId":"6","text":"屏幕关机，黑暗回归，此刻，只有烟草燃烧的微光。","dark":true}]},{"id":"page4","summary":"尝试振作，设计师陷入新的“价值陷阱”。","panels":[{"panelId":"1","text":"设计师在新的清晨打开推特，看到某网红推荐的区块链艺术代币。","dark":false},{"panelId":"2","text":"自言自语：“传统市场不适合我，靠创意我会赢回来。”","dark":true},{"panelId":"3","text":"设计师将仅存的储蓄投入一个“创意货币”，开始画NFT作品。","dark":false},{"panelId":"4","text":"屏幕上，钱包余额迅速增长，设计师开始用异彩的配色重新设计自己的工作台。","dark":true},{"panelId":"5","text":"两个月后，代币平台公告破产跑路，设计师的余额变成零——再次。","dark":true},{"panelId":"6","text":"设计师的表情丝毫不动，内心已无波澜：“下一次，我不会输。”","dark":false}]}]}',
+    finishReason: 'stop',
+    ownPropertyNames: [
+      'id',
+      'model',
+      'object',
+      'created',
+      'choices',
+      'usage',
+      'system_fingerprint',
+      '_request_id'
+    ],
+    rawPreview: '{"id":"chatcmpl-Db4Qey4v9VO8MrKjqvOU0ZwtRPGEg","model":"gpt-4o","object":"chat.completion","created":1777727541,"choices":[{"index":0,"message":{"role":"assistant","content":"{\\"reply\\":\\"以下是基于设计师身份的散户故事黑白漫画分镜设计：\\",\\"pages\\":[{\\"id\\":\\"page1\\",\\"summary\\":\\"设计师被市场割，开始于他对“独特设计”的狂热追求。\\",\\"panels\\":[{\\"panelId\\":\\"1\\",\\"text\\":\\"电脑屏幕上，红绿的K线图跳动，设计师正在研究一个小众概念股。\\",\\"dark\\":false},{\\"panelId\\":\\"2\\",\\"text\\":\\"深夜工作台上，几何草图铺满，烟灰缸塞满了烟头，旁边是研报散乱的纸张。\\",\\"dark\\":true},{\\"panelId\\":\\"3\\",\\"text\\":\\"自言自语：“这个概念独',
+    shape: 'choices',
+    topLevelKeys: [
+      'id',
+      'model',
+      'object',
+      'created',
+      'choices',
+      'usage',
+      'system_fingerprint'
+    ]
+  },
+  requestSummary: {
+    configuredBaseURL: 'https://api.openai-next.com/v1',
+    currentStoryPages: 0,
+    durationMs: 12244,
+    effectiveBaseURL: 'https://api.openai-next.com/v1',
+    lastUserMessage: 'gender: 男, profession: 设计师',
+    messageCount: 1,
+    model: 'gpt-4o',
+    peepId: '<none>'
+  }
+}
+
+===== 2026-05-02T13:17:34.550Z request failed =====
+{
+  configuredBaseURL: 'https://api.openai-next.com/v1',
+  durationMs: 2225,
+  effectiveBaseURL: 'https://api.openai-next.com/v1',
+  errorInspect: 'Error: Request timed out.\n' +
+    '    at async POST (app\\api\\chat\\route.ts:369:26)\n' +
+    '  367 |       });\n' +
+    '  368 |\n' +
+    '> 369 |       const completion = await client.chat.completions.create({\n' +
+    '      |                          ^\n' +
+    "  370 |         model: process.env.OPENAI_MODEL || 'gpt-4o-mini',\n" +
+    "  371 |         response_format: { type: 'json_object' },\n" +
+    '  372 |         messages: [ {\n' +
+    '  code: undefined,\n' +
+    '  error: undefined,\n' +
+    '  headers: undefined,\n' +
+    '  param: undefined,\n' +
+    '  requestID: undefined,\n' +
+    '  status: undefined,\n' +
+    '  type: undefined\n' +
+    '}',
+  lastUserMessage: 'gender: 男, profession: 设计师',
+  model: 'gpt-4o'
+}
+
+===== 2026-05-02T13:17:43.133Z upstream completion =====
+{
+  completionInspect: '{\n' +
+    '  choices: [\n' +
+    '    {\n' +
+    "      finish_reason: 'stop',\n" +
+    '      index: 0,\n' +
+    '      message: {\n' +
+    `        content: '{"reply": "按照这个背景，我设计了一组‘设计师散户’的黑白漫画分镜。男设计师，类似凯文的潮流追随属性，对新概念的资金盘特别感兴趣。以下是分镜故事。", "pages": [{"id": "001", "summary": "设计师听信朋友推荐，梭哈入场某元宇宙概念股，自诩神操作。", "panels": [{"panelId": "1", "text": "朋友圈刷到某好友分享元宇宙概念股，搭配“呵呵，财富自由近了”的文案。", "dark": false}, {"panelId": "2", "text": "自己的设计工具还在用2020年的老版本，心里想着：‘也许这就是新风向？’", "dark": false}, {"panelId": "3", "text": "开始百度‘元宇宙A股’，越查越兴奋：‘妈的，果然很强！为什么没人发现？’", "dark": false}, {"panelId": "4", "text": "打开交易软件，盯着K线，似乎看到了‘主升浪起点’。", "dark": true}, {"panelId": "5", "text": "内心在挣扎：‘先建10%的仓位。...不对，等会儿直接梭哈！机会不等人。’", "dark": true}, {"panelId": "6", "text": "光标停在‘买入’的按钮上，大拇指在鼠标上轻颤。", "dark": true}, {"panelId": "7", "text": "重重点下‘确认’，汗珠滑过额角：‘师傅领进门，修行靠个人。’", "dark": true}]}]}',\n` +
+    "        role: 'assistant'\n" +
+    '      }\n' +
+    '    }\n' +
+    '  ],\n' +
+    '  created: 1777727861,\n' +
+    "  id: 'chatcmpl-Db4VptjTLymvJJolqnJoqoeDyRkpU',\n" +
+    "  model: 'gpt-4o',\n" +
+    "  object: 'chat.completion',\n" +
+    "  system_fingerprint: 'fp_af7f7349a4',\n" +
+    '  usage: {\n' +
+    '    completion_tokens: 409,\n' +
+    '    completion_tokens_details: {\n' +
+    '      accepted_prediction_tokens: 0,\n' +
+    '      audio_tokens: 0,\n' +
+    '      reasoning_tokens: 0,\n' +
+    '      rejected_prediction_tokens: 0\n' +
+    '    },\n' +
+    '    input_tokens: 0,\n' +
+    '    input_tokens_details: null,\n' +
+    '    output_tokens: 0,\n' +
+    '    prompt_tokens: 1426,\n' +
+    '    prompt_tokens_details: {\n' +
+    '      audio_tokens: 0,\n' +
+    '      cached_tokens: 0\n' +
+    '    },\n' +
+    '    total_tokens: 1835\n' +
+    '  }\n' +
+    '}',
+  completionJson: {
+    choices: [
+      {
+        finish_reason: 'stop',
+        index: 0,
+        message: {
+          content: '{"reply": "按照这个背景，我设计了一组‘设计师散户’的黑白漫画分镜。男设计师，类似凯文的潮流追随属性，对新概念的资金盘特别感兴趣。以下是分镜故事。", "pages": [{"id": "001", "summary": "设计师听信朋友推荐，梭哈入场某元宇宙概念股，自诩神操作。", "panels": [{"panelId": "1", "text": "朋友圈刷到某好友分享元宇宙概念股，搭配“呵呵，财富自由近了”的文案。", "dark": false}, {"panelId": "2", "text": "自己的设计工具还在用2020年的老版本，心里想着：‘也许这就是新风向？’", "dark": false}, {"panelId": "3", "text": "开始百度‘元宇宙A股’，越查越兴奋：‘妈的，果然很强！为什么没人发现？’", "dark": false}, {"panelId": "4", "text": "打开交易软件，盯着K线，似乎看到了‘主升浪起点’。", "dark": true}, {"panelId": "5", "text": "内心在挣扎：‘先建10%的仓位。...不对，等会儿直接梭哈！机会不等人。’", "dark": true}, {"panelId": "6", "text": "光标停在‘买入’的按钮上，大拇指在鼠标上轻颤。", "dark": true}, {"panelId": "7", "text": "重重点下‘确认’，汗珠滑过额角：‘师傅领进门，修行靠个人。’", "dark": true}]}]}',
+          role: 'assistant'
+        }
+      }
+    ],
+    created: 1777727861,
+    id: 'chatcmpl-Db4VptjTLymvJJolqnJoqoeDyRkpU',
+    model: 'gpt-4o',
+    object: 'chat.completion',
+    system_fingerprint: 'fp_af7f7349a4',
+    usage: {
+      completion_tokens: 409,
+      completion_tokens_details: {
+        accepted_prediction_tokens: 0,
+        audio_tokens: 0,
+        reasoning_tokens: 0,
+        rejected_prediction_tokens: 0
+      },
+      input_tokens: 0,
+      input_tokens_details: null,
+      output_tokens: 0,
+      prompt_tokens: 1426,
+      prompt_tokens_details: {
+        audio_tokens: 0,
+        cached_tokens: 0
+      },
+      total_tokens: 1835
+    }
+  },
+  extracted: {
+    constructorName: 'Object',
+    content: '{"reply": "按照这个背景，我设计了一组‘设计师散户’的黑白漫画分镜。男设计师，类似凯文的潮流追随属性，对新概念的资金盘特别感兴趣。以下是分镜故事。", "pages": [{"id": "001", "summary": "设计师听信朋友推荐，梭哈入场某元宇宙概念股，自诩神操作。", "panels": [{"panelId": "1", "text": "朋友圈刷到某好友分享元宇宙概念股，搭配“呵呵，财富自由近了”的文案。", "dark": false}, {"panelId": "2", "text": "自己的设计工具还在用2020年的老版本，心里想着：‘也许这就是新风向？’", "dark": false}, {"panelId": "3", "text": "开始百度‘元宇宙A股’，越查越兴奋：‘妈的，果然很强！为什么没人发现？’", "dark": false}, {"panelId": "4", "text": "打开交易软件，盯着K线，似乎看到了‘主升浪起点’。", "dark": true}, {"panelId": "5", "text": "内心在挣扎：‘先建10%的仓位。...不对，等会儿直接梭哈！机会不等人。’", "dark": true}, {"panelId": "6", "text": "光标停在‘买入’的按钮上，大拇指在鼠标上轻颤。", "dark": true}, {"panelId": "7", "text": "重重点下‘确认’，汗珠滑过额角：‘师傅领进门，修行靠个人。’", "dark": true}]}]}',
+    finishReason: 'stop',
+    ownPropertyNames: [
+      'id',
+      'model',
+      'object',
+      'created',
+      'choices',
+      'usage',
+      'system_fingerprint',
+      '_request_id'
+    ],
+    rawPreview: '{"id":"chatcmpl-Db4VptjTLymvJJolqnJoqoeDyRkpU","model":"gpt-4o","object":"chat.completion","created":1777727861,"choices":[{"index":0,"message":{"role":"assistant","content":"{\\"reply\\": \\"按照这个背景，我设计了一组‘设计师散户’的黑白漫画分镜。男设计师，类似凯文的潮流追随属性，对新概念的资金盘特别感兴趣。以下是分镜故事。\\", \\"pages\\": [{\\"id\\": \\"001\\", \\"summary\\": \\"设计师听信朋友推荐，梭哈入场某元宇宙概念股，自诩神操作。\\", \\"panels\\": [{\\"panelId\\": \\"1\\", \\"text\\": \\"朋友圈刷到某好友分享元宇宙概念股，搭配“呵呵，财富自由近了”的文案。\\", \\"dark\\": false}, {\\"panelId\\": \\"2\\", \\"text\\": \\"自己的设计工具还在用2020年的老版本，心里想着：‘也许',
+    shape: 'choices',
+    topLevelKeys: [
+      'id',
+      'model',
+      'object',
+      'created',
+      'choices',
+      'usage',
+      'system_fingerprint'
+    ]
+  },
+  requestSummary: {
+    configuredBaseURL: 'https://api.openai-next.com/v1',
+    currentStoryPages: 0,
+    durationMs: 10380,
+    effectiveBaseURL: 'https://api.openai-next.com/v1',
+    lastUserMessage: 'gender: 男, profession: 设计师',
+    messageCount: 1,
+    model: 'gpt-4o',
+    peepId: '<none>'
+  }
+}
+
+===== 2026-05-02T13:19:04.224Z upstream completion =====
+{
+  completionInspect: '{\n' +
+    '  choices: [\n' +
+    '    {\n' +
+    "      finish_reason: 'stop',\n" +
+    '      index: 0,\n' +
+    '      message: {\n' +
+    `        content: '{"reply":"这是一个散户的漫长挣扎，你可以继续选择让故事走向绝望的深处，或是迎来一个短暂的回光返照。","pages":[{"id":"page-3","summary":"深套中的妄想与惊慌交织。","panels":[{"panelId":"1","text":"第三天开盘，眼看账户再跌 5%。","dark":true},{"panelId":"2","text":"我抓起手机狂搜相关新闻，只找到过时的业绩公告。"},{"panelId":"3","text":"桌上的烟灰缸满了，屏幕的蓝光刺得眼生疼。"},{"panelId":"4","text":"想着放着不动，年底也许就能反弹。"},{"panelId":"5","text":"但耳边又有个声音提醒：早一点割肉能省更多。"},{"panelId":"6","text":"下午突然有一波拉升，从-9%拉到-4%。"},{"panelId":"7","text":"群里的大户说，这是反转的信号。"},{"panelId":"8","text":"我强迫自己坐住，不动手。这时候惶恐和希望缠绕一起。","dark":true},{"panelId":"9","text":"闭盘前又下杀，跌到-10%。"},{"panelId":"10","text":"我盯了一小时的行情，喉咙干得说不出话。"}]},{"id":"page-4","summary":"绝望中选择加码，试图一搏。","panels":[{"panelId":"1","text":"第四天睡得很晚，早上却是被账户的震动叫醒。","dark":true},{"panelId":"2","text":"低开 3%，我的买进成本像悬在空中的天梯。"},{"panelId":"3","text":"有个自称“业内人士”的网友留言：‘月末有政策利好’。"},{"panelId":"4","text":"我咬牙把银行卡的最后一万转进了账户。"},{"panelId":"5","text":"心里安慰自己，‘反弹它不敢不来’。"},{"panelId":"6","text":"下午来了一波反抽，从-9%拉到-2%。"},{"panelId":"7","text":"我惦记着再次拉升时全抛掉，彻底脱身。"},{"panelId":"8","text":"但一念之间没动手，想着‘冲高再卖’。","dark":true},{"panelId":"9","text":"收盘，它又往下砸回-7%。"},{"panelId":"10","text":"直到交易结束，我才意识，这一天，我白白烧了三包烟。"}]}]}',\n` +
+    "        role: 'assistant'\n" +
+    '      }\n' +
+    '    }\n' +
+    '  ],\n' +
+    '  created: 1777727942,\n' +
+    "  id: 'chatcmpl-Db4XA2BOMdDUB9y50cxNiUmX6XjEn',\n" +
+    "  model: 'gpt-4o',\n" +
+    "  object: 'chat.completion',\n" +
+    "  system_fingerprint: 'fp_af7f7349a4',\n" +
+    '  usage: {\n' +
+    '    completion_tokens: 602,\n' +
+    '    completion_tokens_details: {\n' +
+    '      accepted_prediction_tokens: 0,\n' +
+    '      audio_tokens: 0,\n' +
+    '      reasoning_tokens: 0,\n' +
+    '      rejected_prediction_tokens: 0\n' +
+    '    },\n' +
+    '    input_tokens: 0,\n' +
+    '    input_tokens_details: null,\n' +
+    '    output_tokens: 0,\n' +
+    '    prompt_tokens: 2125,\n' +
+    '    prompt_tokens_details: {\n' +
+    '      audio_tokens: 0,\n' +
+    '      cached_tokens: 1280\n' +
+    '    },\n' +
+    '    total_tokens: 2727\n' +
+    '  }\n' +
+    '}',
+  completionJson: {
+    choices: [
+      {
+        finish_reason: 'stop',
+        index: 0,
+        message: {
+          content: '{"reply":"这是一个散户的漫长挣扎，你可以继续选择让故事走向绝望的深处，或是迎来一个短暂的回光返照。","pages":[{"id":"page-3","summary":"深套中的妄想与惊慌交织。","panels":[{"panelId":"1","text":"第三天开盘，眼看账户再跌 5%。","dark":true},{"panelId":"2","text":"我抓起手机狂搜相关新闻，只找到过时的业绩公告。"},{"panelId":"3","text":"桌上的烟灰缸满了，屏幕的蓝光刺得眼生疼。"},{"panelId":"4","text":"想着放着不动，年底也许就能反弹。"},{"panelId":"5","text":"但耳边又有个声音提醒：早一点割肉能省更多。"},{"panelId":"6","text":"下午突然有一波拉升，从-9%拉到-4%。"},{"panelId":"7","text":"群里的大户说，这是反转的信号。"},{"panelId":"8","text":"我强迫自己坐住，不动手。这时候惶恐和希望缠绕一起。","dark":true},{"panelId":"9","text":"闭盘前又下杀，跌到-10%。"},{"panelId":"10","text":"我盯了一小时的行情，喉咙干得说不出话。"}]},{"id":"page-4","summary":"绝望中选择加码，试图一搏。","panels":[{"panelId":"1","text":"第四天睡得很晚，早上却是被账户的震动叫醒。","dark":true},{"panelId":"2","text":"低开 3%，我的买进成本像悬在空中的天梯。"},{"panelId":"3","text":"有个自称“业内人士”的网友留言：‘月末有政策利好’。"},{"panelId":"4","text":"我咬牙把银行卡的最后一万转进了账户。"},{"panelId":"5","text":"心里安慰自己，‘反弹它不敢不来’。"},{"panelId":"6","text":"下午来了一波反抽，从-9%拉到-2%。"},{"panelId":"7","text":"我惦记着再次拉升时全抛掉，彻底脱身。"},{"panelId":"8","text":"但一念之间没动手，想着‘冲高再卖’。","dark":true},{"panelId":"9","text":"收盘，它又往下砸回-7%。"},{"panelId":"10","text":"直到交易结束，我才意识，这一天，我白白烧了三包烟。"}]}]}',
+          role: 'assistant'
+        }
+      }
+    ],
+    created: 1777727942,
+    id: 'chatcmpl-Db4XA2BOMdDUB9y50cxNiUmX6XjEn',
+    model: 'gpt-4o',
+    object: 'chat.completion',
+    system_fingerprint: 'fp_af7f7349a4',
+    usage: {
+      completion_tokens: 602,
+      completion_tokens_details: {
+        accepted_prediction_tokens: 0,
+        audio_tokens: 0,
+        reasoning_tokens: 0,
+        rejected_prediction_tokens: 0
+      },
+      input_tokens: 0,
+      input_tokens_details: null,
+      output_tokens: 0,
+      prompt_tokens: 2125,
+      prompt_tokens_details: {
+        audio_tokens: 0,
+        cached_tokens: 1280
+      },
+      total_tokens: 2727
+    }
+  },
+  extracted: {
+    constructorName: 'Object',
+    content: '{"reply":"这是一个散户的漫长挣扎，你可以继续选择让故事走向绝望的深处，或是迎来一个短暂的回光返照。","pages":[{"id":"page-3","summary":"深套中的妄想与惊慌交织。","panels":[{"panelId":"1","text":"第三天开盘，眼看账户再跌 5%。","dark":true},{"panelId":"2","text":"我抓起手机狂搜相关新闻，只找到过时的业绩公告。"},{"panelId":"3","text":"桌上的烟灰缸满了，屏幕的蓝光刺得眼生疼。"},{"panelId":"4","text":"想着放着不动，年底也许就能反弹。"},{"panelId":"5","text":"但耳边又有个声音提醒：早一点割肉能省更多。"},{"panelId":"6","text":"下午突然有一波拉升，从-9%拉到-4%。"},{"panelId":"7","text":"群里的大户说，这是反转的信号。"},{"panelId":"8","text":"我强迫自己坐住，不动手。这时候惶恐和希望缠绕一起。","dark":true},{"panelId":"9","text":"闭盘前又下杀，跌到-10%。"},{"panelId":"10","text":"我盯了一小时的行情，喉咙干得说不出话。"}]},{"id":"page-4","summary":"绝望中选择加码，试图一搏。","panels":[{"panelId":"1","text":"第四天睡得很晚，早上却是被账户的震动叫醒。","dark":true},{"panelId":"2","text":"低开 3%，我的买进成本像悬在空中的天梯。"},{"panelId":"3","text":"有个自称“业内人士”的网友留言：‘月末有政策利好’。"},{"panelId":"4","text":"我咬牙把银行卡的最后一万转进了账户。"},{"panelId":"5","text":"心里安慰自己，‘反弹它不敢不来’。"},{"panelId":"6","text":"下午来了一波反抽，从-9%拉到-2%。"},{"panelId":"7","text":"我惦记着再次拉升时全抛掉，彻底脱身。"},{"panelId":"8","text":"但一念之间没动手，想着‘冲高再卖’。","dark":true},{"panelId":"9","text":"收盘，它又往下砸回-7%。"},{"panelId":"10","text":"直到交易结束，我才意识，这一天，我白白烧了三包烟。"}]}]}',
+    finishReason: 'stop',
+    ownPropertyNames: [
+      'id',
+      'model',
+      'object',
+      'created',
+      'choices',
+      'usage',
+      'system_fingerprint',
+      '_request_id'
+    ],
+    rawPreview: '{"id":"chatcmpl-Db4XA2BOMdDUB9y50cxNiUmX6XjEn","model":"gpt-4o","object":"chat.completion","created":1777727942,"choices":[{"index":0,"message":{"role":"assistant","content":"{\\"reply\\":\\"这是一个散户的漫长挣扎，你可以继续选择让故事走向绝望的深处，或是迎来一个短暂的回光返照。\\",\\"pages\\":[{\\"id\\":\\"page-3\\",\\"summary\\":\\"深套中的妄想与惊慌交织。\\",\\"panels\\":[{\\"panelId\\":\\"1\\",\\"text\\":\\"第三天开盘，眼看账户再跌 5%。\\",\\"dark\\":true},{\\"panelId\\":\\"2\\",\\"text\\":\\"我抓起手机狂搜相关新闻，只找到过时的业绩公告。\\"},{\\"panelId\\":\\"3\\",\\"text\\":\\"桌上的烟灰缸满了，屏幕的蓝光刺得眼生疼。\\"},{\\"panelId\\":\\"4\\",',
+    shape: 'choices',
+    topLevelKeys: [
+      'id',
+      'model',
+      'object',
+      'created',
+      'choices',
+      'usage',
+      'system_fingerprint'
+    ]
+  },
+  requestSummary: {
+    configuredBaseURL: 'https://api.openai-next.com/v1',
+    currentStoryPages: 2,
+    durationMs: 6614,
+    effectiveBaseURL: 'https://api.openai-next.com/v1',
+    lastUserMessage: 'ni hao',
+    messageCount: 2,
+    model: 'gpt-4o',
+    peepId: 's78dfqnuk'
+  }
+}
+
+===== 2026-05-02T13:25:40.874Z request failed =====
+{
+  configuredBaseURL: 'https://api.openai-next.com/v1',
+  durationMs: 2455,
+  effectiveBaseURL: 'https://api.openai-next.com/v1',
+  errorInspect: 'Error: Request timed out.\n' +
+    '    at async POST (app\\api\\chat\\route.ts:369:26)\n' +
+    '  367 |       });\n' +
+    '  368 |\n' +
+    '> 369 |       const completion = await client.chat.completions.create({\n' +
+    '      |                          ^\n' +
+    "  370 |         model: process.env.OPENAI_MODEL || 'gpt-4o-mini',\n" +
+    "  371 |         response_format: { type: 'json_object' },\n" +
+    '  372 |         messages: [ {\n' +
+    '  code: undefined,\n' +
+    '  error: undefined,\n' +
+    '  headers: undefined,\n' +
+    '  param: undefined,\n' +
+    '  requestID: undefined,\n' +
+    '  status: undefined,\n' +
+    '  type: undefined\n' +
+    '}',
+  lastUserMessage: 'gender: 男, profession: 教师',
+  model: 'gpt-4o'
+}
+
+===== 2026-05-02T13:25:42.373Z request failed =====
+{
+  configuredBaseURL: 'https://api.openai-next.com/v1',
+  durationMs: 2635,
+  effectiveBaseURL: 'https://api.openai-next.com/v1',
+  errorInspect: 'Error: Request timed out.\n' +
+    '    at async POST (app\\api\\chat\\route.ts:369:26)\n' +
+    '  367 |       });\n' +
+    '  368 |\n' +
+    '> 369 |       const completion = await client.chat.completions.create({\n' +
+    '      |                          ^\n' +
+    "  370 |         model: process.env.OPENAI_MODEL || 'gpt-4o-mini',\n" +
+    "  371 |         response_format: { type: 'json_object' },\n" +
+    '  372 |         messages: [ {\n' +
+    '  code: undefined,\n' +
+    '  error: undefined,\n' +
+    '  headers: undefined,\n' +
+    '  param: undefined,\n' +
+    '  requestID: undefined,\n' +
+    '  status: undefined,\n' +
+    '  type: undefined\n' +
+    '}',
+  lastUserMessage: 'gender: 男, profession: 教师',
+  model: 'gpt-4o'
+}
+
+===== 2026-05-02T13:25:42.646Z request failed =====
+{
+  configuredBaseURL: 'https://api.openai-next.com/v1',
+  durationMs: 2618,
+  effectiveBaseURL: 'https://api.openai-next.com/v1',
+  errorInspect: 'Error: Request timed out.\n' +
+    '    at async POST (app\\api\\chat\\route.ts:369:26)\n' +
+    '  367 |       });\n' +
+    '  368 |\n' +
+    '> 369 |       const completion = await client.chat.completions.create({\n' +
+    '      |                          ^\n' +
+    "  370 |         model: process.env.OPENAI_MODEL || 'gpt-4o-mini',\n" +
+    "  371 |         response_format: { type: 'json_object' },\n" +
+    '  372 |         messages: [ {\n' +
+    '  code: undefined,\n' +
+    '  error: undefined,\n' +
+    '  headers: undefined,\n' +
+    '  param: undefined,\n' +
+    '  requestID: undefined,\n' +
+    '  status: undefined,\n' +
+    '  type: undefined\n' +
+    '}',
+  lastUserMessage: 'gender: 男, profession: 教师',
+  model: 'gpt-4o'
+}
+
+===== 2026-05-02T13:25:44.583Z request failed =====
+{
+  configuredBaseURL: 'https://api.openai-next.com/v1',
+  durationMs: 2342,
+  effectiveBaseURL: 'https://api.openai-next.com/v1',
+  errorInspect: 'Error: Request timed out.\n' +
+    '    at async POST (app\\api\\chat\\route.ts:369:26)\n' +
+    '  367 |       });\n' +
+    '  368 |\n' +
+    '> 369 |       const completion = await client.chat.completions.create({\n' +
+    '      |                          ^\n' +
+    "  370 |         model: process.env.OPENAI_MODEL || 'gpt-4o-mini',\n" +
+    "  371 |         response_format: { type: 'json_object' },\n" +
+    '  372 |         messages: [ {\n' +
+    '  code: undefined,\n' +
+    '  error: undefined,\n' +
+    '  headers: undefined,\n' +
+    '  param: undefined,\n' +
+    '  requestID: undefined,\n' +
+    '  status: undefined,\n' +
+    '  type: undefined\n' +
+    '}',
+  lastUserMessage: '针对这位ia260ybzj号散户，开始他在市场中的第一章故事。',
+  model: 'gpt-4o'
+}
+
+===== 2026-05-02T13:25:44.584Z request failed =====
+{
+  configuredBaseURL: 'https://api.openai-next.com/v1',
+  durationMs: 2515,
+  effectiveBaseURL: 'https://api.openai-next.com/v1',
+  errorInspect: 'Error: Request timed out.\n' +
+    '    at async POST (app\\api\\chat\\route.ts:369:26)\n' +
+    '  367 |       });\n' +
+    '  368 |\n' +
+    '> 369 |       const completion = await client.chat.completions.create({\n' +
+    '      |                          ^\n' +
+    "  370 |         model: process.env.OPENAI_MODEL || 'gpt-4o-mini',\n" +
+    "  371 |         response_format: { type: 'json_object' },\n" +
+    '  372 |         messages: [ {\n' +
+    '  code: undefined,\n' +
+    '  error: undefined,\n' +
+    '  headers: undefined,\n' +
+    '  param: undefined,\n' +
+    '  requestID: undefined,\n' +
+    '  status: undefined,\n' +
+    '  type: undefined\n' +
+    '}',
+  lastUserMessage: '针对这位ia260ybzj号散户，开始他在市场中的第一章故事。',
+  model: 'gpt-4o'
+}
+
+===== 2026-05-02T13:42:35.629Z request failed =====
+{
+  configuredBaseURL: 'https://api.openai-next.com/v1',
+  durationMs: 2415,
+  effectiveBaseURL: 'https://api.openai-next.com/v1',
+  errorInspect: 'Error: Request timed out.\n' +
+    '    at async POST (app\\api\\chat\\route.ts:369:26)\n' +
+    '  367 |       });\n' +
+    '  368 |\n' +
+    '> 369 |       const completion = await client.chat.completions....\n' +
+    '      |                          ^\n' +
+    "  370 |         model: process.env.OPENAI_MODEL || 'gpt-4o-mini',\n" +
+    "  371 |         response_format: { type: 'json_object' },\n" +
+    '  372 |         messages: [ {\n' +
+    '  code: undefined,\n' +
+    '  error: undefined,\n' +
+    '  headers: undefined,\n' +
+    '  param: undefined,\n' +
+    '  requestID: undefined,\n' +
+    '  status: undefined,\n' +
+    '  type: undefined\n' +
+    '}',
+  lastUserMessage: 'gender: 男, profession: 设计师',
+  model: 'gpt-4o'
+}
+
+===== 2026-05-02T13:42:37.261Z request failed =====
+{
+  configuredBaseURL: 'https://api.openai-next.com/v1',
+  durationMs: 2300,
+  effectiveBaseURL: 'https://api.openai-next.com/v1',
+  errorInspect: 'Error: Request timed out.\n' +
+    '    at async POST (app\\api\\chat\\route.ts:369:26)\n' +
+    '  367 |       });\n' +
+    '  368 |\n' +
+    '> 369 |       const completion = await client.chat.completions....\n' +
+    '      |                          ^\n' +
+    "  370 |         model: process.env.OPENAI_MODEL || 'gpt-4o-mini',\n" +
+    "  371 |         response_format: { type: 'json_object' },\n" +
+    '  372 |         messages: [ {\n' +
+    '  code: undefined,\n' +
+    '  error: undefined,\n' +
+    '  headers: undefined,\n' +
+    '  param: undefined,\n' +
+    '  requestID: undefined,\n' +
+    '  status: undefined,\n' +
+    '  type: undefined\n' +
+    '}',
+  lastUserMessage: 'gender: 男, profession: 设计师',
+  model: 'gpt-4o'
+}
+
+===== 2026-05-02T13:42:38.280Z request failed =====
+{
+  configuredBaseURL: 'https://api.openai-next.com/v1',
+  durationMs: 2256,
+  effectiveBaseURL: 'https://api.openai-next.com/v1',
+  errorInspect: 'Error: Request timed out.\n' +
+    '    at async POST (app\\api\\chat\\route.ts:369:26)\n' +
+    '  367 |       });\n' +
+    '  368 |\n' +
+    '> 369 |       const completion = await client.chat.completions....\n' +
+    '      |                          ^\n' +
+    "  370 |         model: process.env.OPENAI_MODEL || 'gpt-4o-mini',\n" +
+    "  371 |         response_format: { type: 'json_object' },\n" +
+    '  372 |         messages: [ {\n' +
+    '  code: undefined,\n' +
+    '  error: undefined,\n' +
+    '  headers: undefined,\n' +
+    '  param: undefined,\n' +
+    '  requestID: undefined,\n' +
+    '  status: undefined,\n' +
+    '  type: undefined\n' +
+    '}',
+  lastUserMessage: 'gender: 男, profession: 设计师',
+  model: 'gpt-4o'
+}
+
+===== 2026-05-02T13:42:44.191Z request failed =====
+{
+  configuredBaseURL: 'https://api.openai-next.com/v1',
+  durationMs: 2439,
+  effectiveBaseURL: 'https://api.openai-next.com/v1',
+  errorInspect: 'Error: Request timed out.\n' +
+    '    at async POST (app\\api\\chat\\route.ts:369:26)\n' +
+    '  367 |       });\n' +
+    '  368 |\n' +
+    '> 369 |       const completion = await client.chat.completions....\n' +
+    '      |                          ^\n' +
+    "  370 |         model: process.env.OPENAI_MODEL || 'gpt-4o-mini',\n" +
+    "  371 |         response_format: { type: 'json_object' },\n" +
+    '  372 |         messages: [ {\n' +
+    '  code: undefined,\n' +
+    '  error: undefined,\n' +
+    '  headers: undefined,\n' +
+    '  param: undefined,\n' +
+    '  requestID: undefined,\n' +
+    '  status: undefined,\n' +
+    '  type: undefined\n' +
+    '}',
+  lastUserMessage: '针对这位8g77ee6kl号散户，开始他在市场中的第一章故事。',
+  model: 'gpt-4o'
+}
+
+===== 2026-05-02T13:42:44.192Z request failed =====
+{
+  configuredBaseURL: 'https://api.openai-next.com/v1',
+  durationMs: 2708,
+  effectiveBaseURL: 'https://api.openai-next.com/v1',
+  errorInspect: 'Error: Request timed out.\n' +
+    '    at async POST (app\\api\\chat\\route.ts:369:26)\n' +
+    '  367 |       });\n' +
+    '  368 |\n' +
+    '> 369 |       const completion = await client.chat.completions....\n' +
+    '      |                          ^\n' +
+    "  370 |         model: process.env.OPENAI_MODEL || 'gpt-4o-mini',\n" +
+    "  371 |         response_format: { type: 'json_object' },\n" +
+    '  372 |         messages: [ {\n' +
+    '  code: undefined,\n' +
+    '  error: undefined,\n' +
+    '  headers: undefined,\n' +
+    '  param: undefined,\n' +
+    '  requestID: undefined,\n' +
+    '  status: undefined,\n' +
+    '  type: undefined\n' +
+    '}',
+  lastUserMessage: '针对这位8g77ee6kl号散户，开始他在市场中的第一章故事。',
+  model: 'gpt-4o'
+}
+
+===== 2026-05-02T15:09:14.545Z request failed =====
+{
+  configuredBaseURL: 'https://api.openai-next.com/v1',
+  durationMs: 33855,
+  effectiveBaseURL: 'https://api.openai-next.com/v1',
+  errorInspect: 'Error: Request timed out.\n' +
+    '    at async POST (app\\api\\chat\\route.ts:391:26)\n' +
+    '  389 |       });\n' +
+    '  390 |\n' +
+    '> 391 |       const completion = await client.chat.completions.create({\n' +
+    '      |                          ^\n' +
+    "  392 |         model: activeConfig.model || 'gpt-4o-mini',\n" +
+    "  393 |         response_format: { type: 'json_object' },\n" +
+    '  394 |         messages: [ {\n' +
+    '  code: undefined,\n' +
+    '  error: undefined,\n' +
+    '  headers: undefined,\n' +
+    '  param: undefined,\n' +
+    '  requestID: undefined,\n' +
+    '  status: undefined,\n' +
+    '  type: undefined\n' +
+    '}',
+  lastUserMessage: 'gender: 男, profession: 设计师, finalThought: 但是俄方嘎嘎嘎嘎嘎嘎嘎嘎嘎嘎嘎嘎嘎嘎嘎嘎嘎嘎嘎嘎嘎嘎嘎嘎嘎嘎嘎嘎嘎嘎嘎嘎个',
+  model: 'gpt-4o'
+}
+
+===== 2026-05-02T15:10:00.475Z upstream completion =====
+{
+  completionInspect: '{\n' +
+    '  choices: [\n' +
+    '    {\n' +
+    "      finish_reason: 'stop',\n" +
+    '      index: 0,\n' +
+    '      message: {\n' +
+    "        content: '{\\n' +\n" +
+    `          '  "reply": "开始讲述b75xlmtfa号散户的故事，他的每一步都被命运的戏弄压得喘不过气，却始终对未来抱一种微光的错觉。",\\n' +\n` +
+    `          '  "pages": [\\n' +\n` +
+    "          '    {\\n' +\n" +
+    `          '      "id": "chapter1",\\n' +\n` +
+    `          '      "summary": "李大叔入市之初，他的满腔热忱投射在他认为不会倒的银行股上。",\\n' +\n` +
+    `          '      "panels": [\\n' +\n` +
+    "          '        {\\n' +\n" +
+    `          '          "panelId": "1",\\n' +\n` +
+    `          '          "text": "邻居老刘站在我家门口，叼着烟，满脸得意。",\\n' +\n` +
+    `          '          "dark": false\\n' +\n` +
+    "          '        },\\n' +\n" +
+    "          '        {\\n' +\n" +
+    `          '          "panelId": "2",\\n' +\n` +
+    `          '          "text": "‘李哥，现在不买银行股是傻子，哪天飞了你别后悔。’他说得信誓旦旦。",\\n' +\n` +
+    `          '          "dark": false\\n' +\n` +
+    "          '        },\\n' +\n" +
+    "          '        {\\n' +\n" +
+    `          '          "panelId": "3",\\n' +\n` +
+    `          '          "text": "我偏了一眼电视上滚动的财经新闻，‘牛市突破4000点！’",\\n' +\n` +
+    `          '          "dark": false\\n' +\n` +
+    "          '        },\\n' +\n" +
+    "          '        {\\n' +\n" +
+    `          '          "panelId": "4",\\n' +\n` +
+    `          '          "text": "老刘掏出手机，给我看他的账户，收益红得刺眼。",\\n' +\n` +
+    `          '          "dark": true\\n' +\n` +
+    "          '        },\\n' +\n" +
+    "          '        {\\n' +\n" +
+    `          '          "panelId": "5",\\n' +\n` +
+    `          '          "text": "心动了。银行股，绝对稳吧？咱老百姓，求的就是个安稳。",\\n' +\n` +
+    `          '          "dark": false\\n' +\n` +
+    "          '        },\\n' +\n" +
+    "          '        {\\n' +\n" +
+    `          '          "panelId": "6",\\n' +\n` +
+    `          '          "text": "第二天我去了证券公司，把公积金取出来开了户。",\\n' +\n` +
+    `          '          "dark": false\\n' +\n` +
+    "          '        },\\n' +\n" +
+    "          '        {\\n' +\n" +
+    `          '          "panelId": "7",\\n' +\n` +
+    `          '          "text": "填完表，柜台小姐笑得甜：‘叔，有什么问题随时问我啊。’",\\n' +\n` +
+    `          '          "dark": false\\n' +\n` +
+    "          '        },\\n' +\n" +
+    "          '        {\\n' +\n" +
+    `          '          "panelId": "8",\\n' +\n` +
+    `          '          "text": "我点了一支烟，目光掠过交易界面，又掐灭了。买入。",\\n' +\n` +
+    `          '          "dark": true\\n' +\n` +
+    "          '        },\\n' +\n" +
+    "          '        {\\n' +\n" +
+    `          '          "panelId": "9",\\n' +\n` +
+    `          '          "text": "‘中行、工行的排面，国家都不会让它倒。’心里安慰自己。",\\n' +\n` +
+    `          '          "dark": false\\n' +\n` +
+    "          '        },\\n' +\n" +
+    "          '        {\\n' +\n" +
+    `          '          "panelId": "10",\\n' +\n` +
+    `          '          "text": "屏幕上的绿线爬了点上去，我突然觉得，这，是机会。",\\n' +\n` +
+    `          '          "dark": false\\n' +\n` +
+    "          '        }\\n' +\n" +
+    "          '      ]\\n' +\n" +
+    "          '    }\\n' +\n" +
+    "          '  ]\\n' +\n" +
+    "          '}',\n" +
+    "        role: 'assistant'\n" +
+    '      }\n' +
+    '    }\n' +
+    '  ],\n' +
+    '  created: 1777734598,\n' +
+    "  id: 'chatcmpl-Db6GW7AGRrkRtcf2MgKEqB2tUrr9o',\n" +
+    "  model: 'gpt-4o',\n" +
+    "  object: 'chat.completion',\n" +
+    "  system_fingerprint: 'fp_af7f7349a4',\n" +
+    '  usage: {\n' +
+    '    completion_tokens: 563,\n' +
+    '    completion_tokens_details: {\n' +
+    '      accepted_prediction_tokens: 0,\n' +
+    '      audio_tokens: 0,\n' +
+    '      reasoning_tokens: 0,\n' +
+    '      rejected_prediction_tokens: 0\n' +
+    '    },\n' +
+    '    input_tokens: 0,\n' +
+    '    input_tokens_details: null,\n' +
+    '    output_tokens: 0,\n' +
+    '    prompt_tokens: 1590,\n' +
+    '    prompt_tokens_details: {\n' +
+    '      audio_tokens: 0,\n' +
+    '      cached_tokens: 0\n' +
+    '    },\n' +
+    '    total_tokens: 2153\n' +
+    '  }\n' +
+    '}',
+  completionJson: {
+    choices: [
+      {
+        finish_reason: 'stop',
+        index: 0,
+        message: {
+          content: '{\n' +
+            '  "reply": "开始讲述b75xlmtfa号散户的故事，他的每一步都被命运的戏弄压得喘不过气，却始终对未来抱一种微光的错觉。",\n' +
+            '  "pages": [\n' +
+            '    {\n' +
+            '      "id": "chapter1",\n' +
+            '      "summary": "李大叔入市之初，他的满腔热忱投射在他认为不会倒的银行股上。",\n' +
+            '      "panels": [\n' +
+            '        {\n' +
+            '          "panelId": "1",\n' +
+            '          "text": "邻居老刘站在我家门口，叼着烟，满脸得意。",\n' +
+            '          "dark": false\n' +
+            '        },\n' +
+            '        {\n' +
+            '          "panelId": "2",\n' +
+            '          "text": "‘李哥，现在不买银行股是傻子，哪天飞了你别后悔。’他说得信誓旦旦。",\n' +
+            '          "dark": false\n' +
+            '        },\n' +
+            '        {\n' +
+            '          "panelId": "3",\n' +
+            '          "text": "我偏了一眼电视上滚动的财经新闻，‘牛市突破4000点！’",\n' +
+            '          "dark": false\n' +
+            '        },\n' +
+            '        {\n' +
+            '          "panelId": "4",\n' +
+            '          "text": "老刘掏出手机，给我看他的账户，收益红得刺眼。",\n' +
+            '          "dark": true\n' +
+            '        },\n' +
+            '        {\n' +
+            '          "panelId": "5",\n' +
+            '          "text": "心动了。银行股，绝对稳吧？咱老百姓，求的就是个安稳。",\n' +
+            '          "dark": false\n' +
+            '        },\n' +
+            '        {\n' +
+            '          "panelId": "6",\n' +
+            '          "text": "第二天我去了证券公司，把公积金取出来开了户。",\n' +
+            '          "dark": false\n' +
+            '        },\n' +
+            '        {\n' +
+            '          "panelId": "7",\n' +
+            '          "text": "填完表，柜台小姐笑得甜：‘叔，有什么问题随时问我啊。’",\n' +
+            '          "dark": false\n' +
+            '        },\n' +
+            '        {\n' +
+            '          "panelId": "8",\n' +
+            '          "text": "我点了一支烟，目光掠过交易界面，又掐灭了。买入。",\n' +
+            '          "dark": true\n' +
+            '        },\n' +
+            '        {\n' +
+            '          "panelId": "9",\n' +
+            '          "text": "‘中行、工行的排面，国家都不会让它倒。’心里安慰自己。",\n' +
+            '          "dark": false\n' +
+            '        },\n' +
+            '        {\n' +
+            '          "panelId": "10",\n' +
+            '          "text": "屏幕上的绿线爬了点上去，我突然觉得，这，是机会。",\n' +
+            '          "dark": false\n' +
+            '        }\n' +
+            '      ]\n' +
+            '    }\n' +
+            '  ]\n' +
+            '}',
+          role: 'assistant'
+        }
+      }
+    ],
+    created: 1777734598,
+    id: 'chatcmpl-Db6GW7AGRrkRtcf2MgKEqB2tUrr9o',
+    model: 'gpt-4o',
+    object: 'chat.completion',
+    system_fingerprint: 'fp_af7f7349a4',
+    usage: {
+      completion_tokens: 563,
+      completion_tokens_details: {
+        accepted_prediction_tokens: 0,
+        audio_tokens: 0,
+        reasoning_tokens: 0,
+        rejected_prediction_tokens: 0
+      },
+      input_tokens: 0,
+      input_tokens_details: null,
+      output_tokens: 0,
+      prompt_tokens: 1590,
+      prompt_tokens_details: {
+        audio_tokens: 0,
+        cached_tokens: 0
+      },
+      total_tokens: 2153
+    }
+  },
+  extracted: {
+    constructorName: 'Object',
+    content: '{\n' +
+      '  "reply": "开始讲述b75xlmtfa号散户的故事，他的每一步都被命运的戏弄压得喘不过气，却始终对未来抱一种微光的错觉。",\n' +
+      '  "pages": [\n' +
+      '    {\n' +
+      '      "id": "chapter1",\n' +
+      '      "summary": "李大叔入市之初，他的满腔热忱投射在他认为不会倒的银行股上。",\n' +
+      '      "panels": [\n' +
+      '        {\n' +
+      '          "panelId": "1",\n' +
+      '          "text": "邻居老刘站在我家门口，叼着烟，满脸得意。",\n' +
+      '          "dark": false\n' +
+      '        },\n' +
+      '        {\n' +
+      '          "panelId": "2",\n' +
+      '          "text": "‘李哥，现在不买银行股是傻子，哪天飞了你别后悔。’他说得信誓旦旦。",\n' +
+      '          "dark": false\n' +
+      '        },\n' +
+      '        {\n' +
+      '          "panelId": "3",\n' +
+      '          "text": "我偏了一眼电视上滚动的财经新闻，‘牛市突破4000点！’",\n' +
+      '          "dark": false\n' +
+      '        },\n' +
+      '        {\n' +
+      '          "panelId": "4",\n' +
+      '          "text": "老刘掏出手机，给我看他的账户，收益红得刺眼。",\n' +
+      '          "dark": true\n' +
+      '        },\n' +
+      '        {\n' +
+      '          "panelId": "5",\n' +
+      '          "text": "心动了。银行股，绝对稳吧？咱老百姓，求的就是个安稳。",\n' +
+      '          "dark": false\n' +
+      '        },\n' +
+      '        {\n' +
+      '          "panelId": "6",\n' +
+      '          "text": "第二天我去了证券公司，把公积金取出来开了户。",\n' +
+      '          "dark": false\n' +
+      '        },\n' +
+      '        {\n' +
+      '          "panelId": "7",\n' +
+      '          "text": "填完表，柜台小姐笑得甜：‘叔，有什么问题随时问我啊。’",\n' +
+      '          "dark": false\n' +
+      '        },\n' +
+      '        {\n' +
+      '          "panelId": "8",\n' +
+      '          "text": "我点了一支烟，目光掠过交易界面，又掐灭了。买入。",\n' +
+      '          "dark": true\n' +
+      '        },\n' +
+      '        {\n' +
+      '          "panelId": "9",\n' +
+      '          "text": "‘中行、工行的排面，国家都不会让它倒。’心里安慰自己。",\n' +
+      '          "dark": false\n' +
+      '        },\n' +
+      '        {\n' +
+      '          "panelId": "10",\n' +
+      '          "text": "屏幕上的绿线爬了点上去，我突然觉得，这，是机会。",\n' +
+      '          "dark": false\n' +
+      '        }\n' +
+      '      ]\n' +
+      '    }\n' +
+      '  ]\n' +
+      '}',
+    finishReason: 'stop',
+    ownPropertyNames: [
+      'id',
+      'model',
+      'object',
+      'created',
+      'choices',
+      'usage',
+      'system_fingerprint',
+      '_request_id'
+    ],
+    rawPreview: '{"id":"chatcmpl-Db6GW7AGRrkRtcf2MgKEqB2tUrr9o","model":"gpt-4o","object":"chat.completion","created":1777734598,"choices":[{"index":0,"message":{"role":"assistant","content":"{\\n \\"reply\\": \\"开始讲述b75xlmtfa号散户的故事，他的每一步都被命运的戏弄压得喘不过气，却始终对未来抱一种微光的错觉。\\",\\n \\"pages\\": [\\n {\\n \\"id\\": \\"chapter1\\",\\n \\"summary\\": \\"李大叔入市之初，他的满腔热忱投射在他认为不会倒的银行股上。\\",\\n \\"panels\\": [\\n {\\n \\"panelId\\": \\"1\\",\\n \\"text\\": \\"邻居老刘站在我家门口，叼着烟，满脸得意。\\",\\n \\"dark\\": false\\n },\\n {\\n \\"panelId\\": \\"2\\",\\n \\"text\\": \\"‘李哥，现在不买银行股是傻子',
+    shape: 'choices',
+    topLevelKeys: [
+      'id',
+      'model',
+      'object',
+      'created',
+      'choices',
+      'usage',
+      'system_fingerprint'
+    ]
+  },
+  requestSummary: {
+    configuredBaseURL: 'https://api.openai-next.com/v1',
+    currentStoryPages: 0,
+    durationMs: 12374,
+    effectiveBaseURL: 'https://api.openai-next.com/v1',
+    lastUserMessage: '针对这位b75xlmtfa号散户，开始他在市场中的第一章故事。',
+    messageCount: 1,
+    model: 'gpt-4o',
+    peepId: 'b75xlmtfa'
+  }
+}
+
+===== 2026-05-02T15:10:25.736Z upstream completion =====
+{
+  completionInspect: '{\n' +
+    '  choices: [\n' +
+    '    {\n' +
+    "      finish_reason: 'stop',\n" +
+    '      index: 0,\n' +
+    '      message: {\n' +
+    "        content: '{\\n' +\n" +
+    `          '  "reply": "以下是黑白漫画的第一章故事：",\\n' +\n` +
+    `          '  "pages": [\\n' +\n` +
+    "          '    {\\n' +\n" +
+    `          '      "id": "chapter1",\\n' +\n` +
+    `          '      "summary": "初入市场：第一次触碰交易软件，简单的买入决定，却开启了无尽的跌宕。",\\n' +\n` +
+    `          '      "panels": [\\n' +\n` +
+    "          '        {\\n' +\n" +
+    `          '          "panelId": "1",\\n' +\n` +
+    `          '          "text": "深夜，屏幕的蓝光映照在老旧木桌上，仿佛吞噬了屋里的每一点温暖。",\\n' +\n` +
+    `          '          "dark": true\\n' +\n` +
+    "          '        },\\n' +\n" +
+    "          '        {\\n' +\n" +
+    `          '          "panelId": "2",\\n' +\n` +
+    `          '          "text": "第一次打开交易软件。账户余额：20,000元。这是所有积蓄。",\\n' +\n` +
+    `          '          "dark": false\\n' +\n` +
+    "          '        },\\n' +\n" +
+    "          '        {\\n' +\n" +
+    `          '          "panelId": "3",\\n' +\n` +
+    `          '          "text": "推特上一条消息突然爆红：某个小盘股有‘重大利好’，明天可能涨停。",\\n' +\n` +
+    `          '          "dark": false\\n' +\n` +
+    "          '        },\\n' +\n" +
+    "          '        {\\n' +\n" +
+    `          '          "panelId": "4",\\n' +\n` +
+    `          '          "text": "心跳开始加速。‘明天涨停？我不能错过。’",\\n' +\n` +
+    `          '          "dark": true\\n' +\n` +
+    "          '        },\\n' +\n" +
+    "          '        {\\n' +\n" +
+    `          '          "panelId": "5",\\n' +\n` +
+    `          '          "text": "‘买多少？’脑海中几次拉扯后，鼠标停在了满仓。",\\n' +\n` +
+    `          '          "dark": true\\n' +\n` +
+    "          '        },\\n' +\n" +
+    "          '        {\\n' +\n" +
+    `          '          "panelId": "6",\\n' +\n` +
+    `          '          "text": "看着手机短信：“股票已买入，数量800股，价格25元。”",\\n' +\n` +
+    `          '          "dark": false\\n' +\n` +
+    "          '        },\\n' +\n" +
+    "          '        {\\n' +\n" +
+    `          '          "panelId": "7",\\n' +\n` +
+    `          '          "text": "这时屏幕上的行情图跳动了一下。‘有点像心电图…只有我看得懂。’",\\n' +\n` +
+    `          '          "dark": true\\n' +\n` +
+    "          '        },\\n' +\n" +
+    "          '        {\\n' +\n" +
+    `          '          "panelId": "8",\\n' +\n` +
+    `          '          "text": "深夜，交易后。灰烬堆满的烟灰缸里漏了一根烟头，余温还没散。",\\n' +\n` +
+    `          '          "dark": true\\n' +\n` +
+    "          '        },\\n' +\n" +
+    "          '        {\\n' +\n" +
+    `          '          "panelId": "9",\\n' +\n` +
+    `          '          "text": "‘明天肯定涨停。’自言自语后，关了灯。窗外月光冷冷地落进房间。",\\n' +\n` +
+    `          '          "dark": true\\n' +\n` +
+    "          '        }\\n' +\n" +
+    "          '      ]\\n' +\n" +
+    "          '    }\\n' +\n" +
+    "          '  ]\\n' +\n" +
+    "          '}',\n" +
+    "        role: 'assistant'\n" +
+    '      }\n' +
+    '    }\n' +
+    '  ],\n' +
+    '  created: 1777734623,\n' +
+    "  id: 'chatcmpl-Db6Gwf9MoZ5OvKkUXEzRrUApdNjp7',\n" +
+    "  model: 'gpt-4o',\n" +
+    "  object: 'chat.completion',\n" +
+    "  system_fingerprint: 'fp_af7f7349a4',\n" +
+    '  usage: {\n' +
+    '    completion_tokens: 510,\n' +
+    '    completion_tokens_details: {\n' +
+    '      accepted_prediction_tokens: 0,\n' +
+    '      audio_tokens: 0,\n' +
+    '      reasoning_tokens: 0,\n' +
+    '      rejected_prediction_tokens: 0\n' +
+    '    },\n' +
+    '    input_tokens: 0,\n' +
+    '    input_tokens_details: null,\n' +
+    '    output_tokens: 0,\n' +
+    '    prompt_tokens: 1590,\n' +
+    '    prompt_tokens_details: {\n' +
+    '      audio_tokens: 0,\n' +
+    '      cached_tokens: 0\n' +
+    '    },\n' +
+    '    total_tokens: 2100\n' +
+    '  }\n' +
+    '}',
+  completionJson: {
+    choices: [
+      {
+        finish_reason: 'stop',
+        index: 0,
+        message: {
+          content: '{\n' +
+            '  "reply": "以下是黑白漫画的第一章故事：",\n' +
+            '  "pages": [\n' +
+            '    {\n' +
+            '      "id": "chapter1",\n' +
+            '      "summary": "初入市场：第一次触碰交易软件，简单的买入决定，却开启了无尽的跌宕。",\n' +
+            '      "panels": [\n' +
+            '        {\n' +
+            '          "panelId": "1",\n' +
+            '          "text": "深夜，屏幕的蓝光映照在老旧木桌上，仿佛吞噬了屋里的每一点温暖。",\n' +
+            '          "dark": true\n' +
+            '        },\n' +
+            '        {\n' +
+            '          "panelId": "2",\n' +
+            '          "text": "第一次打开交易软件。账户余额：20,000元。这是所有积蓄。",\n' +
+            '          "dark": false\n' +
+            '        },\n' +
+            '        {\n' +
+            '          "panelId": "3",\n' +
+            '          "text": "推特上一条消息突然爆红：某个小盘股有‘重大利好’，明天可能涨停。",\n' +
+            '          "dark": false\n' +
+            '        },\n' +
+            '        {\n' +
+            '          "panelId": "4",\n' +
+            '          "text": "心跳开始加速。‘明天涨停？我不能错过。’",\n' +
+            '          "dark": true\n' +
+            '        },\n' +
+            '        {\n' +
+            '          "panelId": "5",\n' +
+            '          "text": "‘买多少？’脑海中几次拉扯后，鼠标停在了满仓。",\n' +
+            '          "dark": true\n' +
+            '        },\n' +
+            '        {\n' +
+            '          "panelId": "6",\n' +
+            '          "text": "看着手机短信：“股票已买入，数量800股，价格25元。”",\n' +
+            '          "dark": false\n' +
+            '        },\n' +
+            '        {\n' +
+            '          "panelId": "7",\n' +
+            '          "text": "这时屏幕上的行情图跳动了一下。‘有点像心电图…只有我看得懂。’",\n' +
+            '          "dark": true\n' +
+            '        },\n' +
+            '        {\n' +
+            '          "panelId": "8",\n' +
+            '          "text": "深夜，交易后。灰烬堆满的烟灰缸里漏了一根烟头，余温还没散。",\n' +
+            '          "dark": true\n' +
+            '        },\n' +
+            '        {\n' +
+            '          "panelId": "9",\n' +
+            '          "text": "‘明天肯定涨停。’自言自语后，关了灯。窗外月光冷冷地落进房间。",\n' +
+            '          "dark": true\n' +
+            '        }\n' +
+            '      ]\n' +
+            '    }\n' +
+            '  ]\n' +
+            '}',
+          role: 'assistant'
+        }
+      }
+    ],
+    created: 1777734623,
+    id: 'chatcmpl-Db6Gwf9MoZ5OvKkUXEzRrUApdNjp7',
+    model: 'gpt-4o',
+    object: 'chat.completion',
+    system_fingerprint: 'fp_af7f7349a4',
+    usage: {
+      completion_tokens: 510,
+      completion_tokens_details: {
+        accepted_prediction_tokens: 0,
+        audio_tokens: 0,
+        reasoning_tokens: 0,
+        rejected_prediction_tokens: 0
+      },
+      input_tokens: 0,
+      input_tokens_details: null,
+      output_tokens: 0,
+      prompt_tokens: 1590,
+      prompt_tokens_details: {
+        audio_tokens: 0,
+        cached_tokens: 0
+      },
+      total_tokens: 2100
+    }
+  },
+  extracted: {
+    constructorName: 'Object',
+    content: '{\n' +
+      '  "reply": "以下是黑白漫画的第一章故事：",\n' +
+      '  "pages": [\n' +
+      '    {\n' +
+      '      "id": "chapter1",\n' +
+      '      "summary": "初入市场：第一次触碰交易软件，简单的买入决定，却开启了无尽的跌宕。",\n' +
+      '      "panels": [\n' +
+      '        {\n' +
+      '          "panelId": "1",\n' +
+      '          "text": "深夜，屏幕的蓝光映照在老旧木桌上，仿佛吞噬了屋里的每一点温暖。",\n' +
+      '          "dark": true\n' +
+      '        },\n' +
+      '        {\n' +
+      '          "panelId": "2",\n' +
+      '          "text": "第一次打开交易软件。账户余额：20,000元。这是所有积蓄。",\n' +
+      '          "dark": false\n' +
+      '        },\n' +
+      '        {\n' +
+      '          "panelId": "3",\n' +
+      '          "text": "推特上一条消息突然爆红：某个小盘股有‘重大利好’，明天可能涨停。",\n' +
+      '          "dark": false\n' +
+      '        },\n' +
+      '        {\n' +
+      '          "panelId": "4",\n' +
+      '          "text": "心跳开始加速。‘明天涨停？我不能错过。’",\n' +
+      '          "dark": true\n' +
+      '        },\n' +
+      '        {\n' +
+      '          "panelId": "5",\n' +
+      '          "text": "‘买多少？’脑海中几次拉扯后，鼠标停在了满仓。",\n' +
+      '          "dark": true\n' +
+      '        },\n' +
+      '        {\n' +
+      '          "panelId": "6",\n' +
+      '          "text": "看着手机短信：“股票已买入，数量800股，价格25元。”",\n' +
+      '          "dark": false\n' +
+      '        },\n' +
+      '        {\n' +
+      '          "panelId": "7",\n' +
+      '          "text": "这时屏幕上的行情图跳动了一下。‘有点像心电图…只有我看得懂。’",\n' +
+      '          "dark": true\n' +
+      '        },\n' +
+      '        {\n' +
+      '          "panelId": "8",\n' +
+      '          "text": "深夜，交易后。灰烬堆满的烟灰缸里漏了一根烟头，余温还没散。",\n' +
+      '          "dark": true\n' +
+      '        },\n' +
+      '        {\n' +
+      '          "panelId": "9",\n' +
+      '          "text": "‘明天肯定涨停。’自言自语后，关了灯。窗外月光冷冷地落进房间。",\n' +
+      '          "dark": true\n' +
+      '        }\n' +
+      '      ]\n' +
+      '    }\n' +
+      '  ]\n' +
+      '}',
+    finishReason: 'stop',
+    ownPropertyNames: [
+      'id',
+      'model',
+      'object',
+      'created',
+      'choices',
+      'usage',
+      'system_fingerprint',
+      '_request_id'
+    ],
+    rawPreview: '{"id":"chatcmpl-Db6Gwf9MoZ5OvKkUXEzRrUApdNjp7","model":"gpt-4o","object":"chat.completion","created":1777734623,"choices":[{"index":0,"message":{"role":"assistant","content":"{\\n \\"reply\\": \\"以下是黑白漫画的第一章故事：\\",\\n \\"pages\\": [\\n {\\n \\"id\\": \\"chapter1\\",\\n \\"summary\\": \\"初入市场：第一次触碰交易软件，简单的买入决定，却开启了无尽的跌宕。\\",\\n \\"panels\\": [\\n {\\n \\"panelId\\": \\"1\\",\\n \\"text\\": \\"深夜，屏幕的蓝光映照在老旧木桌上，仿佛吞噬了屋里的每一点温暖。\\",\\n \\"dark\\": true\\n },\\n {\\n \\"panelId\\": \\"2\\",\\n \\"text\\": \\"第一次打开交易软件。账户余额：20,000元。这是所有积蓄。\\",\\n \\"da',
+    shape: 'choices',
+    topLevelKeys: [
+      'id',
+      'model',
+      'object',
+      'created',
+      'choices',
+      'usage',
+      'system_fingerprint'
+    ]
+  },
+  requestSummary: {
+    configuredBaseURL: 'https://api.openai-next.com/v1',
+    currentStoryPages: 0,
+    durationMs: 37665,
+    effectiveBaseURL: 'https://api.openai-next.com/v1',
+    lastUserMessage: '针对这位b75xlmtfa号散户，开始他在市场中的第一章故事。',
+    messageCount: 1,
+    model: 'gpt-4o',
+    peepId: 'b75xlmtfa'
+  }
+}
+
+===== 2026-05-02T15:29:38.605Z upstream completion =====
+{
+  completionInspect: '{\n' +
+    '  choices: [\n' +
+    '    {\n' +
+    "      finish_reason: 'stop',\n" +
+    '      index: 0,\n' +
+    '      message: {\n' +
+    "        content: '{\\n' +\n" +
+    `          '  "reply": "梭哈的设计师，为了梦想一头扎进市场，结果梦碎时只留下藉藉残影。",\\n' +\n` +
+    `          '  "pages": [\\n' +\n` +
+    "          '    {\\n' +\n" +
+    `          '      "id": "page1",\\n' +\n` +
+    `          '      "summary": "一个设计师，在办公室里因为同事的推荐，进入股市。",\\n' +\n` +
+    `          '      "panels": [\\n' +\n` +
+    "          '        {\\n' +\n" +
+    `          '          "panelId": "1",\\n' +\n` +
+    `          '          "text": "午休时，随意划着手机，同事推门进来说：‘听说了吗，这票，利好消息满天飞啊。’",\\n' +\n` +
+    `          '          "dark": false\\n' +\n` +
+    "          '        },\\n' +\n" +
+    "          '        {\\n' +\n" +
+    `          '          "panelId": "2",\\n' +\n` +
+    `          '          "text": "耳边嗡嗡响，登录交易账户的手，竟然有点发抖。",\\n' +\n` +
+    `          '          "dark": false\\n' +\n` +
+    "          '        },\\n' +\n" +
+    "          '        {\\n' +\n" +
+    `          '          "panelId": "3",\\n' +\n` +
+    `          '          "text": "同事拍拍我的肩：‘这可是千载难逢的机会，不梭不发！’",\\n' +\n` +
+    `          '          "dark": false\\n' +\n` +
+    "          '        },\\n' +\n" +
+    "          '        {\\n' +\n" +
+    `          '          "panelId": "4",\\n' +\n` +
+    `          '          "text": "盯着K线图，像捕猎的鹰。",\\n' +\n` +
+    `          '          "dark": true\\n' +\n` +
+    "          '        },\\n' +\n" +
+    "          '        {\\n' +\n" +
+    `          '          "panelId": "5",\\n' +\n` +
+    `          '          "text": "红色！绿色！一片波动，像跳动的心电图。",\\n' +\n` +
+    `          '          "dark": true\\n' +\n` +
+    "          '        },\\n' +\n" +
+    "          '        {\\n' +\n" +
+    `          '          "panelId": "6",\\n' +\n` +
+    `          '          "text": "一口气买了三成仓。账面余额后悔地跳出来，像冷冰冰的数字提示。",\\n' +\n` +
+    `          '          "dark": false\\n' +\n` +
+    "          '        },\\n' +\n" +
+    "          '        {\\n' +\n" +
+    `          '          "panelId": "7",\\n' +\n` +
+    `          '          "text": "同事倒是得意：‘看吧，下午肯定封板。’",\\n' +\n` +
+    `          '          "dark": false\\n' +\n` +
+    "          '        },\\n' +\n" +
+    "          '        {\\n' +\n" +
+    `          '          "panelId": "8",\\n' +\n` +
+    `          '          "text": "屏幕停在红的最后一秒，两点半，突然转绿。",\\n' +\n` +
+    `          '          "dark": true\\n' +\n` +
+    "          '        },\\n' +\n" +
+    "          '        {\\n' +\n" +
+    `          '          "panelId": "9",\\n' +\n` +
+    `          '          "text": "‘这是洗盘！主力在挖坑捡筹码！’我心中暗念。",\\n' +\n` +
+    `          '          "dark": false\\n' +\n` +
+    "          '        },\\n' +\n" +
+    "          '        {\\n' +\n" +
+    `          '          "panelId": "10",\\n' +\n` +
+    `          '          "text": "手指悬在‘卖出’按钮上，轻轻按，还是收了回来。",\\n' +\n` +
+    `          '          "dark": true\\n' +\n` +
+    "          '        }\\n' +\n" +
+    "          '      ]\\n' +\n" +
+    "          '    },\\n' +\n" +
+    "          '    {\\n' +\n" +
+    `          '      "id": "page2",\\n' +\n` +
+    `          '      "summary": "设计师接下来的几天沉迷观察股票，被走势牵动情绪。",\\n' +\n` +
+    `          '      "panels": [\\n' +\n` +
+    "          '        {\\n' +\n" +
+    `          '          "panelId": "1",\\n' +\n` +
+    `          '          "text": "三天后，股价还在阴跌，办公室的绿植竟成了嘲讽。",\\n' +\n` +
+    `          '          "dark": true\\n' +\n` +
+    "          '        },\\n' +\n" +
+    "          '        {\\n' +\n" +
+    `          '          "panelId": "2",\\n' +\n` +
+    `          '          "text": "同事不再提起股票，只拍着桌子说‘眼光长远点，格局打开’。",\\n' +\n` +
+    `          '          "dark": false\\n' +\n` +
+    "          '        },\\n' +\n" +
+    "          '        {\\n' +\n" +
+    `          '          "panelId": "3",\\n' +\n` +
+    `          '          "text": "深夜，家里电脑屏幕的蓝光打在我脸上。香烟燃了一半，灰撒在键盘上。",\\n' +\n` +
+    `          '          "dark": true\\n' +\n` +
+    "          '        },\\n' +\n" +
+    "          '        {\\n' +\n" +
+    `          '          "panelId": "4",\\n' +\n` +
+    `          '          "text": "心中反复在问：‘会不会明天就反弹了？’",\\n' +\n` +
+    `          '          "dark": false\\n' +\n` +
+    "          '        },\\n' +\n" +
+    "          '        {\\n' +\n" +
+    `          '          "panelId": "5",\\n' +\n` +
+    `          '          "text": "‘再拿一天，明天一定回本。’形成一丝残存的理性幻想。",\\n' +\n` +
+    `          '          "dark": true\\n' +\n` +
+    "          '        },\\n' +\n" +
+    "          '        {\\n' +\n" +
+    `          '          "panelId": "6",\\n' +\n` +
+    `          '          "text": "今天的新闻：多空博弈，散户跑步入场。",\\n' +\n` +
+    `          '          "dark": false\\n' +\n` +
+    "          '        },\\n' +\n" +
+    "          '        {\\n' +\n" +
+    `          '          "panelId": "7",\\n' +\n` +
+    `          '          "text": "感到后背凉了。是不是说的就是我？",\\n' +\n` +
+    `          '          "dark": true\\n' +\n` +
+    "          '        },\\n' +\n" +
+    "          '        {\\n' +\n" +
+    `          '          "panelId": "8",\\n' +\n` +
+    `          '          "text": "网速卡了，下一秒竟显示跌停。",\\n' +\n` +
+    `          '          "dark": false\\n' +\n` +
+    "          '        },\\n' +\n" +
+    "          '        {\\n' +\n" +
+    `          '          "panelId": "9",\\n' +\n` +
+    `          '          "text": "蜷缩在椅子上，盯着天花板。脑海浮现一个词：‘锁仓’。",\\n' +\n` +
+    `          '          "dark": true\\n' +\n` +
+    "          '        },\\n' +\n" +
+    "          '        {\\n' +\n" +
+    `          '          "panelId": "10",\\n' +\n` +
+    `          '          "text": "‘再等等，还会有反弹的。’ 喃喃自语中，眼神却已空洞。",\\n' +\n` +
+    `          '          "dark": true\\n' +\n` +
+    "          '        }\\n' +\n" +
+    "          '      ]\\n' +\n" +
+    "          '    },\\n' +\n" +
+    "          '    {\\n' +\n" +
+    `          '      "id": "page3",\\n' +\n` +
+    `          '      "summary": "最终决心割肉，感到解脱的设计师发现回本转瞬即逝。",\\n' +\n` +
+    `          '      "panels": [\\n' +\n` +
+    "          '        {\\n' +\n" +
+    `          '          "panelId": "1",\\n' +\n` +
+    `          '          "text": "连续几日惨烈收盘，账户已浮亏35%。",\\n' +\n` +
+    `          '          "dark": true\\n' +\n` +
+    "          '        },\\n' +\n" +
+    "          '        {\\n' +\n" +
+    `          '          "panelId": "2",\\n' +\n` +
+    `          '          "text": "手指终于点下卖出键，割肉了结。止盈止损？止损而已。",\\n' +\n` +
+    `          '          "dark": true\\n' +\n` +
+    "          '        },\\n' +\n" +
+    "          '        {\\n' +\n" +
+    `          '          "panelId": "3",\\n' +\n` +
+    `          '          "text": "刚关掉交易软件，手机提示：该股涨停了。",\\n' +\n` +
+    `          '          "dark": false\\n' +\n` +
+    "          '        },\\n' +\n" +
+    "          '        {\\n' +\n" +
+    `          '          "panelId": "4",\\n' +\n` +
+    `          '          "text": "脑海空白，眼前一黑。掉在地上的鼠标发出清脆的声响。",\\n' +\n` +
+    `          '          "dark": true\\n' +\n` +
+    "          '        },\\n' +\n" +
+    "          '        {\\n' +\n" +
+    `          '          "panelId": "5",\\n' +\n` +
+    `          '          "text": "‘再早一点，再晚一点，为什么偏偏是我？！’",\\n' +\n` +
+    `          '          "dark": false\\n' +\n` +
+    "          '        },\\n' +\n" +
+    "          '        {\\n' +\n" +
+    `          '          "panelId": "6",\\n' +\n` +
+    `          '          "text": "今晚，香烟燃尽到末梢，灰未掸，烧到手指，一声轻微的叫声。",\\n' +\n` +
+    `          '          "dark": true\\n' +\n` +
+    "          '        }\\n' +\n" +
+    "          '      ]\\n' +\n" +
+    "          '    }\\n' +\n" +
+    "          '  ]\\n' +\n" +
+    "          '}',\n" +
+    "        role: 'assistant'\n" +
+    '      }\n' +
+    '    }\n' +
+    '  ],\n' +
+    '  created: 1777735776,\n' +
+    "  id: 'chatcmpl-Db6ZLGDmNX39D0IbVrERFxFQStBWN',\n" +
+    "  model: 'gpt-4o',\n" +
+    "  object: 'chat.completion',\n" +
+    "  system_fingerprint: 'fp_af7f7349a4',\n" +
+    '  usage: {\n' +
+    '    completion_tokens: 1329,\n' +
+    '    completion_tokens_details: {\n' +
+    '      accepted_prediction_tokens: 0,\n' +
+    '      audio_tokens: 0,\n' +
+    '      reasoning_tokens: 0,\n' +
+    '      rejected_prediction_tokens: 0\n' +
+    '    },\n' +
+    '    input_tokens: 0,\n' +
+    '    input_tokens_details: null,\n' +
+    '    output_tokens: 0,\n' +
+    '    prompt_tokens: 1436,\n' +
+    '    prompt_tokens_details: {\n' +
+    '      audio_tokens: 0,\n' +
+    '      cached_tokens: 0\n' +
+    '    },\n' +
+    '    total_tokens: 2765\n' +
+    '  }\n' +
+    '}',
+  completionJson: {
+    choices: [
+      {
+        finish_reason: 'stop',
+        index: 0,
+        message: {
+          content: '{\n' +
+            '  "reply": "梭哈的设计师，为了梦想一头扎进市场，结果梦碎时只留下藉藉残影。",\n' +
+            '  "pages": [\n' +
+            '    {\n' +
+            '      "id": "page1",\n' +
+            '      "summary": "一个设计师，在办公室里因为同事的推荐，进入股市。",\n' +
+            '      "panels": [\n' +
+            '        {\n' +
+            '          "panelId": "1",\n' +
+            '          "text": "午休时，随意划着手机，同事推门进来说：‘听说了吗，这票，利好消息满天飞啊。’",\n' +
+            '          "dark": false\n' +
+            '        },\n' +
+            '        {\n' +
+            '          "panelId": "2",\n' +
+            '          "text": "耳边嗡嗡响，登录交易账户的手，竟然有点发抖。",\n' +
+            '          "dark": false\n' +
+            '        },\n' +
+            '        {\n' +
+            '          "panelId": "3",\n' +
+            '          "text": "同事拍拍我的肩：‘这可是千载难逢的机会，不梭不发！’",\n' +
+            '          "dark": false\n' +
+            '        },\n' +
+            '        {\n' +
+            '          "panelId": "4",\n' +
+            '          "text": "盯着K线图，像捕猎的鹰。",\n' +
+            '          "dark": true\n' +
+            '        },\n' +
+            '        {\n' +
+            '          "panelId": "5",\n' +
+            '          "text": "红色！绿色！一片波动，像跳动的心电图。",\n' +
+            '          "dark": true\n' +
+            '        },\n' +
+            '        {\n' +
+            '          "panelId": "6",\n' +
+            '          "text": "一口气买了三成仓。账面余额后悔地跳出来，像冷冰冰的数字提示。",\n' +
+            '          "dark": false\n' +
+            '        },\n' +
+            '        {\n' +
+            '          "panelId": "7",\n' +
+            '          "text": "同事倒是得意：‘看吧，下午肯定封板。’",\n' +
+            '          "dark": false\n' +
+            '        },\n' +
+            '        {\n' +
+            '          "panelId": "8",\n' +
+            '          "text": "屏幕停在红的最后一秒，两点半，突然转绿。",\n' +
+            '          "dark": true\n' +
+            '        },\n' +
+            '        {\n' +
+            '          "panelId": "9",\n' +
+            '          "text": "‘这是洗盘！主力在挖坑捡筹码！’我心中暗念。",\n' +
+            '          "dark": false\n' +
+            '        },\n' +
+            '        {\n' +
+            '          "panelId": "10",\n' +
+            '          "text": "手指悬在‘卖出’按钮上，轻轻按，还是收了回来。",\n' +
+            '          "dark": true\n' +
+            '        }\n' +
+            '      ]\n' +
+            '    },\n' +
+            '    {\n' +
+            '      "id": "page2",\n' +
+            '      "summary": "设计师接下来的几天沉迷观察股票，被走势牵动情绪。",\n' +
+            '      "panels": [\n' +
+            '        {\n' +
+            '          "panelId": "1",\n' +
+            '          "text": "三天后，股价还在阴跌，办公室的绿植竟成了嘲讽。",\n' +
+            '          "dark": true\n' +
+            '        },\n' +
+            '        {\n' +
+            '          "panelId": "2",\n' +
+            '          "text": "同事不再提起股票，只拍着桌子说‘眼光长远点，格局打开’。",\n' +
+            '          "dark": false\n' +
+            '        },\n' +
+            '        {\n' +
+            '          "panelId": "3",\n' +
+            '          "text": "深夜，家里电脑屏幕的蓝光打在我脸上。香烟燃了一半，灰撒在键盘上。",\n' +
+            '          "dark": true\n' +
+            '        },\n' +
+            '        {\n' +
+            '          "panelId": "4",\n' +
+            '          "text": "心中反复在问：‘会不会明天就反弹了？’",\n' +
+            '          "dark": false\n' +
+            '        },\n' +
+            '        {\n' +
+            '          "panelId": "5",\n' +
+            '          "text": "‘再拿一天，明天一定回本。’形成一丝残存的理性幻想。",\n' +
+            '          "dark": true\n' +
+            '        },\n' +
+            '        {\n' +
+            '          "panelId": "6",\n' +
+            '          "text": "今天的新闻：多空博弈，散户跑步入场。",\n' +
+            '          "dark": false\n' +
+            '        },\n' +
+            '        {\n' +
+            '          "panelId": "7",\n' +
+            '          "text": "感到后背凉了。是不是说的就是我？",\n' +
+            '          "dark": true\n' +
+            '        },\n' +
+            '        {\n' +
+            '          "panelId": "8",\n' +
+            '          "text": "网速卡了，下一秒竟显示跌停。",\n' +
+            '          "dark": false\n' +
+            '        },\n' +
+            '        {\n' +
+            '          "panelId": "9",\n' +
+            '          "text": "蜷缩在椅子上，盯着天花板。脑海浮现一个词：‘锁仓’。",\n' +
+            '          "dark": true\n' +
+            '        },\n' +
+            '        {\n' +
+            '          "panelId": "10",\n' +
+            '          "text": "‘再等等，还会有反弹的。’ 喃喃自语中，眼神却已空洞。",\n' +
+            '          "dark": true\n' +
+            '        }\n' +
+            '      ]\n' +
+            '    },\n' +
+            '    {\n' +
+            '      "id": "page3",\n' +
+            '      "summary": "最终决心割肉，感到解脱的设计师发现回本转瞬即逝。",\n' +
+            '      "panels": [\n' +
+            '        {\n' +
+            '          "panelId": "1",\n' +
+            '          "text": "连续几日惨烈收盘，账户已浮亏35%。",\n' +
+            '          "dark": true\n' +
+            '        },\n' +
+            '        {\n' +
+            '          "panelId": "2",\n' +
+            '          "text": "手指终于点下卖出键，割肉了结。止盈止损？止损而已。",\n' +
+            '          "dark": true\n' +
+            '        },\n' +
+            '        {\n' +
+            '          "panelId": "3",\n' +
+            '          "text": "刚关掉交易软件，手机提示：该股涨停了。",\n' +
+            '          "dark": false\n' +
+            '        },\n' +
+            '        {\n' +
+            '          "panelId": "4",\n' +
+            '          "text": "脑海空白，眼前一黑。掉在地上的鼠标发出清脆的声响。",\n' +
+            '          "dark": true\n' +
+            '        },\n' +
+            '        {\n' +
+            '          "panelId": "5",\n' +
+            '          "text": "‘再早一点，再晚一点，为什么偏偏是我？！’",\n' +
+            '          "dark": false\n' +
+            '        },\n' +
+            '        {\n' +
+            '          "panelId": "6",\n' +
+            '          "text": "今晚，香烟燃尽到末梢，灰未掸，烧到手指，一声轻微的叫声。",\n' +
+            '          "dark": true\n' +
+            '        }\n' +
+            '      ]\n' +
+            '    }\n' +
+            '  ]\n' +
+            '}',
+          role: 'assistant'
+        }
+      }
+    ],
+    created: 1777735776,
+    id: 'chatcmpl-Db6ZLGDmNX39D0IbVrERFxFQStBWN',
+    model: 'gpt-4o',
+    object: 'chat.completion',
+    system_fingerprint: 'fp_af7f7349a4',
+    usage: {
+      completion_tokens: 1329,
+      completion_tokens_details: {
+        accepted_prediction_tokens: 0,
+        audio_tokens: 0,
+        reasoning_tokens: 0,
+        rejected_prediction_tokens: 0
+      },
+      input_tokens: 0,
+      input_tokens_details: null,
+      output_tokens: 0,
+      prompt_tokens: 1436,
+      prompt_tokens_details: {
+        audio_tokens: 0,
+        cached_tokens: 0
+      },
+      total_tokens: 2765
+    }
+  },
+  extracted: {
+    constructorName: 'Object',
+    content: '{\n' +
+      '  "reply": "梭哈的设计师，为了梦想一头扎进市场，结果梦碎时只留下藉藉残影。",\n' +
+      '  "pages": [\n' +
+      '    {\n' +
+      '      "id": "page1",\n' +
+      '      "summary": "一个设计师，在办公室里因为同事的推荐，进入股市。",\n' +
+      '      "panels": [\n' +
+      '        {\n' +
+      '          "panelId": "1",\n' +
+      '          "text": "午休时，随意划着手机，同事推门进来说：‘听说了吗，这票，利好消息满天飞啊。’",\n' +
+      '          "dark": false\n' +
+      '        },\n' +
+      '        {\n' +
+      '          "panelId": "2",\n' +
+      '          "text": "耳边嗡嗡响，登录交易账户的手，竟然有点发抖。",\n' +
+      '          "dark": false\n' +
+      '        },\n' +
+      '        {\n' +
+      '          "panelId": "3",\n' +
+      '          "text": "同事拍拍我的肩：‘这可是千载难逢的机会，不梭不发！’",\n' +
+      '          "dark": false\n' +
+      '        },\n' +
+      '        {\n' +
+      '          "panelId": "4",\n' +
+      '          "text": "盯着K线图，像捕猎的鹰。",\n' +
+      '          "dark": true\n' +
+      '        },\n' +
+      '        {\n' +
+      '          "panelId": "5",\n' +
+      '          "text": "红色！绿色！一片波动，像跳动的心电图。",\n' +
+      '          "dark": true\n' +
+      '        },\n' +
+      '        {\n' +
+      '          "panelId": "6",\n' +
+      '          "text": "一口气买了三成仓。账面余额后悔地跳出来，像冷冰冰的数字提示。",\n' +
+      '          "dark": false\n' +
+      '        },\n' +
+      '        {\n' +
+      '          "panelId": "7",\n' +
+      '          "text": "同事倒是得意：‘看吧，下午肯定封板。’",\n' +
+      '          "dark": false\n' +
+      '        },\n' +
+      '        {\n' +
+      '          "panelId": "8",\n' +
+      '          "text": "屏幕停在红的最后一秒，两点半，突然转绿。",\n' +
+      '          "dark": true\n' +
+      '        },\n' +
+      '        {\n' +
+      '          "panelId": "9",\n' +
+      '          "text": "‘这是洗盘！主力在挖坑捡筹码！’我心中暗念。",\n' +
+      '          "dark": false\n' +
+      '        },\n' +
+      '        {\n' +
+      '          "panelId": "10",\n' +
+      '          "text": "手指悬在‘卖出’按钮上，轻轻按，还是收了回来。",\n' +
+      '          "dark": true\n' +
+      '        }\n' +
+      '      ]\n' +
+      '    },\n' +
+      '    {\n' +
+      '      "id": "page2",\n' +
+      '      "summary": "设计师接下来的几天沉迷观察股票，被走势牵动情绪。",\n' +
+      '      "panels": [\n' +
+      '        {\n' +
+      '          "panelId": "1",\n' +
+      '          "text": "三天后，股价还在阴跌，办公室的绿植竟成了嘲讽。",\n' +
+      '          "dark": true\n' +
+      '        },\n' +
+      '        {\n' +
+      '          "panelId": "2",\n' +
+      '          "text": "同事不再提起股票，只拍着桌子说‘眼光长远点，格局打开’。",\n' +
+      '          "dark": false\n' +
+      '        },\n' +
+      '        {\n' +
+      '          "panelId": "3",\n' +
+      '          "text": "深夜，家里电脑屏幕的蓝光打在我脸上。香烟燃了一半，灰撒在键盘上。",\n' +
+      '          "dark": true\n' +
+      '        },\n' +
+      '        {\n' +
+      '          "panelId": "4",\n' +
+      '          "text": "心中反复在问：‘会不会明天就反弹了？’",\n' +
+      '          "dark": false\n' +
+      '        },\n' +
+      '        {\n' +
+      '          "panelId": "5",\n' +
+      '          "text": "‘再拿一天，明天一定回本。’形成一丝残存的理性幻想。",\n' +
+      '          "dark": true\n' +
+      '        },\n' +
+      '        {\n' +
+      '          "panelId": "6",\n' +
+      '          "text": "今天的新闻：多空博弈，散户跑步入场。",\n' +
+      '          "dark": false\n' +
+      '        },\n' +
+      '        {\n' +
+      '          "panelId": "7",\n' +
+      '          "text": "感到后背凉了。是不是说的就是我？",\n' +
+      '          "dark": true\n' +
+      '        },\n' +
+      '        {\n' +
+      '          "panelId": "8",\n' +
+      '          "text": "网速卡了，下一秒竟显示跌停。",\n' +
+      '          "dark": false\n' +
+      '        },\n' +
+      '        {\n' +
+      '          "panelId": "9",\n' +
+      '          "text": "蜷缩在椅子上，盯着天花板。脑海浮现一个词：‘锁仓’。",\n' +
+      '          "dark": true\n' +
+      '        },\n' +
+      '        {\n' +
+      '          "panelId": "10",\n' +
+      '          "text": "‘再等等，还会有反弹的。’ 喃喃自语中，眼神却已空洞。",\n' +
+      '          "dark": true\n' +
+      '        }\n' +
+      '      ]\n' +
+      '    },\n' +
+      '    {\n' +
+      '      "id": "page3",\n' +
+      '      "summary": "最终决心割肉，感到解脱的设计师发现回本转瞬即逝。",\n' +
+      '      "panels": [\n' +
+      '        {\n' +
+      '          "panelId": "1",\n' +
+      '          "text": "连续几日惨烈收盘，账户已浮亏35%。",\n' +
+      '          "dark": true\n' +
+      '        },\n' +
+      '        {\n' +
+      '          "panelId": "2",\n' +
+      '          "text": "手指终于点下卖出键，割肉了结。止盈止损？止损而已。",\n' +
+      '          "dark": true\n' +
+      '        },\n' +
+      '        {\n' +
+      '          "panelId": "3",\n' +
+      '          "text": "刚关掉交易软件，手机提示：该股涨停了。",\n' +
+      '          "dark": false\n' +
+      '        },\n' +
+      '        {\n' +
+      '          "panelId": "4",\n' +
+      '          "text": "脑海空白，眼前一黑。掉在地上的鼠标发出清脆的声响。",\n' +
+      '          "dark": true\n' +
+      '        },\n' +
+      '        {\n' +
+      '          "panelId": "5",\n' +
+      '          "text": "‘再早一点，再晚一点，为什么偏偏是我？！’",\n' +
+      '          "dark": false\n' +
+      '        },\n' +
+      '        {\n' +
+      '          "panelId": "6",\n' +
+      '          "text": "今晚，香烟燃尽到末梢，灰未掸，烧到手指，一声轻微的叫声。",\n' +
+      '          "dark": true\n' +
+      '        }\n' +
+      '      ]\n' +
+      '    }\n' +
+      '  ]\n' +
+      '}',
+    finishReason: 'stop',
+    ownPropertyNames: [
+      'id',
+      'model',
+      'object',
+      'created',
+      'choices',
+      'usage',
+      'system_fingerprint',
+      '_request_id'
+    ],
+    rawPreview: '{"id":"chatcmpl-Db6ZLGDmNX39D0IbVrERFxFQStBWN","model":"gpt-4o","object":"chat.completion","created":1777735776,"choices":[{"index":0,"message":{"role":"assistant","content":"{\\n \\"reply\\": \\"梭哈的设计师，为了梦想一头扎进市场，结果梦碎时只留下藉藉残影。\\",\\n \\"pages\\": [\\n {\\n \\"id\\": \\"page1\\",\\n \\"summary\\": \\"一个设计师，在办公室里因为同事的推荐，进入股市。\\",\\n \\"panels\\": [\\n {\\n \\"panelId\\": \\"1\\",\\n \\"text\\": \\"午休时，随意划着手机，同事推门进来说：‘听说了吗，这票，利好消息满天飞啊。’\\",\\n \\"dark\\": false\\n },\\n {\\n \\"panelId\\": \\"2\\",\\n \\"text\\": \\"耳边嗡嗡响，登录交易账户的手，竟然有点发抖。\\",\\n',
+    shape: 'choices',
+    topLevelKeys: [
+      'id',
+      'model',
+      'object',
+      'created',
+      'choices',
+      'usage',
+      'system_fingerprint'
+    ]
+  },
+  requestSummary: {
+    configuredBaseURL: 'https://api.openai-next.com/v1',
+    currentStoryPages: 0,
+    durationMs: 30385,
+    effectiveBaseURL: 'https://api.openai-next.com/v1',
+    lastUserMessage: 'gender: 男, profession: 设计师, finalThought: xxx',
+    messageCount: 1,
+    model: 'gpt-4o',
+    peepId: '<none>'
+  }
+}
+
+===== 2026-05-02T15:37:17.018Z upstream completion =====
+{
+  completionInspect: '{\n' +
+    '  choices: [\n' +
+    '    {\n' +
+    "      finish_reason: 'stop',\n" +
+    '      index: 0,\n' +
+    '      message: {\n' +
+    `        content: '{"reply": "以下是一个新进散户的真实困局，化为黑白分镜，希望你能感受到那个瞬间的波动与无力。故事主角是一位非二元工程师，带着量化理性的执念踏入股市，但最终发现理性无法战胜市场的荒诞性。","pages": [{"id": "1", "summary": "一个初入场的工程师，在市场中被自己的逻辑围困，试图量化混沌，最终迷失在被自己的算法收割的矛盾中。", "panels": [{"panelId": "1", "text": "屏幕前。代码编辑器里是满满的函数和指标策略。想通了，市场不过是数据的集合。", "dark": false}, {"panelId": "2", "text": "买入信号出现，MACD完美交叉，上行趋势成型。我点击了“确认”。屏幕变绿了。", "dark": false}, {"panelId": "3", "text": "几分钟后，账户盈亏+2%。美股大数据也显示资金流入。螺丝刀掉地上，一切都在我的预料中。", "dark": false}, {"panelId": "4", "text": "盘面震荡。布林带波动大增。传统经验说应该止盈，但代码判定‘假突破’。我忍住了。", "dark": true}, {"panelId": "5", "text": "下一秒，突发消息。股价闪崩5%。消息：‘创始人辞职’，情绪性抛盘。代码呆滞了，我却跑不快。", "dark": true}, {"panelId": "6", "text": "手一抖，止损。卖完立即反弹。我盯着跳动的红绿数字，呼吸变沉重。我完全不是算法能概括的，这简直是一场心理战。", "dark": true}, {"panelId": "7", "text": "退出软件。点了一根烟。回想刚才那几秒，后背发凉。‘理性是用来干什么的？’", "dark": false}, {"panelId": "8", "text": "但是夜深了，空荡的电脑屏幕上静静待命着代码。我不甘心。", "dark": false}, {"panelId": "9", "text": "‘市场可以被算尽的。’决定重新写个模型，给黑天鹅事件更高的权重因子。", "dark": false}, {"panelId": "10", "text": "凌晨三点。键盘声让屋子里显得很热闹。我以为能重构规律。", "dark": false}]}]}',\n` +
+    "        role: 'assistant'\n" +
+    '      }\n' +
+    '    }\n' +
+    '  ],\n' +
+    '  created: 1777736235,\n' +
+    "  id: 'chatcmpl-Db6gtipi8eWnwvFottON4BHrVHt0u',\n" +
+    "  model: 'gpt-4o',\n" +
+    "  object: 'chat.completion',\n" +
+    "  system_fingerprint: 'fp_af7f7349a4',\n" +
+    '  usage: {\n' +
+    '    completion_tokens: 628,\n' +
+    '    completion_tokens_details: {\n' +
+    '      accepted_prediction_tokens: 0,\n' +
+    '      audio_tokens: 0,\n' +
+    '      reasoning_tokens: 0,\n' +
+    '      rejected_prediction_tokens: 0\n' +
+    '    },\n' +
+    '    input_tokens: 0,\n' +
+    '    input_tokens_details: null,\n' +
+    '    output_tokens: 0,\n' +
+    '    prompt_tokens: 1442,\n' +
+    '    prompt_tokens_details: {\n' +
+    '      audio_tokens: 0,\n' +
+    '      cached_tokens: 1280\n' +
+    '    },\n' +
+    '    total_tokens: 2070\n' +
+    '  }\n' +
+    '}',
+  completionJson: {
+    choices: [
+      {
+        finish_reason: 'stop',
+        index: 0,
+        message: {
+          content: '{"reply": "以下是一个新进散户的真实困局，化为黑白分镜，希望你能感受到那个瞬间的波动与无力。故事主角是一位非二元工程师，带着量化理性的执念踏入股市，但最终发现理性无法战胜市场的荒诞性。","pages": [{"id": "1", "summary": "一个初入场的工程师，在市场中被自己的逻辑围困，试图量化混沌，最终迷失在被自己的算法收割的矛盾中。", "panels": [{"panelId": "1", "text": "屏幕前。代码编辑器里是满满的函数和指标策略。想通了，市场不过是数据的集合。", "dark": false}, {"panelId": "2", "text": "买入信号出现，MACD完美交叉，上行趋势成型。我点击了“确认”。屏幕变绿了。", "dark": false}, {"panelId": "3", "text": "几分钟后，账户盈亏+2%。美股大数据也显示资金流入。螺丝刀掉地上，一切都在我的预料中。", "dark": false}, {"panelId": "4", "text": "盘面震荡。布林带波动大增。传统经验说应该止盈，但代码判定‘假突破’。我忍住了。", "dark": true}, {"panelId": "5", "text": "下一秒，突发消息。股价闪崩5%。消息：‘创始人辞职’，情绪性抛盘。代码呆滞了，我却跑不快。", "dark": true}, {"panelId": "6", "text": "手一抖，止损。卖完立即反弹。我盯着跳动的红绿数字，呼吸变沉重。我完全不是算法能概括的，这简直是一场心理战。", "dark": true}, {"panelId": "7", "text": "退出软件。点了一根烟。回想刚才那几秒，后背发凉。‘理性是用来干什么的？’", "dark": false}, {"panelId": "8", "text": "但是夜深了，空荡的电脑屏幕上静静待命着代码。我不甘心。", "dark": false}, {"panelId": "9", "text": "‘市场可以被算尽的。’决定重新写个模型，给黑天鹅事件更高的权重因子。", "dark": false}, {"panelId": "10", "text": "凌晨三点。键盘声让屋子里显得很热闹。我以为能重构规律。", "dark": false}]}]}',
+          role: 'assistant'
+        }
+      }
+    ],
+    created: 1777736235,
+    id: 'chatcmpl-Db6gtipi8eWnwvFottON4BHrVHt0u',
+    model: 'gpt-4o',
+    object: 'chat.completion',
+    system_fingerprint: 'fp_af7f7349a4',
+    usage: {
+      completion_tokens: 628,
+      completion_tokens_details: {
+        accepted_prediction_tokens: 0,
+        audio_tokens: 0,
+        reasoning_tokens: 0,
+        rejected_prediction_tokens: 0
+      },
+      input_tokens: 0,
+      input_tokens_details: null,
+      output_tokens: 0,
+      prompt_tokens: 1442,
+      prompt_tokens_details: {
+        audio_tokens: 0,
+        cached_tokens: 1280
+      },
+      total_tokens: 2070
+    }
+  },
+  extracted: {
+    constructorName: 'Object',
+    content: '{"reply": "以下是一个新进散户的真实困局，化为黑白分镜，希望你能感受到那个瞬间的波动与无力。故事主角是一位非二元工程师，带着量化理性的执念踏入股市，但最终发现理性无法战胜市场的荒诞性。","pages": [{"id": "1", "summary": "一个初入场的工程师，在市场中被自己的逻辑围困，试图量化混沌，最终迷失在被自己的算法收割的矛盾中。", "panels": [{"panelId": "1", "text": "屏幕前。代码编辑器里是满满的函数和指标策略。想通了，市场不过是数据的集合。", "dark": false}, {"panelId": "2", "text": "买入信号出现，MACD完美交叉，上行趋势成型。我点击了“确认”。屏幕变绿了。", "dark": false}, {"panelId": "3", "text": "几分钟后，账户盈亏+2%。美股大数据也显示资金流入。螺丝刀掉地上，一切都在我的预料中。", "dark": false}, {"panelId": "4", "text": "盘面震荡。布林带波动大增。传统经验说应该止盈，但代码判定‘假突破’。我忍住了。", "dark": true}, {"panelId": "5", "text": "下一秒，突发消息。股价闪崩5%。消息：‘创始人辞职’，情绪性抛盘。代码呆滞了，我却跑不快。", "dark": true}, {"panelId": "6", "text": "手一抖，止损。卖完立即反弹。我盯着跳动的红绿数字，呼吸变沉重。我完全不是算法能概括的，这简直是一场心理战。", "dark": true}, {"panelId": "7", "text": "退出软件。点了一根烟。回想刚才那几秒，后背发凉。‘理性是用来干什么的？’", "dark": false}, {"panelId": "8", "text": "但是夜深了，空荡的电脑屏幕上静静待命着代码。我不甘心。", "dark": false}, {"panelId": "9", "text": "‘市场可以被算尽的。’决定重新写个模型，给黑天鹅事件更高的权重因子。", "dark": false}, {"panelId": "10", "text": "凌晨三点。键盘声让屋子里显得很热闹。我以为能重构规律。", "dark": false}]}]}',
+    finishReason: 'stop',
+    ownPropertyNames: [
+      'id',
+      'model',
+      'object',
+      'created',
+      'choices',
+      'usage',
+      'system_fingerprint',
+      '_request_id'
+    ],
+    rawPreview: '{"id":"chatcmpl-Db6gtipi8eWnwvFottON4BHrVHt0u","model":"gpt-4o","object":"chat.completion","created":1777736235,"choices":[{"index":0,"message":{"role":"assistant","content":"{\\"reply\\": \\"以下是一个新进散户的真实困局，化为黑白分镜，希望你能感受到那个瞬间的波动与无力。故事主角是一位非二元工程师，带着量化理性的执念踏入股市，但最终发现理性无法战胜市场的荒诞性。\\",\\"pages\\": [{\\"id\\": \\"1\\", \\"summary\\": \\"一个初入场的工程师，在市场中被自己的逻辑围困，试图量化混沌，最终迷失在被自己的算法收割的矛盾中。\\", \\"panels\\": [{\\"panelId\\": \\"1\\", \\"text\\": \\"屏幕前。代码编辑器里是满满的函数和指标策略。想通了，市场不过是数据的集合。\\", \\"dark\\": false}, {\\"panelId\\": \\"2\\", \\',
+    shape: 'choices',
+    topLevelKeys: [
+      'id',
+      'model',
+      'object',
+      'created',
+      'choices',
+      'usage',
+      'system_fingerprint'
+    ]
+  },
+  requestSummary: {
+    configuredBaseURL: 'https://api.openai-next.com/v1',
+    currentStoryPages: 0,
+    durationMs: 9112,
+    effectiveBaseURL: 'https://api.openai-next.com/v1',
+    lastUserMessage: 'gender: 非二元, profession: 工程师, finalThought: 1',
+    messageCount: 1,
+    model: 'gpt-4o',
+    peepId: '<none>'
+  }
+}
+
+===== 2026-05-02T16:20:48.150Z request failed =====
+{
+  configuredBaseURL: 'https://api.openai-next.com/v1',
+  durationMs: 2933,
+  effectiveBaseURL: 'https://api.openai-next.com/v1',
+  errorInspect: 'Error: 401 该令牌额度已用尽 (request id: 2026050300204541586166950683699)\n' +
+    '    at async POST (app\\api\\chat\\route.ts:391:26)\n' +
+    '  389 | ...;\n' +
+    '  390 | ...\n' +
+    '> 391 | ...nst completion = await client.chat....\n' +
+    '      |                     ^\n' +
+    "  392 | ...model: activeConfig.model || 'gpt-4...\n" +
+    "  393 | ...response_format: { type: 'json_obje...\n" +
+    '  394 | ...messages: [ {\n' +
+    '  code: undefined,\n' +
+    '  error: {\n' +
+    "    message: '该令牌额度已用尽 (request id: 2026050300204541586166950683699)',\n" +
+    "    type: 'shell_api_error'\n" +
+    '  },\n' +
+    '  headers: Headers {\n' +
+    `    'alt-svc': 'h3=":443"; ma=86400',\n` +
+    "    'cf-cache-status': 'DYNAMIC',\n" +
+    "    'cf-ray': '9f585ae7895276dc-SEA',\n" +
+    "    'content-length': '119',\n" +
+    "    'content-type': 'application/json; charset=utf-8',\n" +
+    `    'report-to': '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=HSE9q7OfObvtG3yTZjI3FlV4Xf37y8nS3tmIDb2AB68%2F4Efuv7m7dO28MkAflmyQGikDQ%2FHB9mJKC6QETiZl8cbg2PD%2B%2Bvzke09D%2FS3MwnugNHnxJFp5FOgjUDSfCDdl0Wo9x9Q%3D"}]}',\n` +
+    "    'x-shellapi-request-id': '2026050300204541586166950683699',\n" +
+    "    connection: 'keep-alive',\n" +
+    "    date: 'Sat, 02 May 2026 16:20:45 GMT',\n" +
+    `    nel: '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}',\n` +
+    "    server: 'cloudflare'\n" +
+    '  },\n' +
+    '  param: undefined,\n' +
+    '  requestID: null,\n' +
+    '  status: 401,\n' +
+    "  type: 'shell_api_error'\n" +
+    '}',
+  lastUserMessage: 'gender: 男, profession: 受雇上班, finalThought: 1',
+  model: 'gpt-4o'
+}
+
+===== 2026-05-02T16:36:11.729Z request failed =====
+{
+  configuredBaseURL: 'https://api.openai-next.com/v1',
+  durationMs: 872,
+  effectiveBaseURL: 'https://api.openai-next.com/v1',
+  errorInspect: 'Error: 401 该令牌额度已用尽 (request id: 2026050300360940822227916716617)\n' +
+    '    at async POST (app\\api\\chat\\route.ts:391:26)\n' +
+    '  389 | ...  });\n' +
+    '  390 | ...\n' +
+    '> 391 | ...  const completion = await client.chat.comp...\n' +
+    '      |                         ^\n' +
+    "  392 | ...    model: activeConfig.model || 'gpt-4o-mi...\n" +
+    "  393 | ...    response_format: { type: 'json_object' },\n" +
+    '  394 | ...    messages: [ {\n' +
+    '  code: undefined,\n' +
+    '  error: {\n' +
+    "    message: '该令牌额度已用尽 (request id: 2026050300360940822227916716617)',\n" +
+    "    type: 'shell_api_error'\n" +
+    '  },\n' +
+    '  headers: Headers {\n' +
+    `    'alt-svc': 'h3=":443"; ma=86400',\n` +
+    "    'cf-cache-status': 'DYNAMIC',\n" +
+    "    'cf-ray': '9f5871768f7bfc2f-SEA',\n" +
+    "    'content-length': '119',\n" +
+    "    'content-type': 'application/json; charset=utf-8',\n" +
+    `    'report-to': '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=drzo9OVHC4nak5yuKS39sns%2F3SgFdZr%2FDy1O90jaf%2F%2BLsx7ZZhoun5mz%2FqPgjplH2BBChE5nEuUMEDO1AzhrqrNOH%2BNVkNNL1Nu4SYROO4%2B7ICe806o2oX5u6T4Z5AYoGSa9LtQ%3D"}]}',\n` +
+    "    'x-shellapi-request-id': '2026050300360940822227916716617',\n" +
+    "    connection: 'keep-alive',\n" +
+    "    date: 'Sat, 02 May 2026 16:36:09 GMT',\n" +
+    `    nel: '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}',\n` +
+    "    server: 'cloudflare'\n" +
+    '  },\n' +
+    '  param: undefined,\n' +
+    '  requestID: null,\n' +
+    '  status: 401,\n' +
+    "  type: 'shell_api_error'\n" +
+    '}',
+  lastUserMessage: 'gender: 非二元, profession: 自由职业者, finalThought: 111',
+  model: 'gpt-4o'
+}

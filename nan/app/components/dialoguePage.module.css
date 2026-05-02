@@ -1,0 +1,810 @@
+.dialogueScroll {
+  background: #f4f2eb;
+}
+
+.thread {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.threadRow {
+  display: flex;
+  width: 100%;
+}
+
+.threadRowUser {
+  justify-content: flex-end;
+}
+
+.threadRowAssistant {
+  justify-content: flex-start;
+}
+
+.messageCard {
+  white-space: pre-wrap;
+}
+
+.richCard {
+  width: min(100%, 760px);
+  border: 3px solid #000;
+  background: #fff;
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.08);
+  color: #161616;
+}
+
+.graphHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.graphTitle {
+  margin: 0 0 6px;
+  color: #111;
+  font-family: var(--font-geist-sans), Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.graphSummary {
+  margin: 0;
+  color: #555;
+  font-family: var(--font-geist-sans), Arial, sans-serif;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.graphBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 72px;
+  height: 28px;
+  padding: 0 10px;
+  border: 2px solid #000;
+  border-radius: 8px;
+  background: #efede4;
+  color: #111;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.graphCanvas {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.graphStatus {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  color: #6b6b6b;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.graphSvg {
+  width: 100%;
+  height: auto;
+  border: 2px solid rgba(0, 0, 0, 0.16);
+  border-radius: 18px;
+  background: #fbfbf8;
+}
+
+.graphEdge {
+  animation: edgeReveal 0.3s ease;
+}
+
+.graphEdgeStatic {
+  opacity: 1;
+}
+
+.graphEdge line {
+  stroke: rgba(0, 0, 0, 0.18);
+  stroke-width: 1.5;
+}
+
+.graphEdge text {
+  fill: rgba(0, 0, 0, 0.34);
+  font-family: var(--font-geist-sans), Arial, sans-serif;
+  font-size: 9px;
+  text-anchor: middle;
+  text-transform: uppercase;
+}
+
+.graphNode {
+  animation: nodeReveal 0.22s ease;
+}
+
+.graphNodeStatic {
+  opacity: 1;
+}
+
+.graphNode text {
+  fill: #111;
+  font-family: var(--font-geist-sans), Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.richMessageTitle {
+  margin: 0 0 14px;
+  color: #111;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.markdownBody {
+  color: #111;
+}
+
+.markdownHeading {
+  margin: 0;
+  font-family: var(--font-geist-sans), Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+.markdownParagraph {
+  margin: 0;
+  color: #444;
+  font-family: var(--font-geist-sans), Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.markdownBullet {
+  display: flex;
+  gap: 10px;
+  margin: 0;
+  color: #444;
+  font-family: var(--font-geist-sans), Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.markdownBulletMark {
+  color: #111;
+}
+
+.markdownSpacer {
+  height: 8px;
+}
+
+.codeBlockCard {
+  border: 2px solid #000;
+  border-radius: 18px;
+  background: #fff;
+  overflow: hidden;
+}
+
+.codeHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 16px;
+  border-bottom: 2px solid #000;
+}
+
+.codeHeaderLeft {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.codeDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #111;
+  box-shadow: none;
+}
+
+.codeTitle,
+.codeStatus,
+.codeLang {
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.codeTitle {
+  color: #111;
+  font-weight: 700;
+}
+
+.codeStatus {
+  color: #666;
+}
+
+.codeLang {
+  color: #666;
+}
+
+.codeContent {
+  margin: 0;
+  padding: 18px 16px 20px;
+  color: #222;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 12px;
+  line-height: 1.65;
+  white-space: pre-wrap;
+  overflow-x: auto;
+}
+
+.marketCard {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.marketHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.marketTitle {
+  margin: 0 0 6px;
+  color: #111;
+  font-family: var(--font-geist-sans), Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.marketSubtitle {
+  margin: 0;
+  color: #666;
+  font-family: var(--font-geist-sans), Arial, sans-serif;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.marketBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 86px;
+  padding: 7px 10px;
+  border: 2px solid #000;
+  border-radius: 8px;
+  background: #efede4;
+  color: #111;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.marketSvg {
+  width: 100%;
+  height: auto;
+  border: 2px solid rgba(0, 0, 0, 0.16);
+  border-radius: 18px;
+  background: #fbfbf8;
+}
+
+.marketGridLine {
+  stroke: rgba(0, 0, 0, 0.08);
+  stroke-width: 1;
+}
+
+.marketWickUp,
+.marketWickDown {
+  stroke-width: 2;
+}
+
+.marketWickUp {
+  stroke: #111;
+}
+
+.marketWickDown {
+  stroke: #777;
+}
+
+.marketCandleUp {
+  fill: #111;
+}
+
+.marketCandleDown {
+  fill: #777;
+}
+
+.marketAxisLabel {
+  fill: #666;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 10px;
+  text-anchor: middle;
+}
+
+.dashboardCard {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.metricGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.metricCard {
+  padding: 14px;
+  border: 2px solid #000;
+  border-radius: 16px;
+  background: #fff;
+}
+
+.metricToneGreen {
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.04);
+}
+
+.metricToneYellow {
+  background: #f8f4df;
+}
+
+.metricToneRed {
+  background: #f8eeee;
+}
+
+.metricToneBlue {
+  background: #eef3f8;
+}
+
+.metricLabel {
+  margin: 0 0 8px;
+  color: #666;
+  font-family: var(--font-geist-sans), Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.metricValue {
+  margin: 0 0 8px;
+  color: #111;
+  font-family: var(--font-geist-sans), Arial, sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.metricDetail {
+  margin: 0;
+  color: #555;
+  font-family: var(--font-geist-sans), Arial, sans-serif;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.barSection {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.barRow {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.barMeta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  color: #333;
+  font-family: var(--font-geist-sans), Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.barTrack {
+  width: 100%;
+  height: 10px;
+  border-radius: 999px;
+  background: #e7e3d8;
+  overflow: hidden;
+}
+
+.barFill {
+  height: 100%;
+  border-radius: 999px;
+}
+
+.matrixShell {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.matrixTopbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #000;
+}
+
+.matrixBrand {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.matrixBrandMain {
+  color: #111;
+  font-family: var(--font-geist-sans), Arial, sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.matrixBrandSub,
+.matrixSync {
+  color: #666;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.matrixGridLayout {
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr) 220px;
+  gap: 16px;
+}
+
+.matrixSidebar,
+.matrixCenter,
+.matrixRightbar {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.matrixPanel,
+.matrixInsightCard,
+.matrixToolCard,
+.matrixBubble {
+  border: 2px solid #000;
+  border-radius: 16px;
+  background: #fff;
+}
+
+.matrixPanel {
+  padding: 14px;
+}
+
+.matrixPanelTitle {
+  margin: 0 0 12px;
+  color: #666;
+  font-family: var(--font-geist-sans), Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.matrixProfileList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.matrixProfileRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.matrixProfileLabel {
+  color: #c8d2ec;
+  font-size: 13px;
+}
+
+.matrixProfileValue {
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.matrixProfileGreen {
+  color: #16e07f;
+}
+
+.matrixProfileBlue {
+  color: #7ab8ff;
+}
+
+.matrixProfileYellow {
+  color: #f7c948;
+}
+
+.matrixProfileNeutral {
+  color: #d7dff3;
+}
+
+.matrixLayers {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.matrixLayer {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 10px;
+  align-items: start;
+}
+
+.matrixLayerLabel {
+  color: #8a9abf;
+  font-size: 12px;
+}
+
+.matrixCells {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.matrixCell {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+  border: 1px solid rgba(65, 79, 118, 0.56);
+  border-radius: 10px;
+  color: #cbd4ee;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 11px;
+}
+
+.matrixCellActive {
+  border-color: rgba(22, 224, 127, 0.9);
+  box-shadow: inset 0 0 0 1px rgba(22, 224, 127, 0.36);
+  color: #16e07f;
+}
+
+.matrixActiveChain {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 0 12px;
+  border-radius: 10px;
+  background: rgba(19, 25, 48, 0.9);
+  color: #dfe7fb;
+  font-family: var(--font-geist-mono), monospace;
+}
+
+.matrixConversation {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.matrixBubble {
+  padding: 16px;
+}
+
+.matrixBubbleAssistant {
+  margin-right: 80px;
+}
+
+.matrixBubbleUser {
+  margin-left: 80px;
+  background: rgba(25, 29, 54, 0.96);
+}
+
+.matrixBubbleMeta {
+  margin: 0 0 8px;
+  color: #8ea1cb;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.matrixBubbleText {
+  margin: 0;
+  color: #f2f6ff;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.matrixAssistantHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.matrixAssistantTag {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #ffc72c;
+  color: #231a00;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.matrixToolList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.matrixToolCard {
+  overflow: hidden;
+}
+
+.matrixToolHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 14px;
+  border-bottom: 1px solid rgba(22, 224, 127, 0.16);
+  color: #16e07f;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.matrixToolSection {
+  padding: 12px 14px 0;
+}
+
+.matrixToolSection:last-child {
+  padding-bottom: 14px;
+}
+
+.matrixToolLabel {
+  margin: 0 0 8px;
+  color: #7e92b8;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 11px;
+}
+
+.matrixToolCode {
+  margin: 0;
+  color: #d9efdf;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 12px;
+  line-height: 1.55;
+  white-space: pre-wrap;
+}
+
+.matrixInsightCard {
+  padding: 14px;
+}
+
+.matrixInsightGreen {
+  box-shadow: inset 2px 0 0 #16e07f;
+}
+
+.matrixInsightYellow {
+  box-shadow: inset 2px 0 0 #f7c948;
+}
+
+.matrixInsightBlue {
+  box-shadow: inset 2px 0 0 #4ea1ff;
+}
+
+.matrixInsightTitle {
+  margin: 0 0 10px;
+  color: #8fa2cb;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.matrixInsightValue {
+  margin: 0 0 6px;
+  color: #f7fbff;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.matrixInsightDetail {
+  margin: 0;
+  color: #b7c4e2;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.typingDot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 6px;
+  border-radius: 999px;
+  background: #16e07f;
+  animation: typingPulse 1s infinite ease-in-out;
+}
+
+.typingDot:nth-child(2) {
+  animation-delay: 0.12s;
+}
+
+.typingDot:nth-child(3) {
+  margin-right: 0;
+  animation-delay: 0.24s;
+}
+
+@keyframes typingPulse {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.35;
+  }
+  50% {
+    transform: translateY(-3px);
+    opacity: 1;
+  }
+}
+
+@keyframes nodeReveal {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes edgeReveal {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 720px) {
+  .graphHeader,
+  .marketHeader {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .metricGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .richCard {
+    width: 100%;
+  }
+
+  .matrixGridLayout {
+    grid-template-columns: 1fr;
+  }
+
+  .matrixBubbleAssistant,
+  .matrixBubbleUser {
+    margin: 0;
+  }
+}
