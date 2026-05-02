@@ -1,0 +1,9 @@
+[submodule "MiniFish"]
+	path = MiniFish
+	url = https://github.com/LangQi99/MiniFish.git
+[submodule "InfoFish"]
+	path = InfoFish
+	url = https://github.com/LangQi99/InfoFish.git
+[submodule "NeoFish"]
+	path = NeoFish
+	url = https://github.com/LangQi99/NeoFish.git
