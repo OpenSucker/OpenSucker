@@ -1,26 +1,31 @@
 {
   "name": "opensucker",
   "private": true,
-  "version": "0.1.0",
-  "description": "OpenSucker — Smart Trading Matrix (frontend + backend orchestrator)",
+  "version": "0.2.0",
+  "description": "OpenSucker — Smart Trading Matrix (frontend_user + backend + MiniFish + InfoFish orchestrator)",
   "scripts": {
-    "setup": "npm run setup:backend && npm run setup:frontend",
+    "setup": "npm-run-all -s setup:backend setup:minifish setup:infofish setup:frontend_user",
     "setup:backend": "cd backend && uv sync",
-    "setup:frontend": "cd frontend && npm install",
+    "setup:minifish": "cd MiniFish/backend && uv sync",
+    "setup:infofish": "cd InfoFish/backend && uv sync",
+    "setup:frontend_user": "cd frontend_user && npm install",
 
-    "dev": "concurrently -n backend,frontend -c blue,green --kill-others-on-fail \"npm:dev:backend\" \"npm:dev:frontend\"",
+    "dev": "concurrently -n backend,minifish,infofish,frontend_user -c blue,magenta,yellow,green --kill-others-on-fail \"npm:dev:backend\" \"npm:dev:minifish\" \"npm:dev:infofish\" \"npm:dev:frontend_user\"",
     "dev:backend": "cd backend && uv run python -u agent.py",
-    "dev:frontend": "cd frontend && npm run dev",
+    "dev:minifish": "cd MiniFish/backend && uv run python -u run.py",
+    "dev:infofish": "cd InfoFish/backend && uv run uvicorn app.main:app --host 127.0.0.1 --port 47821",
+    "dev:frontend_user": "cd frontend_user && npm run dev -- -p 3000",
 
-    "build": "npm run build:frontend",
-    "build:frontend": "cd frontend && npm run build",
+    "start": "npm run dev",
 
-    "lint:frontend": "cd frontend && npm run lint",
+    "build:frontend_user": "cd frontend_user && npm run build",
+    "lint:frontend_user": "cd frontend_user && npm run lint",
 
-    "clean": "rm -rf backend/.venv backend/__pycache__ backend/**/__pycache__ frontend/node_modules frontend/dist"
+    "clean": "rm -rf backend/.venv MiniFish/backend/.venv InfoFish/backend/.venv frontend_user/.next frontend_user/node_modules"
   },
   "devDependencies": {
-    "concurrently": "^9.0.0"
+    "concurrently": "^9.0.0",
+    "npm-run-all": "^4.1.5"
   },
   "engines": {
     "node": ">=18"
