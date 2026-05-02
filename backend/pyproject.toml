@@ -1,0 +1,48 @@
+[project]
+name = "opensucker-backend"
+version = "0.1.0"
+description = "OpenSucker AI Agent backend"
+readme = "README.md"
+requires-python = ">=3.11,<4.0"
+dependencies = [
+    # Core
+    "fastapi>=0.100.0,<1.0.0",
+    "uvicorn[standard]>=0.23.0",
+    "pydantic>=2.0.0,<3.0.0",
+    "langgraph>=0.0.20",
+    "python-dotenv>=1.0.0",
+    "openai>=1.3.0",
+    "deepagents",
+    # Quant & Data
+    "yfinance",
+    "tushare",
+    "akshare",
+    "pandas",
+    "numpy>=1.24.0",
+    "matplotlib",
+    "scipy",
+    "scikit-learn",
+    "statsmodels",
+    "ccxt",
+    "duckduckgo-search",
+    "markdownify",
+    "beautifulsoup4",
+    "python-pptx",
+    "python-docx",
+    "openpyxl",
+    "pymupdf",
+    "pyyaml",
+    # HTTP / misc
+    "httpx>=0.25.0",
+    "python-multipart",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=7.0",
+    "pytest-asyncio",
+    "ruff",
+]
+
+[tool.uv]
+package = false

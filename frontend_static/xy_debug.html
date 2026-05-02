@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HairSync · 20 子 Agent 调试台</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+
+:root {
+  --bg: #0a0a10;
+  --bg2: #131320;
+  --bg3: #1c1c2e;
+  --bg4: #262640;
+  --border: rgba(255,255,255,.08);
+  --border2: rgba(255,255,255,.16);
+  --text: #e8e8f5;
+  --text2: #9090b0;
+  --text3: #545475;
+  --accent: #7c5cfc;
+  --accent2: #a87dff;
+  --teal: #2dd4bf;
+  --amber: #fbbf24;
+  --red: #f87171;
+  --green: #34d399;
+  --blue: #60a5fa;
+  --pink: #f472b6;
+  --mono: 'JetBrains Mono', monospace;
+  --sans: 'Noto Sans SC', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 13px;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Top Nav ── */
+nav {
+  height: 44px;
+  background: linear-gradient(90deg, #13131e, #1a1a2c);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  gap: 12px;
+  flex-shrink: 0;
+}
+.title {
+  font-family: var(--mono);
+  font-size: 14px;
+  font-weight: 700;
+  background: linear-gradient(90deg, var(--accent2), var(--teal));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.badge {
+  font-size: 9px;
+  padding: 2px 8px;
+  border-radius: 10px;
+  background: rgba(124,92,252,.2);
+  border: 1px solid rgba(124,92,252,.4);
+  color: var(--accent2);
+  font-family: var(--mono);
+}
+.nav-spacer { flex: 1; }
+.nav-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-family: var(--mono);
+  color: var(--text3);
+}
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--text3);
+}
+.dot.ok { background: var(--green); box-shadow: 0 0 6px var(--green); }
+.dot.err { background: var(--red); box-shadow: 0 0 6px var(--red); }
+.dot.busy { background: var(--amber); animation: pulse 1s infinite; }
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .3; }
+}
+
+/* ── Layout ── */
+.layout {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 320px 1fr 360px;
+  overflow: hidden;
+}
+.col {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-right: 1px solid var(--border);
+}
+.col:last-child { border-right: none; }
+
+.col-h {
+  padding: 8px 14px;
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text3);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg2);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ── Left: 20 Cell Grid ── */
+.matrix-wrap {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px;
+}
+.matrix-explain {
+  font-size: 10px;
+  color: var(--text3);
+  font-family: var(--mono);
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+.matrix {
+  display: grid;
+  grid-template-columns: 36px repeat(4, 1fr);
+  gap: 4px;
+}
+.mh {
+  text-align: center;
+  font-family: var(--mono);
+  font-size: 9px;
+  font-weight: 700;
+  color: var(--text3);
+  padding: 4px 2px;
+  letter-spacing: .5px;
+}
+.mh-x { text-align: right; padding-right: 4px; }
+.cell {
+  padding: 8px 4px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 9px;
+  text-align: center;
+  color: var(--text2);
+  line-height: 1.3;
+  cursor: pointer;
+  transition: all .2s;
+  position: relative;
+  overflow: hidden;
+}
+.cell:hover {
+  background: var(--bg3);
+  border-color: var(--border2);
+  color: var(--text);
+}
+.cell.active {
+  background: linear-gradient(135deg, rgba(124,92,252,.25), rgba(168,125,255,.15));
+  border-color: var(--accent);
+  color: var(--accent2);
+  font-weight: 700;
+  box-shadow: 0 0 12px rgba(124,92,252,.3);
+}
+.cell.active::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(45deg, transparent 40%, rgba(124,92,252,.1) 50%, transparent 60%);
+  animation: shimmer 1.5s infinite;
+}
+@keyframes shimmer {
+  0%, 100% { transform: translateX(-100%); }
+  50% { transform: translateX(100%); }
+}
+.cell-id {
+  display: block;
+  font-family: var(--mono);
+  font-size: 8px;
+  color: var(--text3);
+  margin-bottom: 2px;
+}
+.cell.active .cell-id { color: var(--accent2); }
+
+/* ── Center: Chat Panel ── */
+.chat-col { background: var(--bg); }
+.chat-msgs {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.msg {
+  max-width: 88%;
+  animation: fadeUp .25s ease-out;
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+.msg.user { align-self: flex-end; }
+.msg.bot { align-self: flex-start; }
+.msg.system { align-self: center; max-width: 100%; }
+
+.msg-role-tag {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10px;
+  margin-bottom: 4px;
+  color: var(--text3);
+  font-family: var(--mono);
+  padding: 0 4px;
+}
+.role-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  background: rgba(124,92,252,.15);
+  border: 1px solid rgba(124,92,252,.35);
+  border-radius: 12px;
+  color: var(--accent2);
+  font-weight: 600;
+  font-size: 10px;
+}
+.role-badge .cid {
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--teal);
+}
+.bubble {
+  padding: 10px 14px;
+  border-radius: 14px;
+  font-size: 13px;
+  line-height: 1.7;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.msg.user .bubble {
+  background: var(--accent);
+  color: white;
+  border-bottom-right-radius: 4px;
+}
+.msg.bot .bubble {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-bottom-left-radius: 4px;
+}
+.msg.system .bubble {
+  background: rgba(251,191,36,.06);
+  border: 1px dashed rgba(251,191,36,.3);
+  color: var(--amber);
+  font-size: 11px;
+  font-family: var(--mono);
+  text-align: center;
+}
+
+.typing {
+  display: inline-flex;
+  gap: 3px;
+  padding: 0 4px;
+}
+.typing span {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--text3);
+  animation: typing 1s infinite;
+}
+.typing span:nth-child(2) { animation-delay: .2s; }
+.typing span:nth-child(3) { animation-delay: .4s; }
+@keyframes typing {
+  0%, 60%, 100% { transform: translateY(0); opacity: .4; }
+  30% { transform: translateY(-4px); opacity: 1; }
+}
+
+/* ── Quick Test Scenarios ── */
+.scenarios {
+  padding: 8px 12px;
+  border-top: 1px solid var(--border);
+  background: var(--bg2);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  flex-shrink: 0;
+}
+.scenarios-label {
+  font-family: var(--mono);
+  font-size: 8px;
+  color: var(--text3);
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  width: 100%;
+  margin-bottom: 2px;
+}
+.qa {
+  padding: 4px 9px;
+  border: 1px solid var(--border2);
+  background: transparent;
+  color: var(--text2);
+  font-size: 10px;
+  font-family: var(--sans);
+  border-radius: 14px;
+  cursor: pointer;
+  transition: .15s;
+  white-space: nowrap;
+}
+.qa:hover {
+  border-color: var(--accent);
+  color: var(--accent2);
+  background: rgba(124,92,252,.08);
+}
+
+/* ── Chat Input ── */
+.chat-input {
+  padding: 10px 12px;
+  border-top: 1px solid var(--border);
+  background: var(--bg2);
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-shrink: 0;
+}
+.chat-input input {
+  flex: 1;
+  padding: 9px 14px;
+  background: var(--bg3);
+  border: 1px solid var(--border2);
+  border-radius: 22px;
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 13px;
+  outline: none;
+  transition: .15s;
+}
+.chat-input input:focus {
+  border-color: var(--accent);
+  background: var(--bg4);
+}
+.chat-input button {
+  padding: 9px 18px;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  border: none;
+  border-radius: 22px;
+  color: white;
+  font-weight: 600;
+  font-size: 12px;
+  cursor: pointer;
+  transition: .15s;
+}
+.chat-input button:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(124,92,252,.4); }
+.chat-input button:disabled {
+  opacity: .5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  font-size: 10px;
+  font-family: var(--mono);
+  color: var(--text2);
+}
+.toggle input {
+  appearance: none;
+  width: 28px;
+  height: 14px;
+  background: var(--bg4);
+  border-radius: 8px;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  transition: .2s;
+}
+.toggle input:checked { background: var(--accent); }
+.toggle input::before {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: white;
+  border-radius: 50%;
+  top: 2px;
+  left: 2px;
+  transition: .2s;
+}
+.toggle input:checked::before { left: 16px; }
+
+/* ── Right: Debug Panel ── */
+.debug-col { background: var(--bg); }
+.debug-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px;
+}
+.debug-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+.debug-card-h {
+  padding: 8px 12px;
+  background: var(--bg3);
+  border-bottom: 1px solid var(--border);
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text2);
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.debug-card-b { padding: 10px 12px; font-size: 11px; }
+.kv {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 0;
+  border-bottom: 1px solid rgba(255,255,255,.04);
+  font-size: 11px;
+}
+.kv:last-child { border-bottom: none; }
+.kv .k {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--text3);
+}
+.kv .v {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--green);
+  font-weight: 600;
+}
+.kv .v.empty { color: var(--text3); font-style: italic; }
+.json-view {
+  font-family: var(--mono);
+  font-size: 9px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 8px;
+  max-height: 280px;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  color: var(--text2);
+  line-height: 1.5;
+}
+
+/* ── Tool calls ── */
+.tool-call {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  background: rgba(251,191,36,.08);
+  border: 1px solid rgba(251,191,36,.25);
+  border-radius: 6px;
+  margin: 4px 0;
+  font-size: 10px;
+}
+.tool-call .tc-name {
+  font-family: var(--mono);
+  font-weight: 700;
+  color: var(--amber);
+}
+.tool-call .tc-args {
+  font-family: var(--mono);
+  color: var(--text3);
+  font-size: 9px;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--bg4); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--border2); }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="title">HairSync</span>
+  <span class="badge">XY DEBUG · 20 子 Agent</span>
+  <div class="nav-spacer"></div>
+  <label class="toggle">流式
+    <input type="checkbox" id="streamToggle">
+  </label>
+  <button class="qa" onclick="clearChat()">清空对话</button>
+  <div class="nav-status">
+    <div class="dot" id="statusDot"></div>
+    <span id="statusText">未连接</span>
+  </div>
+</nav>
+
+<div class="layout">
+
+  <!-- ═══ LEFT: 20 Cell Matrix ═══ -->
+  <div class="col">
+    <div class="col-h">
+      <span>📊</span>
+      <span>20 子 Agent 矩阵</span>
+    </div>
+    <div class="matrix-wrap">
+      <div class="matrix-explain">
+        每条用户消息会被路由到一个 cell。<br>
+        高亮显示当前响应的 cell。
+      </div>
+      <div class="matrix" id="matrix">
+        <!-- 表头由 JS 渲染 -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ CENTER: Chat ═══ -->
+  <div class="col chat-col">
+    <div class="col-h">
+      <span>💬</span>
+      <span>对话</span>
+      <div class="nav-spacer"></div>
+      <span style="font-size:9px;color:var(--text3);font-family:var(--mono)" id="msgCount">0 条</span>
+    </div>
+
+    <div class="chat-msgs" id="chatMsgs"></div>
+
+    <div class="scenarios">
+      <div class="scenarios-label">⚡ 快速测试场景 (点击发送)</div>
+      <button class="qa" onclick="sendQuick('我想换发型,但不知道适合什么')">X1Y1 探索</button>
+      <button class="qa" onclick="sendQuick('我想染粉棕色,去年染过黑,会爆顶吗?')">X3Y2 化学排雷</button>
+      <button class="qa" onclick="sendQuick('我现在在理发店,理发师非要给我推 3mm,我不想推白怎么办')">X2Y3 战术翻译</button>
+      <button class="qa" onclick="sendQuick('早上头发翘起来,3 分钟怎么搞定')">X4Y4 晨间打理</button>
+      <button class="qa" onclick="sendQuick('染发翻车了,头顶变粉色,我要哭了')">X3Y4 灾后修复</button>
+      <button class="qa" onclick="sendQuick('明天去剪锁骨发,帮我写理发师注意事项')">X2Y3 沟通卡</button>
+      <button class="qa" onclick="sendQuick('我最近脱发严重,该怎么办')">X5Y2 头皮医生</button>
+      <button class="qa" onclick="sendQuick('我是男生方脸头发粗硬,推荐3个韩系短发')">X2Y1 推荐</button>
+    </div>
+
+    <div class="chat-input">
+      <input type="text" id="chatInput" placeholder="输入消息按回车发送..." onkeydown="if(event.key==='Enter')sendMsg()">
+      <button id="sendBtn" onclick="sendMsg()">发送</button>
+    </div>
+  </div>
+
+  <!-- ═══ RIGHT: Debug Panel ═══ -->
+  <div class="col debug-col">
+    <div class="col-h">
+      <span>🔍</span>
+      <span>响应详情</span>
+    </div>
+    <div class="debug-content" id="debugContent">
+      <div class="debug-card">
+        <div class="debug-card-h">📍 当前 Cell 路由</div>
+        <div class="debug-card-b">
+          <div class="kv"><span class="k">cell_id</span><span class="v empty" id="dbg-cell">—</span></div>
+          <div class="kv"><span class="k">x_axis</span><span class="v empty" id="dbg-x">—</span></div>
+          <div class="kv"><span class="k">y_axis</span><span class="v empty" id="dbg-y">—</span></div>
+          <div class="kv"><span class="k">role_cn</span><span class="v empty" id="dbg-cn">—</span></div>
+          <div class="kv"><span class="k">message.name</span><span class="v empty" id="dbg-name">—</span></div>
+        </div>
+      </div>
+
+      <div class="debug-card">
+        <div class="debug-card-h">⏱️ 性能</div>
+        <div class="debug-card-b">
+          <div class="kv"><span class="k">latency</span><span class="v empty" id="dbg-latency">—</span></div>
+          <div class="kv"><span class="k">finish_reason</span><span class="v empty" id="dbg-finish">—</span></div>
+          <div class="kv"><span class="k">tokens (out)</span><span class="v empty" id="dbg-tokens">—</span></div>
+        </div>
+      </div>
+
+      <div class="debug-card">
+        <div class="debug-card-h">🔧 工具调用</div>
+        <div class="debug-card-b" id="dbg-tools">
+          <div style="color:var(--text3);font-style:italic;font-size:10px">本轮无工具调用</div>
+        </div>
+      </div>
+
+      <div class="debug-card">
+        <div class="debug-card-h">📦 原始 JSON 响应</div>
+        <div class="debug-card-b">
+          <div class="json-view" id="dbg-json">(等待第一次响应...)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// ═══════════════════════════════════════════════════════
+//   20 Cell Matrix Definition
+// ═══════════════════════════════════════════════════════
+
+const X_AXIS = [
+  { id: 'X1', label: '问诊' },
+  { id: 'X2', label: '剪裁' },
+  { id: 'X3', label: '重塑' },
+  { id: 'X4', label: '造型' },
+  { id: 'X5', label: '养护' },
+];
+
+const Y_AXIS = [
+  { id: 'Y1', label: '探索' },
+  { id: 'Y2', label: '准备' },
+  { id: 'Y3', label: '现场' },
+  { id: 'Y4', label: '售后' },
+];
+
+// 20 cell 中文角色名 (跟后端 modules/xy_prompts.py 同步)
+const CELL_NAMES = {
+  X1Y1: '骨相底座分析师',
+  X1Y2: '可行性预审师',
+  X1Y3: '现场问诊医生',
+  X1Y4: '售后回访员',
+  X2Y1: '剪裁美学策划师',
+  X2Y2: '剪裁成本预算师',
+  X2Y3: '剪裁战术翻译官',
+  X2Y4: '剪裁灾后急诊医生',
+  X3Y1: '色彩造梦师',
+  X3Y2: '化学排雷专家',
+  X3Y3: '重塑工艺监理',
+  X3Y4: '染烫灾后修复师',
+  X4Y1: '造型氛围师',
+  X4Y2: '造型工具顾问',
+  X4Y3: '现场造型指导',
+  X4Y4: '晨间打理教练',
+  X5Y1: '头皮启蒙师',
+  X5Y2: '头皮医生',
+  X5Y3: '养护工艺监督',
+  X5Y4: '头皮日常管家',
+};
+
+// ═══════════════════════════════════════════════════════
+//   Render the 5×4 matrix grid
+// ═══════════════════════════════════════════════════════
+function renderMatrix() {
+  const grid = document.getElementById('matrix');
+  let html = '<div></div>';  // 左上空格
+  // 表头 Y
+  Y_AXIS.forEach(y => {
+    html += `<div class="mh">${y.id}<br>${y.label}</div>`;
+  });
+  // 5 行 X
+  X_AXIS.forEach(x => {
+    html += `<div class="mh mh-x">${x.id}<br>${x.label}</div>`;
+    Y_AXIS.forEach(y => {
+      const cellId = `${x.id}${y.id}`;
+      const name = CELL_NAMES[cellId] || cellId;
+      html += `<div class="cell" id="cell-${cellId}" title="${cellId}: ${name}">
+        <span class="cell-id">${cellId}</span>
+        ${name}
+      </div>`;
+    });
+  });
+  grid.innerHTML = html;
+}
+
+// ═══════════════════════════════════════════════════════
+//   Highlight active cell
+// ═══════════════════════════════════════════════════════
+let lastActive = null;
+function highlightCell(cellId) {
+  if (lastActive) {
+    document.getElementById(`cell-${lastActive}`)?.classList.remove('active');
+  }
+  if (cellId) {
+    document.getElementById(`cell-${cellId}`)?.classList.add('active');
+    lastActive = cellId;
+  }
+}
+
+// ═══════════════════════════════════════════════════════
+//   Chat state
+// ═══════════════════════════════════════════════════════
+let messages = [];      // OpenAI 标准 messages 数组
+let sessionId = 'xy-debug-' + Math.random().toString(36).slice(2, 10);
+
+function setStatus(state, text) {
+  const dot = document.getElementById('statusDot');
+  const t = document.getElementById('statusText');
+  dot.className = 'dot ' + state;
+  t.textContent = text;
+}
+
+function updateMsgCount() {
+  document.getElementById('msgCount').textContent = `${messages.length} 条`;
+}
+
+// ═══════════════════════════════════════════════════════
+//   Render message
+// ═══════════════════════════════════════════════════════
+function appendMsg(role, content, meta = {}) {
+  const msgs = document.getElementById('chatMsgs');
+  const wrap = document.createElement('div');
+  wrap.className = `msg ${role}`;
+
+  if (role === 'bot' && meta.cell_id) {
+    const tag = document.createElement('div');
+    tag.className = 'msg-role-tag';
+    tag.innerHTML = `
+      <span class="role-badge">
+        <span class="cid">${meta.cell_id}</span>
+        ${meta.role_name_cn || ''}
+      </span>
+    `;
+    wrap.appendChild(tag);
+  }
+
+  const bubble = document.createElement('div');
+  bubble.className = 'bubble';
+  bubble.textContent = content;
+  wrap.appendChild(bubble);
+
+  msgs.appendChild(wrap);
+  msgs.scrollTop = msgs.scrollHeight;
+  return bubble;
+}
+
+function appendTyping() {
+  const msgs = document.getElementById('chatMsgs');
+  const wrap = document.createElement('div');
+  wrap.className = 'msg bot';
+  wrap.id = 'typing-msg';
+  const bubble = document.createElement('div');
+  bubble.className = 'bubble';
+  bubble.innerHTML = '<div class="typing"><span></span><span></span><span></span></div>';
+  wrap.appendChild(bubble);
+  msgs.appendChild(wrap);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+
+function removeTyping() {
+  document.getElementById('typing-msg')?.remove();
+}
+
+// ═══════════════════════════════════════════════════════
+//   Update right debug panel
+// ═══════════════════════════════════════════════════════
+function updateDebug(data, latencyMs) {
+  const setKV = (id, val) => {
+    const el = document.getElementById(id);
+    if (val !== null && val !== undefined && val !== '') {
+      el.textContent = val;
+      el.classList.remove('empty');
+    } else {
+      el.textContent = '—';
+      el.classList.add('empty');
+    }
+  };
+
+  const choice = data.choices?.[0];
+  const msg = choice?.message;
+
+  setKV('dbg-cell', data.cell_id || '');
+  setKV('dbg-x', data.x_axis || '');
+  setKV('dbg-y', data.y_axis || '');
+  setKV('dbg-cn', data.role_name_cn || '');
+  setKV('dbg-name', msg?.name || '');
+  setKV('dbg-latency', latencyMs ? `${latencyMs} ms` : '');
+  setKV('dbg-finish', choice?.finish_reason || '');
+  setKV('dbg-tokens', data.usage?.completion_tokens ?? '');
+
+  // Tool calls
+  const toolsEl = document.getElementById('dbg-tools');
+  if (msg?.tool_calls && msg.tool_calls.length > 0) {
+    toolsEl.innerHTML = msg.tool_calls.map(tc => `
+      <div class="tool-call">
+        <span class="tc-name">${tc.function?.name || tc.type}</span>
+        <span class="tc-args">${(tc.function?.arguments || '').slice(0, 80)}</span>
+      </div>
+    `).join('');
+  } else {
+    toolsEl.innerHTML = '<div style="color:var(--text3);font-style:italic;font-size:10px">本轮无工具调用</div>';
+  }
+
+  // Raw JSON
+  document.getElementById('dbg-json').textContent = JSON.stringify(data, null, 2);
+
+  // Highlight cell on matrix
+  if (data.cell_id) highlightCell(data.cell_id);
+}
+
+// ═══════════════════════════════════════════════════════
+//   Send message - non-streaming
+// ═══════════════════════════════════════════════════════
+async function sendMsgNonStream(text) {
+  messages.push({ role: 'user', content: text });
+  appendMsg('user', text);
+  updateMsgCount();
+  appendTyping();
+  setStatus('busy', '请求中...');
+
+  const t0 = Date.now();
+  try {
+    const resp = await fetch('/v1/chat/completions', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'langgraph-agent',
+        session_id: sessionId,
+        messages: messages,
+        stream: false,
+      }),
+    });
+    const data = await resp.json();
+    const latency = Date.now() - t0;
+    removeTyping();
+
+    if (!resp.ok) {
+      appendMsg('system', `❌ ${resp.status} ${data.detail || JSON.stringify(data)}`);
+      setStatus('err', '失败');
+      return;
+    }
+
+    const msg = data.choices?.[0]?.message;
+    const content = msg?.content || '';
+    messages.push({ role: 'assistant', content: content });
+    appendMsg('bot', content, {
+      cell_id: data.cell_id,
+      role_name_cn: data.role_name_cn,
+    });
+    updateMsgCount();
+    updateDebug(data, latency);
+    setStatus('ok', `OK · ${latency}ms`);
+  } catch (e) {
+    removeTyping();
+    appendMsg('system', `❌ 网络错误: ${e.message}`);
+    setStatus('err', '失败');
+  }
+}
+
+// ═══════════════════════════════════════════════════════
+//   Send message - streaming (SSE)
+// ═══════════════════════════════════════════════════════
+async function sendMsgStream(text) {
+  messages.push({ role: 'user', content: text });
+  appendMsg('user', text);
+  updateMsgCount();
+  setStatus('busy', '流式中...');
+
+  // 创建 bot 气泡占位
+  const msgs = document.getElementById('chatMsgs');
+  const wrap = document.createElement('div');
+  wrap.className = 'msg bot';
+  const tagEl = document.createElement('div');
+  tagEl.className = 'msg-role-tag';
+  wrap.appendChild(tagEl);
+  const bubble = document.createElement('div');
+  bubble.className = 'bubble';
+  bubble.textContent = '';
+  wrap.appendChild(bubble);
+  msgs.appendChild(wrap);
+  msgs.scrollTop = msgs.scrollHeight;
+
+  const t0 = Date.now();
+  let fullText = '';
+  let lastChunkData = null;
+  let firstChunkAt = null;
+
+  try {
+    const resp = await fetch('/v1/chat/completions', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'langgraph-agent',
+        session_id: sessionId,
+        messages: messages,
+        stream: true,
+      }),
+    });
+
+    if (!resp.ok) {
+      const err = await resp.text();
+      bubble.textContent = `❌ ${resp.status}: ${err}`;
+      setStatus('err', '失败');
+      return;
+    }
+
+    const reader = resp.body.getReader();
+    const decoder = new TextDecoder();
+    let buf = '';
+
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      buf += decoder.decode(value, { stream: true });
+      const lines = buf.split('\n');
+      buf = lines.pop() || '';
+      for (const line of lines) {
+        if (!line.startsWith('data:')) continue;
+        const payload = line.slice(5).trim();
+        if (payload === '[DONE]') continue;
+        try {
+          const j = JSON.parse(payload);
+          lastChunkData = j;
+          if (!firstChunkAt) firstChunkAt = Date.now();
+
+          // 头帧含 role + name → 渲染 role badge
+          const delta = j.choices?.[0]?.delta;
+          if (delta?.role === 'assistant') {
+            tagEl.innerHTML = `
+              <span class="role-badge">
+                <span class="cid">${j.cell_id || ''}</span>
+                ${j.role_name_cn || ''}
+              </span>
+            `;
+            if (j.cell_id) highlightCell(j.cell_id);
+          }
+          // content 增量
+          if (delta?.content) {
+            fullText += delta.content;
+            bubble.textContent = fullText;
+            msgs.scrollTop = msgs.scrollHeight;
+          }
+        } catch (e) {
+          console.warn('parse chunk failed:', payload);
+        }
+      }
+    }
+
+    const latency = Date.now() - t0;
+    messages.push({ role: 'assistant', content: fullText });
+    updateMsgCount();
+    if (lastChunkData) {
+      // 用最后一帧的 cell_id / role_name_cn 更新 debug 面板
+      // 注意:流式 chunk 没有 usage 字段,所以构造一个"伪"完整对象给 updateDebug
+      const fakeData = {
+        ...lastChunkData,
+        choices: [{
+          message: { role: 'assistant', name: '', content: fullText },
+          finish_reason: 'stop',
+        }],
+        usage: { completion_tokens: fullText.length },
+      };
+      updateDebug(fakeData, latency);
+    }
+    setStatus('ok', `OK · ${latency}ms (流式)`);
+  } catch (e) {
+    bubble.textContent = `❌ 网络错误: ${e.message}`;
+    setStatus('err', '失败');
+  }
+}
+
+// ═══════════════════════════════════════════════════════
+//   Public actions
+// ═══════════════════════════════════════════════════════
+function sendMsg() {
+  const inp = document.getElementById('chatInput');
+  const text = inp.value.trim();
+  if (!text) return;
+  inp.value = '';
+  document.getElementById('sendBtn').disabled = true;
+
+  const useStream = document.getElementById('streamToggle').checked;
+  const fn = useStream ? sendMsgStream : sendMsgNonStream;
+  fn(text).finally(() => {
+    document.getElementById('sendBtn').disabled = false;
+    inp.focus();
+  });
+}
+
+function sendQuick(text) {
+  document.getElementById('chatInput').value = text;
+  sendMsg();
+}
+
+function clearChat() {
+  messages = [];
+  sessionId = 'xy-debug-' + Math.random().toString(36).slice(2, 10);
+  document.getElementById('chatMsgs').innerHTML = '';
+  if (lastActive) {
+    document.getElementById(`cell-${lastActive}`)?.classList.remove('active');
+    lastActive = null;
+  }
+  // Reset debug panel
+  ['dbg-cell','dbg-x','dbg-y','dbg-cn','dbg-name','dbg-latency','dbg-finish','dbg-tokens'].forEach(id => {
+    const el = document.getElementById(id);
+    el.textContent = '—';
+    el.classList.add('empty');
+  });
+  document.getElementById('dbg-tools').innerHTML = '<div style="color:var(--text3);font-style:italic;font-size:10px">本轮无工具调用</div>';
+  document.getElementById('dbg-json').textContent = '(等待第一次响应...)';
+  updateMsgCount();
+  setStatus('', '已清空');
+  appendMsg('system', `新对话开始 · session_id=${sessionId}`);
+}
+
+// ═══════════════════════════════════════════════════════
+//   Init
+// ═══════════════════════════════════════════════════════
+async function checkHealth() {
+  try {
+    const r = await fetch('/v1/models');
+    if (r.ok) {
+      setStatus('ok', '已连接 7860');
+    } else {
+      setStatus('err', `${r.status}`);
+    }
+  } catch (e) {
+    setStatus('err', '后端未启动');
+  }
+}
+
+renderMatrix();
+checkHealth();
+appendMsg('system', `XY Debug 调试台已就绪 · session_id=${sessionId} · 点击右上角"流式"切换 SSE 模式`);
+document.getElementById('chatInput').focus();
+</script>
+</body>
+</html>

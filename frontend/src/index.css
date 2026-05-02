@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Outfit:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+@layer base {
+  body {
+    @apply bg-bg-0 text-text-1 font-sans antialiased overflow-hidden h-screen;
+  }
+
+  ::-webkit-scrollbar {
+    @apply w-1;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-bg-3 rounded-full;
+  }
+}
+
+@layer components {
+  .sidebar-section {
+    @apply mb-6;
+  }
+  .section-title {
+    @apply text-[11px] font-bold text-text-3 uppercase tracking-wider mb-3 flex justify-between;
+  }
+  .glass-card {
+    @apply bg-bg-2 border border-white/5 rounded-r p-4;
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.9); }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}

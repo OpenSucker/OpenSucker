@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OpenSucker | Smart Trading Matrix</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Outfit:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+
+:root {
+  --font-sans: 'Outfit', 'Noto Sans SC', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --bg-0: #050508;
+  --bg-1: #0a0a12;
+  --bg-2: #12121f;
+  --bg-3: #1a1a2e;
+  --border: rgba(255,255,255,0.08);
+  --border-active: rgba(0,255,150,0.3);
+  --text-1: #ffffff;
+  --text-2: #a0a0c0;
+  --text-3: #606080;
+  --accent: #00ff96; /* Trading Green */
+  --accent-soft: rgba(0,255,150,0.1);
+  --warning: #ff9f0a; /* Bloomberg Orange */
+  --danger: #ff453a;
+  --blue: #0a84ff;
+  --r: 12px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--font-sans); background: var(--bg-0); color: var(--text-1); height: 100vh; display: flex; flex-direction: column; overflow: hidden; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--bg-3); border-radius: 10px; }
+
+/* Topbar */
+.topbar { height: 60px; background: var(--bg-1); border-bottom: 1px solid var(--border); display: flex; align-items: center; padding: 0 24px; gap: 20px; z-index: 100; }
+.logo { display: flex; align-items: center; gap: 12px; font-weight: 800; font-size: 20px; letter-spacing: -0.5px; }
+.logo span { color: var(--accent); }
+.topbar-right { margin-left: auto; display: flex; align-items: center; gap: 16px; }
+.status { display: flex; align-items: center; gap: 8px; font-size: 12px; font-family: var(--font-mono); color: var(--text-3); }
+.status-dot { width: 8px; height: 8px; background: var(--accent); border-radius: 50%; box-shadow: 0 0 10px var(--accent); }
+
+/* Main Layout */
+.app-container { display: flex; flex: 1; overflow: hidden; }
+
+/* Sidebar (Left) */
+.sidebar { width: 320px; background: var(--bg-1); border-right: 1px solid var(--border); display: flex; flex-direction: column; overflow-y: auto; padding: 20px; flex-shrink: 0; }
+.section-title { font-size: 11px; font-weight: 700; color: var(--text-3); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; display: flex; justify-content: space-between; }
+
+/* Grid */
+.matrix-grid { display: grid; grid-template-columns: 40px repeat(4, 1fr); gap: 4px; margin-bottom: 24px; }
+.grid-axis { font-size: 9px; font-weight: 700; color: var(--text-3); display: flex; align-items: center; justify-content: center; text-align: center; }
+.grid-cell { background: var(--bg-2); border: 1px solid var(--border); border-radius: 4px; height: 36px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-size: 8px; cursor: pointer; transition: all 0.2s; }
+.grid-cell:hover { background: var(--bg-3); border-color: var(--text-3); }
+.grid-cell.active { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); box-shadow: 0 0 12px var(--accent-soft); }
+.grid-cell .cell-id { font-family: var(--font-mono); font-weight: 700; }
+
+/* Profile Card */
+.profile-card { background: var(--bg-2); border: 1px solid var(--border); border-radius: var(--r); padding: 16px; margin-bottom: 20px; }
+.profile-stat { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 13px; }
+.profile-stat .label { color: var(--text-3); }
+.profile-stat .val { font-family: var(--font-mono); font-weight: 600; color: var(--accent); }
+
+/* Chat Area (Center) */
+.chat-main { flex: 1; display: flex; flex-direction: column; background: var(--bg-0); position: relative; }
+.messages { flex: 1; overflow-y: auto; padding: 30px; display: flex; flex-direction: column; gap: 24px; }
+
+.msg { display: flex; gap: 16px; max-width: 85%; }
+.msg.user { align-self: flex-end; flex-direction: row-reverse; }
+.msg-avatar { width: 36px; height: 36px; border-radius: 8px; background: var(--bg-2); display: flex; align-items: center; justify-content: center; flex-shrink: 0; border: 1px solid var(--border); }
+.msg.user .msg-avatar { color: var(--accent); border-color: var(--accent); }
+.msg-content-wrap { display: flex; flex-direction: column; gap: 6px; }
+.msg-meta { display: flex; align-items: center; gap: 10px; font-size: 11px; color: var(--text-3); }
+.msg.user .msg-meta { flex-direction: row-reverse; }
+.msg-bubble { padding: 16px; border-radius: var(--r); font-size: 14px; line-height: 1.6; }
+.msg.bot .msg-bubble { background: var(--bg-2); border: 1px solid var(--border); border-top-left-radius: 0; }
+.msg.user .msg-bubble { background: var(--bg-3); border-top-right-radius: 0; color: #fff; }
+
+/* Thinking Dropdown */
+.thinking-box { margin-top: 8px; background: rgba(0,0,0,0.2); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+.thinking-header { padding: 8px 12px; font-size: 11px; color: var(--text-3); cursor: pointer; display: flex; align-items: center; justify-content: space-between; }
+.thinking-header:hover { color: var(--text-2); background: rgba(255,255,255,0.02); }
+.thinking-content { padding: 12px; font-size: 12px; font-family: var(--font-mono); color: var(--text-2); line-height: 1.5; display: none; border-top: 1px solid var(--border); }
+.thinking-box.open .thinking-content { display: block; }
+
+/* Tool Badge */
+.tool-badge { background: rgba(0,255,150,0.1); border: 1px solid rgba(0,255,150,0.2); padding: 2px 6px; border-radius: 4px; font-size: 9px; font-family: var(--font-mono); color: var(--accent); display: flex; align-items: center; gap: 4px; animation: pulse 2s infinite; }
+.tool-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--accent); }
+
+/* Input */
+.input-area { padding: 24px; background: var(--bg-1); border-top: 1px solid var(--border); }
+.input-container { max-width: 900px; margin: 0 auto; display: flex; gap: 12px; background: var(--bg-2); padding: 8px; border-radius: var(--r); border: 1px solid var(--border); transition: border-color 0.3s; }
+.input-container:focus-within { border-color: var(--accent); }
+.input-box { flex: 1; background: transparent; border: none; color: #fff; padding: 10px; outline: none; font-size: 14px; font-family: inherit; resize: none; min-height: 44px; max-height: 150px; }
+.send-btn { width: 44px; height: 44px; border-radius: 8px; background: var(--accent); color: #000; border: none; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: transform 0.2s; font-weight: 800; }
+.send-btn:hover { transform: scale(1.05); }
+
+/* Detail Panel (Right) */
+.detail-panel { width: 340px; background: var(--bg-1); border-left: 1px solid var(--border); overflow-y: auto; padding: 20px; flex-shrink: 0; }
+.info-card { background: var(--bg-2); border-left: 3px solid var(--accent); border-radius: 4px; padding: 12px; margin-bottom: 12px; font-size: 12px; }
+.info-card .card-label { font-weight: 700; color: var(--text-3); margin-bottom: 4px; font-size: 10px; }
+
+/* Animations */
+@keyframes slideUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(0.95); } }
+.msg { animation: slideUp 0.3s ease-out; }
+
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="logo">OPEN<span>SUCKER</span></div>
+  <div class="status">
+    <div class="status-dot"></div>
+    <span>MATRIX v2.0.2 STATIC ONLINE</span>
+  </div>
+  <div class="topbar-right">
+    <div style="font-size: 11px; color: var(--text-3); font-family: var(--font-mono);">SYNC: 6ms</div>
+    <div style="width: 32px; height: 32px; border-radius: 50%; background: var(--bg-3); border: 1px solid var(--accent); display: flex; align-items: center; justify-content: center; font-size: 12px;">Y</div>
+  </div>
+</div>
+
+<div class="app-container">
+  <!-- SIDEBAR LEFT -->
+  <div class="sidebar">
+    <div class="section-title">交易员画像 <span>Lv. <span id="cogLevel">1</span></span></div>
+    <div class="profile-card">
+      <div class="profile-stat"><span class="label">风险偏好</span><span class="val" id="riskPref">稳健</span></div>
+      <div class="profile-stat"><span class="label">投资风格</span><span class="val" id="investStyle">成长</span></div>
+      <div class="profile-stat"><span class="label">资金规模</span><span class="val">中型</span></div>
+    </div>
+
+    <div class="section-title">20格专家矩阵</div>
+    <div class="matrix-grid" id="matrixGrid">
+      <!-- Generated by JS -->
+    </div>
+
+    <!-- 激活顾问区域 -->
+    <div class="section-title" id="advisorTitle" style="display:none;">激活顾问</div>
+    <div id="advisorPanel" style="display:none; margin-bottom: 20px;"></div>
+
+    <div class="section-title">活跃任务链</div>
+    <div id="taskChain" style="display: flex; flex-direction: column; gap: 8px;">
+      <div style="font-size: 12px; color: var(--text-3); font-style: italic;">待命中...</div>
+    </div>
+  </div>
+
+  <!-- CHAT AREA -->
+  <div class="chat-main">
+    <div class="messages" id="messages">
+      <div style="text-align: center; margin-top: 100px;">
+        <div style="font-size: 48px; margin-bottom: 20px;">💹</div>
+        <h2 style="font-size: 24px; margin-bottom: 10px;">Welcome to OpenSucker Matrix</h2>
+        <p style="color: var(--text-3); font-size: 14px; max-width: 400px; margin: 0 auto;">Institutional-grade trading intelligence. Static version for high-speed deployment.</p>
+      </div>
+    </div>
+    
+    <div class="input-area">
+      <div style="display: flex; gap: 8px; margin-bottom: 12px; overflow-x: auto; padding-bottom: 4px;" id="suggestions">
+        <!-- Generated by JS -->
+      </div>
+      <div class="input-container">
+        <textarea class="input-box" id="inputBox" placeholder="下达矩阵查询指令..." rows="1" oninput="this.style.height='auto';this.style.height=this.scrollHeight+'px'"></textarea>
+        <button class="send-btn" id="sendBtn" onclick="sendMessage()">➤</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- DETAIL PANEL RIGHT -->
+  <div class="detail-panel">
+    <div class="section-title">REAL-TIME DATA BITS</div>
+    <div id="dataBits">
+       <div class="info-card" style="border-left-color: var(--accent);">
+         <div class="card-label">S&P 500 SENTIMENT</div>
+         <div style="font-size: 18px; font-weight: 700;">BULLISH (0.75)</div>
+         <div style="font-size: 10px; color: var(--accent);">↑ 2.4% vs prev week</div>
+       </div>
+       <div class="info-card" style="border-left-color: var(--warning);">
+         <div class="card-label">RISK BARRIER</div>
+         <div style="font-size: 14px; font-weight: 600;">PORTFOLIO DIVERSIFIED</div>
+         <div style="font-size: 10px; color: var(--text-3);">Threshold: 12.5% max drawdown</div>
+       </div>
+    </div>
+
+    <div class="section-title">MATRIX POSITIONING</div>
+    <div id="currentCell" class="profile-card" style="background: rgba(0,255,150,0.05);">
+      <div style="font-size: 13px; font-weight: 700; margin-bottom: 4px;">System Latency</div>
+      <div style="font-family: var(--font-mono); font-size: 11px; color: var(--accent);">[ROUTING] 0ms</div>
+    </div>
+  </div>
+</div>
+
+<script>
+const API_URL = window.location.origin;
+const SESSION_ID = 'sess_' + Math.random().toString(36).substr(2, 9);
+const USER_ID = 'yulian';
+
+const X_LABELS = ['情绪', '技术面', '战术', '宏观', '博弈进化'];
+const Y_LABELS = ['探索', '审计', '执行', '复盘'];
+
+const PERSONA_CONFIG = {
+  'buffett-perspective': {
+    name: '沃伦·巴菲特',
+    title: 'Oracle of Omaha',
+    avatar: '🎩',
+    color: '#ffd700',
+    desc: '价值投资 · 护城河 · 长期持有',
+  },
+  'munger-perspective': {
+    name: '查理·芒格',
+    title: 'Poor Charlie\'s Almanack',
+    avatar: '📚',
+    color: '#c0a060',
+    desc: '逆向思维 · 多学科模型 · 极简决策',
+  },
+};
+
+function initGrid() {
+  const grid = document.getElementById('matrixGrid');
+  let html = '<div class="grid-axis"></div>';
+  Y_LABELS.forEach(y => html += `<div class="grid-axis">${y}</div>`);
+  
+  for (let x = 1; x <= 5; x++) {
+    html += `<div class="grid-axis">${X_LABELS[x-1]}</div>`;
+    for (let y = 1; y <= 4; y++) {
+      const id = `X${x}Y${y}`;
+      html += `<div class="grid-cell" id="cell-${id}"><div class="cell-id">${id}</div></div>`;
+    }
+  }
+  grid.innerHTML = html;
+}
+
+const SUGGESTIONS = [
+  "分析纳斯达克目前的市场情绪",
+  "帮我深度诊断一下 NVDA 的技术面指标",
+  "如果我想买入 BTC，现在是什么风险等级？",
+  "目前的宏观环境对科技板块有什么影响？"
+];
+
+function renderSuggestions() {
+  const container = document.getElementById('suggestions');
+  container.innerHTML = SUGGESTIONS.map(s => `<button style="background: var(--bg-3); border: 1px solid var(--border); color: var(--text-2); padding: 6px 12px; border-radius: 20px; font-size: 11px; white-space: nowrap; cursor: pointer; transition: 0.2s;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'" onclick="sendDirect('${s}')">${s}</button>`).join('');
+}
+
+function sendDirect(text) {
+  document.getElementById('inputBox').value = text;
+  sendMessage();
+}
+
+async function sendMessage() {
+  const input = document.getElementById('inputBox');
+  const msg = input.value.trim();
+  if (!msg) return;
+
+  input.value = '';
+  input.style.height = 'auto';
+  appendMessage('user', msg);
+
+  try {
+    const response = await fetch(`${API_URL}/api/chat`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: msg, session_id: SESSION_ID, user_id: USER_ID })
+    });
+
+    const data = await response.json();
+    appendMessage('bot', data.message, data);
+    updateUI(data);
+  } catch (error) {
+    appendMessage('bot', 'Matrix error: System link failure.');
+  }
+}
+
+function appendMessage(role, text, data = null) {
+  const container = document.getElementById('messages');
+  const div = document.createElement('div');
+  div.className = `msg ${role}`;
+  const time = new Date().toLocaleTimeString('zh-CN', { hour: '2-digit', minute: '2-digit' });
+  
+  const skillBadge = (data && data.skill_used)
+    ? `<span style="background: linear-gradient(135deg, #b8860b, #ffd700); color: #000; font-size: 10px; font-family: var(--font-mono); padding: 2px 8px; border-radius: 10px; font-weight: 700; letter-spacing: 0.5px;">⚡ ${data.skill_used}</span>`
+    : '';
+
+  let toolsHtml = '';
+  if (data && data.tools && data.tools.length > 0) {
+    toolsHtml = `<div style="display:flex; flex-wrap:wrap; gap:6px; margin-top:8px;">` + 
+      data.tools.map(t => `<div class="tool-badge"><span class="tool-dot"></span>${t.name.toUpperCase()}</div>`).join('') + 
+      `</div>`;
+  }
+
+  let html = `
+    <div class="msg-avatar">${role === 'user' ? 'Y' : 'S'}</div>
+    <div class="msg-content-wrap">
+      <div class="msg-meta">
+        <span style="font-weight: 700;">${role === 'user' ? 'YOU' : 'SUCKER_MATRIX'}</span>
+        <span>${time}</span>
+        ${data ? `<span style="color: var(--accent); font-family: var(--font-mono);">[${data.x_axis}${data.y_axis}]</span>` : ''}
+        ${skillBadge}
+      </div>
+      <div class="msg-bubble">${formatText(text)}</div>
+      ${toolsHtml}
+  `;
+
+  if (data && data.debug && data.debug.steps && data.debug.steps.length > 0) {
+    const thinkingId = 'think_' + Math.random().toString(36).substr(2, 9);
+    html += `
+      <div class="thinking-box" id="${thinkingId}">
+        <div class="thinking-header" onclick="document.getElementById('${thinkingId}').classList.toggle('open')">
+          <span>🧠 View Matrix Cognition</span>
+          <span>▼</span>
+        </div>
+        <div class="thinking-content">
+          ${data.debug.steps.map(s => `<div>> ${s}</div>`).join('')}
+        </div>
+      </div>
+    `;
+  }
+
+  html += `</div>`;
+  div.innerHTML = html;
+  container.appendChild(div);
+  container.scrollTop = container.scrollHeight;
+}
+
+function formatText(text) {
+  return text.replace(/\*\*(.*?)\*\*/g, '<strong style="color: var(--accent);">$1</strong>').replace(/\n/g, '<br>');
+}
+
+function updateUI(data) {
+  if (data.user) {
+    document.getElementById('cogLevel').textContent = data.user.cognitive_level || 1;
+    document.getElementById('riskPref').textContent = data.user.risk_preference || '稳健';
+    document.getElementById('investStyle').textContent = data.user.investment_style || '成长';
+  }
+
+  document.querySelectorAll('.grid-cell').forEach(c => c.classList.remove('active'));
+  if (data.x_axis && data.y_axis) {
+    data.x_axis.split('/').forEach(x => {
+      const cell = document.getElementById(`cell-${x}${data.y_axis}`);
+      if (cell) cell.classList.add('active');
+    });
+  }
+
+  showAdvisor(data.skill_used || '');
+  const chain = document.getElementById('taskChain');
+  if (data.debug && data.debug.steps) {
+     chain.innerHTML = data.debug.steps.slice(0, 3).map(s => `<div style="font-size: 11px; padding: 6px 10px; background: var(--bg-2); border-left: 2px solid var(--accent);">${s.split(':')[0]}</div>`).join('');
+  }
+}
+
+function showAdvisor(skillUsed) {
+  const advisorTitle = document.getElementById('advisorTitle');
+  const advisorPanel = document.getElementById('advisorPanel');
+  if (!skillUsed) { advisorTitle.style.display = 'none'; advisorPanel.style.display = 'none'; return; }
+  const personaKey = Object.keys(PERSONA_CONFIG).find(k => skillUsed.includes(k));
+  if (!personaKey) { advisorTitle.style.display = 'none'; advisorPanel.style.display = 'none'; return; }
+  const p = PERSONA_CONFIG[personaKey];
+  advisorTitle.style.display = 'flex'; advisorPanel.style.display = 'block';
+  advisorPanel.innerHTML = `<div style="background:linear-gradient(135deg, ${p.color}15, ${p.color}05); border:1px solid ${p.color}40; border-radius:12px; padding:14px; position:relative; overflow:hidden;"><div style="position:absolute;top:-10px;right:-10px;font-size:50px;opacity:0.08;">${p.avatar}</div><div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;"><div style="width:38px;height:38px;border-radius:50%;background:${p.color}25;border:1.5px solid ${p.color}60;display:flex;align-items:center;justify-content:center;font-size:18px;box-shadow:0 0 12px ${p.color}40;">${p.avatar}</div><div><div style="font-size:13px;font-weight:700;color:#fff;">${p.name}</div><div style="font-size:10px;font-family:var(--font-mono);color:${p.color}; opacity:0.8;">${p.title}</div></div></div><div style="font-size:11px;color:var(--text-3);border-top:1px solid var(--border);padding-top:8px;">${p.desc}</div><div style="margin-top:8px;display:flex;align-items:center;gap:6px;"><div style="width:6px;height:6px;border-radius:50%;background:${p.color};box-shadow:0 0 8px ${p.color};animation:pulse 1.5s infinite;"></div><span style="font-size:10px;font-family:var(--font-mono);color:${p.color};">顾问已激活</span></div></div>`;
+}
+
+initGrid();
+renderSuggestions();
+</script>
+</body>
+</html>
