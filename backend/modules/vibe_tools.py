@@ -53,18 +53,24 @@ def run_backtest_impl(
         json.dump(config, f, indent=4)
 
     # 写入策略代码
-    # 如果代码为空或者只是个占位符，我们自动注入一个最小化可运行的 Vibe 策略框架
+    # 如果代码为空或者只是个占位符，注入一个最小化、可独立运行的 SignalEngine。
+    # runner 只检查 `class SignalEngine` + `.generate(data_map)`, 不需要继承任何基类。
+    # 默认行为: 全仓 buy-and-hold (信号恒为 1.0), 适合做压力测试 / 持有期最大回撤。
     final_code = signal_code.strip()
     if not final_code or len(final_code) < 20:
-        final_code = """
-from backtest.engine import SignalEngine
+        final_code = '''"""Auto-injected baseline SignalEngine: 全仓 buy-and-hold (信号恒为 1.0)."""
 import pandas as pd
 
-class MySignalEngine(SignalEngine):
-    \"\"\"最小化数据抓取引擎，不产生信号\"\"\"
-    def on_bar(self, bar: pd.Series):
-        pass
-"""
+
+class SignalEngine:
+    """全仓 buy-and-hold 基准: 用于压力测试 / 最大回撤评估。"""
+
+    def generate(self, data_map: dict) -> dict:
+        signals: dict[str, pd.Series] = {}
+        for code, df in (data_map or {}).items():
+            signals[code] = pd.Series(1.0, index=df.index)
+        return signals
+'''
     
     with open(os.path.join(workspace, "code", "signal_engine.py"), "w", encoding="utf-8") as f:
         f.write(final_code)
@@ -86,19 +92,36 @@ class MySignalEngine(SignalEngine):
             timeout=60
         )
         
-        # 尝试解析输出
-        try:
-            # 找到最后一行 JSON (runner 通常会 print JSON)
-            lines = process.stdout.strip().split("\n")
-            result = json.loads(lines[-1])
-        except:
+        # 尝试解析输出: runner 输出多行 pretty-printed JSON, 优先整段解析,
+        # 失败再回退到 "最后一个 { ... } 块"。
+        result: Dict[str, Any] = {}
+        out = (process.stdout or "").strip()
+        if out:
+            try:
+                result = json.loads(out)
+            except Exception:
+                # 找最后一个 '{' 到末尾, 兜底解析
+                last_brace = out.rfind("{")
+                if last_brace >= 0:
+                    try:
+                        result = json.loads(out[last_brace:])
+                    except Exception:
+                        result = {}
+
+        if not result:
             result = {
                 "status": "error",
                 "stdout": process.stdout,
                 "stderr": process.stderr,
-                "exit_code": process.returncode
+                "exit_code": process.returncode,
             }
-            
+        elif process.returncode == 0 and "status" not in result:
+            # runner 默认只打 metrics, 没 status 字段, 视为成功
+            result = {"status": "ok", "metrics": result, "exit_code": 0}
+        elif process.returncode != 0 and "status" not in result:
+            result["status"] = "error"
+            result["exit_code"] = process.returncode
+
         return result
 
     except Exception as e:

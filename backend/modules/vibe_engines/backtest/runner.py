@@ -136,6 +136,9 @@ _MARKET_PATTERNS = [
     # Forex pairs: XXX/YYY or XXXXXX.FX
     (re.compile(r"^[A-Z]{3}/[A-Z]{3}$"), "forex"),
     (re.compile(r"^[A-Z]{6}\.FX$"), "forex"),
+    # Bare US tickers (no suffix): 1-5 uppercase letters, optional dot for class shares
+    # NOTE: must come AFTER futures month-code patterns above to avoid false positives
+    (re.compile(r"^[A-Z]{1,5}(\.[A-Z])?$"), "us_equity"),
 ]
 
 # Back-compat: market type -> legacy source name (for engine selection & metrics)
