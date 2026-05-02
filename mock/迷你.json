@@ -1,0 +1,4693 @@
+{
+  "edge_count": 89,
+  "edges": [
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:06.951876",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "张雪机车将拍卖所得款项捐给嫣然天使基金",
+      "fact_type": "MENTIONS",
+      "invalid_at": null,
+      "name": "MENTIONS",
+      "source_node_name": "张雪机车",
+      "source_node_uuid": "ent_187a78e023ef70c5",
+      "target_node_name": "嫣然天使基金",
+      "target_node_uuid": "ent_3812c544cda9fd77",
+      "uuid": "rel_e61920c1735e4eb6",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:06.951850",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "瓦伦丁·德比斯是张雪机车的车手",
+      "fact_type": "COLLABORATES_WITH",
+      "invalid_at": null,
+      "name": "COLLABORATES_WITH",
+      "source_node_name": "张雪机车",
+      "source_node_uuid": "ent_187a78e023ef70c5",
+      "target_node_name": "瓦伦丁·德比斯",
+      "target_node_uuid": "ent_ede811bc93556d4c",
+      "uuid": "rel_5ec10a50817b4400",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:06.561171",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "瓦伦丁·德比斯夺得冠军",
+      "fact_type": "COLLABORATES_WITH",
+      "invalid_at": null,
+      "name": "COLLABORATES_WITH",
+      "source_node_name": "张雪机车",
+      "source_node_uuid": "ent_187a78e023ef70c5",
+      "target_node_name": "瓦伦丁·德比斯",
+      "target_node_uuid": "ent_ede811bc93556d4c",
+      "uuid": "rel_385f07aa454f4999",
+      "valid_at": null
+    },
+    {
+      "attributes": {
+        "event": "dSSP组别第一回合正赛"
+      },
+      "created_at": "2026-05-02T22:54:13.650150",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "瓦伦丁·德比斯驾驶张雪机车820RR-RS获得第一名",
+      "fact_type": "COLLABORATES_WITH",
+      "invalid_at": null,
+      "name": "COLLABORATES_WITH",
+      "source_node_name": "瓦伦丁·德比斯",
+      "source_node_uuid": "ent_ede811bc93556d4c",
+      "target_node_name": "张雪机车",
+      "target_node_uuid": "ent_187a78e023ef70c5",
+      "uuid": "rel_cfa754fd889742c6",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:06.605147",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "瓦伦丁·德比斯在张雪机车的支持下夺得冠军",
+      "fact_type": "COLLABORATES_WITH",
+      "invalid_at": null,
+      "name": "COLLABORATES_WITH",
+      "source_node_name": "瓦伦丁·德比斯",
+      "source_node_uuid": "ent_ede811bc93556d4c",
+      "target_node_name": "张雪机车",
+      "target_node_uuid": "ent_187a78e023ef70c5",
+      "uuid": "rel_f007ba30b83d4b0f",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:04.188707",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "瓦伦丁·德比斯夺得冠军",
+      "fact_type": "COLLABORATES_WITH",
+      "invalid_at": null,
+      "name": "COLLABORATES_WITH",
+      "source_node_name": "瓦伦丁·德比斯",
+      "source_node_uuid": "ent_ede811bc93556d4c",
+      "target_node_name": "张雪机车",
+      "target_node_uuid": "ent_187a78e023ef70c5",
+      "uuid": "rel_5da0f3c8dad44748",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:11.735471",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "张雪与瓦伦丁·德比斯同为车手",
+      "fact_type": "COLLABORATES_WITH",
+      "invalid_at": null,
+      "name": "COLLABORATES_WITH",
+      "source_node_name": "张雪",
+      "source_node_uuid": "ent_7fc73aafe88a66ab",
+      "target_node_name": "瓦伦丁·德比斯",
+      "target_node_uuid": "ent_dcff109e94d3e260",
+      "uuid": "rel_2f465e15a6034432",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:06.561191",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "张雪在社交媒体回应",
+      "fact_type": "COMMENTS_ON",
+      "invalid_at": null,
+      "name": "COMMENTS_ON",
+      "source_node_name": "张雪",
+      "source_node_uuid": "ent_7fc73aafe88a66ab",
+      "target_node_name": "张雪机车",
+      "target_node_uuid": "ent_187a78e023ef70c5",
+      "uuid": "rel_a0d00aca78ef4a14",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:07.436312",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "王先生在中山大学附属第七医院检查",
+      "fact_type": "INTERACTS_WITH",
+      "invalid_at": null,
+      "name": "INTERACTS_WITH",
+      "source_node_name": "王先生",
+      "source_node_uuid": "ent_af63995d3a1c99a2",
+      "target_node_name": "中山大学附属第七医院",
+      "target_node_uuid": "ent_7904baa820275788",
+      "uuid": "rel_17e5422bb6974374",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:06.561195",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "王先生在医院被诊断为疑似肝癌",
+      "fact_type": "INTERACTS_WITH",
+      "invalid_at": null,
+      "name": "INTERACTS_WITH",
+      "source_node_name": "王先生",
+      "source_node_uuid": "ent_af63995d3a1c99a2",
+      "target_node_name": "中山大学附属第七医院",
+      "target_node_uuid": "ent_7904baa820275788",
+      "uuid": "rel_38078734671e4205",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:07.436338",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "中山大学附属第七医院给出疑似肝癌的意见",
+      "fact_type": "COMMENTS_ON",
+      "invalid_at": null,
+      "name": "COMMENTS_ON",
+      "source_node_name": "中山大学附属第七医院",
+      "source_node_uuid": "ent_7904baa820275788",
+      "target_node_name": "肝癌",
+      "target_node_uuid": "ent_733c2c7ea2b539cc",
+      "uuid": "rel_cb12ce05131c4923",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:06.561202",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "卫健委介入肝癌诊断争议",
+      "fact_type": "INTERACTS_WITH",
+      "invalid_at": null,
+      "name": "INTERACTS_WITH",
+      "source_node_name": "卫健委",
+      "source_node_uuid": "ent_3ccd8f24dcbe51fb",
+      "target_node_name": "中山大学附属第七医院",
+      "target_node_uuid": "ent_7904baa820275788",
+      "uuid": "rel_757587477b1c4a10",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:26.520426",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "张雪机车再夺冠军",
+      "fact_type": "MENTIONS",
+      "invalid_at": null,
+      "name": "MENTIONS",
+      "source_node_name": "张雪",
+      "source_node_uuid": "ent_49bcd60daeee715a",
+      "target_node_name": "张雪",
+      "target_node_uuid": "ent_49bcd60daeee715a",
+      "uuid": "rel_4efc20d5b308464b",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:06.605134",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "张雪回应‘我说牛，谁不服’",
+      "fact_type": "COMMENTS_ON",
+      "invalid_at": null,
+      "name": "COMMENTS_ON",
+      "source_node_name": "张雪",
+      "source_node_uuid": "ent_49bcd60daeee715a",
+      "target_node_name": "张雪机车",
+      "target_node_uuid": "ent_187a78e023ef70c5",
+      "uuid": "rel_8435f74af9124879",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:10.214766",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "在WSBK匈牙利站比赛中",
+      "fact_type": "INTERACTS_WITH",
+      "invalid_at": null,
+      "name": "INTERACTS_WITH",
+      "source_node_name": "张雪机车",
+      "source_node_uuid": "ent_dcae5bd0b2f39b0e",
+      "target_node_name": "德比斯",
+      "target_node_uuid": "ent_1f218d8be06eaae9",
+      "uuid": "rel_10ce2cf47a4649fe",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:07.977383",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "荣耀将推出张雪机车冠军联名款手表。",
+      "fact_type": "COLLABORATES_WITH",
+      "invalid_at": null,
+      "name": "COLLABORATES_WITH",
+      "source_node_name": "张雪机车",
+      "source_node_uuid": "ent_dcae5bd0b2f39b0e",
+      "target_node_name": "荣耀",
+      "target_node_uuid": "ent_ee2cba92198f8468",
+      "uuid": "rel_fcd236259f2848a9",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:09.749728",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "浙江省东阳市人民医院接诊了一名细菌性肝脓肿患者。",
+      "fact_type": "INTERACTS_WITH",
+      "invalid_at": null,
+      "name": "INTERACTS_WITH",
+      "source_node_name": "浙江省东阳市人民医院",
+      "source_node_uuid": "ent_29249d7269f3d3fd",
+      "target_node_name": "男子",
+      "target_node_uuid": "ent_0352aaf88158b044",
+      "uuid": "rel_6ddc0ac1c68b4684",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:10.214794",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "在4月交付量中",
+      "fact_type": "INTERACTS_WITH",
+      "invalid_at": null,
+      "name": "INTERACTS_WITH",
+      "source_node_name": "零跑",
+      "source_node_uuid": "ent_aaa1805ce86a9b2f",
+      "target_node_name": "小米汽车",
+      "target_node_uuid": "ent_e7d16ce4f6293783",
+      "uuid": "rel_725003b180a1482a",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:32.299439",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "特朗普为何先和欧洲“撕破脸”",
+      "fact_type": "COMMENTS_ON",
+      "invalid_at": null,
+      "name": "COMMENTS_ON",
+      "source_node_name": "特朗普",
+      "source_node_uuid": "ent_e6bbb6fd6b3ca204",
+      "target_node_name": "伊朗",
+      "target_node_uuid": "ent_20e637cc7c37eb42",
+      "uuid": "rel_1e0b7537299845e6",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:24.888934",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "搞不定伊朗，特朗普为何先和欧洲“撕破脸”？",
+      "fact_type": "COMMENTS_ON",
+      "invalid_at": null,
+      "name": "COMMENTS_ON",
+      "source_node_name": "特朗普",
+      "source_node_uuid": "ent_e6bbb6fd6b3ca204",
+      "target_node_name": "伊朗",
+      "target_node_uuid": "ent_20e637cc7c37eb42",
+      "uuid": "rel_cab10aa77a2b4a2d",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:24.888914",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "特朗普再度对欧盟汽车下狠手",
+      "fact_type": "COMMENTS_ON",
+      "invalid_at": null,
+      "name": "COMMENTS_ON",
+      "source_node_name": "特朗普",
+      "source_node_uuid": "ent_e6bbb6fd6b3ca204",
+      "target_node_name": "欧盟",
+      "target_node_uuid": "ent_3eaa333870ef34ac",
+      "uuid": "rel_1ca9ef0067394da1",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:10.214803",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "声称将部署在古巴海岸",
+      "fact_type": "MENTIONS",
+      "invalid_at": null,
+      "name": "MENTIONS",
+      "source_node_name": "特朗普",
+      "source_node_uuid": "ent_e6bbb6fd6b3ca204",
+      "target_node_name": "亚伯拉罕·林肯号航空母舰",
+      "target_node_uuid": "ent_ac3c8f65b2d0867e",
+      "uuid": "rel_38744a0a94eb4bf2",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:10.214815",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "宣传影响年轻人心目中的美誉度",
+      "fact_type": "MENTIONS",
+      "invalid_at": null,
+      "name": "MENTIONS",
+      "source_node_name": "湖南卫视",
+      "source_node_uuid": "ent_a26118013c7a53e9",
+      "target_node_name": "长沙",
+      "target_node_uuid": "ent_f916553be171ab3a",
+      "uuid": "rel_901faa09e1f74a35",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:10.214818",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "在年轻人心目中的美誉度比较",
+      "fact_type": "INTERACTS_WITH",
+      "invalid_at": null,
+      "name": "INTERACTS_WITH",
+      "source_node_name": "长沙",
+      "source_node_uuid": "ent_f916553be171ab3a",
+      "target_node_name": "武汉",
+      "target_node_uuid": "ent_c7ef4630d59ab6b8",
+      "uuid": "rel_670eaf54cc7f4b05",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:26.520441",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "湖人晋级詹姆斯表现如何",
+      "fact_type": "MENTIONS",
+      "invalid_at": null,
+      "name": "MENTIONS",
+      "source_node_name": "湖人",
+      "source_node_uuid": "ent_3b3a300df4aa9691",
+      "target_node_name": "詹姆斯",
+      "target_node_uuid": "ent_3ec37eed1b497d96",
+      "uuid": "rel_ff0a8438ea8441bd",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:10.214820",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "在2526赛季NBA季后赛中",
+      "fact_type": "INTERACTS_WITH",
+      "invalid_at": null,
+      "name": "INTERACTS_WITH",
+      "source_node_name": "湖人",
+      "source_node_uuid": "ent_3b3a300df4aa9691",
+      "target_node_name": "火箭",
+      "target_node_uuid": "ent_265545a633e3347e",
+      "uuid": "rel_9e2c29a234c94b40",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:11.735441",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "小金因病就医于浙江东阳市人民医院",
+      "fact_type": "INTERACTS_WITH",
+      "invalid_at": null,
+      "name": "INTERACTS_WITH",
+      "source_node_name": "小金",
+      "source_node_uuid": "ent_8dd24448d71384b2",
+      "target_node_name": "浙江东阳市人民医院",
+      "target_node_uuid": "ent_21bb1e2c08b8bb9a",
+      "uuid": "rel_316ff159eed04a71",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:11.735480",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "瓦伦丁·德比斯驾驶张雪机车820RR-RS获得第一名",
+      "fact_type": "INTERACTS_WITH",
+      "invalid_at": null,
+      "name": "INTERACTS_WITH",
+      "source_node_name": "瓦伦丁·德比斯",
+      "source_node_uuid": "ent_dcff109e94d3e260",
+      "target_node_name": "张雪机车820RR-RS",
+      "target_node_uuid": "ent_528e8a74768fc6d9",
+      "uuid": "rel_603a72650e114350",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:12.988704",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "潮州市相关部门工作人员告诉南都N视频记者，暂未发现该情况",
+      "fact_type": "RESPONDS_TO",
+      "invalid_at": null,
+      "name": "RESPONDS_TO",
+      "source_node_name": "潮州市相关部门",
+      "source_node_uuid": "ent_b436091ac8003bc3",
+      "target_node_name": "南都N视频",
+      "target_node_uuid": "ent_b6cc72c357e96fa9",
+      "uuid": "rel_22df09f9f0e74695",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:15.857312",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "中国队在世乒赛中以3：0战胜英格兰队",
+      "fact_type": "INTERACTS_WITH",
+      "invalid_at": null,
+      "name": "INTERACTS_WITH",
+      "source_node_name": "中国队",
+      "source_node_uuid": "ent_7817bcee5d5d333a",
+      "target_node_name": "英格兰队",
+      "target_node_uuid": "ent_df7b6b02b09bac45",
+      "uuid": "rel_5cd40233951240ae",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:15.857327",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "王楚钦是中国队的一员",
+      "fact_type": "COLLABORATES_WITH",
+      "invalid_at": null,
+      "name": "COLLABORATES_WITH",
+      "source_node_name": "王楚钦",
+      "source_node_uuid": "ent_d1410153ec294116",
+      "target_node_name": "中国队",
+      "target_node_uuid": "ent_7817bcee5d5d333a",
+      "uuid": "rel_4534c53b39de4612",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:15.857332",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "林诗栋是中国队的一员",
+      "fact_type": "COLLABORATES_WITH",
+      "invalid_at": null,
+      "name": "COLLABORATES_WITH",
+      "source_node_name": "林诗栋",
+      "source_node_uuid": "ent_3fe81adc06d7b86e",
+      "target_node_name": "中国队",
+      "target_node_uuid": "ent_7817bcee5d5d333a",
+      "uuid": "rel_5ce6069aab8844db",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:15.857336",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "梁靖崑是中国队的一员",
+      "fact_type": "COLLABORATES_WITH",
+      "invalid_at": null,
+      "name": "COLLABORATES_WITH",
+      "source_node_name": "梁靖崑",
+      "source_node_uuid": "ent_987e33f68bcc3d97",
+      "target_node_name": "中国队",
+      "target_node_uuid": "ent_7817bcee5d5d333a",
+      "uuid": "rel_ba6c31f0d4cf47cd",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:15.857365",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "潮州市相关部门回应南都N视频记者关于酒店价格的消息",
+      "fact_type": "COMMENTS_ON",
+      "invalid_at": null,
+      "name": "COMMENTS_ON",
+      "source_node_name": "潮州市",
+      "source_node_uuid": "ent_ebd4b9e5b9a5bb94",
+      "target_node_name": "南都N视频",
+      "target_node_uuid": "ent_b6cc72c357e96fa9",
+      "uuid": "rel_3124b1a8ae9f4e98",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:19.813480",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "建德公安调派无人机进行搜寻",
+      "fact_type": "COLLABORATES_WITH",
+      "invalid_at": null,
+      "name": "COLLABORATES_WITH",
+      "source_node_name": "建德公安",
+      "source_node_uuid": "ent_14b86624868e41ab",
+      "target_node_name": "无人机",
+      "target_node_uuid": "ent_953558e04f2c4907",
+      "uuid": "rel_26fec3efe86a4cb7",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:21.073850",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "贺娇龙的个人账号已更名，删掉了“品味新疆”的后缀",
+      "fact_type": "MENTIONS",
+      "invalid_at": null,
+      "name": "MENTIONS",
+      "source_node_name": "贺娇龙",
+      "source_node_uuid": "ent_268671f8c3ddc074",
+      "target_node_name": "新疆",
+      "target_node_uuid": "ent_b9b270fb38374fee",
+      "uuid": "rel_c2a3615a16ec4818",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:17.050434",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "郑某在高速公路上停车",
+      "fact_type": "INTERACTS_WITH",
+      "invalid_at": null,
+      "name": "INTERACTS_WITH",
+      "source_node_name": "郑某",
+      "source_node_uuid": "ent_c696c2f192cfa2d0",
+      "target_node_name": "高速公路",
+      "target_node_uuid": "ent_3bda8692c9193990",
+      "uuid": "rel_3182d21bbcae49d2",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:17.050419",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "郑某面对交警",
+      "fact_type": "INTERACTS_WITH",
+      "invalid_at": null,
+      "name": "INTERACTS_WITH",
+      "source_node_name": "郑某",
+      "source_node_uuid": "ent_c696c2f192cfa2d0",
+      "target_node_name": "交警",
+      "target_node_uuid": "ent_7144f5a7ea4380c8",
+      "uuid": "rel_82a68357ec8e495a",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:17.050443",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "交警对郑某进行了严肃批评和安全教育",
+      "fact_type": "RESPONDS_TO",
+      "invalid_at": null,
+      "name": "RESPONDS_TO",
+      "source_node_name": "交警",
+      "source_node_uuid": "ent_7144f5a7ea4380c8",
+      "target_node_name": "郑某",
+      "target_node_uuid": "ent_c696c2f192cfa2d0",
+      "uuid": "rel_f9735e0bc7dc40db",
+      "valid_at": null
+    },
+    {
+      "attributes": {
+        "赔偿金额": "20余万元"
+      },
+      "created_at": "2026-05-02T22:54:17.190939",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "公司被法院判决赔偿",
+      "fact_type": "INTERACTS_WITH",
+      "invalid_at": null,
+      "name": "INTERACTS_WITH",
+      "source_node_name": "公司",
+      "source_node_uuid": "ent_8d81ecad5e160632",
+      "target_node_name": "武汉东湖新技术开发区人民法院",
+      "target_node_uuid": "ent_cd54da447065cba7",
+      "uuid": "rel_fe34d26e53794009",
+      "valid_at": null
+    },
+    {
+      "attributes": {
+        "出口量": "200吨"
+      },
+      "created_at": "2026-05-02T22:54:17.190952",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "羊粪蛋出口到老挝",
+      "fact_type": "INTERACTS_WITH",
+      "invalid_at": null,
+      "name": "INTERACTS_WITH",
+      "source_node_name": "内蒙古",
+      "source_node_uuid": "ent_0c56c29b8bcf3d2e",
+      "target_node_name": "老挝",
+      "target_node_uuid": "ent_c7df655783b0635c",
+      "uuid": "rel_047adbd6d40e4a1c",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:17.190960",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "羊粪通过海关检验检疫",
+      "fact_type": "INTERACTS_WITH",
+      "invalid_at": null,
+      "name": "INTERACTS_WITH",
+      "source_node_name": "乌拉特海关",
+      "source_node_uuid": "ent_c7465e605dce533a",
+      "target_node_name": "内蒙古",
+      "target_node_uuid": "ent_0c56c29b8bcf3d2e",
+      "uuid": "rel_986ed59909ec4f45",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:19.813455",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "建德公安响应了牛坚强被困的求助",
+      "fact_type": "RESPONDS_TO",
+      "invalid_at": null,
+      "name": "RESPONDS_TO",
+      "source_node_name": "牛坚强",
+      "source_node_uuid": "ent_856898464a1de035",
+      "target_node_name": "建德公安",
+      "target_node_uuid": "ent_14b86624868e41ab",
+      "uuid": "rel_b6e7f94194af4fc7",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:19.835735",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "中国电动车准备主导21世纪的汽车产业",
+      "fact_type": "COLLABORATES_WITH",
+      "invalid_at": null,
+      "name": "COLLABORATES_WITH",
+      "source_node_name": "中国电动车",
+      "source_node_uuid": "ent_cbad3b20a4743ad6",
+      "target_node_name": "电动汽车",
+      "target_node_uuid": "ent_ebb92e2415daafe5",
+      "uuid": "rel_9c3edd4a409f4bf0",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:19.835716",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "以美国为首的多国认为中国已在换电等关键领域崛起",
+      "fact_type": "MENTIONS",
+      "invalid_at": null,
+      "name": "MENTIONS",
+      "source_node_name": "中国电动车",
+      "source_node_uuid": "ent_cbad3b20a4743ad6",
+      "target_node_name": "美国",
+      "target_node_uuid": "ent_bd2979dc1ce4cd36",
+      "uuid": "rel_0ea666174bdf4f66",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:24.888945",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "腾讯新闻报道特朗普的相关事件",
+      "fact_type": "MENTIONS",
+      "invalid_at": null,
+      "name": "MENTIONS",
+      "source_node_name": "腾讯新闻",
+      "source_node_uuid": "ent_f63b224222fffed8",
+      "target_node_name": "特朗普",
+      "target_node_uuid": "ent_e6bbb6fd6b3ca204",
+      "uuid": "rel_3195541546c74bad",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:26.520386",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "EDG战胜DRG VCT第一赛段",
+      "fact_type": "INTERACTS_WITH",
+      "invalid_at": null,
+      "name": "INTERACTS_WITH",
+      "source_node_name": "EDG",
+      "source_node_uuid": "ent_dc1cea6bd6aba000",
+      "target_node_name": "DRG",
+      "target_node_uuid": "ent_08f26b7cd7ba689c",
+      "uuid": "rel_ce014f260593426b",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:25.808904",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "2:1战胜",
+      "fact_type": "INTERACTS_WITH",
+      "invalid_at": null,
+      "name": "INTERACTS_WITH",
+      "source_node_name": "EDG",
+      "source_node_uuid": "ent_dc1cea6bd6aba000",
+      "target_node_name": "DRG",
+      "target_node_uuid": "ent_08f26b7cd7ba689c",
+      "uuid": "rel_2cdafa7ad1ad4a22",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:26.520366",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "AL战胜IG LPL第二赛段",
+      "fact_type": "INTERACTS_WITH",
+      "invalid_at": null,
+      "name": "INTERACTS_WITH",
+      "source_node_name": "AL",
+      "source_node_uuid": "ent_9c3bb0d120e514c8",
+      "target_node_name": "IG",
+      "target_node_uuid": "ent_36b8184a8c9301c9",
+      "uuid": "rel_5174b642d1df4fbc",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:26.520448",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "TES战胜WBG",
+      "fact_type": "INTERACTS_WITH",
+      "invalid_at": null,
+      "name": "INTERACTS_WITH",
+      "source_node_name": "TES",
+      "source_node_uuid": "ent_988d82d71fd0805c",
+      "target_node_name": "WBG",
+      "target_node_uuid": "ent_e60dc83d13218606",
+      "uuid": "rel_76b3bd596e904e09",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:26.520468",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "曾沛慈零食百宝箱曝光",
+      "fact_type": "MENTIONS",
+      "invalid_at": null,
+      "name": "MENTIONS",
+      "source_node_name": "曾沛慈",
+      "source_node_uuid": "ent_69149603167d2c85",
+      "target_node_name": "曾沛慈",
+      "target_node_uuid": "ent_69149603167d2c85",
+      "uuid": "rel_31ad896581034318",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:31.392403",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "华为的信号在高铁上不如苹果。",
+      "fact_type": "COMMENTS_ON",
+      "invalid_at": null,
+      "name": "COMMENTS_ON",
+      "source_node_name": "华为",
+      "source_node_uuid": "ent_3db837cd2cab3cb5",
+      "target_node_name": "苹果",
+      "target_node_uuid": "ent_ca611e78ffee1ec5",
+      "uuid": "rel_ca990f812c754ae3",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:31.392458",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "用户在酷安提到苹果的手机信号好。",
+      "fact_type": "MENTIONS",
+      "invalid_at": null,
+      "name": "MENTIONS",
+      "source_node_name": "酷安",
+      "source_node_uuid": "ent_51025414b5e77378",
+      "target_node_name": "苹果",
+      "target_node_uuid": "ent_ca611e78ffee1ec5",
+      "uuid": "rel_dcc28878f998403b",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:31.392438",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "用户在酷安提到华为的手机信号差。",
+      "fact_type": "MENTIONS",
+      "invalid_at": null,
+      "name": "MENTIONS",
+      "source_node_name": "酷安",
+      "source_node_uuid": "ent_51025414b5e77378",
+      "target_node_name": "华为",
+      "target_node_uuid": "ent_3db837cd2cab3cb5",
+      "uuid": "rel_d60c8fdc99b24f0e",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:31.872482",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "安徽一女子称在霸王茶姬奶茶中喝出水银",
+      "fact_type": "COMMENTS_ON",
+      "invalid_at": null,
+      "name": "COMMENTS_ON",
+      "source_node_name": "安徽",
+      "source_node_uuid": "ent_63fc8a00391e70d1",
+      "target_node_name": "霸王茶姬",
+      "target_node_uuid": "ent_9cb67170246fee57",
+      "uuid": "rel_da5fac8767e74fe7",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:32.299493",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "以军称摧毁超50个黎巴嫩真主党设施",
+      "fact_type": "INTERACTS_WITH",
+      "invalid_at": null,
+      "name": "INTERACTS_WITH",
+      "source_node_name": "以色列",
+      "source_node_uuid": "ent_73532838e2e21886",
+      "target_node_name": "黎巴嫩真主党",
+      "target_node_uuid": "ent_f030439a3a7f2193",
+      "uuid": "rel_07484cf5664b45fc",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:32.299478",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "伊朗宣布处决两名向以色列提供情报的间谍",
+      "fact_type": "INTERACTS_WITH",
+      "invalid_at": null,
+      "name": "INTERACTS_WITH",
+      "source_node_name": "以色列",
+      "source_node_uuid": "ent_73532838e2e21886",
+      "target_node_name": "伊朗",
+      "target_node_uuid": "ent_20e637cc7c37eb42",
+      "uuid": "rel_c86cca246dd542f7",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:32.299532",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "五角大楼上演“抓马内斗”",
+      "fact_type": "INTERACTS_WITH",
+      "invalid_at": null,
+      "name": "INTERACTS_WITH",
+      "source_node_name": "五角大楼",
+      "source_node_uuid": "ent_ff8895d5df1959f6",
+      "target_node_name": "美国海军",
+      "target_node_uuid": "ent_eed7f1887624d2ae",
+      "uuid": "rel_17747412c09d48fa",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:32.299571",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "中美高官通话，发出明确信号",
+      "fact_type": "COMMENTS_ON",
+      "invalid_at": null,
+      "name": "COMMENTS_ON",
+      "source_node_name": "中美",
+      "source_node_uuid": "ent_29ec0caac7d00944",
+      "target_node_name": "特朗普",
+      "target_node_uuid": "ent_e6bbb6fd6b3ca204",
+      "uuid": "rel_f08b0bf9b77e4db9",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:32.299624",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "特朗普怒率美国“两线作战”",
+      "fact_type": "MENTIONS",
+      "invalid_at": null,
+      "name": "MENTIONS",
+      "source_node_name": "凤凰网",
+      "source_node_uuid": "ent_b429be4f8af96b95",
+      "target_node_name": "特朗普",
+      "target_node_uuid": "ent_e6bbb6fd6b3ca204",
+      "uuid": "rel_d4efb27169074219",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:42.565967",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "马斯克祭出「霸王条款」：Cursor焊死SpaceX战车，600亿砸穿OpenAI",
+      "fact_type": "MENTIONS",
+      "invalid_at": null,
+      "name": "MENTIONS",
+      "source_node_name": "马斯克",
+      "source_node_uuid": "ent_ccffec8ff49b3f46",
+      "target_node_name": "OpenAI",
+      "target_node_uuid": "ent_2e9f87ec2a62cce1",
+      "uuid": "rel_3ceb07b9e6204a1d",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:32.887612",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "马斯克大战OpenAI索赔1500亿美元",
+      "fact_type": "COMMENTS_ON",
+      "invalid_at": null,
+      "name": "COMMENTS_ON",
+      "source_node_name": "马斯克",
+      "source_node_uuid": "ent_ccffec8ff49b3f46",
+      "target_node_name": "OpenAI",
+      "target_node_uuid": "ent_2e9f87ec2a62cce1",
+      "uuid": "rel_86b84864527b4833",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:32.887629",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "林毅夫：中国人均GDP达到美国一半时，美国就会接受中国崛起",
+      "fact_type": "COMMENTS_ON",
+      "invalid_at": null,
+      "name": "COMMENTS_ON",
+      "source_node_name": "林毅夫",
+      "source_node_uuid": "ent_6533dca6707279cc",
+      "target_node_name": "美国",
+      "target_node_uuid": "ent_bd2979dc1ce4cd36",
+      "uuid": "rel_3163cefcc2724109",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:32.887640",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "高市早苗访问越南",
+      "fact_type": "INTERACTS_WITH",
+      "invalid_at": null,
+      "name": "INTERACTS_WITH",
+      "source_node_name": "高市早苗",
+      "source_node_uuid": "ent_9076c0f4b6df909a",
+      "target_node_name": "越南",
+      "target_node_uuid": "ent_491f2ee05e334efc",
+      "uuid": "rel_7e868f1a61a34a69",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:32.887645",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "以军：如果不能移除伊朗的浓缩铀，就是“巨大的失败”",
+      "fact_type": "COMMENTS_ON",
+      "invalid_at": null,
+      "name": "COMMENTS_ON",
+      "source_node_name": "以军",
+      "source_node_uuid": "ent_9a216f255e09817b",
+      "target_node_name": "伊朗",
+      "target_node_uuid": "ent_20e637cc7c37eb42",
+      "uuid": "rel_ac046c9ddf08457b",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:33.134210",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "巴菲特六十年来首次退居幕后，阿贝尔接掌伯克希尔后今晚首秀",
+      "fact_type": "COLLABORATES_WITH",
+      "invalid_at": null,
+      "name": "COLLABORATES_WITH",
+      "source_node_name": "巴菲特",
+      "source_node_uuid": "ent_56e6daded582b292",
+      "target_node_name": "阿贝尔",
+      "target_node_uuid": "ent_815cb23601e916fa",
+      "uuid": "rel_c464b8976c414fd3",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:33.202138",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "一加、真我合并",
+      "fact_type": "COLLABORATES_WITH",
+      "invalid_at": null,
+      "name": "COLLABORATES_WITH",
+      "source_node_name": "一加",
+      "source_node_uuid": "ent_13ba213bf73de904",
+      "target_node_name": "真我",
+      "target_node_uuid": "ent_881f26df3e3f6fed",
+      "uuid": "rel_f22069b6918f498d",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:35.945149",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "提到如果不考虑价格会选择华为mate80pro MAX。",
+      "fact_type": "COMMENTS_ON",
+      "invalid_at": null,
+      "name": "COMMENTS_ON",
+      "source_node_name": "真我GT6",
+      "source_node_uuid": "ent_4d30f192d8c86237",
+      "target_node_name": "华为mate80pro MAX",
+      "target_node_uuid": "ent_f24478a1055a340e",
+      "uuid": "rel_7f71eebb47244033",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:35.945210",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "提到女朋友的手机是苹果14pro，电池不行了。",
+      "fact_type": "INTERACTS_WITH",
+      "invalid_at": null,
+      "name": "INTERACTS_WITH",
+      "source_node_name": "苹果14pro",
+      "source_node_uuid": "ent_6b7a84a174669891",
+      "target_node_name": "真我GT6",
+      "target_node_uuid": "ent_4d30f192d8c86237",
+      "uuid": "rel_11b4b5c364b64a1c",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:35.945328",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "提到9030pro是Pura80系列中的一款手机。",
+      "fact_type": "MENTIONS",
+      "invalid_at": null,
+      "name": "MENTIONS",
+      "source_node_name": "Pura80",
+      "source_node_uuid": "ent_1cc590635f43e8e3",
+      "target_node_name": "9030pro",
+      "target_node_uuid": "ent_b9613552aed01056",
+      "uuid": "rel_8b8e4f50c43f427c",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:35.945291",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "提到9030s是Pura80系列中的一款手机。",
+      "fact_type": "MENTIONS",
+      "invalid_at": null,
+      "name": "MENTIONS",
+      "source_node_name": "Pura80",
+      "source_node_uuid": "ent_1cc590635f43e8e3",
+      "target_node_name": "9030s",
+      "target_node_uuid": "ent_85b977e04e0fb1f9",
+      "uuid": "rel_c098e1c54c524b69",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:35.945253",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "提到9010s是Pura80系列中的一款手机。",
+      "fact_type": "MENTIONS",
+      "invalid_at": null,
+      "name": "MENTIONS",
+      "source_node_name": "Pura80",
+      "source_node_uuid": "ent_1cc590635f43e8e3",
+      "target_node_name": "9010s",
+      "target_node_uuid": "ent_663d7e7b2299dffd",
+      "uuid": "rel_2b42a11a06f044f9",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:42.566211",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "ChatGPT Images 2.0震撼发布，碾压谷歌Nano Banana",
+      "fact_type": "COLLABORATES_WITH",
+      "invalid_at": null,
+      "name": "COLLABORATES_WITH",
+      "source_node_name": "奥特曼",
+      "source_node_uuid": "ent_7db4d65deaa9f26b",
+      "target_node_name": "谷歌",
+      "target_node_uuid": "ent_907b0cf2d4a687bd",
+      "uuid": "rel_077dcf1419d646ee",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:42.449656",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "提到小米15 Pro",
+      "fact_type": "MENTIONS",
+      "invalid_at": null,
+      "name": "MENTIONS",
+      "source_node_name": "红米K90 Pro Max",
+      "source_node_uuid": "ent_884ae6ae3972223e",
+      "target_node_name": "小米15 Pro",
+      "target_node_uuid": "ent_d232a9031ed86934",
+      "uuid": "rel_17c835fc49374f21",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:42.449636",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "提到小米15",
+      "fact_type": "MENTIONS",
+      "invalid_at": null,
+      "name": "MENTIONS",
+      "source_node_name": "红米K90 Pro Max",
+      "source_node_uuid": "ent_884ae6ae3972223e",
+      "target_node_name": "小米15",
+      "target_node_uuid": "ent_c41e64a6aa084809",
+      "uuid": "rel_90b982d7cdf54144",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:42.449669",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "评论奥迪",
+      "fact_type": "COMMENTS_ON",
+      "invalid_at": null,
+      "name": "COMMENTS_ON",
+      "source_node_name": "小米15",
+      "source_node_uuid": "ent_c41e64a6aa084809",
+      "target_node_name": "奥迪",
+      "target_node_uuid": "ent_f3f8cb28e942da54",
+      "uuid": "rel_d916109c56364733",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:42.449663",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "评论苹果17",
+      "fact_type": "COMMENTS_ON",
+      "invalid_at": null,
+      "name": "COMMENTS_ON",
+      "source_node_name": "小米15",
+      "source_node_uuid": "ent_c41e64a6aa084809",
+      "target_node_name": "苹果17",
+      "target_node_uuid": "ent_650d2e08d2b9e141",
+      "uuid": "rel_354003638b084c9c",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:42.449675",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "与CarPlay互动",
+      "fact_type": "INTERACTS_WITH",
+      "invalid_at": null,
+      "name": "INTERACTS_WITH",
+      "source_node_name": "奥迪",
+      "source_node_uuid": "ent_f3f8cb28e942da54",
+      "target_node_name": "CarPlay",
+      "target_node_uuid": "ent_e913bbf87a4e90c4",
+      "uuid": "rel_2d28e27c8ad546d4",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:42.449709",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "与ioS合作",
+      "fact_type": "COLLABORATES_WITH",
+      "invalid_at": null,
+      "name": "COLLABORATES_WITH",
+      "source_node_name": "HyperOS3",
+      "source_node_uuid": "ent_dc9969499ed707bc",
+      "target_node_name": "ioS",
+      "target_node_uuid": "ent_b453779b20565186",
+      "uuid": "rel_5c254e86c7444a98",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:42.449702",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "与鸿蒙合作",
+      "fact_type": "COLLABORATES_WITH",
+      "invalid_at": null,
+      "name": "COLLABORATES_WITH",
+      "source_node_name": "HyperOS3",
+      "source_node_uuid": "ent_dc9969499ed707bc",
+      "target_node_name": "鸿蒙",
+      "target_node_uuid": "ent_590b336a90e1e2a4",
+      "uuid": "rel_7d3e6dbbdbfe474d",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:42.449696",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "与安卓合作",
+      "fact_type": "COLLABORATES_WITH",
+      "invalid_at": null,
+      "name": "COLLABORATES_WITH",
+      "source_node_name": "HyperOS3",
+      "source_node_uuid": "ent_dc9969499ed707bc",
+      "target_node_name": "安卓",
+      "target_node_uuid": "ent_31791f319d11b5e7",
+      "uuid": "rel_8899d3f403ff4f3e",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:42.449689",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "与OriginOS6合作",
+      "fact_type": "COLLABORATES_WITH",
+      "invalid_at": null,
+      "name": "COLLABORATES_WITH",
+      "source_node_name": "HyperOS3",
+      "source_node_uuid": "ent_dc9969499ed707bc",
+      "target_node_name": "OriginOS6",
+      "target_node_uuid": "ent_e23b34cb694bc66a",
+      "uuid": "rel_f895b77dac8a4048",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:42.449683",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "与ColorOS16合作",
+      "fact_type": "COLLABORATES_WITH",
+      "invalid_at": null,
+      "name": "COLLABORATES_WITH",
+      "source_node_name": "HyperOS3",
+      "source_node_uuid": "ent_dc9969499ed707bc",
+      "target_node_name": "ColorOS16",
+      "target_node_uuid": "ent_c55b1239dc2aaf11",
+      "uuid": "rel_368c5448c0b74177",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:42.566034",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "Anthropic逼急谷歌，布林下场亲自督战，组“追杀队”围剿Claude",
+      "fact_type": "INTERACTS_WITH",
+      "invalid_at": null,
+      "name": "INTERACTS_WITH",
+      "source_node_name": "谷歌",
+      "source_node_uuid": "ent_907b0cf2d4a687bd",
+      "target_node_name": "Claude",
+      "target_node_uuid": "ent_f7eb08985a245201",
+      "uuid": "rel_dafd0632c0964583",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:42.566075",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "印度果然要出手了，重罚苹果380亿美元",
+      "fact_type": "COMMENTS_ON",
+      "invalid_at": null,
+      "name": "COMMENTS_ON",
+      "source_node_name": "贝索斯",
+      "source_node_uuid": "ent_f1474dd56b19b939",
+      "target_node_name": "苹果",
+      "target_node_uuid": "ent_ca611e78ffee1ec5",
+      "uuid": "rel_03e0befedaf14577",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:42.566266",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "卧榻之侧，字节跳动",
+      "fact_type": "INTERACTS_WITH",
+      "invalid_at": null,
+      "name": "INTERACTS_WITH",
+      "source_node_name": "字节跳动",
+      "source_node_uuid": "ent_3ac5d0e313116dcb",
+      "target_node_name": "马斯克",
+      "target_node_uuid": "ent_ccffec8ff49b3f46",
+      "uuid": "rel_755414d7a5424178",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:44.220668",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "jwasham is a contributor to coding-interview-university",
+      "fact_type": "COLLABORATES_WITH",
+      "invalid_at": null,
+      "name": "COLLABORATES_WITH",
+      "source_node_name": "jwasham",
+      "source_node_uuid": "ent_a99a1244a6d5437c",
+      "target_node_name": "coding-interview-university",
+      "target_node_uuid": "ent_00369605e9654ba9",
+      "uuid": "rel_9f81052f611c4610",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:44.220693",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "Hacker News mentions jwasham in the context of coding-interview-university",
+      "fact_type": "MENTIONS",
+      "invalid_at": null,
+      "name": "MENTIONS",
+      "source_node_name": "Hacker News",
+      "source_node_uuid": "ent_4ddc2737932407cd",
+      "target_node_name": "jwasham",
+      "target_node_uuid": "ent_a99a1244a6d5437c",
+      "uuid": "rel_44f8044ae0eb47d0",
+      "valid_at": null
+    },
+    {
+      "attributes": {},
+      "created_at": "2026-05-02T22:54:50.349594",
+      "episodes": [],
+      "expired_at": null,
+      "fact": "神州信息与某科公司进行比较",
+      "fact_type": "INTERACTS_WITH",
+      "invalid_at": null,
+      "name": "INTERACTS_WITH",
+      "source_node_name": "神州信息",
+      "source_node_uuid": "ent_fbaa41d38662a252",
+      "target_node_name": "某科公司",
+      "target_node_uuid": "ent_14932c005b18e409",
+      "uuid": "rel_4af9729b5f114b49",
+      "valid_at": null
+    }
+  ],
+  "graph_id": "minifish_local_af19011f23244451",
+  "node_count": 215,
+  "nodes": [
+    {
+      "attributes": {
+        "model": "820RR-RS",
+        "source_entity_types": [
+          "Company"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:04.127187",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "张雪机车",
+      "summary": "香港总代理谈国产机车受追捧",
+      "uuid": "ent_187a78e023ef70c5"
+    },
+    {
+      "attributes": {
+        "position": "车手",
+        "source_entity_types": [
+          "Person"
+        ],
+        "team": "张雪机车"
+      },
+      "created_at": "2026-05-02T22:54:04.127197",
+      "labels": [
+        "Entity",
+        "Person"
+      ],
+      "name": "瓦伦丁·德比斯",
+      "summary": "中国张雪机车车队车手",
+      "uuid": "ent_ede811bc93556d4c"
+    },
+    {
+      "attributes": {
+        "achievement": "夺冠",
+        "source_entity_types": [
+          "PublicFigure"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:06.495803",
+      "labels": [
+        "Entity",
+        "PublicFigure"
+      ],
+      "name": "张雪",
+      "summary": "车手",
+      "uuid": "ent_7fc73aafe88a66ab"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Person"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:06.495805",
+      "labels": [
+        "Entity",
+        "Person"
+      ],
+      "name": "王先生",
+      "summary": "市民",
+      "uuid": "ent_af63995d3a1c99a2"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Organization"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:06.495807",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "中山大学附属第七医院",
+      "summary": "医院",
+      "uuid": "ent_7904baa820275788"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "GovernmentAgency"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:06.495815",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "卫健委",
+      "summary": "介入肝癌诊断争议的机构",
+      "uuid": "ent_3ccd8f24dcbe51fb"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Person",
+          "Celebrity"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:06.592273",
+      "labels": [
+        "Entity",
+        "Person"
+      ],
+      "name": "张雪",
+      "summary": "机车车手",
+      "uuid": "ent_49bcd60daeee715a"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Organization"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:06.892961",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "嫣然天使基金",
+      "summary": "慈善基金",
+      "uuid": "ent_3812c544cda9fd77"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "PublicFigure"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:07.426681",
+      "labels": [
+        "Entity",
+        "PublicFigure"
+      ],
+      "name": "肝癌",
+      "summary": "疾病",
+      "uuid": "ent_733c2c7ea2b539cc"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Celebrity",
+          "Person"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:07.941380",
+      "labels": [
+        "Entity",
+        "Person"
+      ],
+      "name": "张雪机车",
+      "summary": "车手",
+      "uuid": "ent_dcae5bd0b2f39b0e"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Celebrity"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:07.941406",
+      "labels": [
+        "Entity",
+        "Person"
+      ],
+      "name": "张婧仪",
+      "summary": "工作室喊话《你好星期六》道歉",
+      "uuid": "ent_7568886273142896"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Celebrity"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:07.941418",
+      "labels": [
+        "Entity",
+        "Person"
+      ],
+      "name": "严浩翔",
+      "summary": "一位公众人物，参与演唱会。",
+      "uuid": "ent_e4ef7595fd00d3de"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Celebrity"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:07.941428",
+      "labels": [
+        "Entity",
+        "Person"
+      ],
+      "name": "朱孝天",
+      "summary": "F4成员之一，承认不和。",
+      "uuid": "ent_f4745e1ada987ec1"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Organization"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:07.941433",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "时代少年团",
+      "summary": "一个男团。",
+      "uuid": "ent_0681bd06471e231f"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Company"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:07.941443",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "荣耀",
+      "summary": "将推出与张雪机车合作的手表。",
+      "uuid": "ent_ee2cba92198f8468"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Organization"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:07.941448",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "老君山景区",
+      "summary": "一个景区，禁止夜爬。",
+      "uuid": "ent_80d6ba5d300215e1"
+    },
+    {
+      "attributes": {
+        "location": "浙江省东阳市",
+        "source_entity_types": [
+          "Organization"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:09.701171",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "浙江省东阳市人民医院",
+      "summary": "一家医院，接收患者进行治疗。",
+      "uuid": "ent_29249d7269f3d3fd"
+    },
+    {
+      "attributes": {
+        "age": 35,
+        "source_entity_types": [
+          "Person"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:09.701179",
+      "labels": [
+        "Entity",
+        "Person"
+      ],
+      "name": "男子",
+      "summary": "一名35岁男子，因饮食问题导致健康问题。",
+      "uuid": "ent_0352aaf88158b044"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Person"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:10.148173",
+      "labels": [
+        "Entity",
+        "Person"
+      ],
+      "name": "德比斯",
+      "summary": "车手",
+      "uuid": "ent_1f218d8be06eaae9"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Company"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:10.148192",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "零跑",
+      "summary": "汽车公司",
+      "uuid": "ent_aaa1805ce86a9b2f"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Company"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:10.148200",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "小米汽车",
+      "summary": "汽车公司",
+      "uuid": "ent_e7d16ce4f6293783"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Person"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:10.148203",
+      "labels": [
+        "Entity",
+        "Person"
+      ],
+      "name": "胖东来",
+      "summary": "商家",
+      "uuid": "ent_019bf8bd49c2baf2"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "PublicFigure"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:10.148211",
+      "labels": [
+        "Entity",
+        "PublicFigure"
+      ],
+      "name": "特朗普",
+      "summary": "美国前总统，涉及对伊行动的法律争议",
+      "uuid": "ent_e6bbb6fd6b3ca204"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Organization"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:10.148213",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "亚伯拉罕·林肯号航空母舰",
+      "summary": "美国航空母舰",
+      "uuid": "ent_ac3c8f65b2d0867e"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Expert"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:10.148219",
+      "labels": [
+        "Entity",
+        "Person"
+      ],
+      "name": "颜宁",
+      "summary": "科学家",
+      "uuid": "ent_99b9c898a3a0cd5f"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Person"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:10.148221",
+      "labels": [
+        "Entity",
+        "Person"
+      ],
+      "name": "陈思诚",
+      "summary": "导演",
+      "uuid": "ent_0a4284c93e3e50c5"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "MediaOutlet"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:10.148229",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "湖南卫视",
+      "summary": "电视台",
+      "uuid": "ent_a26118013c7a53e9"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Organization"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:10.148231",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "长沙",
+      "summary": "城市",
+      "uuid": "ent_f916553be171ab3a"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Organization"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:10.148233",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "武汉",
+      "summary": "城市",
+      "uuid": "ent_c7ef4630d59ab6b8"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Organization"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:10.148235",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "湖人",
+      "summary": "晋级詹姆斯表现如何",
+      "uuid": "ent_3b3a300df4aa9691"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Organization"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:10.148237",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "火箭",
+      "summary": "NBA球队",
+      "uuid": "ent_265545a633e3347e"
+    },
+    {
+      "attributes": {
+        "age": "35",
+        "condition": "细菌性肝脓肿",
+        "source_entity_types": [
+          "Person"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:11.654321",
+      "labels": [
+        "Entity",
+        "Person"
+      ],
+      "name": "小金",
+      "summary": "35岁患者",
+      "uuid": "ent_8dd24448d71384b2"
+    },
+    {
+      "attributes": {
+        "location": "东阳市",
+        "source_entity_types": [
+          "Organization"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:11.654337",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "浙江东阳市人民医院",
+      "summary": "接诊患者的医院",
+      "uuid": "ent_21bb1e2c08b8bb9a"
+    },
+    {
+      "attributes": {
+        "achievement": "获得第一名",
+        "source_entity_types": [
+          "PublicFigure"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:11.654402",
+      "labels": [
+        "Entity",
+        "PublicFigure"
+      ],
+      "name": "瓦伦丁·德比斯",
+      "summary": "车手",
+      "uuid": "ent_dcff109e94d3e260"
+    },
+    {
+      "attributes": {
+        "model": "820RR-RS",
+        "source_entity_types": [
+          "Company"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:11.654414",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "张雪机车820RR-RS",
+      "summary": "张雪使用的摩托车",
+      "uuid": "ent_528e8a74768fc6d9"
+    },
+    {
+      "attributes": {
+        "age": "89",
+        "source_entity_types": [
+          "Person"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:12.972837",
+      "labels": [
+        "Entity",
+        "Person"
+      ],
+      "name": "钟南山",
+      "summary": "89岁著名医生",
+      "uuid": "ent_1d086c28c5f39b1a"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "GovernmentAgency"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:12.972862",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "潮州市相关部门",
+      "summary": "潮州市的政府相关部门",
+      "uuid": "ent_b436091ac8003bc3"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "MediaOutlet"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:12.972870",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "南都N视频",
+      "summary": "媒体机构",
+      "uuid": "ent_b6cc72c357e96fa9"
+    },
+    {
+      "attributes": {
+        "slogan": "福聚八闽 爱拼会赢",
+        "source_entity_types": [
+          "Organization"
+        ],
+        "start_date": "2026年3月4日"
+      },
+      "created_at": "2026-05-02T22:54:13.596763",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "2026福建省城市足球联赛",
+      "summary": "福建省举办的省级社会足球赛事",
+      "uuid": "ent_724ae0e63ad8eaf3"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Person"
+        ],
+        "status": "失明"
+      },
+      "created_at": "2026-05-02T22:54:14.312226",
+      "labels": [
+        "Entity",
+        "Person"
+      ],
+      "name": "王女士",
+      "summary": "在岗26年，视力残疾的员工",
+      "uuid": "ent_93ca98d5e724db08"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Organization"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:15.819977",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "中国队",
+      "summary": "中国乒乓球队",
+      "uuid": "ent_7817bcee5d5d333a"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Organization"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:15.819993",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "英格兰队",
+      "summary": "英格兰乒乓球队",
+      "uuid": "ent_df7b6b02b09bac45"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Person"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:15.819998",
+      "labels": [
+        "Entity",
+        "Person"
+      ],
+      "name": "王楚钦",
+      "summary": "中国乒乓球运动员",
+      "uuid": "ent_d1410153ec294116"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Person"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:15.820002",
+      "labels": [
+        "Entity",
+        "Person"
+      ],
+      "name": "林诗栋",
+      "summary": "3-0战胜贾维斯",
+      "uuid": "ent_3fe81adc06d7b86e"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Person"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:15.820006",
+      "labels": [
+        "Entity",
+        "Person"
+      ],
+      "name": "梁靖崑",
+      "summary": "中国乒乓球运动员",
+      "uuid": "ent_987e33f68bcc3d97"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "GovernmentAgency"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:15.820040",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "潮州市",
+      "summary": "中国广东省的一个城市",
+      "uuid": "ent_ebd4b9e5b9a5bb94"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "GovernmentAgency"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:16.366466",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "建德公安",
+      "summary": "负责调派专业飞手进行搜寻的公安机关",
+      "uuid": "ent_14b86624868e41ab"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Person"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:16.366474",
+      "labels": [
+        "Entity",
+        "Person"
+      ],
+      "name": "贺娇龙",
+      "summary": "新疆农产品品牌建设与产销服务中心原主任",
+      "uuid": "ent_268671f8c3ddc074"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Person"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:17.031685",
+      "labels": [
+        "Entity",
+        "Person"
+      ],
+      "name": "郑某",
+      "summary": "涉及停车和交警的事件",
+      "uuid": "ent_c696c2f192cfa2d0"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "GovernmentAgency"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:17.031714",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "交警",
+      "summary": "执法人员",
+      "uuid": "ent_7144f5a7ea4380c8"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Organization"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:17.031718",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "高速公路",
+      "summary": "交通道路",
+      "uuid": "ent_3bda8692c9193990"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "GovernmentAgency"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:17.167129",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "武汉东湖新技术开发区人民法院",
+      "summary": "法院",
+      "uuid": "ent_cd54da447065cba7"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Organization"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:17.167140",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "公司",
+      "summary": "涉及劳动合同的公司",
+      "uuid": "ent_8d81ecad5e160632"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Organization"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:17.167142",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "内蒙古",
+      "summary": "羊粪蛋出口的地区",
+      "uuid": "ent_0c56c29b8bcf3d2e"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Organization"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:17.167145",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "老挝",
+      "summary": "羊粪蛋出口的目的地",
+      "uuid": "ent_c7df655783b0635c"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "GovernmentAgency"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:17.167151",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "乌拉特海关",
+      "summary": "负责羊粪检验检疫的海关",
+      "uuid": "ent_c7465e605dce533a"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Organization"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:19.473394",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "四川泸州",
+      "summary": "四川泸州楼房倒塌事件",
+      "uuid": "ent_2185c9f6f4ff1cc1"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "PublicFigure"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:19.786797",
+      "labels": [
+        "Entity",
+        "PublicFigure"
+      ],
+      "name": "牛坚强",
+      "summary": "被困深山20天的牛",
+      "uuid": "ent_856898464a1de035"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Organization"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:19.786818",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "无人机",
+      "summary": "用于空中搜寻的设备",
+      "uuid": "ent_953558e04f2c4907"
+    },
+    {
+      "attributes": {
+        "global_influence": "全球",
+        "market": "国内市场",
+        "source_entity_types": [
+          "Organization"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:19.821712",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "中国电动车",
+      "summary": "已准备主导21世纪",
+      "uuid": "ent_cbad3b20a4743ad6"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "GovernmentAgency"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:19.821742",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "美国",
+      "summary": "北美国家",
+      "uuid": "ent_bd2979dc1ce4cd36"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Organization"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:19.821747",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "氢能源汽车",
+      "summary": "氢能源汽车产业",
+      "uuid": "ent_2a5bbb3ceb0f0a5c"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Organization"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:19.821750",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "电动汽车",
+      "summary": "电动汽车产业",
+      "uuid": "ent_ebb92e2415daafe5"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "SocialMediaPlatform"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:19.821760",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "微信",
+      "summary": "A popular social media platform in China.",
+      "uuid": "ent_6f94b0f03ef2e8bb"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Organization"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:21.061235",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "新疆",
+      "summary": "中国的一个省级行政区",
+      "uuid": "ent_b9b270fb38374fee"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "MediaOutlet"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:21.061283",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "CNN",
+      "summary": "美国有线电视新闻网",
+      "uuid": "ent_0d3fde49f4c69a76"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "MediaOutlet"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:21.843217",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "今日头条",
+      "summary": "A news aggregation platform in China.",
+      "uuid": "ent_3a6eff1be7c4a10a"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "PublicFigure"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:21.843228",
+      "labels": [
+        "Entity",
+        "PublicFigure"
+      ],
+      "name": "赖清德",
+      "summary": "A public figure involved in Taiwanese politics.",
+      "uuid": "ent_c70eb2f458a40a9a"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "MediaOutlet"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:24.867381",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "腾讯新闻",
+      "summary": "中国的新闻媒体",
+      "uuid": "ent_f63b224222fffed8"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Organization"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:24.867399",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "欧盟",
+      "summary": "欧洲联盟",
+      "uuid": "ent_3eaa333870ef34ac"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Organization",
+          "GovernmentAgency"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:24.867400",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "伊朗",
+      "summary": "中东国家",
+      "uuid": "ent_20e637cc7c37eb42"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "MediaOutlet"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:25.772672",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "人民日报",
+      "summary": "中国官方媒体",
+      "uuid": "ent_98ebf3f5eb594b72"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Celebrity"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:25.772684",
+      "labels": [
+        "Entity",
+        "Person"
+      ],
+      "name": "朱之文",
+      "summary": "演出人太多全程被夹着走",
+      "uuid": "ent_d0a94212cb3e0013"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Organization"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:25.772688",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "EDG",
+      "summary": "战胜DRG VCT第一赛段",
+      "uuid": "ent_dc1cea6bd6aba000"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Organization"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:25.772691",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "DRG",
+      "summary": "被EDG战胜",
+      "uuid": "ent_08f26b7cd7ba689c"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Celebrity"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:26.473658",
+      "labels": [
+        "Entity",
+        "Person"
+      ],
+      "name": "张峻豪",
+      "summary": "演唱会",
+      "uuid": "ent_e55a5bf86fb770cd"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Organization"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:26.473673",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "AL",
+      "summary": "战胜IG LPL第二赛段",
+      "uuid": "ent_9c3bb0d120e514c8"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Organization"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:26.473678",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "IG",
+      "summary": "被AL战胜",
+      "uuid": "ent_36b8184a8c9301c9"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Celebrity"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:26.473712",
+      "labels": [
+        "Entity",
+        "Person"
+      ],
+      "name": "詹姆斯",
+      "summary": "湖人晋级表现",
+      "uuid": "ent_3ec37eed1b497d96"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Organization"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:26.473716",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "TES",
+      "summary": "战胜WBG",
+      "uuid": "ent_988d82d71fd0805c"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Organization"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:26.473720",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "WBG",
+      "summary": "被TES战胜",
+      "uuid": "ent_e60dc83d13218606"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Celebrity"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:26.473729",
+      "labels": [
+        "Entity",
+        "Person"
+      ],
+      "name": "曾沛慈",
+      "summary": "零食百宝箱曝光",
+      "uuid": "ent_69149603167d2c85"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Person"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:29.699048",
+      "labels": [
+        "Entity",
+        "Person"
+      ],
+      "name": "特朗普",
+      "summary": "美国前总统",
+      "uuid": "ent_a684a11904595505"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Organization"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:29.699051",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "山西吕梁中院",
+      "summary": "法院",
+      "uuid": "ent_05162e02f6344440"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Celebrity"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:29.699068",
+      "labels": [
+        "Entity",
+        "Person"
+      ],
+      "name": "赵又廷",
+      "summary": "演员",
+      "uuid": "ent_308756816bf2c9ff"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Organization"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:29.699071",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "C919",
+      "summary": "中国商用飞机有限责任公司研发的客机",
+      "uuid": "ent_fe9e9d22540ab4df"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Company"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:31.367771",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "华为",
+      "summary": "中国科技公司，主要生产手机等电子产品。",
+      "uuid": "ent_3db837cd2cab3cb5"
+    },
+    {
+      "attributes": {
+        "CEO_change": "更换CEO原因曝光",
+        "source_entity_types": [
+          "Company"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:31.367798",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "苹果",
+      "summary": "全球知名科技公司",
+      "uuid": "ent_ca611e78ffee1ec5"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "SocialMediaPlatform"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:31.367819",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "酷安",
+      "summary": "一个以科技和数码产品为主题的社交平台。",
+      "uuid": "ent_51025414b5e77378"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Celebrity"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:31.848348",
+      "labels": [
+        "Entity",
+        "Person"
+      ],
+      "name": "莫兰特",
+      "summary": "年薪4000万的知名运动员",
+      "uuid": "ent_02640cccee1b22d8"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "GovernmentAgency"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:31.848366",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "安徽",
+      "summary": "中国的一个省份",
+      "uuid": "ent_63fc8a00391e70d1"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Company"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:31.848373",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "霸王茶姬",
+      "summary": "一家奶茶品牌",
+      "uuid": "ent_9cb67170246fee57"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "MediaOutlet"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:31.848378",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "央视",
+      "summary": "中国中央电视台",
+      "uuid": "ent_1e02cb500029a80a"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "PublicFigure"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:32.238601",
+      "labels": [
+        "Entity",
+        "PublicFigure"
+      ],
+      "name": "普",
+      "summary": "涉及欧盟汽车政策的公共人物",
+      "uuid": "ent_123dd5968d9c052a"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Organization"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:32.238670",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "以色列",
+      "summary": "中东国家，涉及情报和安全事务",
+      "uuid": "ent_73532838e2e21886"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Organization"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:32.238673",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "黎巴嫩真主党",
+      "summary": "黎巴嫩的一个政治和军事组织",
+      "uuid": "ent_f030439a3a7f2193"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "GovernmentAgency"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:32.238690",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "五角大楼",
+      "summary": "美国国防部的总部",
+      "uuid": "ent_ff8895d5df1959f6"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Organization"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:32.238695",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "美国海军",
+      "summary": "美国的海上军事力量",
+      "uuid": "ent_eed7f1887624d2ae"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Organization"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:32.238699",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "中美",
+      "summary": "中国与美国的关系",
+      "uuid": "ent_29ec0caac7d00944"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "MediaOutlet"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:32.238710",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "凤凰网",
+      "summary": "中国的新闻媒体",
+      "uuid": "ent_b429be4f8af96b95"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Person",
+          "Celebrity"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:32.839848",
+      "labels": [
+        "Entity",
+        "Person"
+      ],
+      "name": "马斯克",
+      "summary": "SpaceX和特斯拉的创始人",
+      "uuid": "ent_ccffec8ff49b3f46"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Company",
+          "Organization"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:32.839901",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "OpenAI",
+      "summary": "人工智能研究机构",
+      "uuid": "ent_2e9f87ec2a62cce1"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Expert"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:32.839929",
+      "labels": [
+        "Entity",
+        "Person"
+      ],
+      "name": "林毅夫",
+      "summary": "经济学家",
+      "uuid": "ent_6533dca6707279cc"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "PublicFigure"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:32.839965",
+      "labels": [
+        "Entity",
+        "PublicFigure"
+      ],
+      "name": "高市早苗",
+      "summary": "日本政治人物",
+      "uuid": "ent_9076c0f4b6df909a"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Organization"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:32.839976",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "以军",
+      "summary": "以色列国防军",
+      "uuid": "ent_9a216f255e09817b"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "GovernmentAgency"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:32.840034",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "越南",
+      "summary": "东南亚国家",
+      "uuid": "ent_491f2ee05e334efc"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "GovernmentAgency"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:32.840084",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "中国",
+      "summary": "东亚国家",
+      "uuid": "ent_1043dae3fc8fcd37"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "MediaOutlet"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:32.840109",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "澎湃新闻",
+      "summary": "中国新闻媒体",
+      "uuid": "ent_428e0ec57d61e806"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Person"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:33.101697",
+      "labels": [
+        "Entity",
+        "Person"
+      ],
+      "name": "宇文所安",
+      "summary": "汉学家，提供理解中国文学的新范式",
+      "uuid": "ent_b6a6c6b5c72c0506"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "PublicFigure"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:33.101725",
+      "labels": [
+        "Entity",
+        "PublicFigure"
+      ],
+      "name": "巴菲特",
+      "summary": "著名投资者，伯克希尔哈撒韦的创始人",
+      "uuid": "ent_56e6daded582b292"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "PublicFigure"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:33.101731",
+      "labels": [
+        "Entity",
+        "PublicFigure"
+      ],
+      "name": "阿贝尔",
+      "summary": "接掌伯克希尔哈撒韦的管理者",
+      "uuid": "ent_815cb23601e916fa"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Organization"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:33.101734",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "北大",
+      "summary": "北京大学，中国顶尖高等学府之一",
+      "uuid": "ent_787e337ab09dfa94"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Organization"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:33.101736",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "泉州高校",
+      "summary": "泉州地区的一所高等院校",
+      "uuid": "ent_c10b3ea4c38415d4"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Company"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:33.101741",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "四川梓潼燃气公司",
+      "summary": "提供燃气服务的公司",
+      "uuid": "ent_855fe9ca9dcfb2a3"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Company"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:33.183869",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "一加",
+      "summary": "中国的手机制造商，以高性价比手机著称。",
+      "uuid": "ent_13ba213bf73de904"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Company"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:33.183877",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "vivo",
+      "summary": "中国的手机制造商，专注于拍照手机。",
+      "uuid": "ent_110c7e3580c61398"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Company"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:33.183885",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "真我",
+      "summary": "中国的手机品牌，主打年轻市场。",
+      "uuid": "ent_881f26df3e3f6fed"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Company"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:35.896707",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "真我GT6",
+      "summary": "一款手机型号。",
+      "uuid": "ent_4d30f192d8c86237"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Company"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:35.896720",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "苹果14pro",
+      "summary": "苹果公司生产的一款手机型号。",
+      "uuid": "ent_6b7a84a174669891"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Company"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:35.896731",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "华为mate80pro MAX",
+      "summary": "华为公司生产的一款手机型号。",
+      "uuid": "ent_f24478a1055a340e"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Company"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:35.896742",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "Pura80",
+      "summary": "一款手机型号。",
+      "uuid": "ent_1cc590635f43e8e3"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Company"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:35.896752",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "9010s",
+      "summary": "Pura80系列中的一款手机型号。",
+      "uuid": "ent_663d7e7b2299dffd"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Company"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:35.896762",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "9030s",
+      "summary": "Pura80系列中的一款手机型号。",
+      "uuid": "ent_85b977e04e0fb1f9"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Company"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:35.896773",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "9030pro",
+      "summary": "Pura80系列中的一款手机型号。",
+      "uuid": "ent_b9613552aed01056"
+    },
+    {
+      "attributes": {
+        "promotion": "五一限时闪促至高立减300",
+        "source_entity_types": [
+          "Company"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:36.495902",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "一加手机",
+      "summary": "中国手机制造商",
+      "uuid": "ent_9feadded774155c2"
+    },
+    {
+      "attributes": {
+        "action": "亲自上阵",
+        "source_entity_types": [
+          "PublicFigure"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:36.495928",
+      "labels": [
+        "Entity",
+        "PublicFigure"
+      ],
+      "name": "奥特曼",
+      "summary": "日本特摄英雄",
+      "uuid": "ent_7db4d65deaa9f26b"
+    },
+    {
+      "attributes": {
+        "achievement": "登顶王座",
+        "source_entity_types": [
+          "MediaOutlet"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:36.495939",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "Images 2.0",
+      "summary": "媒体平台",
+      "uuid": "ent_14dfac3dd8d5b121"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Organization"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:39.396194",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "华为 Pura X Max",
+      "summary": "手机和平板间的新品类",
+      "uuid": "ent_820a2e02c0a1b681"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Organization"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:39.396216",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "qutebrowser",
+      "summary": "网页浏览器中的一个异类",
+      "uuid": "ent_856c5a8e39b404ae"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Organization"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:39.396226",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "Notion",
+      "summary": "一款笔记应用",
+      "uuid": "ent_314d7fcd669d98ad"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Organization"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:39.396234",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "Obsidian",
+      "summary": "一款笔记应用",
+      "uuid": "ent_af2f811a3010348e"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Organization"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:39.396243",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "GPT",
+      "summary": "主流大模型之一",
+      "uuid": "ent_f52f16be53a8a193"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Organization"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:39.396252",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "Claude",
+      "summary": "主流大模型之一",
+      "uuid": "ent_8c3530a887444c4e"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Organization"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:39.396292",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "Gemini",
+      "summary": "主流大模型之一",
+      "uuid": "ent_98255e6d88c2ac3c"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Organization",
+          "Company"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:39.396305",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "DeepSeek",
+      "summary": "人工智能公司",
+      "uuid": "ent_64c226c90265bab6"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Organization"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:39.396314",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "通义千问",
+      "summary": "主流大模型之一",
+      "uuid": "ent_f5a15b84d8266a4e"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Organization"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:39.396324",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "Warp",
+      "summary": "突然爆火的终端",
+      "uuid": "ent_69c8ebecc5e73516"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "MediaOutlet"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:39.464141",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "福布斯",
+      "summary": "美国商业杂志，发布财富和商业相关的榜单",
+      "uuid": "ent_f2c34839f84c7d31"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Company"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:39.464160",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "智界",
+      "summary": "一家专注于人工智能的公司",
+      "uuid": "ent_5a46b052455b0239"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Organization"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:39.464167",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "Flutter",
+      "summary": "Google开发的UI工具包，用于构建跨平台应用",
+      "uuid": "ent_e94d0ca0268d9cbc"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Company"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:39.464184",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "DolphinDB",
+      "summary": "一家提供数据处理解决方案的公司",
+      "uuid": "ent_d8af503894f68a15"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Organization"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:39.464191",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "Playwright",
+      "summary": "一个用于自动化Web应用程序测试的框架",
+      "uuid": "ent_9235c4ec804afb77"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Company"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:39.464207",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "MiMo",
+      "summary": "一家科技公司，提供相关产品",
+      "uuid": "ent_63769f5cd84a1755"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Organization"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:42.398762",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "华为Pura X Max",
+      "summary": "华为的一款手机",
+      "uuid": "ent_cde8168de14d5253"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Organization"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:42.398791",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "红米K90 Pro Max",
+      "summary": "小米的一款手机",
+      "uuid": "ent_884ae6ae3972223e"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Organization"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:42.398802",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "小米15",
+      "summary": "小米的一款手机",
+      "uuid": "ent_c41e64a6aa084809"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Organization"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:42.398811",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "小米15 Pro",
+      "summary": "小米的一款手机",
+      "uuid": "ent_d232a9031ed86934"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Organization"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:42.398820",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "苹果17",
+      "summary": "苹果的一款手机",
+      "uuid": "ent_650d2e08d2b9e141"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Organization"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:42.398829",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "奥迪",
+      "summary": "汽车品牌",
+      "uuid": "ent_f3f8cb28e942da54"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Organization"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:42.398838",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "CarPlay",
+      "summary": "苹果的车载系统",
+      "uuid": "ent_e913bbf87a4e90c4"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Organization"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:42.398846",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "HyperOS3",
+      "summary": "操作系统",
+      "uuid": "ent_dc9969499ed707bc"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Organization"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:42.398855",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "ColorOS16",
+      "summary": "操作系统",
+      "uuid": "ent_c55b1239dc2aaf11"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Organization"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:42.398863",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "OriginOS6",
+      "summary": "操作系统",
+      "uuid": "ent_e23b34cb694bc66a"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Organization"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:42.398871",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "安卓",
+      "summary": "操作系统",
+      "uuid": "ent_31791f319d11b5e7"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Organization"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:42.398880",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "鸿蒙",
+      "summary": "操作系统",
+      "uuid": "ent_590b336a90e1e2a4"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Organization"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:42.398888",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "ioS",
+      "summary": "操作系统",
+      "uuid": "ent_b453779b20565186"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Company"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:42.543578",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "谷歌",
+      "summary": "全球知名科技公司",
+      "uuid": "ent_907b0cf2d4a687bd"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Expert"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:42.543592",
+      "labels": [
+        "Entity",
+        "Person"
+      ],
+      "name": "Claude",
+      "summary": "人工智能助手",
+      "uuid": "ent_f7eb08985a245201"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Celebrity"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:42.543605",
+      "labels": [
+        "Entity",
+        "Person"
+      ],
+      "name": "贝索斯",
+      "summary": "亚马逊创始人",
+      "uuid": "ent_f1474dd56b19b939"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Company"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:42.543657",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "字节跳动",
+      "summary": "中国科技公司",
+      "uuid": "ent_3ac5d0e313116dcb"
+    },
+    {
+      "attributes": {
+        "age": "79",
+        "notable_work": "Human Genome Project",
+        "source_entity_types": [
+          "Person"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:43.918280",
+      "labels": [
+        "Entity",
+        "Person"
+      ],
+      "name": "Craig Venter",
+      "summary": "Scientist known for his role in the Human Genome Project.",
+      "uuid": "ent_87b1bed75638db2a"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Person"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:44.200866",
+      "labels": [
+        "Entity",
+        "Person"
+      ],
+      "name": "jwasham",
+      "summary": "Contributor to coding-interview-university",
+      "uuid": "ent_a99a1244a6d5437c"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Organization"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:44.200879",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "coding-interview-university",
+      "summary": "A repository for coding interview preparation",
+      "uuid": "ent_00369605e9654ba9"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "MediaOutlet"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:44.200901",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "Hacker News",
+      "summary": "A social news website that focuses on computer science and entrepreneurship",
+      "uuid": "ent_4ddc2737932407cd"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Person"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:45.967522",
+      "labels": [
+        "Entity",
+        "Person"
+      ],
+      "name": "张雪峰",
+      "summary": "因心源性猝死去世的公众人物",
+      "uuid": "ent_e0e66f2238fefe56"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Company"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:48.726097",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "Brila",
+      "summary": "",
+      "uuid": "ent_c8321ce52ada6335"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Company"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:48.726107",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "Fathom 3.0",
+      "summary": "",
+      "uuid": "ent_1542ff0efe230df2"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Company"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:48.726112",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "ProdShort",
+      "summary": "",
+      "uuid": "ent_a244bf7a44ed4b4f"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Company"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:48.726116",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "Plurai",
+      "summary": "",
+      "uuid": "ent_c7659afb4d4a07ac"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Company"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:48.726119",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "Velo",
+      "summary": "",
+      "uuid": "ent_16f348ee8728a2e1"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Company"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:48.726123",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "Clera",
+      "summary": "",
+      "uuid": "ent_a67cf8ad245a66ea"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Company"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:48.726126",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "Dune",
+      "summary": "",
+      "uuid": "ent_33be7b3e290b78b2"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Company"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:48.726130",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "NovaVoice",
+      "summary": "",
+      "uuid": "ent_90d829aaf3578612"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Company"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:48.726133",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "Open Wearables",
+      "summary": "",
+      "uuid": "ent_9b07b5fc5e22018f"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Company"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:48.726136",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "Figma for Agents",
+      "summary": "",
+      "uuid": "ent_ad0597130971dae9"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Company"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:48.726140",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "RankAI",
+      "summary": "",
+      "uuid": "ent_2248eb120418dc32"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Company"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:48.726143",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "Claude Code Routines",
+      "summary": "",
+      "uuid": "ent_c45381021bc48661"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Company"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:48.726147",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "Offsite",
+      "summary": "",
+      "uuid": "ent_88df0c670ee2a5bd"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Company"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:48.726150",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "Claude Opus 4.7",
+      "summary": "",
+      "uuid": "ent_b0b0f20973730e76"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Company"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:48.726153",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "Claude Code Desktop App Redesigned",
+      "summary": "",
+      "uuid": "ent_e6f923e63641c881"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Company"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:48.726157",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "Ask Product Hunt AI",
+      "summary": "",
+      "uuid": "ent_ee05ac672d4cfe47"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Company"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:48.726160",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "Claude Design by Anthropic Labs",
+      "summary": "",
+      "uuid": "ent_12294a2793299c6a"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Company"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:48.726163",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "Build Check",
+      "summary": "",
+      "uuid": "ent_58be98d4218aeeee"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Company"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:48.726167",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "Orange Slice",
+      "summary": "",
+      "uuid": "ent_c433366f040e8d7d"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Company"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:48.726170",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "SpeakON",
+      "summary": "",
+      "uuid": "ent_14f2dd15a02a2e40"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "MediaOutlet"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:48.726176",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "FreeBuf",
+      "summary": "安全",
+      "uuid": "ent_2f3bf7c6a7448c19"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "MediaOutlet"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:48.726181",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "牛客",
+      "summary": "",
+      "uuid": "ent_6542c2e35d738f1e"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Company"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:50.315572",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "拼多多",
+      "summary": "中国的一家电子商务公司",
+      "uuid": "ent_4abac6c310651269"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Company"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:50.315622",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "神州信息",
+      "summary": "一家提供信息技术服务的公司",
+      "uuid": "ent_fbaa41d38662a252"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Company"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:50.315649",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "某科公司",
+      "summary": "未具体指明的科技公司",
+      "uuid": "ent_14932c005b18e409"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Company"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:50.315673",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "古茗",
+      "summary": "一家饮品公司",
+      "uuid": "ent_3f02f865f4451363"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Company"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:50.315696",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "懂车帝",
+      "summary": "一家汽车信息服务平台",
+      "uuid": "ent_12c469000e0a3c6f"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Company"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:50.315718",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "汇丰",
+      "summary": "一家国际银行",
+      "uuid": "ent_2b141168df3f0de0"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Company"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:50.315741",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "合合信息",
+      "summary": "一家信息技术公司",
+      "uuid": "ent_284469e72f49a1a2"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "Company"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:50.315763",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "招银网络科技",
+      "summary": "一家网络科技公司",
+      "uuid": "ent_bc3cf3f4504714c5"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "MediaOutlet"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:51.028998",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "Counter-Strike 2",
+      "summary": "",
+      "uuid": "ent_f1096f41b8312754"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "MediaOutlet"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:51.029019",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "PUBG: BATTLEGROUNDS",
+      "summary": "",
+      "uuid": "ent_af60afb358365a70"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "MediaOutlet"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:51.029037",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "Dota 2",
+      "summary": "",
+      "uuid": "ent_5ac0411fac70c881"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "MediaOutlet"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:51.029058",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "Apex Legends",
+      "summary": "",
+      "uuid": "ent_577c79bd340d9d1d"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "MediaOutlet"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:51.029076",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "Slay the Spire 2",
+      "summary": "",
+      "uuid": "ent_704b546965636446"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "MediaOutlet"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:51.029105",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "FiveM",
+      "summary": "",
+      "uuid": "ent_50d1777c15c20190"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "MediaOutlet"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:51.029123",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "Delta Force",
+      "summary": "",
+      "uuid": "ent_34b1f6baa17d6b32"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "MediaOutlet"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:51.029141",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "Bongo Cat",
+      "summary": "",
+      "uuid": "ent_5d5f8dcfd203cbe0"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "MediaOutlet"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:51.029159",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "Rust",
+      "summary": "",
+      "uuid": "ent_2169c2812138a035"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "MediaOutlet"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:51.029177",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "Wallpaper Engine",
+      "summary": "",
+      "uuid": "ent_91a50cdb9734624d"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "MediaOutlet"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:51.029195",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "Windrose",
+      "summary": "",
+      "uuid": "ent_f84ea46177cdafa3"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "MediaOutlet"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:51.029213",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "Grand Theft Auto V Legacy",
+      "summary": "",
+      "uuid": "ent_19f622dc198a96d2"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "MediaOutlet"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:51.029231",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "Stardew Valley",
+      "summary": "",
+      "uuid": "ent_11914b3dda6f2198"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "MediaOutlet"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:51.029249",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "Crimson Desert",
+      "summary": "",
+      "uuid": "ent_e872b10722d998f3"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "MediaOutlet"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:51.029265",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "War Thunder",
+      "summary": "",
+      "uuid": "ent_5cc9a7a632463e6b"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "MediaOutlet"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:51.029279",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "ARC Raiders",
+      "summary": "",
+      "uuid": "ent_720011e5023b6d6f"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "MediaOutlet"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:51.029293",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "Warframe",
+      "summary": "",
+      "uuid": "ent_4b9fc1ec8d6fb358"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "MediaOutlet"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:51.029308",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "Dead by Daylight",
+      "summary": "",
+      "uuid": "ent_28724588b0b0dfa8"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "MediaOutlet"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:51.029322",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "Geometry Dash",
+      "summary": "",
+      "uuid": "ent_2cb10f12effc9e8a"
+    },
+    {
+      "attributes": {
+        "source_entity_types": [
+          "MediaOutlet"
+        ]
+      },
+      "created_at": "2026-05-02T22:54:51.029342",
+      "labels": [
+        "Entity",
+        "Organization"
+      ],
+      "name": "Spacewar",
+      "summary": "",
+      "uuid": "ent_dc69b04e7eae0af3"
+    }
+  ]
+}
