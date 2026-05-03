@@ -1,0 +1,194 @@
+body {
+  font-family: 'Itim', cursive;
+}
+::-webkit-scrollbar { width: 0px; }
+div.selectionIndicator {
+  position: absolute; width: 10px; height: 10px; border-radius: 5px;
+  background-color: #fdd365; align-self: center; visibility: hidden;
+  margin-left: -10px; margin-right: 15px;
+}
+.pieceListRadioButton:checked + div.selectionIndicator { visibility: visible; }
+.pieceListRadioButton { align-self: center; }
+.pieceListRadioButton:not(checked) { visibility: hidden; width: 0px; height: 0px; }
+.pieceListItem { cursor: pointer; }
+.pieceListItem:hover { background-color: #f1f3f4; }
+.pieceSectionItem { cursor: pointer; user-select: none; }
+.header {
+  font-family: 'Gochi Hand', cursive; text-decoration: none; color: black;
+  position: absolute; left: 0; right: 0; width: fit-content; margin: 0 auto;
+}
+.svgWrapper {
+  position: absolute; height: fit-content; width: fit-content;
+  margin: auto; top: 0px; bottom: 0px; left: 0px; right: 0px;
+}
+.svgWrapper:focus { outline: none !important; }
+.header:focus { outline: none !important; }
+.rotateWrapper { display: flex; flex-direction: column; justify-content: space-around; align-items: center; }
+.rotateRow { width: 100%; display: flex; justify-content: space-around; align-items: center; }
+.rotateShortcutWrapper { flex-direction: column; display: flex; align-items: center; }
+.rotateTitle { margin-bottom: 0.5em; margin-left: 2em; margin-top: 1em; align-self: flex-start; }
+.scaleWrapper { display: flex; flex-direction: column; align-items: center; }
+.scaleTitle { margin-bottom: 0.5em; margin-left: 2em; margin-top: 1.5em; align-self: flex-start; }
+.scaleShortcutWrapper { flex-direction: column; display: flex; align-items: center; margin-top: 1.5em; }
+.flipWrapper { display: flex; flex-direction: column; justify-content: space-around; align-items: center; }
+.flipButton {
+  background-color: #fdd365; cursor: pointer; width: 5em; height: 5em;
+  border-radius: 1em; margin-bottom: 0.3em; align-items: center;
+  justify-content: center; display: flex; user-select: none;
+}
+.flipButton:active, .shuffleButton:active, .saveButton:active, .leftMenuDrawerButton:active { background-color: #fac641; }
+.boldText { font-weight: bold; }
+.pieceSectionButton { width: 6em; height: 4em; align-items: center; justify-content: center; display: flex; background-color: white; }
+.pieceSectionButton:not(.pickedSection):hover { background-color: rgba(253, 211, 101, 0.65) !important; }
+.pickedSection { background-color: #fdd365; }
+.shuffleButton {
+  border-radius: 1em; margin-bottom: 1em; align-items: center; justify-content: center;
+  display: flex; background-color: #fdd365; cursor: pointer; width: 22em; height: 3em; user-select: none;
+}
+.pieceListWrapper { display: flex; justify-content: flex-start; margin-top: 1em; margin-left: 1em; user-select: none; }
+.pieceListItem:nth-of-type(1) .pieceListWrapper { margin-top: unset; }
+.pieceText { align-self: center; margin-left: 1em; }
+.pieceListSvg { overflow: initial; }
+.leftMenu {
+  position: absolute; bottom: 2em; left: 2em;
+  transition: left 0.5s cubic-bezier(0.82, 0.085, 0.395, 0.895);
+  display: flex; flex-direction: column; justify-content: center;
+}
+.leftMenuWrapper { display: flex; }
+.leftMenuContentWrapper { width: 18em; background-color: #ffffff; border-radius: 1em; box-shadow: 3px 3px 10px 3px #ccc; font-size: larger; }
+.leftMenuDrawerButton {
+  position: relative; top: 0; bottom: 0; margin: auto; width: 3em; height: 2em;
+  background-color: #fdd365; border-top-right-radius: 0.3em; border-bottom-right-radius: 0.3em;
+  display: flex; justify-content: center; align-items: center; cursor: pointer;
+}
+.drawerClosed { left: -22em; }
+.rightMenu { position: absolute; top: 0; bottom: 0; right: 2em; display: flex; flex-direction: column; justify-content: center; }
+.pieceList {
+  width: 18em; height: 23em; background-color: #ffffff; border-radius: 1em;
+  list-style: none; padding-left: 0; overflow: auto; box-shadow: 3px 3px 10px 3px #ccc;
+  font-size: larger; position: relative;
+}
+.sectionList {
+  position: relative; list-style: none; padding: 0; top: 0; bottom: 0; margin: auto;
+  border-left: 1px solid #d4d4d4; box-shadow: 8px 5px 15px 0px #ccc;
+  border-top-right-radius: 1em; border-bottom-right-radius: 1em;
+}
+.frameOptionButton {
+  align-items: center; justify-content: center; display: flex;
+  background-color: rgba(253, 211, 101, 0.45); cursor: pointer; width: 6em; height: 2em; user-select: none;
+}
+.deactiveFrameOptionButton { background-color: #fdd365; }
+.frameOptionButton:nth-of-type(1) { border-top-left-radius: 0.5em; border-bottom-left-radius: 0.5em; }
+.frameOptionButton:nth-of-type(2) { border-top-right-radius: 0.5em; border-bottom-right-radius: 0.5em; }
+.frameOptionsWrapper { display: flex; margin-bottom: 1em; width: 22em; align-items: center; justify-content: center; }
+.increaseFrameWrapperWidth { width: 23.8em; line-height: 32px; }
+.foregroundColorWrapper { display: flex; width: 22em; justify-content: center; margin-bottom: 1em; align-items: center; }
+.marginRightOneEM { margin-right: 1em; }
+.trashIconWrapper { margin-left: 1em; align-items: center; display: flex; }
+.listWrapper { display: flex; }
+.sectionList > li:first-child > div { border-top-right-radius: 1em; }
+.sectionList > li:last-child > div { border-bottom-right-radius: 1em; }
+.saveButtonWrapper { display: flex; justify-content: space-between; width: 22em; }
+.saveButton {
+  border-radius: 1em; align-items: center; justify-content: center; display: flex;
+  background-color: #fdd365; cursor: pointer; width: 10em; height: 3em; user-select: none;
+}
+.footer { position: absolute; left: 0; right: 0; width: fit-content; margin: 0 auto; bottom: 1em; }
+.removeDefaultAnchorStyle { text-decoration: none; color: black; }
+.colorIndicator { position: relative; display: flex; width: fit-content; justify-content: center; }
+.colorSwatch { padding: 5px; background: #fff; border-radius: 1px; display: inline-block; cursor: pointer; }
+.pickedColor { width: 11.5em; height: 14px; border-radius: 2px; }
+.colorPopover { position: absolute; top: -0.5em; left: -10em; z-index: 2; }
+.colorCover { position: fixed; top: 0px; right: 0px; bottom: 0px; left: 0px; }
+.block-picker { width: 22em !important; box-shadow: 3px 3px 10px 3px #ccc !important; }
+.basicPicker { display: flex; flex-direction: row-reverse; }
+.gradientPicker { display: flex; flex-direction: row-reverse; }
+.colorTypeChangeButton {
+  position: relative; top: 0; bottom: 0; margin: auto; width: 2em; height: 6em;
+  border-top-left-radius: 0.5em; border-bottom-left-radius: 0.5em;
+  display: flex; justify-content: center; align-items: center; cursor: pointer; writing-mode: vertical-lr;
+}
+.gradientColorButton {
+  background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 60%, rgba(252,176,69,1) 100%);
+  color: white; user-select: none;
+}
+.basicColorButton { background: #fdd365; color: black; user-select: none; }
+.gradientBlock {
+  width: 22em; background: rgb(255,255,255); box-shadow: 3px 3px 10px 3px #ccc !important;
+  border-radius: 6px; position: relative; height: 198px;
+}
+.gradientPreview {
+  height: 130px; background: linear-gradient(45deg, gold, red);
+  border-top-left-radius: 6px; border-top-right-radius: 6px;
+  display: flex; justify-content: center; align-items: center;
+}
+.gradientInputWrapper { display: flex; margin-top: 0.5em; justify-content: space-evenly; }
+.gradientInputWrapper > div { display: flex; justify-content: center; }
+.gradientColorBoxWrapper { display: flex; justify-content: space-around; margin-top: 0.5em; }
+.gradientColorBox {
+  background: rgb(255,212,2); height: 22px; width: 22px; cursor: pointer;
+  position: relative; outline: none; float: left; border-radius: 4px; right: 0; left: 0; margin: auto;
+}
+.chrome-picker { box-shadow: none !important; border-radius: 6px !important; width: 22em !important; }
+.signature {
+  display: flex; gap: 0.5em; align-items: center; justify-content: center;
+  text-align: center; font-family: 'Gochi Hand', cursive; font-size: large;
+}
+.sign-animation {
+  background-image: linear-gradient(90deg, #31cf1f, #7815e58a);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent; animation: sign 2s infinite linear;
+}
+.block-picker > div:nth-child(2) { height: 60px !important; }
+.support-me {
+  font-family: 'Itim', cursive; display: flex; align-items: center;
+  justify-content: center; font-size: 0.875rem; gap: 0.5em; text-decoration: none; color: inherit;
+}
+@media screen and (max-width: 1400px) {
+  .header { display: none; }
+  .container { position: relative; }
+  .svgWrapper svg { width: 300px !important; height: 300px !important; }
+  .pieceText { display: none; }
+  .colorIndicator { left: unset; top: 0; }
+  .colorPopover { top: -0.5em; right: unset; left: -10em; }
+  .leftMenu { display: none; }
+  .pieceList { width: 60%; height: 3.5em; overflow-y: hidden; margin-bottom: 0; left: 0; right: 0; margin: auto; }
+  .rightMenu { top: unset; right: 0; left: 0; bottom: 0; margin-bottom: 1em; position: relative; }
+  .pieceListItem { display: table-cell; }
+  .pieceListItem:hover { background-color: unset; }
+  .pieceListWrapper { margin-top: 0em; }
+  .listWrapper { flex-direction: column; }
+  .pieceSectionItem { display: table-cell; }
+  .sectionList { border-left: 0px solid #d4d4d4; box-shadow: 0px 5px 15px 4px #ccc; border-bottom-left-radius: 1em; border-bottom-right-radius: 1em; border-top-right-radius: 0; margin-top: 0; }
+  .shuffleButton { right: 0; left: 0; margin: auto; margin-top: 1em; }
+  .frameOptionsWrapper { right: 0; left: 0; margin: auto; margin-top: 1em; }
+  .foregroundColorWrapper { right: 0; left: 0; margin: auto; margin-top: 1em; }
+  .backgroundPickedColorIndicatior { width: 9.5em; }
+  .sectionList > li:first-child > div { border-bottom-left-radius: 1em; border-top-right-radius: 0; }
+  .pieceSectionButton { width: 5em; }
+  .saveButtonWrapper { right: 0; left: 0; margin: auto; margin-top: 1em; }
+  .svgWrapper { top: 0em; margin-top: 0; position: initial; }
+  .footer { bottom: -4em; margin-bottom: 1em; }
+}
+@media screen and (max-width: 1200px) {
+  .pieceList { width: 100%; left: unset; right: unset; margin: unset; }
+}
+@media screen and (max-width: 460px) {
+  .header { display: none; }
+  .sectionList { overflow: hidden; }
+  .shuffleButton { width: 90%; }
+  .saveButtonWrapper { width: 90%; }
+  .saveButton { width: 7em; }
+  .pieceSectionButton { font-size: 0.7rem; width: 5em; }
+  .footer { max-width: 15rem; text-align: center; line-height: 1.5em; bottom: -7em; }
+  .colorPopover { left: -9em; }
+}
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.8); }
+  100% { transform: scale(1); }
+}
+@keyframes sign {
+  from { filter: hue-rotate(0deg); }
+  to { filter: hue-rotate(-360deg); }
+}
