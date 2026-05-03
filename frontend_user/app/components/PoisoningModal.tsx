@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import styles from './PoisoningModal.module.css';
 
 const CHANNELS = [
@@ -56,26 +56,20 @@ const RECOMMENDED_TEMPLATES = [
   },
 ];
 
-const PUBLISH_LOGS = [
-  '正在模拟终端环境...',
-  'Computer Use 代理已启动',
-  '正在通过 Puppeteer 导航至分发页面',
-  '执行指纹绕过与环境伪装',
-  '正在上传投毒载体...',
-  '正在注入 RAG 检索链路...',
-  '内容发布成功，等待索引爬取',
-  '投毒链路已建立',
-];
-
 type ChannelId = (typeof CHANNELS)[number]['id'];
 type MethodId = (typeof METHODS)[number]['id'];
 type ModalPhase = 'select_channel' | 'select_method' | 'input_content' | 'publishing' | 'success';
+
+interface LogEntry {
+  time: string;
+  text: string;
+  dim?: boolean;
+}
 
 interface AgentResult {
   status: 'completed' | 'needs_input' | 'error';
   output?: string;
   reason?: string;
-  session_id?: string;
   screenshot?: string;
 }
 
@@ -85,91 +79,190 @@ interface PoisoningModalProps {
   onClose: () => void;
 }
 
+function now() {
+  return new Date().toLocaleTimeString([], { hour12: false, minute: '2-digit', second: '2-digit' });
+}
+
+function labelForEvent(event: Record<string, unknown>): string | null {
+  const key = event.message_key as string | undefined;
+  const msg = event.message as string | undefined;
+  const params = event.params as Record<string, unknown> | undefined;
+
+  if (key === 'common.agent_starting') return '🚀 Agent 启动中...';
+  if (key === 'common.agent_thinking') return '🧠 Agent 思考中...';
+  if (key === 'common.executing_action') {
+    const tool = params?.tool as string | undefined;
+    const args = params?.args as string | undefined;
+    if (tool === 'navigate') {
+      try { const a = JSON.parse(args ?? '{}'); return `🌐 导航至 ${a.url ?? ''}`; } catch { /* empty */ }
+    }
+    if (tool === 'click') return `🖱️ 点击元素`;
+    if (tool === 'type_text') {
+      try { const a = JSON.parse(args ?? '{}'); return `⌨️ 输入: ${String(a.text ?? '').slice(0, 40)}`; } catch { /* empty */ }
+    }
+    if (tool === 'finish_task') return `✅ 任务完成`;
+    if (tool) return `⚙️ 执行: ${tool}`;
+  }
+  if (key === 'common.task_completed') return `✅ 任务完成`;
+  if (key === 'common.context_compressing') return '📦 压缩上下文...';
+  if (key === 'common.agent_paused_for_takeover') return '⏸️ 等待人工接管...';
+  if (key === 'common.image_input_disabled') return '⚠️ 已切换纯文本模式';
+  if (key === 'common.max_steps_error') return '⚠️ 达到最大步数限制';
+  if (key === 'common.error') return `�� ${msg ?? '错误'}`;
+  if (msg) return msg.slice(0, 80);
+  return null;
+}
+
 export default function PoisoningModal({ isOpen, targetName, onClose }: PoisoningModalProps) {
   const [selectedChannel, setSelectedChannel] = useState<ChannelId>('google');
   const [selectedMethod, setSelectedMethod] = useState<MethodId>('case1');
   const [phase, setPhase] = useState<ModalPhase>('select_channel');
   const [poisonContent, setPoisonContent] = useState('');
-  const [visibleLogCount, setVisibleLogCount] = useState(1);
-  const [impactData, setImpactData] = useState({ sentiment: 0, volatility: 0, integrity: 100 });
+  const [logs, setLogs] = useState<LogEntry[]>([]);
   const [agentResult, setAgentResult] = useState<AgentResult | null>(null);
+  const [impactData, setImpactData] = useState({ sentiment: 0, volatility: 0, integrity: 100 });
+  const logEndRef = useRef<HTMLDivElement>(null);
   const abortRef = useRef<AbortController | null>(null);
 
-  // Drive log animation
+  const addLog = useCallback((text: string, dim = false) => {
+    setLogs((prev) => [...prev, { time: now(), text, dim }]);
+  }, []);
+
+  // Auto-scroll log container
   useEffect(() => {
-    if (phase !== 'publishing') return;
-    if (visibleLogCount >= PUBLISH_LOGS.length) return;
+    logEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [logs]);
 
-    const timer = window.setTimeout(() => {
-      setVisibleLogCount((c) => c + 1);
-    }, 700 + Math.random() * 500);
-
-    return () => window.clearTimeout(timer);
-  }, [phase, visibleLogCount]);
-
-  // Kick off real NeoFish API call when publishing starts
+  // Start SSE stream when publishing phase begins
   useEffect(() => {
     if (phase !== 'publishing') return;
 
+    setLogs([{ time: now(), text: '正在模拟终端环境...', dim: false }]);
     setAgentResult(null);
+
     const controller = new AbortController();
     abortRef.current = controller;
 
-    fetch('/api/poisoning', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        channel: selectedChannel,
-        method: selectedMethod,
-        content: poisonContent,
-      }),
-      signal: controller.signal,
-    })
-      .then((r) => r.json())
-      .then((data: AgentResult) => setAgentResult(data))
-      .catch((e: Error) => {
-        if (e.name !== 'AbortError') {
-          setAgentResult({ status: 'error', output: e.message });
+    (async () => {
+      try {
+        const res = await fetch('/api/poisoning', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            channel: selectedChannel,
+            method: selectedMethod,
+            content: poisonContent,
+          }),
+          signal: controller.signal,
+        });
+
+        if (!res.body) throw new Error('No response body');
+
+        const reader = res.body.getReader();
+        const decoder = new TextDecoder();
+        let buffer = '';
+
+        while (true) {
+          const { value, done } = await reader.read();
+          if (done) break;
+          buffer += decoder.decode(value, { stream: true });
+
+          const lines = buffer.split('\n');
+          buffer = lines.pop() ?? '';
+
+          for (const line of lines) {
+            if (!line.startsWith('data: ')) continue;
+            const raw = line.slice(6).trim();
+            if (!raw) continue;
+
+            let event: Record<string, unknown>;
+            try { event = JSON.parse(raw); } catch { continue; }
+
+            const type = event.type as string;
+
+            if (type === 'start') {
+              addLog('Computer Use 代理已启动');
+              continue;
+            }
+            if (type === 'heartbeat') continue;
+
+            if (type === 'info') {
+              const label = labelForEvent(event);
+              if (label) addLog(label);
+              // Capture final report from task_completed
+              if (event.message_key === 'common.task_completed') {
+                const params = event.params as Record<string, unknown> | undefined;
+                const report = (params?.report as string | undefined) ?? (event.message as string | undefined) ?? '';
+                setAgentResult({ status: 'completed', output: report });
+              }
+              continue;
+            }
+
+            if (type === 'needs_input') {
+              addLog('⏸️ 需要人工接管');
+              setAgentResult({
+                status: 'needs_input',
+                reason: event.reason as string | undefined,
+                screenshot: event.screenshot as string | undefined,
+              });
+              continue;
+            }
+
+            if (type === 'error') {
+              addLog(`❌ ${event.message ?? '未知错误'}`, true);
+              setAgentResult({ status: 'error', output: String(event.message ?? '') });
+              continue;
+            }
+
+            if (type === 'done') {
+              // outcome is already set via info task_completed or needs_input
+              break;
+            }
+          }
         }
-      });
+      } catch (e: unknown) {
+        if ((e as Error).name === 'AbortError') return;
+        const msg = (e as Error).message;
+        addLog(`❌ 连接失败: ${msg}`, true);
+        setAgentResult({ status: 'error', output: `无法连接 NeoFish Agent: ${msg}` });
+      }
+
+      // Transition to success once stream ends
+      setPhase((prev) => (prev === 'publishing' ? 'success' : prev));
+    })();
 
     return () => controller.abort();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [phase]);
 
-  // Transition to success once both logs animation AND agent call are done
+  // Compute impact when entering success
   useEffect(() => {
-    if (phase !== 'publishing') return;
-    if (visibleLogCount < PUBLISH_LOGS.length) return;
-    if (!agentResult) return;
-
+    if (phase !== 'success') return;
     const seed = poisonContent.length + selectedMethod.length;
     setImpactData({
       sentiment: -40 - (seed % 50),
       volatility: 5 + (seed % 15),
       integrity: 20 + (seed % 30),
     });
-    setPhase('success');
-  }, [phase, visibleLogCount, agentResult, poisonContent, selectedMethod]);
+  }, [phase, poisonContent, selectedMethod]);
 
   useEffect(() => {
     if (!isOpen) return;
-    const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose();
-    };
+    const handleEscape = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose(); };
     window.addEventListener('keydown', handleEscape);
     return () => window.removeEventListener('keydown', handleEscape);
   }, [isOpen, onClose]);
 
-  // Abort in-flight request on close
   useEffect(() => {
-    if (!isOpen) {
-      abortRef.current?.abort();
-    }
+    if (!isOpen) abortRef.current?.abort();
   }, [isOpen]);
 
-  const progress = useMemo(() => Math.round((visibleLogCount / PUBLISH_LOGS.length) * 100), [visibleLogCount]);
-  const logsFinished = visibleLogCount >= PUBLISH_LOGS.length;
+  // Progress: count meaningful log entries as proxy for progress
+  const progress = useMemo(() => {
+    if (phase === 'success') return 100;
+    // Clamp progress to 95% while still running
+    return Math.min(95, logs.length * 12);
+  }, [phase, logs.length]);
 
   if (!isOpen) return null;
 
@@ -179,12 +272,7 @@ export default function PoisoningModal({ isOpen, targetName, onClose }: Poisonin
 
   return (
     <div className={styles.overlay} onClick={onClose} role="presentation">
-      <div
-        className={styles.panel}
-        onClick={(e) => e.stopPropagation()}
-        role="dialog"
-        aria-modal="true"
-      >
+      <div className={styles.panel} onClick={(e) => e.stopPropagation()} role="dialog" aria-modal="true">
         <div className={styles.header}>
           <div>
             <div className={styles.eyebrow}>
@@ -192,9 +280,7 @@ export default function PoisoningModal({ isOpen, targetName, onClose }: Poisonin
             </div>
             <h2 className={styles.title}>{title}</h2>
           </div>
-          <button type="button" onClick={onClose} className={styles.closeButton}>
-            ×
-          </button>
+          <button type="button" onClick={onClose} className={styles.closeButton}>×</button>
         </div>
 
         <div className={styles.body}>
@@ -205,27 +291,18 @@ export default function PoisoningModal({ isOpen, targetName, onClose }: Poisonin
                 <div className={styles.stepTitle}>选择渗透渠道</div>
               </div>
               <p className={styles.stepDesc}>选择一个最容易被量化机构爬虫抓取并信任的信息源。</p>
-
               <div className={styles.grid}>
                 {CHANNELS.map((channel) => (
-                  <button
-                    key={channel.id}
-                    type="button"
+                  <button key={channel.id} type="button"
                     className={`${styles.card} ${selectedChannel === channel.id ? styles.active : ''}`}
-                    onClick={() => setSelectedChannel(channel.id)}
-                  >
+                    onClick={() => setSelectedChannel(channel.id)}>
                     <div className={styles.cardName}>{channel.name}</div>
                     <div className={styles.cardMeta}>{channel.description}</div>
                   </button>
                 ))}
               </div>
-
               <div className={styles.footer}>
-                <button
-                  type="button"
-                  className={styles.primaryButton}
-                  onClick={() => setPhase('select_method')}
-                >
+                <button type="button" className={styles.primaryButton} onClick={() => setPhase('select_method')}>
                   下一步：选择投毒方式
                 </button>
               </div>
@@ -239,36 +316,19 @@ export default function PoisoningModal({ isOpen, targetName, onClose }: Poisonin
                 <div className={styles.stepTitle}>选择投毒方式</div>
               </div>
               <p className={styles.stepDesc}>根据目标 RAG 系统的架构漏洞，选择最有效的攻击矢量。</p>
-
               <div className={styles.grid}>
                 {METHODS.map((method) => (
-                  <button
-                    key={method.id}
-                    type="button"
+                  <button key={method.id} type="button"
                     className={`${styles.card} ${selectedMethod === method.id ? styles.active : ''}`}
-                    onClick={() => setSelectedMethod(method.id)}
-                  >
+                    onClick={() => setSelectedMethod(method.id)}>
                     <div className={styles.cardName}>{method.name}</div>
                     <div className={styles.cardMeta}>{method.description}</div>
                   </button>
                 ))}
               </div>
-
               <div className={styles.footer}>
-                <button
-                  type="button"
-                  className={styles.ghostButton}
-                  onClick={() => setPhase('select_channel')}
-                >
-                  上一步
-                </button>
-                <button
-                  type="button"
-                  className={styles.primaryButton}
-                  onClick={() => setPhase('input_content')}
-                >
-                  下一步：配置投毒内容
-                </button>
+                <button type="button" className={styles.ghostButton} onClick={() => setPhase('select_channel')}>上一步</button>
+                <button type="button" className={styles.primaryButton} onClick={() => setPhase('input_content')}>下一步：配置投毒内容</button>
               </div>
             </div>
           )}
@@ -280,51 +340,25 @@ export default function PoisoningModal({ isOpen, targetName, onClose }: Poisonin
                 <div className={styles.stepTitle}>配置投毒内容</div>
               </div>
               <p className={styles.stepDesc}>编写或选择一段能诱导量化模型产生偏差判断的内容。</p>
-
               <div className={styles.contentSection}>
                 <label className={styles.inputLabel}>推荐模板 (点击自动填充载荷)</label>
                 <div className={styles.recommendationList}>
                   {RECOMMENDED_TEMPLATES.map((item) => (
-                    <button
-                      key={item.title}
-                      type="button"
-                      className={styles.recommendationItem}
-                      onClick={() => setPoisonContent(item.content)}
-                    >
+                    <button key={item.title} type="button" className={styles.recommendationItem}
+                      onClick={() => setPoisonContent(item.content)}>
                       {item.title}
                     </button>
                   ))}
                 </div>
-
-                <label className={styles.inputLabel} style={{ marginTop: '20px' }}>
-                  具体投毒载荷内容
-                </label>
-                <textarea
-                  className={styles.contentInput}
-                  value={poisonContent}
+                <label className={styles.inputLabel} style={{ marginTop: '20px' }}>具体投毒载荷内容</label>
+                <textarea className={styles.contentInput} value={poisonContent}
                   onChange={(e) => setPoisonContent(e.target.value)}
-                  placeholder="在此输入或从上方选择模板..."
-                  rows={5}
-                />
+                  placeholder="在此输入或从上方选择模板..." rows={5} />
               </div>
-
               <div className={styles.footer}>
-                <button
-                  type="button"
-                  className={styles.ghostButton}
-                  onClick={() => setPhase('select_method')}
-                >
-                  上一步
-                </button>
-                <button
-                  type="button"
-                  className={styles.primaryButton}
-                  disabled={!poisonContent.trim()}
-                  onClick={() => {
-                    setVisibleLogCount(1);
-                    setPhase('publishing');
-                  }}
-                >
+                <button type="button" className={styles.ghostButton} onClick={() => setPhase('select_method')}>上一步</button>
+                <button type="button" className={styles.primaryButton} disabled={!poisonContent.trim()}
+                  onClick={() => setPhase('publishing')}>
                   确认并开始发布
                 </button>
               </div>
@@ -342,34 +376,27 @@ export default function PoisoningModal({ isOpen, targetName, onClose }: Poisonin
 
               <div className={styles.progressArea}>
                 <div className={styles.progressTrack}>
-                  <div className={styles.progressFill} style={{ width: `${progress}%` }} />
+                  <div className={styles.progressFill} style={{ width: `${progress}%`, transition: 'width 0.4s ease' }} />
                 </div>
                 <div className={styles.progressStatus}>
-                  正在通过 {selectedMethodMeta?.name} 渗透 {selectedChannelMeta?.name} ...{' '}
-                  {progress}%
+                  正在通过 {selectedMethodMeta?.name} 渗透 {selectedChannelMeta?.name} ... {progress}%
                 </div>
               </div>
 
               <div className={styles.logContainer}>
-                {PUBLISH_LOGS.slice(0, visibleLogCount).map((log) => (
-                  <div key={log} className={styles.logRow}>
-                    <span className={styles.logTime}>
-                      [{new Date().toLocaleTimeString([], { hour12: false, minute: '2-digit', second: '2-digit' })}]
-                    </span>
-                    <span className={styles.logText}>{log}</span>
+                {logs.map((log, i) => (
+                  <div key={i} className={styles.logRow}>
+                    <span className={styles.logTime}>[{log.time}]</span>
+                    <span className={styles.logText} style={log.dim ? { opacity: 0.5 } : undefined}>{log.text}</span>
                   </div>
                 ))}
-                {/* Show waiting indicator when logs finished but NeoFish still running */}
-                {phase === 'publishing' && logsFinished && !agentResult && (
+                {phase === 'publishing' && (
                   <div className={styles.logRow}>
-                    <span className={styles.logTime}>
-                      [{new Date().toLocaleTimeString([], { hour12: false, minute: '2-digit', second: '2-digit' })}]
-                    </span>
-                    <span className={styles.logText} style={{ opacity: 0.7 }}>
-                      等待 NeoFish Agent 执行中...
-                    </span>
+                    <span className={styles.logTime}>[{now()}]</span>
+                    <span className={styles.logText} style={{ opacity: 0.4 }}>▌</span>
                   </div>
                 )}
+                <div ref={logEndRef} />
               </div>
 
               {phase === 'success' && (
@@ -379,15 +406,11 @@ export default function PoisoningModal({ isOpen, targetName, onClose }: Poisonin
                     <div className={styles.impactGrid}>
                       <div className={styles.impactItem}>
                         <div className={styles.impactLabel}>舆论情绪 (Sentiment)</div>
-                        <div className={`${styles.impactValue} ${styles.negative}`}>
-                          {impactData.sentiment}%
-                        </div>
+                        <div className={`${styles.impactValue} ${styles.negative}`}>{impactData.sentiment}%</div>
                       </div>
                       <div className={styles.impactItem}>
                         <div className={styles.impactLabel}>市场波动率 (Volatility)</div>
-                        <div className={`${styles.impactValue} ${styles.positive}`}>
-                          +{impactData.volatility}%
-                        </div>
+                        <div className={`${styles.impactValue} ${styles.positive}`}>+{impactData.volatility}%</div>
                       </div>
                       <div className={styles.impactItem}>
                         <div className={styles.impactLabel}>系统完整性 (Integrity)</div>
@@ -398,18 +421,15 @@ export default function PoisoningModal({ isOpen, targetName, onClose }: Poisonin
                       目标机构的信息源已被污染。其 RAG 系统现已产生逻辑偏差，预计在下一轮调仓周期内触发错误交易。
                     </div>
                   </div>
-
                   {agentResult && <AgentResultCard result={agentResult} />}
                 </>
               )}
 
               <div className={styles.footer}>
-                <button
-                  type="button"
-                  className={styles.primaryButton}
-                  onClick={onClose}
-                  style={{ width: '100%' }}
-                >
+                <button type="button" className={styles.primaryButton}
+                  onClick={phase === 'success' ? onClose : undefined}
+                  disabled={phase === 'publishing'}
+                  style={{ width: '100%' }}>
                   {phase === 'success' ? '关闭并观察市场反应' : '正在执行自动化载荷...'}
                 </button>
               </div>
@@ -426,45 +446,33 @@ function AgentResultCard({ result }: { result: AgentResult }) {
     return (
       <div className={styles.agentResult}>
         <div className={styles.agentResultHeader}>
-          <span className={styles.agentResultBadge} data-status="completed">
-            NEOFISH · 已完成
-          </span>
+          <span className={styles.agentResultBadge} data-status="completed">NEOFISH · 已完成</span>
         </div>
         <pre className={styles.agentResultBody}>{result.output}</pre>
       </div>
     );
   }
-
   if (result.status === 'needs_input') {
     return (
       <div className={styles.agentResult}>
         <div className={styles.agentResultHeader}>
-          <span className={styles.agentResultBadge} data-status="needs_input">
-            NEOFISH · 等待人工接管
-          </span>
+          <span className={styles.agentResultBadge} data-status="needs_input">NEOFISH · 等待人工接管</span>
         </div>
         <p className={styles.agentResultBody}>
           {result.reason ?? 'Agent 遇到登录墙或验证码，请在弹出的浏览器窗口完成操作。'}
         </p>
         {result.screenshot && (
           // eslint-disable-next-line @next/next/no-img-element
-          <img
-            src={`data:image/jpeg;base64,${result.screenshot}`}
-            alt="Agent screenshot"
-            style={{ width: '100%', borderRadius: 8, marginTop: 8 }}
-          />
+          <img src={`data:image/jpeg;base64,${result.screenshot}`} alt="Agent screenshot"
+            style={{ width: '100%', borderRadius: 8, marginTop: 8 }} />
         )}
       </div>
     );
   }
-
-  // error
   return (
     <div className={styles.agentResult}>
       <div className={styles.agentResultHeader}>
-        <span className={styles.agentResultBadge} data-status="error">
-          NEOFISH · 连接失败
-        </span>
+        <span className={styles.agentResultBadge} data-status="error">NEOFISH · 连接失败</span>
       </div>
       <pre className={styles.agentResultBody}>{result.output}</pre>
     </div>

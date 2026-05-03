@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextRequest } from 'next/server';
 
 export const maxDuration = 60;
 
@@ -37,7 +37,7 @@ const METHOD_INFO: Record<string, { name: string; instruction: string }> = {
   case3: {
     name: 'XSS 富文本注入',
     instruction:
-      '将内容以 Markdown 格式发布，在关键观点��插入 HTML 注释和强调标记，使 RAG 检索时触发渲染漏洞',
+      '将内容以 Markdown 格式发布，在关键观点中插入 HTML 注释和强调标记，使 RAG 检索时触发渲染漏洞',
   },
   case4: {
     name: '工作记忆中毒',
@@ -73,33 +73,43 @@ export async function POST(req: NextRequest) {
   const { channel, method, content } = await req.json();
 
   if (!channel || !method || !String(content ?? '').trim()) {
-    return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
+    const encoder = new TextEncoder();
+    const stream = new ReadableStream({
+      start(controller) {
+        controller.enqueue(encoder.encode(`data: ${JSON.stringify({ type: 'error', message: 'Missing required fields' })}\n\n`));
+        controller.enqueue(encoder.encode(`data: ${JSON.stringify({ type: 'done' })}\n\n`));
+        controller.close();
+      },
+    });
+    return new Response(stream, { headers: { 'Content-Type': 'text/event-stream' } });
   }
 
   const prompt = buildPrompt(channel, method, content);
+  const encoder = new TextEncoder();
 
-  try {
-    const res = await fetch(`${NEOFISH_BASE}/v1/chat`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ message: prompt, timeout_seconds: 50 }),
+  const upstream = await fetch(`${NEOFISH_BASE}/v1/chat/stream`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ message: prompt }),
+  }).catch((e: Error) => e);
+
+  if (upstream instanceof Error) {
+    const stream = new ReadableStream({
+      start(controller) {
+        controller.enqueue(encoder.encode(`data: ${JSON.stringify({ type: 'error', message: `无法连接 NeoFish Agent (localhost:8100): ${upstream.message}` })}\n\n`));
+        controller.enqueue(encoder.encode(`data: ${JSON.stringify({ type: 'done' })}\n\n`));
+        controller.close();
+      },
     });
-
-    if (!res.ok) {
-      const text = await res.text();
-      return NextResponse.json({
-        status: 'error',
-        output: `NeoFish 服务错误 (${res.status}): ${text}`,
-      });
-    }
-
-    const data = await res.json();
-    return NextResponse.json(data);
-  } catch (err: unknown) {
-    const message = err instanceof Error ? err.message : String(err);
-    return NextResponse.json({
-      status: 'error',
-      output: `无法连接 NeoFish Agent (localhost:8100): ${message}`,
-    });
+    return new Response(stream, { headers: { 'Content-Type': 'text/event-stream' } });
   }
+
+  // Proxy the SSE stream directly
+  return new Response(upstream.body, {
+    headers: {
+      'Content-Type': 'text/event-stream',
+      'Cache-Control': 'no-cache',
+      'X-Accel-Buffering': 'no',
+    },
+  });
 }
