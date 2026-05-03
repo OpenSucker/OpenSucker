@@ -26,15 +26,27 @@ type SimLink = {
   id: string;
 };
 
+const NODE_COLORS = ['#4F8EF7', '#F76B6B', '#59C97F', '#F7B84F', '#A37FE8'];
+const LOAD_DURATION = 30_000;
+const FADE_DURATION = 450;
+
+function nodeColor(id: string): string {
+  let h = 0;
+  for (let i = 0; i < id.length; i++) h = (h * 31 + id.charCodeAt(i)) & 0xfffffff;
+  return NODE_COLORS[h % NODE_COLORS.length];
+}
+
 export default memo(function KnowledgeGraphMessage({ graph }: Props) {
   const svgRef = useRef<SVGSVGElement>(null);
   const [counts, setCounts] = useState({ nodes: 0, edges: 0 });
+  const total = { nodes: graph.nodes.length, edges: graph.edges.length };
 
   useEffect(() => {
     const el = svgRef.current;
     if (!el) return;
 
     let stopped = false;
+    const timers: ReturnType<typeof setTimeout>[] = [];
 
     void import('d3').then((d3) => {
       if (stopped || !svgRef.current) return;
@@ -46,7 +58,6 @@ export default memo(function KnowledgeGraphMessage({ graph }: Props) {
 
       const defs = svg.append('defs');
 
-      // arrowhead
       defs.append('marker')
         .attr('id', 'kg-arrow')
         .attr('viewBox', '0 -4 8 8')
@@ -59,7 +70,6 @@ export default memo(function KnowledgeGraphMessage({ graph }: Props) {
         .attr('d', 'M0,-4L8,0L0,4')
         .attr('fill', 'rgba(0,0,0,0.22)');
 
-      // dot-grid background
       const pid = `kg-dots-${Math.random().toString(36).slice(2, 7)}`;
       const pat = defs.append('pattern')
         .attr('id', pid).attr('width', 26).attr('height', 26)
@@ -69,7 +79,6 @@ export default memo(function KnowledgeGraphMessage({ graph }: Props) {
       svg.append('rect').attr('width', width).attr('height', height)
         .attr('fill', `url(#${pid})`);
 
-      // zoom container
       const g = svg.append('g');
       svg.call(
         d3.zoom<SVGSVGElement, unknown>()
@@ -77,9 +86,8 @@ export default memo(function KnowledgeGraphMessage({ graph }: Props) {
           .on('zoom', (ev) => g.attr('transform', ev.transform)),
       );
 
-      // clone node/link data (D3 mutates in place)
       const nodes: SimNode[] = graph.nodes.map((n) => ({
-        id: n.id, label: n.label, color: n.color, x: n.x, y: n.y,
+        id: n.id, label: n.label, color: nodeColor(n.id), x: n.x, y: n.y,
       }));
       const nodeById = new Map(nodes.map((n) => [n.id, n]));
       const links: SimLink[] = graph.edges
@@ -91,7 +99,8 @@ export default memo(function KnowledgeGraphMessage({ graph }: Props) {
           id: e.id,
         }));
 
-      setCounts({ nodes: nodes.length, edges: links.length });
+      const nCount = nodes.length;
+      const lCount = links.length;
 
       const simulation = d3.forceSimulation<SimNode>(nodes)
         .force('link', d3.forceLink<SimNode, SimLink>(links)
@@ -100,13 +109,14 @@ export default memo(function KnowledgeGraphMessage({ graph }: Props) {
         .force('center', d3.forceCenter(width / 2, height / 2))
         .force('collide', d3.forceCollide<SimNode>(28));
 
-      // edges
+      // edges — initially invisible
       const linkSel = g.append('g')
         .selectAll<SVGLineElement, SimLink>('line')
         .data(links).join('line')
         .attr('stroke', 'rgba(0,0,0,0.18)')
         .attr('stroke-width', 1.5)
-        .attr('marker-end', 'url(#kg-arrow)');
+        .attr('marker-end', 'url(#kg-arrow)')
+        .style('opacity', 0);
 
       // edge labels (≤28 edges)
       const showEdgeLabels = links.length <= 28;
@@ -114,6 +124,7 @@ export default memo(function KnowledgeGraphMessage({ graph }: Props) {
         ? g.append('g')
             .selectAll<SVGGElement, SimLink>('g')
             .data(links).join('g')
+            .style('opacity', 0)
         : null;
 
       if (edgeLabelSel) {
@@ -125,7 +136,6 @@ export default memo(function KnowledgeGraphMessage({ graph }: Props) {
           .attr('fill', 'rgba(0,0,0,0.4)').attr('font-size', 9)
           .attr('font-family', 'monospace')
           .text((d) => d.label);
-        // size background rects
         textSel.each(function () {
           const parent = d3.select(this.parentNode as Element);
           try {
@@ -137,7 +147,7 @@ export default memo(function KnowledgeGraphMessage({ graph }: Props) {
         });
       }
 
-      // nodes
+      // nodes — initially invisible
       const drag = d3.drag<SVGGElement, SimNode>()
         .on('start', (ev, d) => {
           if (!ev.active) simulation.alphaTarget(0.3).restart();
@@ -153,6 +163,7 @@ export default memo(function KnowledgeGraphMessage({ graph }: Props) {
         .selectAll<SVGGElement, SimNode>('g')
         .data(nodes).join('g')
         .style('cursor', 'grab')
+        .style('opacity', 0)
         .call(drag);
 
       nodeSel.append('circle')
@@ -182,18 +193,47 @@ export default memo(function KnowledgeGraphMessage({ graph }: Props) {
 
         nodeSel.attr('transform', (d) => `translate(${d.x ?? 0},${d.y ?? 0})`);
       });
+
+      // staggered reveal — nodes
+      nodes.forEach((_, i) => {
+        const delay = nCount <= 1 ? 0 : (i / (nCount - 1)) * LOAD_DURATION;
+        const t = setTimeout(() => {
+          if (stopped) return;
+          d3.select(nodeSel.nodes()[i])
+            .transition().duration(FADE_DURATION).style('opacity', 1);
+          setCounts((c) => ({ ...c, nodes: i + 1 }));
+        }, delay);
+        timers.push(t);
+      });
+
+      // staggered reveal — edges (interleaved with nodes)
+      links.forEach((_, i) => {
+        const delay = lCount <= 1 ? 0 : (i / (lCount - 1)) * LOAD_DURATION;
+        const t = setTimeout(() => {
+          if (stopped) return;
+          d3.select(linkSel.nodes()[i])
+            .transition().duration(FADE_DURATION).style('opacity', 1);
+          if (edgeLabelSel) {
+            d3.select(edgeLabelSel.nodes()[i])
+              .transition().duration(FADE_DURATION).style('opacity', 1);
+          }
+          setCounts((c) => ({ ...c, edges: i + 1 }));
+        }, delay);
+        timers.push(t);
+      });
     });
 
     return () => {
       stopped = true;
+      timers.forEach(clearTimeout);
     };
   }, [graph]);
 
   return (
     <div className={styles.graphCanvas}>
       <div className={styles.graphStatus}>
-        <span>nodes {counts.nodes}/{graph.nodes.length}</span>
-        <span>edges {counts.edges}/{graph.edges.length}</span>
+        <span>nodes {counts.nodes}/{total.nodes}</span>
+        <span>edges {counts.edges}/{total.edges}</span>
         <span className={styles.graphHint}>可拖拽 · 滚轮缩放</span>
       </div>
       <svg

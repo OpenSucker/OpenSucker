@@ -35,6 +35,24 @@
 
 *投毒工作流：配置投毒内容，精准对准目标机构*
 
+<br/>
+
+<img src="./mock/image copy 2.png" alt="MiniFish 知识图谱构建中" width="100%" />
+
+*MiniFish：知识图谱实时构建，等待节点关系解析完成*
+
+<br/>
+
+<img src="./mock/image copy 3.png" alt="MiniFish 知识图谱与人物画像" width="100%" />
+
+*MiniFish：图谱构建完成，自动生成目标人物画像与热点话题*
+
+<br/>
+
+<img src="./mock/c4c66bd9ca6f98b2db7e60ff961f5492.jpg" alt="投毒内容发布至小红书" width="100%" />
+
+*投毒工作流：AI 生成内容一键推送至小红书创作平台*
+
 </div>
 
 ---
