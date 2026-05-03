@@ -26,35 +26,12 @@ type RawGraphEdge = {
   fact?: string;
 };
 
-export type RawGraphSnapshot = {
+type RawGraphSnapshot = {
   node_count: number;
   edge_count: number;
   nodes: RawGraphNode[];
   edges: RawGraphEdge[];
 };
-
-export function buildGraphSourceFromSnapshot(
-  snapshot: RawGraphSnapshot,
-  options: { sourceLabel: string; badge: string; introTitle?: string; introLines?: string[] },
-): GraphScenarioSource {
-  const subgraph = buildSnapshotGraph(snapshot);
-  return {
-    sourceLabel: options.sourceLabel,
-    badge: options.badge,
-    nodeCount: snapshot.node_count ?? snapshot.nodes.length,
-    edgeCount: snapshot.edge_count ?? snapshot.edges.length,
-    graph: subgraph,
-    metrics: snapshotMetricCards(snapshot),
-    bars: graphTypeBars(snapshot),
-    introTitle: options.introTitle ?? '图谱模式',
-    introLines: options.introLines ?? [
-      `已从 ${options.sourceLabel} 加载实时图谱。`,
-      '当前展示的是按连通度抽取的高关联子图。',
-      '节点和边以流式方式逐步出现，便于模拟实时分析过程。',
-    ],
-    summary: `已从 ${options.sourceLabel} 中加载 ${snapshot.node_count ?? snapshot.nodes.length} 个节点、${snapshot.edge_count ?? snapshot.edges.length} 条边，当前展示核心子图视图。`,
-  };
-}
 
 type RawPersona = {
   user_id: number;
@@ -137,7 +114,7 @@ function edgeLabel(edge: RawGraphEdge) {
   return (edge.fact_type ?? edge.name ?? edge.fact ?? 'RELATED_TO').replaceAll('_', ' ');
 }
 
-export function buildSnapshotGraph(snapshot: RawGraphSnapshot): KnowledgeGraphData {
+function buildSnapshotGraph(snapshot: RawGraphSnapshot): KnowledgeGraphData {
   const nodeMap = new Map(snapshot.nodes.map((node) => [node.uuid, node]));
   const adjacency = new Map<string, Set<string>>();
 
@@ -227,7 +204,7 @@ export function buildSnapshotGraph(snapshot: RawGraphSnapshot): KnowledgeGraphDa
 
 export const SNAPSHOT_GRAPH = buildSnapshotGraph(rawSnapshot);
 
-export function snapshotMetricCards(snapshot: RawGraphSnapshot): MetricCard[] {
+function snapshotMetricCards(snapshot: RawGraphSnapshot): MetricCard[] {
   return [
     { label: '全量节点', value: String(snapshot.node_count), detail: '来自仓库内置快照。', tone: 'green' },
     { label: '全量边', value: String(snapshot.edge_count), detail: '已用于构建关系网络。', tone: 'blue' },
@@ -514,7 +491,7 @@ export const MATRIX_TERMINAL_MOCK: MatrixTerminalPayload = {
   ],
 };
 
-export function graphTypeBars(snapshot: RawGraphSnapshot): DistributionBar[] {
+function graphTypeBars(snapshot: RawGraphSnapshot): DistributionBar[] {
   const counts = snapshot.nodes.reduce(
     (accumulator, node) => {
       const labels = new Set(node.labels ?? []);
