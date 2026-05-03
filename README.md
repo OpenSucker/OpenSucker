@@ -21,6 +21,24 @@
 
 ---
 
+## 界面预览
+
+<div align="center">
+
+<img src="./mock/image copy.png" alt="OpenSucker 主界面" width="100%" />
+
+*主界面：「傻瓜和他的金钱很快就会分离」*
+
+<br/>
+
+<img src="./mock/image.png" alt="投毒工作流配置" width="100%" />
+
+*投毒工作流：配置投毒内容，精准对准目标机构*
+
+</div>
+
+---
+
 ## 这是什么？
 
 散户在市场里天然处于劣势：没有量化团队、没有机构信源、没有心态管理。**OpenSucker** 用 20 个协同运作的专家 Agent，把机构级分析流水线打包给每个人用。
