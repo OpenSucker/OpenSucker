@@ -12,25 +12,58 @@ export const translations = {
     projectFounder: "Project Founder",
     teamPage: {
       badge: "Open Peeps Community",
-      title: "A Small Team, Drawn By Many Lines",
-      summary: "This page adapts the six-character group composition from Figma into the current site, keeping the black-and-white peeps language while framing the project as a collaborative crew.",
+      title: "A Team Drawn By Curiosity",
+      summary: "Join our open source project as we explore the boundaries of large models with robust evaluation, agent systems, and a healthy amount of builder energy.",
       backHome: "Back Home",
       startNow: "Start Experience",
-      compositionTitle: "Team Composition",
-      compositionText: "Six figures form a loose semicircle: two standing on both sides, four seated in the middle. The layout keeps the original illustration's relaxed symmetry and hand-drawn tension.",
+      compositionTitle: "Join The Exploration",
+      compositionText: "Welcome to our open source project. We are exploring the boundaries of large models through evaluation, orchestration, experimentation, and a lot of collaborative shipping.",
+      membersTitle: "Team Members",
+      members: [
+        {
+          name: "Jiedong Zhang",
+          role: "Model Robustness Research",
+          bio: "Tracks down where different LLM systems bend, break, or bluff, then turns those observations into safety-oriented benchmarks and adversarial evaluation suites."
+        },
+        {
+          name: "Bowen Jiang",
+          role: "Backend Systems And Automation",
+          bio: "Builds the backend backbone, refines the Mirofish-based prediction pipeline, and wires practical automation so experiments can be launched with one clean flow."
+        },
+        {
+          name: "Jiarong Xu",
+          role: "Backend And Quant Personality Modeling",
+          bio: "Owns backend implementation while shaping the investor personality test, including the scoring logic and the quant-style calculation framework behind it."
+        },
+        {
+          name: "Shouyuan Tang",
+          role: "Skill Library Distillation",
+          bio: "Collects and distills investor skills from notable figures across global investing styles, with a growing library that is already close to twenty profiles."
+        },
+        {
+          name: "Yuanqian Wang",
+          role: "Agent Orchestration",
+          bio: "Handles the main-agent scheduling layer, sub-agent coordination, and intent recognition so the whole agent stack behaves like a system instead of a pile of prompts."
+        },
+        {
+          name: "Liang Yu",
+          role: "Team Lead And Morale Engine",
+          bio: "Captain, chief atmosphere maintainer, and a highly specialized practitioner of showing up where the food and the momentum both look promising."
+        }
+      ],
       principlesTitle: "How We Work",
       principles: [
         {
-          title: "Narrative First",
-          description: "We translate trading psychology, crowd emotion, and personal memory into scenes people can step into."
+          title: "Team Before Silos",
+          description: "We treat research, engineering, design, and prompting as one connected workflow, so ideas move fast and nobody builds alone."
         },
         {
-          title: "Playable Systems",
-          description: "Characters are not static posters. They are interactive surfaces that can be selected, questioned, and transformed."
+          title: "Geek Spirit, Real Breakthroughs",
+          description: "We like hard problems, messy systems, and sharp edges. Curiosity is not decoration here; it is how we find the next technical opening."
         },
         {
-          title: "Open Visual Language",
-          description: "The visual system stays intentionally minimal: black ink, white fill, strong outlines, and expressive silhouettes."
+          title: "Serious Work, Fun Atmosphere",
+          description: "We care about rigor, but we also keep the room lively. Good jokes, fast experiments, and shared wins are part of the operating system."
         }
       ]
     },
@@ -84,25 +117,58 @@ export const translations = {
     projectFounder: "项目发起者",
     teamPage: {
       badge: "Open Peeps Community",
-      title: "一支由线条组成的团队",
-      summary: "这个页面把 Figma 里的六人合照主视觉落到了当前首页体系里，保留 open peeps 的黑白线稿语言，同时把项目表达成一个协作中的团队。",
+      title: "一支由年轻人组成团队",
+      summary: "欢迎大家加入我们的开源项目，一起探索大模型的边界。我们关心模型评测、Agent 编排、量化实验，也关心把事情真正做出来。",
       backHome: "返回首页",
       startNow: "开始体验",
-      compositionTitle: "团队构成",
-      compositionText: "六个人物围成一个松散的半圆，两侧站立，中间四人坐下，整体保持原始插画那种松弛、对称又有一点张力的构图。",
+      compositionTitle: "欢迎加入我们的开源项目一起探索大模型的边界",
+      compositionText: "这六位成员分别在模型评测、后端系统、量化测试、技能蒸馏、Agent 编排和团队推进上协同工作，把一个好玩的想法持续推到可运行、可讨论、可扩展。",
+      membersTitle: "团队成员",
+      members: [
+        {
+          name: "张杰栋",
+          role: "模型鲁棒性研究",
+          bio: "负责梳理各家 LLM 在真实使用中的脆弱点与边界条件，把问题变成系统化的评测用例和 benchmark，属于那种看到模型嘴硬就会立刻想办法验真的人。"
+        },
+        {
+          name: "姜博雯",
+          role: "后端系统与自动化",
+          bio: "负责后端基础设施，并基于 Mirofish 体系持续魔改预测链路，把实验、调用、自动化执行和一键发布流程压缩成能稳定推进的工程能力。实现agent操控电脑一键发帖等自动化操作) "
+        },
+        {
+          name: "徐嘉蓉",
+          role: "后端与投资性格测试",
+          bio: "负责后端实现，同时设计人物投资性格测试的量化计算方式，把性格、行为与评分逻辑真正落到可执行的模型里。"
+        },
+        {
+          name: "唐守源",
+          role: "Skills 获取与蒸馏",
+          bio: "负责各类投资名人的 skills 获取与蒸馏，目前已经沉淀了将近 20 个角色，覆盖全球不同流派和视角，像在给系统扩建一座会思考的名人图书馆。"
+        },
+        {
+          name: "王苑茜",
+          role: "主 Agent 调度与编排",
+          bio: "负责主 Agent 的调度和编排、子 Agent 的协同、意图识别与任务分流，让整个 Agent 系统不像拼装玩具，而像一个真正能配合的团队。"
+        },
+        {
+          name: "余亮",
+          role: "队长兼气氛担当",
+          bio: "负责把方向、节奏和大家的状态都拧到一起。专业蹭吃蹭喝选手，但通常也总能精准出现在最需要拍板和最值得庆祝的地方。"
+        }
+      ],
       principlesTitle: "我们的工作方式",
       principles: [
         {
-          title: "叙事优先",
-          description: "我们把交易心理、群体情绪和个体记忆转译成可以被进入和体验的场景。"
+          title: "强调团队协作",
+          description: "我们不把研究、工程、设计、Prompt 和内容拆成彼此隔绝的工种，而是让想法在团队里快速流动、互相补位、一起收敛。"
         },
         {
-          title: "系统可玩",
-          description: "角色不是静态海报，而是可被选择、提问和触发的交互表面。"
+          title: "极客精神，勇于突破",
+          description: "我们喜欢处理复杂系统、边界问题和还没有标准答案的事，愿意为了一个更好的结果反复试错、持续打磨。"
         },
         {
-          title: "开放视觉",
-          description: "视觉系统保持克制：黑色线稿、白色底面、强轮廓和有性格的姿态。"
+          title: "开心幽默的团队氛围",
+          description: "我们认真做事，但不把自己绷得太紧。能开玩笑、敢庆祝、小步快跑，是我们把长期项目做下去的重要燃料。"
         }
       ]
     },

@@ -1,83 +1,9 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
-import type { CSSProperties } from 'react';
-import { Peep } from '../lib/react-peeps';
 import { useI18n } from '../lib/i18n-context';
 import styles from './page.module.css';
-
-type TeamFigure = {
-  id: string;
-  body: string;
-  hair: string;
-  face: string;
-  accessory: string;
-  className: string;
-  wrapperClassName?: string;
-  scale?: number;
-  viewBox?: { x: string; y: string; width: string; height: string };
-  circleStyle?: CSSProperties;
-};
-
-const teamFigures: TeamFigure[] = [
-  {
-    id: 'left-standing',
-    body: 'RestingBW',
-    hair: 'MediumBangs',
-    face: 'Calm',
-    accessory: 'GlassRound',
-    className: styles.leftStanding,
-    scale: 1.02,
-  },
-  {
-    id: 'left-seat',
-    body: 'WheelChair',
-    hair: 'LongAfro',
-    face: 'Serious',
-    accessory: 'None',
-    className: styles.leftSeat,
-    wrapperClassName: styles.figureWheel,
-    scale: 1.06,
-    viewBox: { x: '-180', y: '-40', width: '1100', height: '1200' },
-    circleStyle: { fill: '#fff' },
-  },
-  {
-    id: 'center-kneel',
-    body: 'HandsBackWB',
-    hair: 'LongAfro',
-    face: 'SmileBig',
-    accessory: 'GlassRoundThick',
-    className: styles.centerKneel,
-    scale: 1.05,
-  },
-  {
-    id: 'center-seat',
-    body: 'OneLegUpWB',
-    hair: 'LongAfro',
-    face: 'Calm',
-    accessory: 'None',
-    className: styles.centerSeat,
-    scale: 1.08,
-  },
-  {
-    id: 'right-seat',
-    body: 'ClosedLegBW',
-    hair: 'LongAfro',
-    face: 'SmileTeeth',
-    accessory: 'None',
-    className: styles.rightSeat,
-    scale: 1.06,
-  },
-  {
-    id: 'right-standing',
-    body: 'BlazerWB',
-    hair: 'Long',
-    face: 'Smile',
-    accessory: 'None',
-    className: styles.rightStanding,
-    scale: 1.02,
-  },
-];
 
 export default function TeamPage() {
   const { t } = useI18n();
@@ -101,36 +27,18 @@ export default function TeamPage() {
           </div>
 
           <section className={styles.stage} aria-label={t.teamPage.compositionTitle}>
-            <div className={styles.teamScene}>
-              {teamFigures.map((figure) => (
-                <div
-                  key={figure.id}
-                  className={`${styles.figure} ${figure.className} ${figure.wrapperClassName ?? ''}`.trim()}
-                >
-                  <Peep
-                    body={figure.body as never}
-                    hair={figure.hair as never}
-                    face={figure.face as never}
-                    accessory={figure.accessory as never}
-                    facialHair={'None' as never}
-                    strokeColor="#070707"
-                    backgroundColor="#ffffff"
-                    viewBox={figure.viewBox ?? { x: '-350', y: '-150', width: '1500', height: '1500' }}
-                    circleStyle={figure.circleStyle}
-                    style={{ width: '100%', height: '100%', transform: `scale(${figure.scale ?? 1})` }}
-                  />
-                </div>
-              ))}
-            </div>
+            <Image
+              src="/team-hero.svg"
+              alt={t.teamPage.compositionText}
+              width={1518}
+              height={720}
+              className={styles.teamArtwork}
+              priority
+            />
           </section>
         </header>
 
         <section className={styles.detailGrid}>
-          <article className={styles.detailCard}>
-            <p className={styles.cardEyebrow}>{t.teamPage.compositionTitle}</p>
-            <p className={styles.cardText}>{t.teamPage.compositionText}</p>
-          </article>
-
           <article className={styles.detailCard}>
             <p className={styles.cardEyebrow}>{t.teamPage.principlesTitle}</p>
             <div className={styles.principlesList}>
@@ -142,6 +50,21 @@ export default function TeamPage() {
               ))}
             </div>
           </article>
+        </section>
+
+        <section className={styles.membersSection}>
+          <div className={styles.membersHeader}>
+            <p className={styles.cardEyebrow}>{t.teamPage.membersTitle}</p>
+          </div>
+          <div className={styles.membersGrid}>
+            {t.teamPage.members.map((member) => (
+              <article key={member.name} className={styles.memberCard}>
+                <h2 className={styles.memberName}>{member.name}</h2>
+                <p className={styles.memberRole}>{member.role}</p>
+                <p className={styles.memberBio}>{member.bio}</p>
+              </article>
+            ))}
+          </div>
         </section>
       </div>
     </main>
