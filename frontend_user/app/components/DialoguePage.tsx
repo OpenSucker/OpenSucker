@@ -62,7 +62,7 @@ export default function DialoguePage({ onClose }: DialoguePageProps) {
 
     try {
       const completion = await requestOpenAIStyleChatCompletion('/api/dialogue', {
-        model: 'mock-dialogue-model',
+        model: 'gpt-4o-mini',
         messages: nextMessages.map((message) => ({
           role: message.role,
           content: message.kind === 'text' ? message.content : message.kind,
@@ -100,14 +100,14 @@ export default function DialoguePage({ onClose }: DialoguePageProps) {
 
   const statusText = useMemo(() => {
     if (isLoading) {
-      return '正在通过 OpenAI 风格接口装配结构化回复...';
+      return '正在请求后端...';
     }
 
     if (!hasMessages) {
-      return '支持 Markdown、知识图谱、K 线图、数据可视化、代码块和交易终端卡片。';
+      return '发送消息，后端将直接响应。';
     }
 
-    return '继续输入关键词可以触发不同卡片，也方便后续直接切换真实 API 返回。';
+    return '继续对话，支持知识图谱（MiniFish）和舆情热点（InfoFish）联动。';
   }, [hasMessages, isLoading]);
 
   const renderMessage = (message: DialogueMessage) => {
@@ -193,9 +193,9 @@ export default function DialoguePage({ onClose }: DialoguePageProps) {
           <div ref={scrollRef} className={`${comicStyles.comicScroll} ${styles.dialogueScroll}`}>
             {!hasMessages ? (
               <div className={comicStyles.emptyState}>
-                <p className={comicStyles.emptyStateTitle}>新的结构化对话页已经就绪</p>
+                <p className={comicStyles.emptyStateTitle}>与后端直接对话</p>
                 <p className={comicStyles.emptyStateText}>
-                  输入“知识图谱”会优先加载 public 下的画像图谱文件，输入“TSLA 压力测试”可以触发 K 线与回测卡片，输入“矩阵”或“交易终端”可以渲染新的终端大卡片。
+                  消息直接发往后端 Agent，关键词包含”知识图谱”将附带 MiniFish 图谱，包含”舆情/热点”将附带 InfoFish 数据。
                 </p>
               </div>
             ) : (
@@ -234,7 +234,7 @@ export default function DialoguePage({ onClose }: DialoguePageProps) {
               onChange={(event) => setInput(event.target.value)}
               onKeyDown={handleKeyDown}
               rows={1}
-              placeholder="例如：知识图谱、TSLA 压力测试、矩阵、交易终端"
+              placeholder="输入消息，直接与后端 Agent 对话"
               className={comicStyles.comicInput}
             />
             <button type="submit" className={comicStyles.comicSubmitBtn} disabled={!input.trim() || isLoading}>

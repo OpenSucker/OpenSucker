@@ -1,25 +1,15 @@
-import { readFile } from 'node:fs/promises';
-import path from 'node:path';
 import { NextResponse } from 'next/server';
 import {
-  createMockOpenAIStyleChatCompletion,
   getLastUserMessage,
   type OpenAIStyleChatRequest,
   type OpenAIStyleChatResponse,
 } from '../../lib/openai-chat-middleware';
-import {
-  buildAssistantReplyBundle,
-  buildGraphSourceFromPersonas,
-  buildGraphSourceFromSnapshot,
-  DEFAULT_GRAPH_SOURCE,
-  PUBLIC_PERSONA_GRAPH_FILE,
-  type GraphScenarioSource,
-} from '../../lib/dialogue-demo';
+import { buildGraphSourceFromSnapshot, type GraphScenarioSource } from '../../lib/dialogue-demo';
 import type { DialogueMessage, DistributionBar } from '../../lib/dialogue-types';
 
 const BACKEND_URL = process.env.BACKEND_URL ?? 'http://localhost:8866';
 const MINIFISH_URL = process.env.MINIFISH_URL ?? 'http://localhost:5101';
-const INFOFISH_URL = process.env.INFOFISH_URL ?? 'http://127.0.0.1:47821';
+const INFOFISH_URL = process.env.INFOFISH_URL ?? 'http://127.0.0.1:47822';
 
 const FETCH_TIMEOUT_MS = 6000;
 
@@ -106,19 +96,6 @@ async function fetchMinifishGraph(): Promise<GraphScenarioSource | null> {
   }
 }
 
-async function loadGraphSourceFallback(): Promise<GraphScenarioSource> {
-  try {
-    const publicFilePath = path.join(process.cwd(), 'public', PUBLIC_PERSONA_GRAPH_FILE.replace(/^\//, ''));
-    const rawFile = await readFile(publicFilePath, 'utf8');
-    const parsed = JSON.parse(rawFile) as unknown;
-    if (Array.isArray(parsed)) {
-      const graphSource = buildGraphSourceFromPersonas(parsed);
-      if (graphSource.graph.nodes.length > 0) return graphSource;
-    }
-  } catch {}
-  return DEFAULT_GRAPH_SOURCE;
-}
-
 type InfoFishHot = {
   total_items: number;
   source_count: number;
@@ -170,26 +147,6 @@ function shouldQueryGraph(input: string) {
   return /知识图谱|关系图|graph|画像|persona/i.test(input);
 }
 
-function injectBackendText(components: DialogueMessage[], replyText: string): DialogueMessage[] {
-  let textInjected = false;
-  const next = components.map((component) => {
-    if (!textInjected && component.kind === 'text') {
-      textInjected = true;
-      return { ...component, content: replyText };
-    }
-    return component;
-  });
-  if (!textInjected) {
-    next.unshift({
-      id: `backend-text-${Math.random().toString(36).slice(2, 8)}`,
-      role: 'assistant',
-      kind: 'text',
-      content: replyText,
-    });
-  }
-  return next;
-}
-
 function buildResponseEnvelope(
   payload: OpenAIStyleChatRequest,
   components: DialogueMessage[],
@@ -223,7 +180,6 @@ export async function POST(request: Request) {
     }
 
     const userMessage = getLastUserMessage(payload.messages);
-
     const wantGraph = shouldQueryGraph(userMessage);
     const wantNews = shouldQueryInfoFish(userMessage);
 
@@ -233,11 +189,26 @@ export async function POST(request: Request) {
       wantNews ? fetchInfoFishHot() : Promise.resolve(null),
     ]);
 
-    const graphSource = graphFromMinifish ?? (await loadGraphSourceFallback());
-    let components = buildAssistantReplyBundle(userMessage, graphSource);
+    const components: DialogueMessage[] = [];
 
-    if (backendReply?.message) {
-      components = injectBackendText(components, backendReply.message);
+    const replyText = backendReply?.message ?? '后端暂时无法响应，请稍后再试。';
+    components.push({
+      id: `backend-text-${Math.random().toString(36).slice(2, 8)}`,
+      role: 'assistant',
+      kind: 'text',
+      content: replyText,
+    });
+
+    if (graphFromMinifish) {
+      components.push({
+        id: `minifish-graph-${Math.random().toString(36).slice(2, 8)}`,
+        role: 'assistant',
+        kind: 'knowledge-graph',
+        title: graphFromMinifish.introTitle,
+        content: graphFromMinifish.summary,
+        badge: graphFromMinifish.badge,
+        graph: graphFromMinifish.graph,
+      });
     }
 
     if (infoFishHot && infoFishHot.blocks.length > 0) {
@@ -255,16 +226,7 @@ export async function POST(request: Request) {
       });
     }
 
-    const summary = backendReply?.message ?? (() => {
-      const text = components.find((c) => c.kind === 'text');
-      return text && text.kind === 'text' ? text.content : '已生成结构化回复。';
-    })();
-
-    if (!backendReply && !graphFromMinifish && !infoFishHot) {
-      return NextResponse.json(createMockOpenAIStyleChatCompletion(payload, graphSource));
-    }
-
-    return NextResponse.json(buildResponseEnvelope(payload, components, summary));
+    return NextResponse.json(buildResponseEnvelope(payload, components, replyText));
   } catch (error) {
     return NextResponse.json(
       {
