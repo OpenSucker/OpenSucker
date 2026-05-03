@@ -53,6 +53,12 @@
 
 *投毒工作流：AI 生成内容一键推送至小红书创作平台*
 
+<br/>
+
+<img src="./mock/image copy 4.png" alt="NeoFish 投毒至 Reddit" width="100%" />
+
+*NeoFish Agent：对准目标机构，自动发帖至 Reddit（遭遇人机验证拦截）*
+
 </div>
 
 ---
