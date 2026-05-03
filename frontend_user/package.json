@@ -11,6 +11,8 @@
   "dependencies": {
     "@mantine/core": "^9.1.1",
     "@mantine/hooks": "^9.1.1",
+    "@types/d3": "^7.4.3",
+    "d3": "^7.9.0",
     "file-saver": "^2.0.5",
     "next": "16.2.4",
     "openai": "^5.23.2",

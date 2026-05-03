@@ -4,16 +4,18 @@
   "version": "0.2.0",
   "description": "OpenSucker — Smart Trading Matrix (frontend_user + backend + MiniFish + InfoFish orchestrator)",
   "scripts": {
-    "setup": "npm-run-all -s setup:backend setup:minifish setup:infofish setup:frontend_user",
+    "setup": "npm-run-all -s setup:backend setup:minifish setup:infofish setup:neofish setup:frontend_user",
     "setup:backend": "cd backend && uv sync",
     "setup:minifish": "cd MiniFish/backend && uv sync",
     "setup:infofish": "cd InfoFish/backend && uv sync",
+    "setup:neofish": "cd NeoFish && uv sync",
     "setup:frontend_user": "cd frontend_user && npm install",
 
-    "dev": "concurrently -n backend,minifish,infofish,frontend_user -c blue,magenta,yellow,green --kill-others-on-fail \"npm:dev:backend\" \"npm:dev:minifish\" \"npm:dev:infofish\" \"npm:dev:frontend_user\"",
+    "dev": "concurrently -n backend,minifish,infofish,neofish,frontend_user -c blue,magenta,yellow,cyan,green --kill-others-on-fail \"npm:dev:backend\" \"npm:dev:minifish\" \"npm:dev:infofish\" \"npm:dev:neofish\" \"npm:dev:frontend_user\"",
     "dev:backend": "cd backend && uv run python -u agent.py",
     "dev:minifish": "cd MiniFish/backend && uv run python -u run.py",
     "dev:infofish": "cd InfoFish/backend && uv run uvicorn app.main:app --host 127.0.0.1 --port 47822",
+    "dev:neofish": "cd NeoFish && uv run python run_headless.py",
     "dev:frontend_user": "cd frontend_user && npm run dev -- -p 3000",
 
     "start": "npm run dev",

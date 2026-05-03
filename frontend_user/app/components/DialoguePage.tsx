@@ -10,8 +10,30 @@ import CandlestickChartMessage from './CandlestickChartMessage';
 import DataVizMessage from './DataVizMessage';
 import TradingMatrixMessage from './TradingMatrixMessage';
 import type { DialogueMessage } from '../lib/dialogue-types';
+import {
+  DEFAULT_GRAPH_SOURCE,
+  buildGraphSourceFromPersonas,
+  PUBLIC_PERSONA_GRAPH_FILE,
+} from '../lib/dialogue-demo';
 
 const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL ?? 'http://localhost:8866';
+const GRAPH_RE = /知识图谱|关系图|图谱|knowledge.?graph/i;
+
+async function loadGraphSource() {
+  try {
+    const res = await fetch(PUBLIC_PERSONA_GRAPH_FILE);
+    if (res.ok) {
+      const raw = (await res.json()) as unknown;
+      if (Array.isArray(raw)) {
+        const source = buildGraphSourceFromPersonas(
+          raw as Parameters<typeof buildGraphSourceFromPersonas>[0],
+        );
+        if (source.graph.nodes.length > 0) return source;
+      }
+    }
+  } catch { /* fallthrough */ }
+  return DEFAULT_GRAPH_SOURCE;
+}
 
 interface DialoguePageProps {
   onClose: () => void;
@@ -120,6 +142,31 @@ export default function DialoguePage({ onClose }: DialoguePageProps) {
                 content: msg,
               },
             ]);
+
+            if (GRAPH_RE.test(trimmed)) {
+              setStepLabel('🔍 加载知识图谱...');
+              const graphSource = await loadGraphSource();
+              setMessages((prev) => [
+                ...prev,
+                {
+                  id: createId('graph'),
+                  role: 'assistant' as const,
+                  kind: 'knowledge-graph' as const,
+                  title: graphSource.introTitle,
+                  content: graphSource.summary,
+                  badge: graphSource.badge,
+                  graph: graphSource.graph,
+                },
+                {
+                  id: createId('graph-stats'),
+                  role: 'assistant' as const,
+                  kind: 'data-viz' as const,
+                  title: '图谱统计面板',
+                  metrics: graphSource.metrics,
+                  bars: graphSource.bars,
+                },
+              ]);
+            }
           } else if (event.type === 'error') {
             setMessages((prev) => [
               ...prev,

@@ -1,180 +1,208 @@
 'use client';
 
-import { memo, useEffect, useId, useMemo, useState } from 'react';
+import { memo, useEffect, useRef, useState } from 'react';
 import styles from './dialoguePage.module.css';
 import type { KnowledgeGraphData } from '../lib/dialogue-types';
 
-type KnowledgeGraphMessageProps = {
-  graph: KnowledgeGraphData;
-};
+type Props = { graph: KnowledgeGraphData };
 
-type PreparedGraphEdge = {
+type SimNode = {
   id: string;
   label: string;
-  x1: number;
-  y1: number;
-  x2: number;
-  y2: number;
-  labelX: number;
-  labelY: number;
+  color: string;
+  x?: number;
+  y?: number;
+  fx?: number | null;
+  fy?: number | null;
+  vx?: number;
+  vy?: number;
+  index?: number;
 };
 
-const MAX_ANIMATED_NODES = 36;
-const MAX_ANIMATED_EDGES = 56;
-const REVEAL_FRAME_BUDGET = 18;
+type SimLink = {
+  source: SimNode;
+  target: SimNode;
+  label: string;
+  id: string;
+};
 
-function getRevealBatchSize(total: number) {
-  return Math.max(1, Math.ceil(total / REVEAL_FRAME_BUDGET));
-}
-
-function getRevealInterval(total: number) {
-  if (total <= 12) {
-    return 180;
-  }
-
-  if (total <= 48) {
-    return 96;
-  }
-
-  return 48;
-}
-
-const KnowledgeGraphMessage = memo(function KnowledgeGraphMessage({ graph }: KnowledgeGraphMessageProps) {
-  const patternId = useId();
-  const [visibleNodes, setVisibleNodes] = useState(0);
-  const [visibleEdges, setVisibleEdges] = useState(0);
-
-  const preparedGraph = useMemo(() => {
-    const nodeMap = new Map(graph.nodes.map((node) => [node.id, node]));
-    const preparedEdges: PreparedGraphEdge[] = [];
-
-    for (const edge of graph.edges) {
-      const from = nodeMap.get(edge.from);
-      const to = nodeMap.get(edge.to);
-
-      if (!from || !to) {
-        continue;
-      }
-
-      preparedEdges.push({
-        id: edge.id,
-        label: edge.label,
-        x1: from.x,
-        y1: from.y,
-        x2: to.x,
-        y2: to.y,
-        labelX: (from.x + to.x) / 2,
-        labelY: (from.y + to.y) / 2,
-      });
-    }
-
-    return {
-      nodes: graph.nodes,
-      edges: preparedEdges,
-      showNodeLabels: graph.nodes.length <= 42,
-      showEdgeLabels: preparedEdges.length <= 28,
-      animateNodes: graph.nodes.length <= MAX_ANIMATED_NODES,
-      animateEdges: preparedEdges.length <= MAX_ANIMATED_EDGES,
-    };
-  }, [graph.edges, graph.nodes]);
-
-  const totalNodes = preparedGraph.nodes.length;
-  const totalEdges = preparedGraph.edges.length;
-  const nodeBatchSize = useMemo(() => getRevealBatchSize(totalNodes), [totalNodes]);
-  const edgeBatchSize = useMemo(() => getRevealBatchSize(totalEdges), [totalEdges]);
-  const nodeInterval = useMemo(() => getRevealInterval(totalNodes), [totalNodes]);
-  const edgeInterval = useMemo(() => getRevealInterval(totalEdges), [totalEdges]);
+export default memo(function KnowledgeGraphMessage({ graph }: Props) {
+  const svgRef = useRef<SVGSVGElement>(null);
+  const [counts, setCounts] = useState({ nodes: 0, edges: 0 });
 
   useEffect(() => {
-    setVisibleNodes(0);
-    setVisibleEdges(0);
+    const el = svgRef.current;
+    if (!el) return;
 
-    let nodeTimer = 0;
-    let edgeTimer = 0;
+    let stopped = false;
 
-    const revealNodes = (nextCount: number) => {
-      setVisibleNodes(nextCount);
+    void import('d3').then((d3) => {
+      if (stopped || !svgRef.current) return;
 
-      if (nextCount >= totalNodes) {
-        return;
+      const width = 760;
+      const height = 420;
+      const svg = d3.select(el);
+      svg.selectAll('*').remove();
+
+      const defs = svg.append('defs');
+
+      // arrowhead
+      defs.append('marker')
+        .attr('id', 'kg-arrow')
+        .attr('viewBox', '0 -4 8 8')
+        .attr('refX', 20)
+        .attr('refY', 0)
+        .attr('markerWidth', 6)
+        .attr('markerHeight', 6)
+        .attr('orient', 'auto')
+        .append('path')
+        .attr('d', 'M0,-4L8,0L0,4')
+        .attr('fill', 'rgba(0,0,0,0.22)');
+
+      // dot-grid background
+      const pid = `kg-dots-${Math.random().toString(36).slice(2, 7)}`;
+      const pat = defs.append('pattern')
+        .attr('id', pid).attr('width', 26).attr('height', 26)
+        .attr('patternUnits', 'userSpaceOnUse');
+      pat.append('circle').attr('cx', 2).attr('cy', 2).attr('r', 1.4)
+        .attr('fill', 'rgba(137,151,181,0.22)');
+      svg.append('rect').attr('width', width).attr('height', height)
+        .attr('fill', `url(#${pid})`);
+
+      // zoom container
+      const g = svg.append('g');
+      svg.call(
+        d3.zoom<SVGSVGElement, unknown>()
+          .scaleExtent([0.15, 4])
+          .on('zoom', (ev) => g.attr('transform', ev.transform)),
+      );
+
+      // clone node/link data (D3 mutates in place)
+      const nodes: SimNode[] = graph.nodes.map((n) => ({
+        id: n.id, label: n.label, color: n.color, x: n.x, y: n.y,
+      }));
+      const nodeById = new Map(nodes.map((n) => [n.id, n]));
+      const links: SimLink[] = graph.edges
+        .filter((e) => nodeById.has(e.from) && nodeById.has(e.to))
+        .map((e) => ({
+          source: nodeById.get(e.from)!,
+          target: nodeById.get(e.to)!,
+          label: e.label,
+          id: e.id,
+        }));
+
+      setCounts({ nodes: nodes.length, edges: links.length });
+
+      const simulation = d3.forceSimulation<SimNode>(nodes)
+        .force('link', d3.forceLink<SimNode, SimLink>(links)
+          .id((d) => d.id).distance(88).strength(0.55))
+        .force('charge', d3.forceManyBody<SimNode>().strength(-220))
+        .force('center', d3.forceCenter(width / 2, height / 2))
+        .force('collide', d3.forceCollide<SimNode>(28));
+
+      // edges
+      const linkSel = g.append('g')
+        .selectAll<SVGLineElement, SimLink>('line')
+        .data(links).join('line')
+        .attr('stroke', 'rgba(0,0,0,0.18)')
+        .attr('stroke-width', 1.5)
+        .attr('marker-end', 'url(#kg-arrow)');
+
+      // edge labels (≤28 edges)
+      const showEdgeLabels = links.length <= 28;
+      const edgeLabelSel = showEdgeLabels
+        ? g.append('g')
+            .selectAll<SVGGElement, SimLink>('g')
+            .data(links).join('g')
+        : null;
+
+      if (edgeLabelSel) {
+        edgeLabelSel.append('rect')
+          .attr('rx', 3).attr('fill', 'rgba(239,237,228,0.9)')
+          .attr('stroke', 'rgba(0,0,0,0.08)').attr('stroke-width', 0.8);
+        const textSel = edgeLabelSel.append('text')
+          .attr('text-anchor', 'middle').attr('dominant-baseline', 'middle')
+          .attr('fill', 'rgba(0,0,0,0.4)').attr('font-size', 9)
+          .attr('font-family', 'monospace')
+          .text((d) => d.label);
+        // size background rects
+        textSel.each(function () {
+          const parent = d3.select(this.parentNode as Element);
+          try {
+            const bbox = (this as SVGTextElement).getBBox();
+            parent.select('rect')
+              .attr('x', bbox.x - 3).attr('y', bbox.y - 2)
+              .attr('width', bbox.width + 6).attr('height', bbox.height + 4);
+          } catch { /* getBBox unavailable in test env */ }
+        });
       }
 
-      nodeTimer = window.setTimeout(() => {
-        revealNodes(Math.min(totalNodes, nextCount + nodeBatchSize));
-      }, nodeInterval);
-    };
+      // nodes
+      const drag = d3.drag<SVGGElement, SimNode>()
+        .on('start', (ev, d) => {
+          if (!ev.active) simulation.alphaTarget(0.3).restart();
+          d.fx = d.x; d.fy = d.y;
+        })
+        .on('drag', (ev, d) => { d.fx = ev.x; d.fy = ev.y; })
+        .on('end', (ev, d) => {
+          if (!ev.active) simulation.alphaTarget(0);
+          d.fx = null; d.fy = null;
+        });
 
-    const revealEdges = (nextCount: number) => {
-      setVisibleEdges(nextCount);
+      const nodeSel = g.append('g')
+        .selectAll<SVGGElement, SimNode>('g')
+        .data(nodes).join('g')
+        .style('cursor', 'grab')
+        .call(drag);
 
-      if (nextCount >= totalEdges) {
-        return;
+      nodeSel.append('circle')
+        .attr('r', 10).attr('fill', (d) => d.color)
+        .attr('stroke', '#000').attr('stroke-width', 1.5);
+
+      if (nodes.length <= 42) {
+        nodeSel.append('text')
+          .attr('x', 14).attr('y', 4).attr('font-size', 11)
+          .attr('font-family', 'var(--font-geist-sans),Arial,sans-serif')
+          .attr('fill', '#111')
+          .text((d) => d.label);
       }
 
-      edgeTimer = window.setTimeout(() => {
-        revealEdges(Math.min(totalEdges, nextCount + edgeBatchSize));
-      }, edgeInterval);
-    };
+      simulation.on('tick', () => {
+        linkSel
+          .attr('x1', (d) => (d.source as SimNode).x ?? 0)
+          .attr('y1', (d) => (d.source as SimNode).y ?? 0)
+          .attr('x2', (d) => (d.target as SimNode).x ?? 0)
+          .attr('y2', (d) => (d.target as SimNode).y ?? 0);
 
-    if (totalNodes > 0) {
-      nodeTimer = window.setTimeout(() => {
-        revealNodes(Math.min(totalNodes, nodeBatchSize));
-      }, nodeInterval);
-    }
+        edgeLabelSel?.attr('transform', (d) => {
+          const mx = ((d.source as SimNode).x! + (d.target as SimNode).x!) / 2;
+          const my = ((d.source as SimNode).y! + (d.target as SimNode).y!) / 2;
+          return `translate(${mx},${my})`;
+        });
 
-    if (totalEdges > 0) {
-      const edgeStartDelay = Math.min(640, Math.max(140, nodeInterval * Math.min(4, Math.ceil(totalNodes / Math.max(nodeBatchSize, 1)))));
-      edgeTimer = window.setTimeout(() => {
-        revealEdges(Math.min(totalEdges, edgeBatchSize));
-      }, edgeStartDelay);
-    }
+        nodeSel.attr('transform', (d) => `translate(${d.x ?? 0},${d.y ?? 0})`);
+      });
+    });
 
     return () => {
-      window.clearTimeout(nodeTimer);
-      window.clearTimeout(edgeTimer);
+      stopped = true;
     };
-  }, [edgeBatchSize, edgeInterval, nodeBatchSize, nodeInterval, totalEdges, totalNodes]);
-
-  const activeNodes = useMemo(() => preparedGraph.nodes.slice(0, visibleNodes), [preparedGraph.nodes, visibleNodes]);
-  const activeEdges = useMemo(() => preparedGraph.edges.slice(0, visibleEdges), [preparedGraph.edges, visibleEdges]);
+  }, [graph]);
 
   return (
     <div className={styles.graphCanvas}>
       <div className={styles.graphStatus}>
-        <span>nodes {visibleNodes}/{totalNodes}</span>
-        <span>edges {visibleEdges}/{totalEdges}</span>
+        <span>nodes {counts.nodes}/{graph.nodes.length}</span>
+        <span>edges {counts.edges}/{graph.edges.length}</span>
+        <span className={styles.graphHint}>可拖拽 · 滚轮缩放</span>
       </div>
-      <svg viewBox="0 0 760 430" className={styles.graphSvg} role="img" aria-label="Knowledge graph preview">
-        <defs>
-          <pattern id={patternId} width="26" height="26" patternUnits="userSpaceOnUse">
-            <circle cx="2" cy="2" r="1.4" fill="rgba(137, 151, 181, 0.22)" />
-          </pattern>
-        </defs>
-        <rect width="760" height="430" fill={`url(#${patternId})`} />
-
-        {activeEdges.map((edge) => (
-          <g
-            key={edge.id}
-            className={preparedGraph.animateEdges ? styles.graphEdge : styles.graphEdgeStatic}
-          >
-            <line x1={edge.x1} y1={edge.y1} x2={edge.x2} y2={edge.y2} vectorEffect="non-scaling-stroke" />
-            {preparedGraph.showEdgeLabels ? <text x={edge.labelX} y={edge.labelY - 8}>{edge.label}</text> : null}
-          </g>
-        ))}
-
-        {activeNodes.map((node) => (
-          <g
-            key={node.id}
-            transform={`translate(${node.x}, ${node.y})`}
-            className={preparedGraph.animateNodes ? styles.graphNode : styles.graphNodeStatic}
-          >
-            <circle r="10" fill={node.color} />
-            {preparedGraph.showNodeLabels ? <text x="16" y="5">{node.label}</text> : null}
-          </g>
-        ))}
-      </svg>
+      <svg
+        ref={svgRef}
+        viewBox="0 0 760 420"
+        className={styles.graphSvg}
+        role="img"
+        aria-label="知识图谱"
+      />
     </div>
   );
 });
-
-export default KnowledgeGraphMessage;
