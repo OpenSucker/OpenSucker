@@ -10,7 +10,8 @@ import CandlestickChartMessage from './CandlestickChartMessage';
 import DataVizMessage from './DataVizMessage';
 import TradingMatrixMessage from './TradingMatrixMessage';
 import type { DialogueMessage } from '../lib/dialogue-types';
-import { requestOpenAIStyleChatCompletion } from '../lib/openai-chat-middleware';
+
+const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL ?? 'http://localhost:8866';
 
 interface DialoguePageProps {
   onClose: () => void;
@@ -20,12 +21,19 @@ function createId(prefix: string) {
   return `${prefix}-${Math.random().toString(36).slice(2, 10)}`;
 }
 
+function generateShortId() {
+  return Math.random().toString(36).slice(2, 12);
+}
+
 export default function DialoguePage({ onClose }: DialoguePageProps) {
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState<DialogueMessage[]>([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [stepLabel, setStepLabel] = useState('');
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const sessionIdRef = useRef(generateShortId());
+  const userIdRef = useRef(generateShortId());
 
   useEffect(() => {
     const textarea = textareaRef.current;
@@ -39,7 +47,7 @@ export default function DialoguePage({ onClose }: DialoguePageProps) {
     const viewport = scrollRef.current;
     if (!viewport) return;
     viewport.scrollTop = viewport.scrollHeight;
-  }, [messages, isLoading]);
+  }, [messages, isLoading, stepLabel]);
 
   const hasMessages = messages.length > 0;
 
@@ -55,22 +63,76 @@ export default function DialoguePage({ onClose }: DialoguePageProps) {
       content: trimmed,
     };
 
-    const nextMessages = [...messages, userMessage];
-    setMessages(nextMessages);
+    setMessages((prev) => [...prev, userMessage]);
     setInput('');
     setIsLoading(true);
+    setStepLabel('📡 接入矩阵...');
 
     try {
-      const completion = await requestOpenAIStyleChatCompletion('/api/dialogue', {
-        model: 'mock-dialogue-model',
-        messages: nextMessages.map((message) => ({
-          role: message.role,
-          content: message.kind === 'text' ? message.content : message.kind,
-        })),
+      const response = await fetch(`${BACKEND_URL}/api/chat/stream`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          message: trimmed,
+          session_id: sessionIdRef.current,
+          user_id: userIdRef.current,
+        }),
       });
 
-      const components = completion.choices[0]?.message.components ?? [];
-      setMessages((prev) => [...prev, ...components]);
+      if (!response.ok || !response.body) {
+        throw new Error(`后端响应异常: ${response.status}`);
+      }
+
+      const reader = response.body.getReader();
+      const decoder = new TextDecoder();
+      let buffer = '';
+
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+
+        buffer += decoder.decode(value, { stream: true });
+        const parts = buffer.split('\n\n');
+        buffer = parts.pop() ?? '';
+
+        for (const part of parts) {
+          const line = part.trim();
+          if (!line.startsWith('data: ')) continue;
+          let event: Record<string, unknown>;
+          try {
+            event = JSON.parse(line.slice(6)) as Record<string, unknown>;
+          } catch {
+            continue;
+          }
+
+          if (event.type === 'step' || event.type === 'node') {
+            setStepLabel((event.label as string) ?? '');
+          } else if (event.type === 'done') {
+            const msg = (event.message as string) ?? '';
+            const intentCn = (event.intent_cn as string) || (event.intent as string) || '回复';
+            setMessages((prev) => [
+              ...prev,
+              {
+                id: createId('assistant'),
+                role: 'assistant',
+                kind: 'markdown',
+                title: intentCn,
+                content: msg,
+              },
+            ]);
+          } else if (event.type === 'error') {
+            setMessages((prev) => [
+              ...prev,
+              {
+                id: createId('assistant-error'),
+                role: 'assistant',
+                kind: 'text',
+                content: `错误: ${event.error as string}`,
+              },
+            ]);
+          }
+        }
+      }
     } catch (error) {
       setMessages((prev) => [
         ...prev,
@@ -83,6 +145,7 @@ export default function DialoguePage({ onClose }: DialoguePageProps) {
       ]);
     } finally {
       setIsLoading(false);
+      setStepLabel('');
     }
   };
 
@@ -100,15 +163,15 @@ export default function DialoguePage({ onClose }: DialoguePageProps) {
 
   const statusText = useMemo(() => {
     if (isLoading) {
-      return '正在通过 OpenAI 风格接口装配结构化回复...';
+      return stepLabel || '正在连接 OpenSucker 矩阵后端...';
     }
 
     if (!hasMessages) {
       return '支持 Markdown、知识图谱、K 线图、数据可视化、代码块和交易终端卡片。';
     }
 
-    return '继续输入关键词可以触发不同卡片，也方便后续直接切换真实 API 返回。';
-  }, [hasMessages, isLoading]);
+    return '对接 OpenSucker 矩阵后端，实时流式响应。';
+  }, [hasMessages, isLoading, stepLabel]);
 
   const renderMessage = (message: DialogueMessage) => {
     if (message.kind === 'text') {
@@ -193,9 +256,9 @@ export default function DialoguePage({ onClose }: DialoguePageProps) {
           <div ref={scrollRef} className={`${comicStyles.comicScroll} ${styles.dialogueScroll}`}>
             {!hasMessages ? (
               <div className={comicStyles.emptyState}>
-                <p className={comicStyles.emptyStateTitle}>新的结构化对话页已经就绪</p>
+                <p className={comicStyles.emptyStateTitle}>OpenSucker 矩阵对话</p>
                 <p className={comicStyles.emptyStateText}>
-                  输入“知识图谱”会优先加载 public 下的画像图谱文件，输入“TSLA 压力测试”可以触发 K 线与回测卡片，输入“矩阵”或“交易终端”可以渲染新的终端大卡片。
+                  输入任何问题，实时对接后端 Agent，支持意图识别、风险检查、多节点推理。
                 </p>
               </div>
             ) : (
@@ -210,10 +273,11 @@ export default function DialoguePage({ onClose }: DialoguePageProps) {
                 ))}
                 {isLoading && (
                   <div className={`${styles.threadRow} ${styles.threadRowAssistant}`}>
-                    <div className={`${comicStyles.messageBubble} ${comicStyles.messageAssistant} ${styles.messageCard}`}>
+                    <div className={`${comicStyles.messageBubble} ${comicStyles.messageAssistant} ${styles.messageCard} ${styles.typingBubble}`}>
                       <span className={styles.typingDot}></span>
                       <span className={styles.typingDot}></span>
                       <span className={styles.typingDot}></span>
+                      {stepLabel ? <span className={styles.stepLabelInline}>{stepLabel}</span> : null}
                     </div>
                   </div>
                 )}
@@ -224,7 +288,7 @@ export default function DialoguePage({ onClose }: DialoguePageProps) {
 
         <div className={comicStyles.inputArea}>
           <div className={comicStyles.chatMeta}>
-            <p className={comicStyles.chatTitle}>结构化对话页</p>
+            <p className={comicStyles.chatTitle}>OpenSucker 矩阵对话</p>
             <p className={comicStyles.chatHint}>{statusText}</p>
           </div>
           <form onSubmit={(event) => void handleSubmit(event)} className={comicStyles.inputForm}>
@@ -234,7 +298,7 @@ export default function DialoguePage({ onClose }: DialoguePageProps) {
               onChange={(event) => setInput(event.target.value)}
               onKeyDown={handleKeyDown}
               rows={1}
-              placeholder="例如：知识图谱、TSLA 压力测试、矩阵、交易终端"
+              placeholder="输入任何问题，对接 OpenSucker 矩阵后端..."
               className={comicStyles.comicInput}
             />
             <button type="submit" className={comicStyles.comicSubmitBtn} disabled={!input.trim() || isLoading}>

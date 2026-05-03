@@ -733,6 +733,22 @@
   line-height: 1.5;
 }
 
+.typingBubble {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.stepLabelInline {
+  margin-left: 8px;
+  color: #555;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  opacity: 0.85;
+}
+
 .typingDot {
   display: inline-block;
   width: 8px;
