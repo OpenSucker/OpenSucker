@@ -4,14 +4,39 @@ export const translations = {
   en: {
     title: "Open Sucker",
     getStarted: "Get Started",
+    teamIntro: "Team Intro",
     learnMore: "Learn More",
     selectionHint: "Click any character to open comic page structure",
     wallStreet: "Wall Street",
     cheGuevara: "Che Guevara",
     projectFounder: "Project Founder",
+    teamPage: {
+      badge: "Open Peeps Community",
+      title: "A Small Team, Drawn By Many Lines",
+      summary: "This page adapts the six-character group composition from Figma into the current site, keeping the black-and-white peeps language while framing the project as a collaborative crew.",
+      backHome: "Back Home",
+      startNow: "Start Experience",
+      compositionTitle: "Team Composition",
+      compositionText: "Six figures form a loose semicircle: two standing on both sides, four seated in the middle. The layout keeps the original illustration's relaxed symmetry and hand-drawn tension.",
+      principlesTitle: "How We Work",
+      principles: [
+        {
+          title: "Narrative First",
+          description: "We translate trading psychology, crowd emotion, and personal memory into scenes people can step into."
+        },
+        {
+          title: "Playable Systems",
+          description: "Characters are not static posters. They are interactive surfaces that can be selected, questioned, and transformed."
+        },
+        {
+          title: "Open Visual Language",
+          description: "The visual system stays intentionally minimal: black ink, white fill, strong outlines, and expressive silhouettes."
+        }
+      ]
+    },
     onboarding: {
       username: {
-        speech: "Hello, I'm God Yu, the developer. Can I ask you a few questions? I need to know you better to see if you are our target user.",
+        speech: "Hello, I'm Sucker, the developer. Can I ask you a few questions? I need to know you better to see if you are our target user.",
         label: "Enter your name",
         placeholder: "Your name..."
       },
@@ -51,11 +76,36 @@ export const translations = {
   zh: {
     title: "Open Sucker",
     getStarted: "开始体验",
+    teamIntro: "团队介绍",
     learnMore: "了解更多",
     selectionHint: "点击任意人物，打开漫画页结构",
     wallStreet: "华尔街",
     cheGuevara: "切格瓦拉",
     projectFounder: "项目发起者",
+    teamPage: {
+      badge: "Open Peeps Community",
+      title: "一支由线条组成的团队",
+      summary: "这个页面把 Figma 里的六人合照主视觉落到了当前首页体系里，保留 open peeps 的黑白线稿语言，同时把项目表达成一个协作中的团队。",
+      backHome: "返回首页",
+      startNow: "开始体验",
+      compositionTitle: "团队构成",
+      compositionText: "六个人物围成一个松散的半圆，两侧站立，中间四人坐下，整体保持原始插画那种松弛、对称又有一点张力的构图。",
+      principlesTitle: "我们的工作方式",
+      principles: [
+        {
+          title: "叙事优先",
+          description: "我们把交易心理、群体情绪和个体记忆转译成可以被进入和体验的场景。"
+        },
+        {
+          title: "系统可玩",
+          description: "角色不是静态海报，而是可被选择、提问和触发的交互表面。"
+        },
+        {
+          title: "开放视觉",
+          description: "视觉系统保持克制：黑色线稿、白色底面、强轮廓和有性格的姿态。"
+        }
+      ]
+    },
     quotes: [
       { text: "牛市赚钱，熊市赚钱，猪被屠宰。", source: "华尔街" },
       { text: "傻瓜和他的金钱很快就会分离。", source: "华尔街" },
@@ -67,7 +117,7 @@ export const translations = {
     ],
     onboarding: {
       username: {
-        speech: "您好，我是这个项目的开发者 God Yu。开始前，我想先用几个问题认识你一下，帮你匹配更贴近的角色。",
+        speech: "您好，我是这个项目的开发者 Sucker。开始前，我想先用几个问题认识你一下，帮你匹配更贴近的角色。",
         label: "输入你的名字",
         placeholder: "你的名字..."
       },

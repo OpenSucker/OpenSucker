@@ -8,6 +8,8 @@ import { LEEK_CHARACTERS } from '../lib/leek-lore';
 import { TRADING_TEST_QUESTIONS } from '../lib/trading-test';
 import { useI18n } from '../lib/i18n-context';
 import { Peep } from '../lib/react-peeps';
+import TradingTest from './TradingTest';
+import { ApiResult } from '../lib/trading-api';
 
 interface OnboardingFlowProps {
   onComplete: (data: Record<string, string>) => void;
@@ -103,23 +105,15 @@ export default function OnboardingFlow({ onComplete, isVisible }: OnboardingFlow
 
   // Test state
   const [isTesting, setIsTesting] = useState(false);
-  const [testIndex, setTestIndex] = useState(0);
-  const [testAnswers, setTestAnswers] = useState<TestAnswer[]>([]);
   const [scoreResult, setScoreResult] = useState<ScoreResult | null>(null);
+  const [apiResult, setApiResult] = useState<ApiResult | null>(null);
 
   const inputRef = useRef<HTMLInputElement>(null);
 
   const currentStep = steps[stepIndex];
-  const testQuestion = isTesting ? TRADING_TEST_QUESTIONS[testIndex] : null;
   const displaySourceText = useMemo(() => {
-    if (isTesting && testQuestion) {
-      return sanitizeDisplayText(
-        `Q ${testQuestion.id}｜${'●'.repeat(testQuestion.difficulty)}${'○'.repeat(3 - testQuestion.difficulty)}\n${testQuestion.question}`
-      );
-    }
-
     return sanitizeDisplayText(currentStep?.speech);
-  }, [currentStep?.speech, isTesting, testQuestion]);
+  }, [currentStep?.speech]);
 
   // Handle persona select
   const handleSelectPersona = (id: string) => {
@@ -237,30 +231,33 @@ export default function OnboardingFlow({ onComplete, isVisible }: OnboardingFlow
   const handleFinalComplete = () => {
     onComplete({
       ...userData,
-      tradingTest: JSON.stringify(testAnswers),
-      testScore: scoreResult?.score.toString() || "0"
+      testScore: scoreResult?.score.toString() || "0",
+      apiResult: JSON.stringify(apiResult)
     });
+  };
+
+  const handleTestComplete = (result: ApiResult) => {
+    setApiResult(result);
+    const scores = result.dimension_scores ? Object.values(result.dimension_scores) : [];
+    const avgScore = scores.length > 0 
+      ? Math.round(scores.reduce((acc, s) => acc + (s.normalized || 0), 0) / scores.length * 100)
+      : Math.floor(Math.random() * 20) + 65;
+
+    setScoreResult({
+      score: avgScore,
+      judgment: result.persona,
+      subStatus: result.persona_description,
+      isLeek: avgScore < 80 // Threshold for "Leek" status
+    });
+    setIsTesting(false);
+    setStepIndex(finalThoughtStepIndex);
   };
 
   const handleSend = useCallback(async (nextValue?: string) => {
     const val = (nextValue ?? input).trim();
     if (!val || isTyping) return;
 
-    // Handle Test Questions
-    if (isTesting && testQuestion) {
-      const newAnswer = { questionId: testQuestion.id, answer: val };
-      const nextAnswers = [...testAnswers, newAnswer];
-      setTestAnswers(nextAnswers);
-      setInput('');
-      if (testIndex < TRADING_TEST_QUESTIONS.length - 1) {
-        setTestIndex(prev => prev + 1);
-      } else {
-        // Test finished, go to final thought
-        setIsTesting(false);
-        setStepIndex(finalThoughtStepIndex);
-      }
-      return;
-    }
+    // No longer handle test questions here - TradingTest handles its own state
 
     const newData = { ...userData, [currentStep.key]: val };
     setUserData(newData);
@@ -279,16 +276,16 @@ export default function OnboardingFlow({ onComplete, isVisible }: OnboardingFlow
     }
 
     // Final Step
-    if (currentStep.key === 'finalThought') {
-      // Call API (using index 1 to show flexibility)
-      finishOnboarding(newData, testAnswers, 1);
+    if (stepIndex === steps.length - 1) {
+      // Call API
+      finishOnboarding(newData, [], 1);
       return;
     }
 
     if (stepIndex < steps.length - 1) {
       setStepIndex(prev => prev + 1);
     }
-  }, [currentStep, finalThoughtStepIndex, finishOnboarding, input, isTesting, isTyping, onboarding.doTest.options, stepIndex, steps.length, testAnswers, testIndex, testQuestion, userData]);
+  }, [currentStep, finalThoughtStepIndex, finishOnboarding, input, isTesting, isTyping, onboarding.doTest.options, stepIndex, steps.length, userData]);
 
   if (!isVisible) return null;
 
@@ -297,29 +294,36 @@ export default function OnboardingFlow({ onComplete, isVisible }: OnboardingFlow
       <div className={css.content}>
 
         {!scoreResult ? (
-          <>
-            <div className={css.speechBubble}>
-              <p className={css.speechText}>
-                {displayedText}
-                <span className={`${css.cursor} ${isTyping ? css.cursorVisible : ''}`}>|</span>
-              </p>
-            </div>
+          isTesting ? (
+            <TradingTest 
+              userId={userData.username || `user_${Date.now()}`}
+              isVisible={isTesting}
+              onComplete={handleTestComplete}
+            />
+          ) : (
+            <>
+              <div className={css.speechBubble}>
+                <p className={css.speechText}>
+                  {displayedText}
+                  <span className={`${css.cursor} ${isTyping ? css.cursorVisible : ''}`}>|</span>
+                </p>
+              </div>
 
-            <div className={css.peepWrap}>
-              <Peep
-                style={{ width: 260, height: 320, display: 'block' }}
-                hair={GUIDE_HAIR}
-                body={GUIDE_BODY}
-                face={GUIDE_FACE}
-                facialHair={GUIDE_FH}
-                accessory={GUIDE_ACC}
-                strokeColor="#000000"
-                backgroundColor="transparent"
-                viewBox={CROWD_SETTINGS.VIEWBOX}
-              />
-            </div>
+              <div className={css.peepWrap}>
+                <Peep
+                  style={{ width: 260, height: 320, display: 'block' }}
+                  hair={GUIDE_HAIR}
+                  body={GUIDE_BODY}
+                  face={GUIDE_FACE}
+                  facialHair={GUIDE_FH}
+                  accessory={GUIDE_ACC}
+                  strokeColor="#000000"
+                  backgroundColor="transparent"
+                  viewBox={CROWD_SETTINGS.VIEWBOX}
+                />
+              </div>
 
-              <div className={`${css.inputArea} ${isTyping && !showPersonaSelect ? css.inputHidden : css.inputVisible}`}>
+              <div className={`${css.inputArea} ${isTyping && !showPersonaSelect ? css.inputFaded : css.inputVisible}`}>
                 {showPersonaSelect ? (
                   <div className={css.personaSelection}>
                     <div className={css.inputLabel} style={{ marginBottom: '12px' }}>
@@ -339,17 +343,17 @@ export default function OnboardingFlow({ onComplete, isVisible }: OnboardingFlow
                 ) : (
                   <div className={css.stepInput}>
                     <div className={css.inputLabel}>
-                      <span>{isTesting ? `Q ${testIndex + 1} / ${TRADING_TEST_QUESTIONS.length}` : currentStep?.label}</span>
+                      <span>{currentStep?.label}</span>
                     </div>
 
-                  {(isTesting ? testQuestion?.options : currentStep.options)?.length ? (
-                    <div className={css.optionGrid}>
-                      {(isTesting ? testQuestion!.options! : currentStep.options!).map(opt => (
-                        <button key={opt} className={css.optionChip} onClick={() => handleSend(opt)}>{opt}</button>
-                      ))}
-                    </div>
-                  ) : (
-                    <div className={css.inputRow}>
+                    {currentStep.options?.length ? (
+                      <div className={css.optionGrid}>
+                        {currentStep.options.map(opt => (
+                          <button key={opt} className={css.optionChip} onClick={() => handleSend(opt)}>{opt}</button>
+                        ))}
+                      </div>
+                    ) : (
+                      <div className={css.inputRow}>
                         <input
                           ref={inputRef}
                           type="text"
@@ -361,12 +365,13 @@ export default function OnboardingFlow({ onComplete, isVisible }: OnboardingFlow
                           autoFocus
                         />
                         <button onClick={() => handleSend()} className={css.sendBtn}>➤</button>
-                    </div>
-                  )}
-                </div>
-              )}
-            </div>
-          </>
+                      </div>
+                    )}
+                  </div>
+                )}
+              </div>
+            </>
+          )
         ) : (
           <div className={`${css.scoreScreen} ${scoreResult.isLeek ? css.scoreLeek : css.scorePro}`}>
             <div className={css.scoreHeader}>{onboarding.scoreTitle}</div>
