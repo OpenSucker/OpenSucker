@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useState, useCallback, useEffect, useRef } from 'react';
 import ComicPage from './components/ComicPage';
 import DialoguePage from './components/DialoguePage';
@@ -7,6 +8,7 @@ import PeepsCrowd from './components/PeepsCrowd';
 import PeepsCard from './components/PeepsCard';
 import OnboardingFlow from './components/OnboardingFlow';
 import LanguageSwitcher from './components/LanguageSwitcher';
+import PoisoningModal from './components/PoisoningModal';
 import type { Slot } from './lib/peeps-middleware';
 import styles from './page.module.css';
 import { useI18n } from './lib/i18n-context';
@@ -20,12 +22,19 @@ export default function Home() {
   const [isInteractionReady, setIsInteractionReady] = useState(false);
   const [quoteIndex, setQuoteIndex] = useState(0);
   const [transformedIds, setTransformedIds] = useState<Set<string>>(new Set());
+  const [poisonedIds, setPoisonedIds] = useState<Set<string>>(new Set());
   const [availableSlots, setAvailableSlots] = useState<Slot[]>([]);
   const [isBurning, setIsBurning] = useState(false);
   const [showDialoguePage, setShowDialoguePage] = useState(false);
   const [showSelectionHint, setShowSelectionHint] = useState(false);
+  const [poisoningTarget, setPoisoningTarget] = useState<Slot | null>(null);
   const hasCompletedOnboardingRef = useRef(false);
+  const availableSlotsRef = useRef<Slot[]>([]);
   const isSelectionMode = hasCompletedOnboarding && !showOnboarding;
+
+  useEffect(() => {
+    availableSlotsRef.current = availableSlots;
+  }, [availableSlots]);
 
   useEffect(() => {
     const readyTimer = setTimeout(() => {
@@ -33,6 +42,44 @@ export default function Home() {
     }, 5000);
     return () => clearTimeout(readyTimer);
   }, []);
+
+  useEffect(() => {
+    if (availableSlotsRef.current.length === 0 || !hasCompletedOnboarding) {
+      return;
+    }
+
+    const timer = window.setTimeout(() => {
+      setPoisonedIds((prev) => {
+        if (prev.size > 0) {
+          return prev;
+        }
+
+        const next = new Set<string>();
+        const allSlots = availableSlotsRef.current;
+        const maxRow = allSlots.length > 0 ? Math.max(...allSlots.map(s => s.row)) : 10;
+        const minTargetRow = Math.max(0, Math.floor(maxRow * 0.35));
+        const maxTargetRow = Math.floor(maxRow * 0.65);
+
+        const candidates = allSlots.filter(s => s.row >= minTargetRow && s.row <= maxTargetRow);
+        const finalCandidates = candidates.length > 0 ? candidates : [...allSlots];
+
+        const targetCount = Math.min(finalCandidates.length, Math.floor(Math.random() * 2) + 1);
+
+        for (let index = 0; index < targetCount; index += 1) {
+          const selectedIndex = Math.floor(Math.random() * finalCandidates.length);
+          const candidate = finalCandidates[selectedIndex];
+          if (candidate) {
+            next.add(candidate.id);
+            finalCandidates.splice(selectedIndex, 1);
+          }
+        }
+
+        return next;
+      });
+    }, 2400);
+
+    return () => window.clearTimeout(timer);
+  }, [availableSlots.length, hasCompletedOnboarding]);
 
   useEffect(() => {
     const quoteInterval = setInterval(() => {
@@ -55,12 +102,12 @@ export default function Home() {
         }
 
         setTransformedIds((prev) => {
-          if (availableSlots.length === 0) {
+          if (availableSlotsRef.current.length === 0) {
             return prev;
           }
 
           const next = new Set(prev);
-          const remaining = availableSlots.filter((slot) => !next.has(slot.id));
+          const remaining = availableSlotsRef.current.filter((slot) => !next.has(slot.id));
           if (remaining.length === 0) {
             return prev;
           }
@@ -85,25 +132,34 @@ export default function Home() {
         clearInterval(peepsInterval);
       }
     };
-  }, [availableSlots, t.quotes.length]);
+  }, [availableSlots.length, t.quotes.length]);
 
   useEffect(() => {
     if (!isSelectionMode || selectedPeep) {
-      setShowSelectionHint(false);
       return;
     }
 
-    setShowSelectionHint(true);
+    const showTimer = window.setTimeout(() => {
+      setShowSelectionHint(true);
+    }, 0);
     const timer = window.setTimeout(() => {
       setShowSelectionHint(false);
     }, 10000);
 
-    return () => window.clearTimeout(timer);
+    return () => {
+      window.clearTimeout(showTimer);
+      window.clearTimeout(timer);
+    };
   }, [isSelectionMode, selectedPeep]);
 
   const handlePeepClick = useCallback((peep: Slot) => {
+    if (poisonedIds.has(peep.id)) {
+      setPoisoningTarget(peep);
+      return;
+    }
+
     setSelectedPeep(peep);
-  }, []);
+  }, [poisonedIds]);
 
   const handleSlotsCreated = useCallback((slots: Slot[]) => {
     setAvailableSlots(slots);
@@ -126,6 +182,8 @@ export default function Home() {
     setIsScattered(false);
     setIsBurning(false);
     setTransformedIds(new Set());
+    setPoisonedIds(new Set());
+    setPoisoningTarget(null);
   }, []);
 
   const currentQuote = t.quotes[quoteIndex];
@@ -154,11 +212,19 @@ export default function Home() {
           onPeepClick={handlePeepClick}
           isSelectable={isSelectionMode && !selectedPeep}
           transformedIds={transformedIds}
+          poisonedIds={poisonedIds}
           onSlotsCreated={handleSlotsCreated}
         />
       </div>
 
       {selectedPeep && <ComicPage peep={selectedPeep} onClose={() => setSelectedPeep(null)} />}
+      {poisoningTarget && (
+        <PoisoningModal
+          isOpen
+          targetName={poisoningTarget.persona?.name ?? poisoningTarget.id}
+          onClose={() => setPoisoningTarget(null)}
+        />
+      )}
       {showDialoguePage && <DialoguePage onClose={() => setShowDialoguePage(false)} />}
 
       {!selectedPeep && !isSelectionMode && (
@@ -211,6 +277,12 @@ export default function Home() {
           >
             {t.getStarted}
           </button>
+          <Link
+            href="/team"
+            className={`${styles.btnSecondary} ${isBurning ? styles.isBurning : ''}`}
+          >
+            {t.teamIntro}
+          </Link>
         </div>
       )}
     </div>

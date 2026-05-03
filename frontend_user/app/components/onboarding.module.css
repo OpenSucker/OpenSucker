@@ -236,6 +236,12 @@
   pointer-events: none;
 }
 
+.inputFaded {
+  opacity: 0.3;
+  transform: translateY(0);
+  pointer-events: none;
+}
+
 .inputVisible {
   opacity: 1;
   transform: translateY(0);
