@@ -294,7 +294,7 @@
   border-radius: 8px;
   font-family: 'Courier New', Courier, monospace;
   font-size: 12px;
-  max-height: 180px;
+  max-height: 140px;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
@@ -311,32 +311,80 @@
   flex-shrink: 0;
 }
 
-.successPanel {
+.impactAnalysis {
   margin-top: 24px;
-  background: #e6ffed;
-  border: 3px solid #28a745;
-  border-radius: 12px;
+  background: #fff;
+  border: 3px solid #000;
+  border-radius: 16px;
   padding: 20px;
-  display: flex;
-  gap: 16px;
-  align-items: center;
+  animation: slideUp 0.5s ease-out;
 }
 
-.successIcon {
-  font-size: 32px;
-  color: #28a745;
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.impactHeader {
+  font-size: 12px;
   font-weight: 900;
+  color: #666;
+  letter-spacing: 0.1em;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px dashed #ddd;
 }
 
-.successText {
-  font-size: 14px;
+.impactGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 16px;
+}
+
+.impactItem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.impactLabel {
+  font-size: 10px;
+  font-weight: 800;
+  color: #888;
+  text-transform: uppercase;
+}
+
+.impactValue {
+  font-size: 24px;
+  font-weight: 900;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.positive {
+  color: #cf222e; /* Comic-style red for "volatility" */
+}
+
+.negative {
+  color: #2da44e; /* Green for negative sentiment impact */
+}
+
+.impactDesc {
+  font-size: 13px;
   font-weight: 700;
   line-height: 1.5;
-  color: #155724;
+  color: #444;
+  padding: 12px;
+  background: #f8f8f8;
+  border-radius: 8px;
 }
 
 @media (max-width: 500px) {
   .grid {
     grid-template-columns: 1fr;
+  }
+  .impactGrid {
+    grid-template-columns: 1fr;
+    gap: 12px;
   }
 }

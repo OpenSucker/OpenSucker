@@ -79,12 +79,20 @@ export default function PoisoningModal({ isOpen, targetName, onClose }: Poisonin
   const [phase, setPhase] = useState<ModalPhase>('select_channel');
   const [poisonContent, setPoisonContent] = useState('');
   const [visibleLogCount, setVisibleLogCount] = useState(1);
+  const [impactData, setImpactData] = useState({ sentiment: 0, volatility: 0, integrity: 100 });
 
   useEffect(() => {
     if (phase !== 'publishing') return;
 
     if (visibleLogCount >= PUBLISH_LOGS.length) {
       const successTimer = window.setTimeout(() => {
+        // Generate pseudo-random impact stats based on content length and method
+        const seed = poisonContent.length + selectedMethod.length;
+        setImpactData({
+          sentiment: -40 - (seed % 50),
+          volatility: 5 + (seed % 15),
+          integrity: 20 + (seed % 30),
+        });
         setPhase('success');
       }, 600);
       return () => window.clearTimeout(successTimer);
@@ -95,7 +103,7 @@ export default function PoisoningModal({ isOpen, targetName, onClose }: Poisonin
     }, 700 + Math.random() * 500);
 
     return () => window.clearTimeout(timer);
-  }, [phase, visibleLogCount]);
+  }, [phase, visibleLogCount, poisonContent, selectedMethod]);
 
   useEffect(() => {
     if (!isOpen) return;
@@ -219,7 +227,7 @@ export default function PoisoningModal({ isOpen, targetName, onClose }: Poisonin
               <p className={styles.stepDesc}>编写或选择一段能诱导量化模型产生偏差判断的内容。</p>
 
               <div className={styles.contentSection}>
-                <label className={styles.inputLabel}>推荐模板</label>
+                <label className={styles.inputLabel}>推荐模板 (点击自动填充载荷)</label>
                 <div className={styles.recommendationList}>
                   {RECOMMENDED_TEMPLATES.map((item) => (
                     <button
@@ -233,7 +241,7 @@ export default function PoisoningModal({ isOpen, targetName, onClose }: Poisonin
                   ))}
                 </div>
 
-                <label className={styles.inputLabel} style={{ marginTop: '20px' }}>具体投毒内容</label>
+                <label className={styles.inputLabel} style={{ marginTop: '20px' }}>具体投毒载荷内容</label>
                 <textarea
                   className={styles.contentInput}
                   value={poisonContent}
@@ -294,10 +302,24 @@ export default function PoisoningModal({ isOpen, targetName, onClose }: Poisonin
               </div>
 
               {phase === 'success' && (
-                <div className={styles.successPanel}>
-                  <div className={styles.successIcon}>✓</div>
-                  <div className={styles.successText}>
-                    目标机构的信息源已被成功污染。现在该机构的 RAG 系统将优先检索并信任您通过 {selectedMethodMeta?.name} 注入的内容。
+                <div className={styles.impactAnalysis}>
+                  <div className={styles.impactHeader}>PREDICTED IMPACT ANALYSIS (预估影响力)</div>
+                  <div className={styles.impactGrid}>
+                    <div className={styles.impactItem}>
+                      <div className={styles.impactLabel}>舆论情绪 (Sentiment)</div>
+                      <div className={`${styles.impactValue} ${styles.negative}`}>{impactData.sentiment}%</div>
+                    </div>
+                    <div className={styles.impactItem}>
+                      <div className={styles.impactLabel}>市场波动率 (Volatility)</div>
+                      <div className={`${styles.impactValue} ${styles.positive}`}>+{impactData.volatility}%</div>
+                    </div>
+                    <div className={styles.impactItem}>
+                      <div className={styles.impactLabel}>系统完整性 (Integrity)</div>
+                      <div className={styles.impactValue}>{impactData.integrity}%</div>
+                    </div>
+                  </div>
+                  <div className={styles.impactDesc}>
+                    目标机构的信息源已被污染。其 RAG 系统现已产生逻辑偏差，预计在下一轮调仓周期内触发错误交易。
                   </div>
                 </div>
               )}
@@ -309,7 +331,7 @@ export default function PoisoningModal({ isOpen, targetName, onClose }: Poisonin
                   onClick={onClose}
                   style={{ width: '100%' }}
                 >
-                  {phase === 'success' ? '完成工作流' : '正在执行...'}
+                  {phase === 'success' ? '关闭并观察市场反应' : '正在执行自动化载荷...'}
                 </button>
               </div>
             </div>

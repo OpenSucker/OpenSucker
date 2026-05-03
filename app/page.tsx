@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useState, useCallback, useEffect, useRef } from 'react';
 import ComicPage from './components/ComicPage';
 import DialoguePage from './components/DialoguePage';
@@ -276,6 +277,12 @@ export default function Home() {
           >
             {t.getStarted}
           </button>
+          <Link
+            href="/team"
+            className={`${styles.btnSecondary} ${isBurning ? styles.isBurning : ''}`}
+          >
+            {t.teamIntro}
+          </Link>
         </div>
       )}
     </div>
