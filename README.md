@@ -10,8 +10,8 @@
 
 ---
 
-[![Stars](https://img.shields.io/github/stars/LangQi99/OpenSucker?style=for-the-badge&color=00D4E4&labelColor=0D1117)](https://github.com/LangQi99/OpenSucker/stargazers)
-[![Forks](https://img.shields.io/github/forks/LangQi99/OpenSucker?style=for-the-badge&color=00D4E4&labelColor=0D1117)](https://github.com/LangQi99/OpenSucker/network/members)
+[![Stars](https://img.shields.io/github/stars/OpenSucker/OpenSucker?style=for-the-badge&color=00D4E4&labelColor=0D1117)](https://github.com/OpenSucker/OpenSucker/stargazers)
+[![Forks](https://img.shields.io/github/forks/OpenSucker/OpenSucker?style=for-the-badge&color=00D4E4&labelColor=0D1117)](https://github.com/OpenSucker/OpenSucker/network/members)
 [![License](https://img.shields.io/badge/License-MIT-DE5FE9?style=for-the-badge&labelColor=0D1117)](LICENSE)
 [![Python](https://img.shields.io/badge/Python-3.11+-3776AB?style=for-the-badge&logo=python&logoColor=white&labelColor=0D1117)](https://python.org)
 [![React](https://img.shields.io/badge/React-18+-61DAFB?style=for-the-badge&logo=react&logoColor=white&labelColor=0D1117)](https://react.dev)
@@ -110,7 +110,7 @@ OpenSucker 是一个工具生态，以下子项目均可独立部署：
 
 ```bash
 # 克隆（含子模块）
-git clone --recurse-submodules https://github.com/LangQi99/OpenSucker.git
+git clone --recurse-submodules https://github.com/OpenSucker/OpenSucker.git
 cd OpenSucker
 
 # 安装所有依赖
@@ -215,10 +215,10 @@ OpenSucker/
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=LangQi99/OpenSucker&type=Date)](https://star-history.com/#LangQi99/OpenSucker&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=OpenSucker/OpenSucker&type=Date)](https://star-history.com/#OpenSucker/OpenSucker&Date)
 
 ---
 
 <div align="center">
-  <sub>Built with ❤️ by <a href="https://github.com/LangQi99">LangQi99</a> · <a href="https://github.com/LangQi99/OpenSucker/issues">反馈问题</a> · <a href="https://github.com/LangQi99/OpenSucker/stargazers">给个 Star ⭐</a></sub>
+  <sub>Built with ❤️ by <a href="https://github.com/LangQi99">LangQi99</a> · <a href="https://github.com/OpenSucker/OpenSucker/issues">反馈问题</a> · <a href="https://github.com/OpenSucker/OpenSucker/stargazers">给个 Star ⭐</a></sub>
 </div>
